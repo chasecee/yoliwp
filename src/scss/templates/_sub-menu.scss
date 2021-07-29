@@ -1,0 +1,17 @@
+.product-menu {
+	@apply bg-transparent h-0 overflow-hidden transition-colors duration-200;
+
+	@at-root .product-menu-active & {
+		@apply bg-white h-auto;
+	}
+	&-content {
+		@apply ml-140 mr-40 pt-50 pb-100 transition-all opacity-0 transform-gpu duration-500 -translate-y-5;
+		@at-root .product-menu-active & {
+			@apply translate-y-0 opacity-100;
+		}
+	}
+
+	> .container {
+		@apply px-40 ml-100;
+	}
+}

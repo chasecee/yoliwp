@@ -1,0 +1,40 @@
+.hero {
+	@apply relative overflow-hidden;
+	&-content {
+		@apply absolute bottom-0 right-0 w-full;
+		@screen tablet-landscape {
+			@apply w-1/2;
+		}
+		&-inner {
+			@apply relative py-50 pr-50 pl-100;
+			@screen tablet-landscape {
+				@apply py-100;
+			}
+			h1 {
+				line-height: 1.2;
+			}
+			&-bg {
+				@apply bg-tan absolute z-0;
+				top: -12vw;
+				left: -9vw;
+				right: -50vw;
+				bottom: -20px;
+				border-top-left-radius: 800px;
+			}
+		}
+	}
+	&-gradient {
+		@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black opacity-60;
+		bottom: 70%;
+		mix-blend-mode: multiply;
+	}
+	&-image {
+		img {
+			width: 170%;
+			max-width: none;
+			@screen tablet-landscape {
+				@apply w-full max-w-full;
+			}
+		}
+	}
+}

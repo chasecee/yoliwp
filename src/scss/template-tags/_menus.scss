@@ -5,21 +5,40 @@
 	@apply hidden;
 
 	@screen tablet-landscape {
-		@apply block;
+		@apply flex items-center;
 	}
 
 	.menu {
 		@apply flex;
 
 		> li {
-			&:not( :last-child ) {
-				@apply mr-16;
+			a {
+				@apply relative block px-16;
+				line-height: 140px;
+				&::after {
+					content: ' ';
+					@apply absolute h-px bg-transparent -bottom-px right-16 left-16 transition-colors duration-200;
+				}
+				&:hover {
+					&::after {
+						@apply bg-black;
+					}
+				}
+			}
+		}
+	}
+	.menu-right {
+		@apply flex;
+
+		> li {
+			&:not( :first-child ) {
+				@apply ml-32;
 			}
 		}
 	}
 
 	.sub-menu {
-		@apply bg-white py-8 absolute shadow-md;
+		@apply bg-white py-8 absolute shadow-default;
 
 		left: -999em;
 		top: theme( 'spacing.24' );

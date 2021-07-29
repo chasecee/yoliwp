@@ -47,9 +47,10 @@ function _s_setup() {
 	// Register navigation menus.
 	register_nav_menus(
 		[
-			'primary' => esc_html__( 'Primary Menu', '_s' ),
-			'footer'  => esc_html__( 'Footer Menu', '_s' ),
-			'mobile'  => esc_html__( 'Mobile Menu', '_s' ),
+			'primary'      => esc_html__( 'Primary Menu', '_s' ),
+			'primaryright' => esc_html__( 'Primary Menu Right', '_s' ),
+			'footer'       => esc_html__( 'Footer Menu', '_s' ),
+			'mobile'       => esc_html__( 'Mobile Menu', '_s' ),
 		]
 	);
 

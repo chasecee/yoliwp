@@ -10,7 +10,10 @@
  */
 
 ?>
-
+<div class="h-192 bg-gray mb-192"></div>
+<div class="h-192 bg-gray mb-192"></div>
+<div class="h-192 bg-gray mb-192"></div>
+<div class="h-192 bg-gray mb-192"></div>
 	<footer class="site-footer">
 
 		<nav id="site-footer-navigation" class="footer-navigation navigation-menu" aria-label="<?php esc_attr_e( 'Footer Navigation', '_s' ); ?>">

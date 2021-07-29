@@ -8,5 +8,6 @@ import './mobile-menu';
 import './modal';
 import './navigation-primary';
 import './off-canvas';
+import './sub-menu';
 import './table';
 import './video';

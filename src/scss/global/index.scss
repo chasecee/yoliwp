@@ -5,8 +5,5 @@
 // See https://developer.wordpress.org/themes/basics/template-files/.
 //----------------------------------------
 
-@import 'comments';
-@import 'footer';
-@import 'header';
-@import 'posts';
-@import 'sub-menu';
+@import 'global';
+@import 'fonts';

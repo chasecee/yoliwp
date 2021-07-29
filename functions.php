@@ -14,6 +14,7 @@
  */
 function _s_get_theme_include_files() {
 	return [
+		'inc/custom-functions.php', // Custom template tags for this theme.
 		'inc/setup.php', // Theme set up. Should be included first.
 		'inc/compat.php', // Backwards Compatibility.
 		'inc/customizer/customizer.php', // Customizer additions.
@@ -23,6 +24,7 @@ function _s_get_theme_include_files() {
 		'inc/scaffolding.php', // Scaffolding.
 		'inc/scripts.php', // Load styles and scripts.
 		'inc/template-tags.php', // Custom template tags for this theme.
+		'inc/class-ea-block-area.php', // Custom Block Areas by Bill Erickson
 	];
 }
 
