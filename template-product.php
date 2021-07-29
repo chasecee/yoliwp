@@ -19,14 +19,6 @@ get_header();
 		<main id="main" class="content-container">
 		<div class="h-192 bg-tan mb-192"></div>
 <div class="h-192 bg-tan mb-192"></div>
-<?php
-// require_once 'wp-config.php';
-// require_once 'wp-includes/wp-db.php';
-
-// $sql     = 'SELECT * FROM `yoli_repsites`';
-// $results = $wpdb->get_results( $sql );
-// echo $results;
-?>
 			<?php
 			while ( have_posts() ) :
 				the_post();

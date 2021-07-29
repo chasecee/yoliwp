@@ -6,3 +6,5 @@
  *
  * @package _s
  */
+
+$var = 'var';
