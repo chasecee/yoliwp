@@ -5,3 +5,17 @@
 .block-editor-writing-flow {
 	@apply text-base leading-normal;
 }
+
+// admin bar links custom
+.admin-links {
+	@apply fixed top-0 left-0 z-50 flex text-14 text-center rounded-br-md overflow-hidden;
+	.screen-guide {
+		@apply hidden px-5 bg-black opacity-50 text-gray-light;
+	}
+	a {
+		@apply px-5 bg-black opacity-50 text-gray-light my-0;
+		&:hover {
+			@apply opacity-100 text-white;
+		}
+	}
+}

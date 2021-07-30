@@ -1,0 +1,36 @@
+.product-features {
+	@apply relative flex items-center py-160;
+	&-graphic {
+		@apply w-1/3 relative text-center;
+		svg {
+			@apply mx-auto;
+		}
+		&-line {
+			@apply w-px bg-brown absolute bottom-full left-1/2;
+			height: 421px;
+		}
+	}
+	&-image {
+		@apply w-1/3;
+		img {
+			@apply mix-blend-darken;
+		}
+	}
+	&-list {
+		ul {
+			@apply list-none;
+			li {
+				@apply flex items-center mb-20;
+				.icon {
+					@apply w-40 mr-20;
+					svg {
+						@apply mx-auto;
+					}
+				}
+				.label {
+					@apply relative;
+				}
+			}
+		}
+	}
+}

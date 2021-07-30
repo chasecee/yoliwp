@@ -1,0 +1,19 @@
+.ingredients-hover {
+	@apply relative;
+	.ingredients-images {
+		@apply relative h-200 py-100 overflow-hidden;
+		border-top-left-radius: 300px;
+		.ingredients-image {
+			@apply absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-150;
+			&.target-open {
+				@apply opacity-100;
+			}
+		}
+	}
+	.ingredients-list {
+		@apply bottom-0 absolute w-full mb-100 mx-200 text-80 font-serif text-gray-medium transition-colors duration-150;
+		:hover {
+			@apply text-white;
+		}
+	}
+}
