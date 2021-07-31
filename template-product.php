@@ -21,6 +21,11 @@ $foreground_color = get_field( 'foreground_color' );
 	h1,.fg-color{
 		color: <?php echo esc_attr( $foreground_color ); ?>
 	}
+	.btn-accent{
+		background-color:<?php echo esc_attr( $foreground_color ); ?>;
+		color:white;
+		border-color: <?php echo esc_attr( $foreground_color ); ?>;
+	}
 </style>
 
 	<div class="container site-main">
@@ -119,7 +124,60 @@ $foreground_color = get_field( 'foreground_color' );
 						</ul>
 					</div>
 				</div>
+
+				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/. ?>
 				<div class="content"><?php the_content(); ?></div>
+
+				<?php // just hard-coding the rest cuz I'm tired. ?>
+				<div class="product">
+					<div class="product-content">
+						<p class="product-content-servings">35 Servings</p>
+						<h3 class="product-content-title">Passion</h3>
+						<p class="product-content-p">
+							Featuring Thermo-G™, our proprietary formulation, Passion delivers the energy you need to live your best life. Passion uses carefully selected ingredients to stimulate metabolic activity, promote stamina, and support healthy cognitive function.
+						</p>
+						<div class="product-content-flavors">
+							<button class="btn btn-outline-gray">Tropical Melon</button>
+							<button class="btn btn-outline btn-gray btn-disabled">Berry</button>
+						</div>
+						<div class="product-content-cta">
+							<button class="btn btn-primary btn-accent btn-full">Start Shopping</button>
+
+							<div class="product-content-subinfo">
+								<div class="price">$41.00</div>
+								<div class="divider">|</div>
+								<div class="price-monthly">Get Monthly & Save 30%</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="product-image">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/yolipassionbox.png'; ?>">
+					</div>
+				</div>
+
+				<div class="p-reviews">
+					<div class="p-reviews-title">
+						Reviews
+					</div>
+					<div class="p-reviews-info">
+						<div class="p-reviews-info-numbers">
+							<div class="p-reviews-info-number">4.8</div>
+							<div class="p-reviews-info-inner">
+								<div class="p-reviews-info-stars">
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+								</div>
+								<div class="p-reviews-info-total">425 Reviews</div>
+							</div>
+						</div>
+						<button class="btn btn-outline-gray">Write a Review</button>
+					</div>
+				</div>
+
 
 <div class="h-192 bg-tan mb-192"></div>
 <div class="h-192 bg-tan mb-192"></div>

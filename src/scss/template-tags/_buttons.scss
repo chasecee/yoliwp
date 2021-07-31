@@ -1,0 +1,20 @@
+.btn {
+	@apply text-20 font-sans-alt leading-24;
+	@apply border rounded-lg transition-colors;
+	@apply py-24 px-60 inline-block whitespace-nowrap select-none no-underline;
+}
+.btn-primary {
+	@apply bg-primary text-white rounded-full;
+	:hover {
+		@apply bg-opacity-80;
+	}
+}
+.btn-outline {
+	@apply border-current bg-transparent text-current;
+}
+.btn-disabled {
+	@apply pointer-events-none opacity-50;
+}
+.btn-full {
+	@apply w-full block;
+}

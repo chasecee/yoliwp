@@ -34,3 +34,67 @@
 		}
 	}
 }
+.product {
+	@apply grid grid-cols-2 gap-20;
+
+	&-content {
+		@apply col-auto py-100;
+
+		&-servings {
+			@apply font-sans-alt text-20;
+		}
+		&-title {
+			@apply text-60;
+		}
+		&-p {
+			@apply text-28;
+		}
+		&-flavors {
+			@apply gap-16 grid grid-cols-2;
+			button {
+				@apply col-auto;
+			}
+		}
+		&-cta {
+			@apply mt-50;
+		}
+		&-subinfo {
+			@apply flex w-1/2 mt-36 text-gray-medium;
+			.divider {
+				@apply mx-40;
+			}
+			.price-monthly {
+				@apply underline;
+			}
+		}
+	}
+	&-image {
+		@apply col-auto;
+		img {
+			@apply relative;
+		}
+	}
+}
+.p-reviews {
+	&-title {
+		@apply font-sans-alt text-28 text-center py-24 border-t border-b border-current;
+	}
+	&-info {
+		@apply mt-192 mb-50 flex justify-between;
+		&-numbers {
+			@apply flex items-start;
+		}
+		&-number {
+			@apply text-60 font-sans-alt leading-none mr-10;
+		}
+		&-stars {
+			@apply flex;
+			svg {
+				@apply mr-10;
+			}
+		}
+		&-total {
+			@apply text-16 text-gray;
+		}
+	}
+}

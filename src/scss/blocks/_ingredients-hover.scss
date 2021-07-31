@@ -1,19 +1,32 @@
 .ingredients-hover {
 	@apply relative;
 	.ingredients-images {
-		@apply relative h-200 py-100 overflow-hidden;
+		@apply absolute inset-0 overflow-hidden;
 		border-top-left-radius: 300px;
 		.ingredients-image {
-			@apply absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-150;
-			&.target-open {
+			@apply absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-300;
+			&.target-open,
+			&:nth-child( 0 ) {
 				@apply opacity-100;
 			}
 		}
+		&-backdrop {
+			@apply absolute inset-0 bg-gradient-to-t from-black mix-blend-multiply z-10;
+		}
 	}
 	.ingredients-list {
-		@apply bottom-0 absolute w-full mb-100 mx-200 text-80 font-serif text-gray-medium transition-colors duration-150;
-		:hover {
-			@apply text-white;
+		@apply relative mb-100 mx-200 pt-200 pb-50 z-20;
+		.ingredients-name {
+			@apply text-gray-medium font-serif text-80 leading-snug transition-colors duration-150 inline-block no-underline;
+			&:not( :last-of-type )::after {
+				content: ', ';
+			}
+			&.ingredients-name-active {
+				@apply text-white underline;
+			}
+		}
+		&-title {
+			@apply text-28 text-white mb-20;
 		}
 	}
 }

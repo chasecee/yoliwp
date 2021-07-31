@@ -29,6 +29,7 @@ if ( ! empty( $block['align'] ) ) {
 ?>
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
 	<div class="ingredients-images">
+		<div class="ingredients-images-backdrop"></div>
 	<?php
 	$i  = 0;
 	$ii = 0;
@@ -39,9 +40,15 @@ if ( ! empty( $block['align'] ) ) {
 				<?php the_row(); ?>
 				<?php
 				$ingredient_image = get_sub_field( 'ingredient_image' );
+				if ( 0 === $i ) {
+					$first_index_class = 'target-open';
+				} else {
+					$first_index_class = '';
+				}
+
 				?>
 				<div
-				class="ingredients-image"
+				class="ingredients-image <?php echo esc_attr( $first_index_class ); ?>"
 				id="<?php echo esc_attr( $i ); ?>"
 				style="background-image:url(<?php echo esc_url( $ingredient_image ); ?>);"></div>
 
@@ -53,18 +60,22 @@ if ( ! empty( $block['align'] ) ) {
 	</div><!-- .ingredients-images -->
 
 	<div class="ingredients-list">
+		<div class="ingredients-list-title">Thermo-G™ Proprietary Blend</div>
 		<?php if ( have_rows( 'ingredients_list' ) ) : ?>
 
 			<?php while ( have_rows( 'ingredients_list' ) ) : ?>
 				<?php the_row(); ?>
 				<?php
 				$ingredient_name = get_sub_field( 'ingredient_name' );
+				if ( 0 === $ii ) {
+					$first_index_class_ii = 'ingredients-name-active';
+				} else {
+					$first_index_class_ii = '';
+				}
 				?>
 				<div
-				class="ingredients-name"
-				data-target="<?php echo esc_attr( $ii ); ?>">
-					<?php echo esc_html( $ingredient_name ); ?>
-				</div>
+				class="ingredients-name <?php echo esc_attr( $first_index_class_ii ); ?>"
+				data-target="<?php echo esc_attr( $ii ); ?>"><?php echo esc_html( $ingredient_name ); ?></div>
 
 				<?php $ii++; ?>
 

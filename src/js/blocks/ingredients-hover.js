@@ -31,17 +31,24 @@ function IngredientsHover() {
 	// pageBody.classList.add( 'product-menu-active' );
 
 	function mOver( event ) {
-		const images = document.querySelectorAll( '.ingredients-image' );
+		const images = document.querySelectorAll( '.ingredients-image' ),
+			names = document.querySelectorAll( '.ingredients-name' );
 
 		images.forEach( ( image ) => {
 			image.classList.remove( 'target-open' );
+		} );
+		names.forEach( ( name ) => {
+			name.classList.remove( 'ingredients-name-active' );
 		} );
 
 		const el = event.target,
 			thisEl = el.getAttribute( 'data-target' ),
 			thisTarget = document.getElementById( thisEl );
 
-		thisTarget.classList.add( 'target-open' );
+		setTimeout( function () {
+			thisTarget.classList.add( 'target-open' );
+			el.classList.add( 'ingredients-name-active' );
+		}, 10 );
 	}
 
 	// function mOut() {
