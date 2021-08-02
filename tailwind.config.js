@@ -143,7 +143,9 @@ module.exports = {
 			90: '5.625rem',
 			100: '6.25rem',
 			120: '7.5rem',
+			130: '8.125rem',
 			140: '8.75rem',
+			150: '9.375rem',
 			160: '10rem',
 			192: '12rem',
 			200: '12.5rem',
@@ -165,6 +167,12 @@ module.exports = {
 			'desktop-min': { min: '1200px' },
 			desktop: '1200px',
 			'desktop-large': '1600px',
+
+			sm: '600px',
+			md: '768px',
+			lg: '1024px',
+			xl: '1440px',
+			'2xl': '1600px',
 		},
 		container: {
 			center: true,
@@ -172,7 +180,7 @@ module.exports = {
 				xs: '100%',
 				sm: '100%',
 				desktop: '100%',
-				'desktop-large': '1536px',
+				'desktop-large': '100%',
 			},
 		},
 		extend: {

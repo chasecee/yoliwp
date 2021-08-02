@@ -60,7 +60,7 @@
 							]
 						);
 						?>
-					</nav><!-- #site-navigation-->
+					</nav>
 
 					<div class="logo col-span-4 col-start-5 justify-self-center leading-none">
 
@@ -96,15 +96,11 @@
 					<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) : ?>
 						<button type="button" class="off-canvas-open" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>"></button>
 					<?php endif; ?>
-			</div><!-- .container -->
-			<div class="product-menu">
+			</div>
+
+			<div class="product-menu header-menu js-product-menu">
 				<div class="product-menu-content">
-					<?php
-						// get block area for sub menu.
-					if ( function_exists( 'ea_block_area' ) ) {
-						ea_block_area()->show( 'products-sub-menu' );
-					}
-					?>
+					<?php get_template_part( '/template-parts/product-menu' ); ?>
 				</div>
 			</div>
 

@@ -2,7 +2,65 @@
 // Global Site Footer
 //--------------------------------------------------------------
 .site-footer {
+	> .container {
+		@apply px-100;
+	}
+	.footer-info {
+		@apply flex justify-between;
+		&-logo {
+			@apply text-primary relative;
+			top: -0.45rem;
+			width: 130px;
+			height: 130px;
+			svg {
+				@apply w-full h-full;
+			}
+		}
+		&-slogan {
+			@apply ml-160 font-sans-alt text-28 leading-36;
+			max-width: 350px;
+		}
+		&-support {
+			@apply flex justify-between;
+			&-hours {
+				@apply relative;
+				margin-right: 170px;
+			}
+			&-telephone {
+				@apply relative;
+			}
+		}
+	}
 	.site-info {
 		@apply mx-auto my-0 flex justify-between;
+	}
+	.footer-line,
+	.footer-line-bottom {
+		@apply w-full h-px;
+		background-color: #d1d1cf;
+	}
+	.footer-line {
+		@apply mt-120 mb-100;
+	}
+	.footer-line-bottom {
+		@apply mt-60 mb-60;
+	}
+}
+.footer-bottom {
+	@apply text-gray-medium flex text-16 justify-between mb-60;
+	.footer-location {
+		@apply mr-160;
+	}
+	.social-links {
+		@apply text-gray-medium flex;
+		a {
+			@apply block w-26 h-26 ml-10;
+			&:first-child {
+				@apply ml-0;
+			}
+			svg {
+				@apply w-full h-full;
+			}
+		}
 	}
 }

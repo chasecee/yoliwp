@@ -27,5 +27,56 @@
 // Global Elements
 //-----------------------------------------
 body {
-	@apply font-sans;
+	@apply font-sans antialiased text-brown-dark;
+}
+
+.container {
+	@apply px-40;
+
+	@screen md {
+		@apply px-60;
+	}
+	@screen lg {
+		@apply px-80;
+	}
+	@screen xl {
+		@apply px-100;
+	}
+	@screen 2xl {
+		@apply px-140;
+	}
+}
+.container-l {
+	@apply pl-40;
+
+	@screen md {
+		@apply pl-60;
+	}
+	@screen lg {
+		@apply pl-80;
+	}
+	@screen xl {
+		@apply pl-100;
+	}
+	@screen 2xl {
+		@apply pl-140;
+	}
+}
+.pull-r {
+	@apply -mr-40;
+	@screen md {
+		@apply -mr-80;
+	}
+	@screen lg {
+		@apply -mr-100;
+	}
+	@screen xl {
+		@apply -mr-140;
+	}
+}
+.pull-l {
+	@apply -ml-40;
+	@screen md {
+		@apply ml-0;
+	}
 }

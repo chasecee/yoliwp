@@ -1,17 +1,49 @@
 .product-menu {
 	@apply bg-transparent h-0 overflow-hidden transition-colors duration-200;
-
-	@at-root .product-menu-active & {
-		@apply bg-white h-auto;
-	}
-	&-content {
-		@apply ml-140 mr-40 pt-50 pb-100 transition-all opacity-0 transform-gpu duration-500 -translate-y-5;
-		@at-root .product-menu-active & {
-			@apply translate-y-0 opacity-100;
+	&.footer-menu {
+		@apply h-auto;
+		.footer-hidden {
+			@apply hidden;
+		}
+		.product-menu-col {
+			width: 10%;
+			margin-right: 9%;
+			&.header-hidden {
+				@apply mr-0;
+			}
 		}
 	}
+	.product-menu-cols {
+		@apply flex;
+		p {
+			@apply text-gray-medium mb-0 leading-30;
+			span {
+				@apply block text-brown-dark leading-18 mb-16;
+			}
+		}
+	}
+	&.header-menu {
+		.product-menu-col {
+			@apply w-1/6;
+			&:last-child {
+				@apply w-1/5;
+			}
+		}
 
-	> .container {
-		@apply px-40 ml-100;
+		@at-root .product-menu-active & {
+			@apply bg-white h-auto;
+		}
+		.product-menu-content {
+			@apply ml-140 mr-40 pt-50 pb-100 transition-all opacity-0 transform-gpu duration-500 -translate-y-5;
+			@at-root .product-menu-active & {
+				@apply translate-y-0 opacity-100;
+			}
+		}
+		.header-hidden {
+			@apply hidden;
+		}
+		> .container {
+			@apply px-40 ml-100;
+		}
 	}
 }

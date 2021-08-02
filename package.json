@@ -71,5 +71,8 @@
 		"start": "cross-env NODE_ENV=development wp-scripts start",
 		"sync": "browser-sync start --https --proxy 'https://wdunderscores.test' --no-open --files 'build/*.*, **/*.html, **/*.php, !node_modules/**/*.html'",
 		"watch": "run-p start sync"
+	},
+	"dependencies": {
+		"@glidejs/glide": "^3.4.1"
 	}
 }

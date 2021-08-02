@@ -7,3 +7,5 @@
 import './js-enabled';
 import './window-ready';
 import './stickynav';
+import './glide';
+import './screen-width';

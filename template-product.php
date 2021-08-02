@@ -28,7 +28,7 @@ $foreground_color = get_field( 'foreground_color' );
 	}
 </style>
 
-	<div class="container site-main">
+	<div class=" site-main">
 		<main id="main" class="content-container">
 			<?php
 			while ( have_posts() ) :
@@ -63,7 +63,7 @@ $foreground_color = get_field( 'foreground_color' );
 
 					<div class="hero-product-bg">
 						<div
-						class="hero-product-image"
+						class="hero-product-image offscreen-r"
 						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
 						</div>
 					</div>
@@ -75,7 +75,7 @@ $foreground_color = get_field( 'foreground_color' );
 					$product_box_image = get_field( 'product_box_image' );
 					$size              = 'full';
 				?>
-				<div class="product-features">
+				<div class="product-features container">
 					<div class="product-features-graphic">
 						<div class="product-features-graphic-line"></div>
 
@@ -125,10 +125,25 @@ $foreground_color = get_field( 'foreground_color' );
 					</div>
 				</div>
 
-				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/. ?>
+				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/blocks. ?>
 				<div class="content"><?php the_content(); ?></div>
 
 				<?php // just hard-coding the rest cuz I'm tired. ?>
+
+				<div class="cover">
+					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/covergirl.jpg'; ?>);">
+						<div class="cover-backdrop"></div>
+						<div class="container">
+							<div class="cover-content ">
+								<h3 class="cover-content-title">True to Nature</h3>
+								<hr class="cover-content-bar">
+								<p class="cover-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
 				<div class="product">
 					<div class="product-content">
 						<p class="product-content-servings">35 Servings</p>
@@ -157,25 +172,119 @@ $foreground_color = get_field( 'foreground_color' );
 				</div>
 
 				<div class="p-reviews">
-					<div class="p-reviews-title">
-						Reviews
-					</div>
-					<div class="p-reviews-info">
-						<div class="p-reviews-info-numbers">
-							<div class="p-reviews-info-number">4.8</div>
-							<div class="p-reviews-info-inner">
-								<div class="p-reviews-info-stars">
-									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
-									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
-									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
-									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
-									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
-								</div>
-								<div class="p-reviews-info-total">425 Reviews</div>
-							</div>
+					<div class="container">
+						<div class="p-reviews-title">
+							Reviews
 						</div>
-						<button class="btn btn-outline-gray">Write a Review</button>
+
+						<div class="p-reviews-info">
+
+							<div class="p-reviews-info-numbers">
+
+								<div class="p-reviews-info-number">4.8</div>
+
+								<div class="p-reviews-info-inner">
+									<div class="p-reviews-info-stars">
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									</div>
+									<div class="p-reviews-info-total">425 Reviews</div>
+								</div>
+							</div>
+
+							<button class="btn btn-outline-gray">Write a Review</button>
+
+						</div>
+
+						<div class="p-review-group">
+
+							<div class="p-review-item">
+								<div class="p-review-item-icon">
+									<div class="p-review-item-icon-text">S</div>
+									<div class="p-review-item-icon-checkmark">
+										<?php get_template_part( '/src/images/icons/inline/inline', 'checkmark.svg' ); ?>
+									</div>
+
+								</div>
+
+								<div class="p-review-item-content">
+									<div class="p-review-item-content-name">Sarah T. — USA</div>
+									<div class="flex">
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									</div>
+									<div class="verified">Verified Buyer</div>
+									<p class="p-review-item-title">Love it!</p>
+									<p class="p-review-item-title-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+									<p class="p-review-item-date">07/01/21</p>
+								</div>
+
+							</div>
+
+							<div class="p-review-item">
+								<div class="p-review-item-icon">
+									<div class="p-review-item-icon-text">G</div>
+									<div class="p-review-item-icon-checkmark">
+										<?php get_template_part( '/src/images/icons/inline/inline', 'checkmark.svg' ); ?>
+									</div>
+
+								</div>
+
+								<div class="p-review-item-content">
+									<div class="p-review-item-content-name">Gloria P. — USA</div>
+									<div class="flex">
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									</div>
+									<div class="verified">Verified Buyer</div>
+									<p class="p-review-item-title">Great</p>
+									<p class="p-review-item-title-p">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+									<p class="p-review-item-date">06/15/21</p>
+								</div>
+
+							</div>
+
+							<div class="p-review-item">
+
+								<div class="p-review-item-icon">
+
+									<div class="p-review-item-icon-text">D</div>
+
+									<div class="p-review-item-icon-checkmark">
+										<?php get_template_part( '/src/images/icons/inline/inline', 'checkmark.svg' ); ?>
+									</div>
+
+								</div>
+
+								<div class="p-review-item-content">
+									<div class="p-review-item-content-name">Devon W. — USA</div>
+									<div class="flex">
+									<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+										<?php get_template_part( '/src/images/icons/inline/inline', 'star.svg' ); ?>
+									</div>
+									<div class="verified">Verified Buyer</div>
+									<p class="p-review-item-title">My Go-to</p>
+									<p class="p-review-item-title-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, enim ad minim veniam, quis nostrud exercitation.</p>
+									<p class="p-review-item-date">05/25/21</p>
+								</div>
+
+							</div>
+
+						</div>
 					</div>
+
 				</div>
 
 

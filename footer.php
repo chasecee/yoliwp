@@ -11,32 +11,61 @@
 
 ?>
 <?php get_template_part( 'template-parts/mini-admin-bar' ); ?>
+
 <div class="h-192 bg-gray mb-192"></div>
 <div class="h-192 bg-gray mb-192"></div>
 <div class="h-192 bg-gray mb-192"></div>
 <div class="h-192 bg-gray mb-192"></div>
+
 	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-info">
 
-		<nav id="site-footer-navigation" class="footer-navigation navigation-menu" aria-label="<?php esc_attr_e( 'Footer Navigation', '_s' ); ?>">
-			<?php
-			wp_nav_menu(
-				[
-					'fallback_cb'    => false,
-					'theme_location' => 'footer',
-					'menu_id'        => 'footer-menu',
-					'menu_class'     => 'menu container',
-					'container'      => false,
-					'depth'          => 1,
-				]
-			);
-			?>
-		</nav><!-- #site-navigation-->
+				<div class="flex">
 
-		<div class="container site-info">
-			<?php _s_display_copyright_text(); ?>
-			<?php _s_display_social_network_links(); ?>
-		</div><!-- .site-info -->
+					<div class="footer-info-logo">
+					<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
+					</div>
 
+					<div class="footer-info-slogan">Yoli means life. Yoli is a company that helps people love their body and their life.</div>
+
+				</div>
+
+				<div class="footer-info-support">
+
+					<div class="footer-info-support-hours">
+						Customer Support<br/>
+						8 am MST - 7 pm MST
+					</div>
+
+					<div class="footer-info-support-telephone">
+						801-727-0877 or 888-295-9009<br/>
+						cs@yoli.com
+					</div>
+
+				</div>
+
+			</div>
+			<div class="footer-line"></div>
+			<div class="product-menu footer-menu">
+				<div class="product-menu-content">
+					<?php get_template_part( '/template-parts/product-menu' ); ?>
+				</div>
+			</div>
+			<div class="footer-line-bottom"></div>
+			<div class="footer-bottom">
+				<div class="footer-copyright">© Yoli 2021. All rights reserved.</div>
+				<div class="flex">
+					<div class="footer-location">2080 Industrial Rd B, Salt Lake City, Utah 84104</div>
+					<div class="social-links">
+						<a href="#" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+						<a href="#" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+						<a href="#" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</footer><!-- .site-footer container-->
 
 	<?php _s_display_mobile_menu(); ?>

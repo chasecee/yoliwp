@@ -12,11 +12,16 @@
 ?>
 <?php if ( is_user_logged_in() ) { ?>
 	<div class="admin-links">
+		<div class="px-guide-outer">
+			<div class="px-guide inline"><span></span></div>px
+		</div>
 	<div class="screen-guide">
 			<div class="block sm:hidden">@screen min</div>
 			<div class="hidden sm:block md:hidden">@screen sm</div>
 			<div class="hidden md:block lg:hidden">@screen md</div>
 			<div class="hidden lg:block xl:hidden">@screen lg</div>
+			<div class="hidden xl:block 2xl:hidden">@screen xl</div>
+			<div class="hidden 2xl:block ">@screen 2xl</div>
 	</div>
 	<a href="<?php echo esc_url( admin_url() ); ?>"><?php esc_html_e( 'dashboard', '_s' ); ?></a>
 	<?php

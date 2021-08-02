@@ -1,13 +1,42 @@
+.hero-product {
+	@apply flex justify-between mt-100 text-brown-dark container-l;
+	&-info {
+		@apply mt-100 mb-200;
+		@screen md {
+			@apply w-1/3;
+		}
+		@screen lg {
+			@apply w-2/5;
+		}
+		&-pretitle {
+			@apply text-24 font-sans-alt;
+		}
+		&-description {
+			@apply text-28 leading-36;
+		}
+		h1 {
+			@apply text-100;
+		}
+	}
+	&-bg {
+		@apply w-1/2  relative;
+	}
+	&-image {
+		@apply absolute inset-0 bg-cover;
+		border-top-left-radius: 500px;
+	}
+}
 .product-features {
-	@apply relative flex items-center py-160;
+	@apply relative flex items-center py-160 my-160;
 	&-graphic {
-		@apply w-1/3 relative text-center;
+		@apply relative text-center w-1/3;
 		svg {
 			@apply mx-auto;
 		}
 		&-line {
-			@apply w-px bg-brown absolute bottom-full left-1/2;
+			@apply w-px bg-brown-dark absolute bottom-full left-1/2;
 			height: 421px;
+			bottom: 190%;
 		}
 	}
 	&-image {
@@ -17,12 +46,20 @@
 		}
 	}
 	&-list {
+		@apply text-brown w-1/3;
 		ul {
+			@apply pl-50;
+			@screen 2xl {
+				@apply pl-160;
+			}
 			@apply list-none;
 			li {
-				@apply flex items-center mb-20;
+				@apply flex items-center text-28;
+				&:not( :last-child ) {
+					@apply mb-60;
+				}
 				.icon {
-					@apply w-40 mr-20;
+					@apply w-40 mr-20 flex-none;
 					svg {
 						@apply mx-auto;
 					}
@@ -34,17 +71,92 @@
 		}
 	}
 }
+.ingredients-hover {
+	@apply relative;
+
+	.ingredients-spacer {
+		@apply pt-200;
+		@screen md {
+			height: 400px;
+		}
+	}
+	.ingredients-images {
+		@apply absolute inset-0 overflow-hidden bg-black;
+		border-top-left-radius: 300px;
+		.ingredients-image {
+			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-bottom ease-in;
+			&.target-open,
+			&:nth-child( 0 ) {
+				@apply opacity-100 duration-1000 ease-out;
+				--tw-scale-x: 1.025;
+				--tw-scale-y: 1.025;
+			}
+		}
+		&-backdrop {
+			@apply absolute inset-0 bg-gradient-to-t from-black opacity-80 z-10;
+		}
+	}
+	.ingredients-list {
+		@apply relative mb-100 pt-200 pb-50 z-20 text-white;
+		.ingredients-name {
+			@apply text-gray-medium font-serif text-80  transition-all duration-150 inline-block no-underline;
+			line-height: 1.175;
+
+			&.ingredients-name-active,
+			&:hover {
+				@apply text-white underline;
+			}
+		}
+		&-title {
+			@apply text-28 text-white mb-20;
+		}
+		.ingredients-info {
+			@apply flex items-center text-18 leading-24 my-40;
+			svg {
+				@apply mr-40;
+			}
+		}
+	}
+}
+.cover {
+	.cover-bg {
+		@apply relative bg-cover bg-center;
+	}
+	.cover-backdrop {
+		@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
+	}
+	.cover-content {
+		@apply relative text-white  pb-120 w-2/3;
+		@screen lg {
+			@apply w-1/2;
+		}
+		@screen xl {
+			@apply w-2/5;
+		}
+		padding-top: 630px;
+		&-title {
+			@apply font-serif text-80 leading-tight mb-0 text-white;
+		}
+		&-bar {
+			@apply mt-40 mb-20 border-t border-gray;
+			width: 228px;
+		}
+		&-p {
+			@apply text-28 leading-36;
+		}
+	}
+}
 .product {
-	@apply grid grid-cols-2 gap-20;
+	@apply flex items-center justify-between container-l py-100;
 
 	&-content {
-		@apply col-auto py-100;
+		@apply relative w-2/5;
 
 		&-servings {
 			@apply font-sans-alt text-20;
 		}
 		&-title {
-			@apply text-60;
+			@apply text-60 leading-tight mb-40;
 		}
 		&-p {
 			@apply text-28;
@@ -69,9 +181,9 @@
 		}
 	}
 	&-image {
-		@apply col-auto;
+		@apply w-3/5;
 		img {
-			@apply relative;
+			@apply relative ml-auto;
 		}
 	}
 }
@@ -82,19 +194,54 @@
 	&-info {
 		@apply mt-192 mb-50 flex justify-between;
 		&-numbers {
-			@apply flex items-start;
+			@apply flex items-center;
 		}
 		&-number {
-			@apply text-60 font-sans-alt leading-none mr-10;
+			@apply text-60 font-sans-alt leading-none mr-20;
 		}
 		&-stars {
-			@apply flex;
+			@apply flex mb-10;
 			svg {
 				@apply mr-10;
 			}
 		}
 		&-total {
 			@apply text-16 text-gray;
+		}
+	}
+	.p-review-group {
+		@apply flex py-50 my-50 border-t border-b border-current;
+		.p-review-item {
+			@apply flex w-1/3;
+			&-icon {
+				@apply flex-none flex items-center relative rounded-full w-64 h-64 bg-primary mr-20;
+				&-text {
+					@apply w-full text-center font-bold;
+				}
+				&-checkmark {
+					@apply absolute bottom-0 right-0;
+				}
+			}
+			&-content {
+				&-name {
+					@apply text-16 font-sans-alt;
+				}
+				svg {
+					@apply w-16 h-16 mr-3;
+				}
+				.verified {
+					@apply text-14 mb-24;
+				}
+				.p-review-item-title {
+					@apply text-20 font-sans-alt mb-20;
+				}
+				.p-review-item-title-p {
+					@apply w-4/5 text-16 leading-28;
+				}
+				.p-review-item-date {
+					@apply text-14;
+				}
+			}
 		}
 	}
 }

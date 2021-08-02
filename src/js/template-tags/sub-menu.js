@@ -17,7 +17,7 @@ if (
 
 function subMenu() {
 	const trigger = document.querySelector( '.products-trigger a' ),
-		target = document.querySelector( '.product-menu' ),
+		target = document.querySelector( '.js-product-menu' ),
 		pageBody = document.body;
 	trigger.addEventListener( 'mouseover', mOver, false );
 	trigger.addEventListener( 'mouseout', mOut, false );
