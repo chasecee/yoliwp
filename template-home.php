@@ -20,7 +20,7 @@ $button_text   = get_field( 'button_text' );
 
 ?>
 
-	<div class="container site-main">
+	<div class="site-main">
 		<main id="main" class="content-container">
 
 			<?php

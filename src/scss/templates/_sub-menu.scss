@@ -34,7 +34,7 @@
 			@apply bg-white h-auto;
 		}
 		.product-menu-content {
-			@apply ml-140 mr-40 pt-50 pb-100 transition-all opacity-0 transform-gpu duration-500 -translate-y-5;
+			@apply pl-150 pr-40 pt-50 pb-100 transition-all opacity-0 transform-gpu duration-500 -translate-y-5;
 			@at-root .product-menu-active & {
 				@apply translate-y-0 opacity-100;
 			}

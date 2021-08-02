@@ -72,7 +72,7 @@
 	}
 }
 .ingredients-hover {
-	@apply relative;
+	@apply relative overflow-hidden;
 
 	.ingredients-spacer {
 		@apply pt-200;
