@@ -12,10 +12,6 @@
 ?>
 <?php get_template_part( 'template-parts/mini-admin-bar' ); ?>
 
-<div class="h-192 bg-gray mb-192"></div>
-<div class="h-192 bg-gray mb-192"></div>
-<div class="h-192 bg-gray mb-192"></div>
-<div class="h-192 bg-gray mb-192"></div>
 
 	<footer class="site-footer">
 		<div class="container">

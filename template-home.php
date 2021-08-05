@@ -29,41 +29,47 @@ $button_text   = get_field( 'button_text' );
 				?>
 				<div class="hero ">
 					<div class="hero-gradient"></div>
-					<div class="hero-image">
-						<?php
-
-						if ( $hero_image ) {
-							$url = wp_get_attachment_url( $hero_image );
-							echo wp_get_attachment_image( $hero_image, $size );
-						};
-						?>
+					<div class="hero-gradient gradient-bottom"></div>
+					<div class="hero-video">
+							<iframe src="https://player.vimeo.com/video/582695017?background=1&autoplay=1&loop=1&byline=0&title=0?controls=0"
+									frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
 
 					<div class="hero-content">
-						<div class="hero-content-inner">
 
-							<div class="hero-content-inner-bg"></div>
-							<div class="relative">
-								<h1 class="text-60">
-									<?php if ( $hero_title ) : ?>
-										<?php echo esc_html( $hero_title ); ?>
-									<?php endif; ?>
+								<h1 class="hero-content-title">
+								Lorem ipsum dolor<br>Sit amet adipiscing.
 								</h1>
-								<p class="text-26">
-									<?php if ( $hero_subtitle ) : ?>
-										<?php echo esc_html( $hero_subtitle ); ?>
-									<?php endif; ?>
-								</p>
-								<button class="text-base">
-									<?php if ( $button_text ) : ?>
-										<?php echo esc_html( $button_text ); ?>
-									<?php endif; ?>
+								<button class="hero-content-button">
+									Shop Now <?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
 								</button>
-							</div>
 
+					</div>
+				</div>
+				<div class="about">
+					<div class="container">
+						<div class="about-images">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-a.jpg'; ?>">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-b.jpg'; ?>">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-c.jpg'; ?>">
+						</div>
+						<div class="about-content">
+									<h2 class="about-content-title">What is Yoli?</h2>
+									<p class="about-content-p">We’re a modern wellness brand creating high-performance, plant‑powered wellness supplements to fuel your mind, body, and soul. We want to make wellness feel easy, joyful, and accessible–so you can focus on being your most vibrant you.</p>
 						</div>
 					</div>
 				</div>
+				<div class="py-200">
+					<div class="container relative">
+						<div class="absolute inset-0 flex">
+							<img class="w-1/3" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-a.jpg'; ?>">
+							<img class="w-1/3" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-b.jpg'; ?>">
+							<img class="w-1/3" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-c.jpg'; ?>">
+						</div>
+				<div class="backdrop-filter backdrop-blur-xl w-200 h-200"></div>
+				<div class="backdrop-filter backdrop-blur-xl w-200 h-200"></div>
+							</div>
+							</div>
 <div class="h-192 bg-tan mb-192"></div>
 <div class="h-192 bg-tan mb-192"></div>
 <div class="h-192 bg-tan mb-192"></div>

@@ -16,9 +16,17 @@
 	.product-menu-cols {
 		@apply flex;
 		p {
-			@apply text-gray-medium mb-0 leading-30;
-			span {
-				@apply block text-brown-dark leading-18 mb-16;
+			@apply mb-0 leading-30 text-brown-dark;
+			&:hover {
+				@apply underline;
+			}
+			&.product-menu-title {
+				@apply block text-14 font-medium text-gray-medium uppercase leading-18 mb-16;
+				letter-spacing: 1.3px;
+
+				&:hover {
+					@apply no-underline;
+				}
 			}
 		}
 	}

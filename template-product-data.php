@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Product Page
+ * Template Name: Product Data Page
  *
  * This template displays a page with a sidebar on the right side of the screen.
  *
@@ -13,6 +13,26 @@ get_header();
 // acf vars.
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
+?>
+<?php
+// echo 'Product test<hr/>';
+// $resp  = wp_remote_get( 'https://c1b354dc-338c-4b05-9721-ac188f2ab26b.mock.pstmn.io/GetProduct1/CA/208/1000101' );
+// $jresp = json_decode( $resp );
+// echo '<div>';
+// echo 'itemCode: ' . $jresp->itemCode . '</br>';
+// echo 'groupDescription: ' . $jresp->groupDescription . '</br>';
+// echo 'itemDescription: ' . $jresp->itemDescription . '</br>';
+// echo 'shortDetail : ' . $jresp->shortDetail . '</br>';
+// echo 'shortDetail2: ' . $jresp->shortDetail2 . '</br>';
+// echo 'shortDetail3: ' . $jresp->shortDetail3 . '</br>';
+// echo 'shortDetail4: ' . $jresp->shortDetail4 . '</br>';
+// echo 'longDetail : ' . $jresp->longDetail . '</br>';
+// echo 'longDetail2: ' . $jresp->longDetail2 . '</br>';
+// echo 'longDetail3: ' . $jresp->longDetail3 . '</br>';
+// echo 'longDetail4: ' . $jresp->longDetail4 . '</br>';
+// echo 'retailPrice: ' . $jresp->retailPrice . '</br>';
+// echo 'autoshipPrice: ' . $jresp->autoshipPrice;
+// echo '</div>';.
 ?>
 <style>
 	body,.bg-color{

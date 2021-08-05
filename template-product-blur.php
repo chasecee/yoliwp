@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Product Page
+ * Template Name: Product Blur Data Page
  *
  * This template displays a page with a sidebar on the right side of the screen.
  *
@@ -14,6 +14,7 @@ get_header();
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
 ?>
+
 <style>
 	body,.bg-color{
 		background-color: <?php echo esc_attr( $background_color ); ?>
@@ -28,7 +29,7 @@ $foreground_color = get_field( 'foreground_color' );
 	}
 </style>
 
-	<div class=" site-main">
+	<div class=" site-main relative z-0">
 		<main id="main" class="content-container">
 			<?php
 			while ( have_posts() ) :

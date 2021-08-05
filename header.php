@@ -32,18 +32,20 @@
 
 	<div class="guide"></div>
 
+
 	<?php get_template_part( 'template-parts/site-alert' ); ?>
 
 	<?php
 	if ( is_page_template( 'template-product.php' ) ) {
-			$header_class = 'transparent';
-	} elseif ( is_page_template( 'about.php' ) ) {
-		$header_class = 'transparent';
+		$header_class = 'bg-transparent-text-dark';
+	} elseif ( is_page_template( 'template-home.php' ) ) {
+		$header_class = 'bg-transparent-text-light';
+	} elseif ( is_page_template( 'template-product-blur.php' ) ) {
+		$header_class = 'bg-transparent-text-dark header-blur';
 	} else {
 		$header_class = 'default';
 	}
 	?>
-
 		<header class="site-header <?php echo esc_attr( $header_class ); ?>">
 			<div class="backdrop"></div>
 			<div class="container ">

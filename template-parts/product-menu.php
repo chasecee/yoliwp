@@ -11,37 +11,37 @@
 <div class="product-menu-cols">
 
 	<div class="product-menu-col">
-		<p><span>Vitality</span></p>
+		<p class="product-menu-title"><span>Vitality</span></p>
 		<p>Yoli Life Kit<br>Yes<br>Lean Greens<br>Omegas<br>Flex<br>Enzyme<br>Defend<br>Truth</p>
 	</div>
 
 	<div class="product-menu-col">
-		<p><span>Mood</span></p>
+		<p class="product-menu-title"><span>Mood</span></p>
 		<p>Mood Kit<br>Balm<br>Bliss<br>Buzz</p>
 	</div>
 
 	<div class="product-menu-col">
-		<p><span>Energy</span></p>
+		<p class="product-menu-title"><span>Energy</span></p>
 		<p>Passion<br>Awaken<br>Charge</p>
 	</div>
 
 	<div class="product-menu-col">
-		<p><span>Passion</span></p>
+		<p class="product-menu-title"><span>Balance</span></p>
 		<p>Alkalete<br>Pure<br>Calm Tea<br>Dream<br>Fun</p>
 	</div>
 
 	<div class="product-menu-col">
-		<p><span>Beauty</span></p>
+		<p class="product-menu-title"><span>Beauty</span></p>
 		<p>Collagen<br>Glow</p>
 	</div>
 
 	<div class="product-menu-col">
-		<p><span>Transformation</span></p>
+		<p class="product-menu-title"><span>Transformation</span></p>
 		<p>T-Kit<br>Thermoburn<br>Resolve</p>
 	</div>
 
 	<div class="product-menu-col header-hidden">
-		<p><span>Support</span></p>
+		<p class="product-menu-title"><span>Support</span></p>
 		<p>Contact Us<br>Blog<br>Careers<br>Privacy Policy</p>
 	</div>
 

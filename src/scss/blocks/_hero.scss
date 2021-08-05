@@ -1,40 +1,43 @@
 .hero {
-	@apply relative overflow-hidden;
+	@apply relative -top-140 overflow-hidden max-h-screen;
+	min-height: calc( 100vh - 100px );
 	&-content {
-		@apply absolute bottom-0 right-0 w-full;
-		@screen tablet-landscape {
-			@apply w-1/2;
+		@apply absolute bottom-0 container-l flex items-end pl-140 w-full justify-between z-10;
+		&-title {
+			@apply leading-tight text-80 text-white font-sans mb-68;
+			line-height: 1.2;
 		}
-		&-inner {
-			@apply relative py-50 pr-50 pl-100;
-			@screen tablet-landscape {
-				@apply py-100;
+		&-button {
+			@apply text-28 bg-primary text-tan py-50 pr-100 pl-120 flex items-center;
+			border-top-left-radius: 200px;
+			svg {
+				@apply ml-20;
 			}
-			h1 {
-				line-height: 1.2;
-			}
-			&-bg {
-				@apply bg-tan absolute z-0;
-				top: -12vw;
-				left: -9vw;
-				right: -50vw;
-				bottom: -20px;
-				border-top-left-radius: 800px;
-			}
+		}
+	}
+	&-gradient-svg {
+		@apply absolute inset-0 z-10 mix-blend-multiply;
+		svg {
+			@apply w-full h-full absolute inset-0;
 		}
 	}
 	&-gradient {
-		@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black opacity-60;
-		bottom: 70%;
-		mix-blend-mode: multiply;
+		@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-60;
+		bottom: 60%;
+		&.gradient-bottom {
+			@apply bg-gradient-to-t bottom-0;
+			top: 60%;
+		}
 	}
-	&-image {
-		img {
-			width: 170%;
-			max-width: none;
-			@screen tablet-landscape {
-				@apply w-full max-w-full;
-			}
+	&-video {
+		@apply absolute inset-0 z-0;
+		iframe {
+			@apply absolute left-1/2 top-1/2;
+			width: 110vw;
+			height: 52.85vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+			min-height: 100vh;
+			min-width: 233.33vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+			transform: translate( -50%, -50% );
 		}
 	}
 }

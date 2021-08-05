@@ -1,18 +1,39 @@
 //--------------------------------------------------------------
 // Global Site Header
 //--------------------------------------------------------------
-.site-alert {
-	@apply bg-white text-brown-dark relative transition-colors duration-150 ease-timing-soft z-20;
-	> .container {
-		@apply px-40;
-	}
-}
-
 .site-header {
-	@apply sticky top-0 left-0 right-0 h-140 z-30 text-brown-dark transition-colors duration-300;
-	&.transparent {
+	@apply sticky top-0 left-0 right-0 h-140 z-30 text-brown-dark transition-colors duration-100;
+	&.bg-transparent-text-dark {
+		&.header-blur {
+			@apply backdrop-filter backdrop-blur;
+			background-color: rgb( 250 239 232 / 90% );
+			.backdrop {
+				@apply hidden;
+			}
+		}
+		@apply text-brown-dark;
 		.backdrop {
 			@apply bg-transparent;
+		}
+		// site-header.transparent-text-dark .sticky
+		@at-root .sticky-enabled & {
+			@apply text-brown-dark;
+			.backdrop {
+				@apply bg-white;
+			}
+		}
+	}
+	&.bg-transparent-text-light {
+		@apply text-white;
+		.backdrop {
+			@apply bg-transparent;
+		}
+		// site-header.transparent-text-light.sticky
+		@at-root .sticky-enabled & {
+			@apply text-brown-dark;
+			.backdrop {
+				@apply bg-white;
+			}
 		}
 	}
 	&.default {
@@ -27,17 +48,24 @@
 	a,
 	path,
 	ellipse {
-		@apply transition-colors duration-200 ease-linear;
+		@apply transition-colors duration-100 ease-linear;
 	}
 	.backdrop {
-		@apply bg-tan absolute inset-0 transition-colors duration-500;
+		@apply bg-tan absolute inset-0 transition-colors duration-100;
 	}
 
 	//states
 	@at-root .sticky-enabled & {
+		@apply text-brown-dark;
 		.backdrop {
 			@apply bg-white;
 		}
+	}
+}
+.site-alert {
+	@apply bg-white text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
+	> .container {
+		@apply px-40;
 	}
 }
 

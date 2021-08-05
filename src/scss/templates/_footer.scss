@@ -2,6 +2,7 @@
 // Global Site Footer
 //--------------------------------------------------------------
 .site-footer {
+	@apply bg-white pt-100;
 	> .container {
 		@apply px-100;
 	}

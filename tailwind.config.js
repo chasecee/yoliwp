@@ -44,16 +44,16 @@ module.exports = {
 	},
 	corePlugins: {
 		boxDecorationBreak: false,
-		isolation: false,
+		//isolation: false,
 		overscrollBehavior: false,
 		//mixBlendMode: false,
-		backgroundBlendMode: false,
+		// backgroundBlendMode: false,
 		brightness: false,
 		contrast: false,
 		hueRotate: false,
 		invert: false,
 		saturate: false,
-		backdropFilter: false,
+		// backdropFilter: false,
 	},
 	// darkMode: 'class',
 	theme: {
@@ -234,27 +234,21 @@ module.exports = {
 				},
 				'h1,.h1,.has-h-1-font-size': {
 					fontSize: config( 'theme.fontSize.40' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h2,.h2,.has-h-2-font-size': {
 					fontSize: config( 'theme.fontSize.30' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h3,.h3,.has-h-3-font-size': {
 					fontSize: config( 'theme.fontSize.30' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h4,.h4,.has-h-4-font-size': {
 					fontSize: config( 'theme.fontSize.heading-sm' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h5,.h5,.has-h-5-font-size': {
 					fontSize: config( 'theme.fontSize.heading-xs' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h6,.h6,.has-h-6-font-size': {
 					fontSize: config( 'theme.fontSize.heading-xs' ),
-					color: config( 'theme.colors.black' ),
 				},
 				'h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6': {
 					marginBottom: config( 'theme.spacing.16' ),

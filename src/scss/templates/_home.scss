@@ -1,0 +1,23 @@
+body.page-template-template-home {
+	@apply bg-tan;
+}
+.about {
+	@apply relative bg-tan pt-60 pb-200 text-brown-dark;
+	&-images {
+		@apply flex overflow-hidden mb-68;
+		border-top-left-radius: 300px;
+		img {
+			@apply w-1/3;
+		}
+	}
+	&-content {
+		@apply relative flex items-center;
+		&-title {
+			@apply font-serif pt-30 whitespace-nowrap mr-68;
+			font-size: 72px;
+		}
+		&-p {
+			@apply text-24 pr-50 pt-30 border-t;
+		}
+	}
+}
