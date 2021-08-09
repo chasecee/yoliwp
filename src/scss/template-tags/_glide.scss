@@ -113,8 +113,8 @@
 			@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-60;
 			bottom: 60%;
 			&.gradient-bottom {
-				@apply bg-gradient-to-t bottom-0;
-				top: 60%;
+				@apply bg-gradient-to-r top-0 left-0 bottom-0;
+				right: 25%;
 			}
 		}
 	}

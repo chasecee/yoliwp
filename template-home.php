@@ -65,12 +65,11 @@ $button_text   = get_field( 'button_text' );
 
 					<div class="glide">
 						<div class="glide__controls glide__bullets" data-glide-el="controls[nav]">
-							<div data-glide-dir="=0">Mood</div>
-							<div data-glide-dir="=1">Energy</div>
-							<div data-glide-dir="=2">Balance</div>
-							<div data-glide-dir="=3">Vitality</div>
-							<div data-glide-dir="=4">Beauty</div>
-							<div data-glide-dir="=5">Transformation</div>
+							<div data-glide-dir="=0">Vitality</div>
+							<div data-glide-dir="=1">Mood</div>
+							<div data-glide-dir="=2">Energy</div>
+							<div data-glide-dir="=3">Balance</div>
+							<div data-glide-dir="=4">Transformation</div>
 						</div>
 						<div class="glide__arrows" data-glide-el="controls">
 							<div data-glide-dir="<">
@@ -89,7 +88,7 @@ $button_text   = get_field( 'button_text' );
 									<div class="slide-inner">
 										<div class="slide-img">
 
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/slide-a-lg.jpg'; ?>">
+											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/slide-a.jpg'; ?>">
 											<div class="slide-inner-gradient"></div>
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
@@ -108,7 +107,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Energy</p>
+											<p class="slide-inner-content-title">Shine</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -122,7 +121,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Lean Greens</p>
+											<p class="slide-inner-content-title">Passion</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -136,7 +135,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Lean Greens</p>
+											<p class="slide-inner-content-title">Alkalete</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -150,21 +149,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Lean Greens</p>
-											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
-										</div>
-									</div>
-								</li>
-
-								<li class="glide__slide">
-									<div class="slide-inner">
-										<div class="slide-img">
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/slide-b.jpg'; ?>">
-											<div class="slide-inner-gradient"></div>
-											<div class="slide-inner-gradient gradient-bottom"></div>
-										</div>
-										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Lean Greens</p>
+											<p class="slide-inner-content-title">T-Kit</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -287,9 +272,9 @@ $button_text   = get_field( 'button_text' );
 
 					<div class="glide">
 						<div class="glide__controls glide__bullets" data-glide-el="controls[nav]">
-							<div data-glide-dir="=0">Balm</div>
-							<div data-glide-dir="=1">Bliss</div>
-							<div data-glide-dir="=2">Buzz</div>
+							<div data-glide-dir="=0">Shine</div>
+							<div data-glide-dir="=1">Cheers</div>
+							<div data-glide-dir="=2">Wow</div>
 							<div data-glide-dir="=3">Mood Kit</div>
 						</div>
 						<div class="glide__arrows" data-glide-el="controls">
@@ -308,10 +293,10 @@ $button_text   = get_field( 'button_text' );
 								<li class="glide__slide">
 									<div class="slide-inner">
 										<div class="slide-img">
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/balm.jpg'; ?>">
+											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/shine.png'; ?>">
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Balm</p>
+											<p class="slide-inner-content-title">Shine</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -320,10 +305,10 @@ $button_text   = get_field( 'button_text' );
 								<li class="glide__slide">
 									<div class="slide-inner">
 										<div class="slide-img">
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/bliss.jpg'; ?>">
+											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/shine.png'; ?>">
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Bliss</p>
+											<p class="slide-inner-content-title">Cheers</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -332,10 +317,10 @@ $button_text   = get_field( 'button_text' );
 								<li class="glide__slide">
 									<div class="slide-inner">
 										<div class="slide-img">
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/buzz.jpg'; ?>">
+											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/shine.png'; ?>">
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Buzz</p>
+											<p class="slide-inner-content-title">Wow</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -344,7 +329,7 @@ $button_text   = get_field( 'button_text' );
 								<li class="glide__slide">
 									<div class="slide-inner">
 										<div class="slide-img">
-											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/mood-kit.jpg'; ?>">
+											<img class="" src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/shine.png'; ?>">
 										</div>
 										<div class="slide-inner-content">
 											<p class="slide-inner-content-title">Mood Kit</p>
