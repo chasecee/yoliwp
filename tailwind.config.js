@@ -4,9 +4,11 @@ const defaultTheme = require( 'tailwindcss/defaultTheme' );
 
 module.exports = {
 	purge: {
+		//enabled: true,
 		layers: [ 'utilities' ],
 		content: [
 			'./**/*.php',
+			'./*.php',
 			'./src/components/*.js',
 			'./src/scss/**/*.scss',
 		],
@@ -38,22 +40,19 @@ module.exports = {
 					/^h-/,
 					/text-center/,
 					/^list-/,
+					/^backdrop-/,
 				],
 			},
 		},
 	},
 	corePlugins: {
 		boxDecorationBreak: false,
-		//isolation: false,
-		overscrollBehavior: false,
-		//mixBlendMode: false,
-		// backgroundBlendMode: false,
+		// overscrollBehavior: false,
 		brightness: false,
 		contrast: false,
 		hueRotate: false,
 		invert: false,
 		saturate: false,
-		// backdropFilter: false,
 	},
 	// darkMode: 'class',
 	theme: {
@@ -171,8 +170,7 @@ module.exports = {
 			sm: '600px',
 			md: '768px',
 			lg: '1024px',
-			xl: '1440px',
-			'2xl': '1600px',
+			xl: '1600px',
 		},
 		container: {
 			center: true,

@@ -29,7 +29,7 @@ $foreground_color = get_field( 'foreground_color' );
 	}
 </style>
 
-	<div class=" site-main relative z-0">
+	<div class="site-main relative z-0">
 		<main id="main" class="content-container">
 			<?php
 			while ( have_posts() ) :

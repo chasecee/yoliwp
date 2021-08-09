@@ -2,7 +2,7 @@
 // Global Site Footer
 //--------------------------------------------------------------
 .site-footer {
-	@apply bg-white pt-100;
+	@apply bg-white pt-100 overflow-hidden;
 	> .container {
 		@apply px-100;
 	}
@@ -11,21 +11,21 @@
 		&-logo {
 			@apply text-primary relative;
 			top: -0.45rem;
-			width: 130px;
-			height: 130px;
+			width: 8.125rem;
+			height: 8.125rem;
 			svg {
 				@apply w-full h-full;
 			}
 		}
 		&-slogan {
 			@apply ml-160 font-sans-alt text-28 leading-36;
-			max-width: 350px;
+			max-width: 21.875rem;
 		}
 		&-support {
 			@apply flex justify-between;
 			&-hours {
 				@apply relative;
-				margin-right: 170px;
+				margin-right: 10.625rem;
 			}
 			&-telephone {
 				@apply relative;

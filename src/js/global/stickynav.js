@@ -4,25 +4,38 @@
  * @since January 31, 2020
  * @author Shannon MacMillan, Corey Collins
  */
-const headerEl = document.querySelector( 'body' );
-const sentinalEl = document.querySelector( '.guide' );
+// Make sure everything is loaded first.
+if (
+	( 'complete' === document.readyState ||
+		'loading' !== document.readyState ) &&
+	! document.documentElement.doScroll
+) {
+	stickyNav();
+} else {
+	document.addEventListener( 'DOMContentLoaded', stickyNav );
+}
 
-const handler = ( entries ) => {
-	//console.log(entries);
+function stickyNav() {
+	const headerEl = document.querySelector( '.js-site-header' );
+	const sentinalEl = document.querySelector( '.guide' );
 
-	// entries is an array of observed dom nodes
-	// we're only interested in the first one at [0]
-	// because that's our .sentinal node.
-	// Here observe whether or not that node is in the viewport
-	if ( ! entries[ 0 ].isIntersecting ) {
-		headerEl.classList.add( 'sticky-enabled' );
-	} else {
-		headerEl.classList.remove( 'sticky-enabled' );
-	}
-};
+	const handler = ( entries ) => {
+		//console.log(entries);
 
-// create the observer
-const observer = new window.IntersectionObserver( handler );
+		// entries is an array of observed dom nodes
+		// we're only interested in the first one at [0]
+		// because that's our .sentinal node.
+		// Here observe whether or not that node is in the viewport
+		if ( ! entries[ 0 ].isIntersecting ) {
+			headerEl.classList.add( 'sticky-enabled' );
+		} else {
+			headerEl.classList.remove( 'sticky-enabled' );
+		}
+	};
 
-// give the observer some dom nodes to keep an eye on
-observer.observe( sentinalEl );
+	// create the observer
+	const observer = new window.IntersectionObserver( handler );
+
+	// give the observer some dom nodes to keep an eye on
+	observer.observe( sentinalEl );
+}

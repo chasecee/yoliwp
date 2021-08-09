@@ -6,13 +6,26 @@
  * @author Greg Rickaby, Corey Collins
  * @since January 31, 2020
  */
+if (
+	( 'complete' === document.readyState ||
+		'loading' !== document.readyState ) &&
+	! document.documentElement.doScroll
+) {
+	screenWidthChange();
+} else {
+	document.addEventListener( 'DOMContentLoaded', screenWidthChange );
+}
+
 function detectScreenAndChange() {
-	const vw = Math.max(
-		document.documentElement.clientWidth || 0,
-		window.innerWidth || 0
-	);
 	const pxGuide = document.querySelector( '.px-guide' );
-	pxGuide.innerHTML = vw;
+	if ( pxGuide ) {
+		pxGuide.innerHTML = vw;
+
+		const vw = Math.max(
+			document.documentElement.clientWidth || 0,
+			window.innerWidth || 0
+		);
+	}
 }
 function screenWidthChange() {
 	window.addEventListener(
@@ -23,14 +36,4 @@ function screenWidthChange() {
 		true
 	);
 	detectScreenAndChange();
-}
-
-if (
-	( 'complete' === document.readyState ||
-		'loading' !== document.readyState ) &&
-	! document.documentElement.doScroll
-) {
-	screenWidthChange();
-} else {
-	document.addEventListener( 'DOMContentLoaded', screenWidthChange );
 }

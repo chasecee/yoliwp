@@ -1,0 +1,121 @@
+// Required Core Stylesheet
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
+
+// Optional Theme Stylesheet
+@import 'node_modules/@glidejs/glide/src/assets/sass/glide.theme';
+
+/* stylelint-disable selector-class-pattern */
+.glide {
+	@apply relative;
+	.glide__arrows {
+		@extend .container-l;
+		@apply absolute flex z-30 bottom-20 -left-10;
+
+		> div {
+			@apply px-10 py-20 text-gray-medium transition-colors duration-200 cursor-pointer transform-gpu origin-center;
+			&:hover {
+				@apply text-white;
+			}
+			&:active {
+				@apply scale-95;
+			}
+		}
+	}
+	.glide__controls {
+		@apply text-gray-medium text-24 absolute flex justify-center z-10 top-32 left-0 right-0 transform translate-x-0;
+		bottom: initial;
+
+		> div {
+			@apply relative p-20 cursor-pointer;
+			&::after {
+				@apply absolute left-20 right-20 bottom-10 h-px bg-transparent transform-gpu -translate-y-16  transition-all duration-1000;
+				content: '';
+			}
+			&:not( :last-child ) {
+				@apply mr-0;
+			}
+			&.glide__bullet--active {
+				@apply text-white bg-transparent;
+				&::after {
+					@apply translate-y-0 bg-white;
+				}
+			}
+		}
+	}
+	.glide__track {
+		.glide__slides {
+			@apply list-none m-0;
+			.glide__slide {
+				@apply text-20;
+			}
+		}
+	}
+}
+
+.product-carousel {
+	&.carousel-transparent {
+		.glide__controls {
+			> div {
+				&.glide__bullet--active {
+					@apply text-brown-dark bg-transparent;
+					&::after {
+						@apply translate-y-0 bg-brown-dark;
+					}
+				}
+			}
+		}
+		.glide__arrows > div {
+			@apply text-brown;
+			&:hover {
+				@apply text-brown-dark;
+			}
+		}
+		.slide-inner {
+			@apply text-brown-dark;
+			.slide-img {
+				@apply bg-tan top-1/4 bottom-1/4;
+				img {
+					@apply mix-blend-multiply w-auto mx-auto h-full;
+				}
+			}
+		}
+	}
+	.slide-inner {
+		@extend .container-l;
+		@apply relative text-white;
+		padding-top: 100vw;
+		@screen md {
+			padding-top: 56vw;
+		}
+		.slide-img {
+			@apply absolute inset-0;
+			img {
+				@apply w-full object-fill;
+			}
+		}
+		&-content {
+			@apply absolute bottom-100 z-10;
+			&-title {
+				@apply text-60;
+			}
+			&-p {
+				@apply text-24 w-2/3;
+				@screen lg {
+					@apply w-1/2;
+				}
+				@screen xl {
+					@apply w-2/5;
+				}
+			}
+		}
+		&-gradient {
+			@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-60;
+			bottom: 60%;
+			&.gradient-bottom {
+				@apply bg-gradient-to-t bottom-0;
+				top: 60%;
+			}
+		}
+	}
+}
+/* stylelint-enable selector-class-pattern */

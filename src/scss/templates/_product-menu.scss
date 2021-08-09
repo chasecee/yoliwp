@@ -1,0 +1,84 @@
+.product-menu {
+	@apply bg-white;
+
+	.product-menu-cols {
+		@apply flex justify-between;
+		.product-menu-title {
+			@apply block text-14 font-medium text-gray-medium uppercase leading-18 mb-16;
+			letter-spacing: 0.0625rem;
+
+			&:hover {
+				@apply no-underline;
+			}
+		}
+		ul {
+			@apply list-none leading-30 text-brown-dark;
+			li {
+				@apply mb-0;
+				a {
+					@apply block;
+					&:hover {
+						@apply underline;
+					}
+				}
+			}
+		}
+	}
+	&.header-menu {
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out 0.1s, visibility 0s 0.3s;
+		visibility: hidden;
+		.product-menu-col {
+			@apply w-auto;
+			&:last-child {
+				@apply w-1/4 flex-none;
+			}
+		}
+
+		@at-root .product-menu-active & {
+			opacity: 1;
+			transition: opacity 0.2s ease-in-out 0ms, visibility 0s 0s;
+			visibility: visible;
+		}
+		.product-menu-content {
+			@apply px-40 pt-40 pb-100;
+			@screen xl {
+				@apply pl-150;
+			}
+			@at-root .product-menu-active & {
+				@apply pb-100;
+			}
+		}
+		.header-hidden {
+			@apply hidden;
+		}
+		> .container {
+			@apply px-40 ml-100;
+		}
+	}
+	&.footer-menu {
+		@apply h-auto;
+		.footer-hidden {
+			@apply hidden;
+		}
+		.product-menu-col {
+			margin-right: 8%;
+			&.header-hidden {
+				@apply mr-0;
+			}
+		}
+	}
+}
+.promo {
+	@apply relative text-white leading-tight;
+	padding-top: 70%;
+	&-image {
+		@apply absolute inset-0 bg-cover;
+	}
+	&-gradient {
+		@apply absolute inset-0 bg-gradient-to-t from-black opacity-50;
+	}
+	&-title {
+		@apply text-24 absolute bottom-0 left-0 right-0 p-20;
+	}
+}

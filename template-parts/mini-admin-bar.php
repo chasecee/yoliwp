@@ -20,8 +20,7 @@
 			<div class="hidden sm:block md:hidden">@screen sm</div>
 			<div class="hidden md:block lg:hidden">@screen md</div>
 			<div class="hidden lg:block xl:hidden">@screen lg</div>
-			<div class="hidden xl:block 2xl:hidden">@screen xl</div>
-			<div class="hidden 2xl:block ">@screen 2xl</div>
+			<div class="hidden xl:block ">@screen xl</div>
 	</div>
 	<a href="<?php echo esc_url( admin_url() ); ?>"><?php esc_html_e( 'dashboard', '_s' ); ?></a>
 	<?php

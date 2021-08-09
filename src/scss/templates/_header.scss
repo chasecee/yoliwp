@@ -2,68 +2,62 @@
 // Global Site Header
 //--------------------------------------------------------------
 .site-header {
-	@apply sticky top-0 left-0 right-0 h-140 z-30 text-brown-dark transition-colors duration-100;
+	@apply sticky -top-px left-0 right-0 h-140 z-30 text-brown-dark transition-colors duration-200;
+
+	&.default {
+		@apply bg-white;
+		border-bottom: 1px solid rgb( 0 0 0 / 16% );
+	}
+	&.sticky-enabled {
+		@apply bg-white text-brown-dark;
+	}
+	&.menu-group-active,
+	&.product-menu-active {
+		@apply text-gray-medium;
+		.menu-item-active,
+		.products-trigger {
+			@apply text-brown-dark;
+		}
+	}
+
 	&.bg-transparent-text-dark {
-		&.header-blur {
-			@apply backdrop-filter backdrop-blur;
-			background-color: rgb( 250 239 232 / 90% );
-			.backdrop {
-				@apply hidden;
-			}
-		}
 		@apply text-brown-dark;
-		.backdrop {
-			@apply bg-transparent;
-		}
 		// site-header.transparent-text-dark .sticky
 		@at-root .sticky-enabled & {
 			@apply text-brown-dark;
-			.backdrop {
-				@apply bg-white;
-			}
+		}
+		&.header-blur {
+			backdrop-filter: blur( 5px );
+			background-color: rgb( 250 239 232 / 90% );
 		}
 	}
+
 	&.bg-transparent-text-light {
 		@apply text-white;
-		.backdrop {
-			@apply bg-transparent;
+		:hover {
+			@apply text-brown-dark;
 		}
 		// site-header.transparent-text-light.sticky
-		@at-root .sticky-enabled & {
+		&.sticky-enabled {
 			@apply text-brown-dark;
-			.backdrop {
-				@apply bg-white;
-			}
 		}
 	}
-	&.default {
-		.backdrop {
-			@apply bg-tan;
-			box-shadow: 0 1px 1px rgb( 0 0 0 / 16% );
-		}
-	}
+
 	> .container {
-		@apply relative px-32 grid grid-cols-12 items-center h-140;
+		@apply relative px-40 grid grid-cols-12 items-center h-140;
 	}
 	a,
 	path,
 	ellipse {
-		@apply transition-colors duration-100 ease-linear;
+		@apply transition-colors duration-200 ease-in-out;
 	}
-	.backdrop {
-		@apply bg-tan absolute inset-0 transition-colors duration-100;
-	}
-
-	//states
-	@at-root .sticky-enabled & {
+	path,
+	ellipse {
 		@apply text-brown-dark;
-		.backdrop {
-			@apply bg-white;
-		}
 	}
 }
 .site-alert {
-	@apply bg-white text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
+	@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
 	> .container {
 		@apply px-40;
 	}

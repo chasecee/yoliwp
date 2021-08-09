@@ -8,6 +8,7 @@ import './mobile-menu';
 import './modal';
 import './navigation-primary';
 import './off-canvas';
-import './sub-menu';
+import './product-menu';
 import './table';
 import './video';
+import './scroller';

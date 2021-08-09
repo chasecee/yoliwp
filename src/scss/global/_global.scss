@@ -26,6 +26,15 @@
 //-----------------------------------------
 // Global Elements
 //-----------------------------------------
+html {
+	@apply text-11;
+	@screen md {
+		@apply text-14;
+	}
+	@screen xl {
+		@apply text-16;
+	}
+}
 body {
 	@apply font-sans antialiased text-brown-dark;
 }
@@ -39,10 +48,8 @@ body {
 	@screen lg {
 		@apply px-80;
 	}
+
 	@screen xl {
-		@apply px-100;
-	}
-	@screen 2xl {
 		@apply px-140;
 	}
 }
@@ -55,28 +62,8 @@ body {
 	@screen lg {
 		@apply pl-80;
 	}
+
 	@screen xl {
-		@apply pl-100;
-	}
-	@screen 2xl {
 		@apply pl-140;
-	}
-}
-.pull-r {
-	@apply -mr-40;
-	@screen md {
-		@apply -mr-80;
-	}
-	@screen lg {
-		@apply -mr-100;
-	}
-	@screen xl {
-		@apply -mr-140;
-	}
-}
-.pull-l {
-	@apply -ml-40;
-	@screen md {
-		@apply ml-0;
 	}
 }

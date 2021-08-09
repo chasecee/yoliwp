@@ -23,7 +23,7 @@
 	}
 	&-image {
 		@apply absolute inset-0 bg-cover;
-		border-top-left-radius: 500px;
+		border-top-left-radius: 31.25rem;
 	}
 }
 .product-features {
@@ -35,7 +35,7 @@
 		}
 		&-line {
 			@apply w-px bg-brown-dark absolute bottom-full left-1/2;
-			height: 421px;
+			height: 26.313rem;
 			bottom: 190%;
 		}
 	}
@@ -49,7 +49,7 @@
 		@apply text-brown w-1/3;
 		ul {
 			@apply pl-50;
-			@screen 2xl {
+			@screen xl {
 				@apply pl-160;
 			}
 			@apply list-none;
@@ -77,12 +77,12 @@
 	.ingredients-spacer {
 		@apply pt-200;
 		@screen md {
-			height: 400px;
+			height: 25rem;
 		}
 	}
 	.ingredients-images {
 		@apply absolute inset-0 overflow-hidden bg-black;
-		border-top-left-radius: 300px;
+		border-top-left-radius: 18.75rem;
 		.ingredients-image {
 			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-bottom ease-in;
 			&.target-open,
@@ -119,6 +119,10 @@
 	}
 }
 .cover {
+	&.cover-rounded {
+		@apply overflow-hidden;
+		border-top-left-radius: 18.75rem;
+	}
 	.cover-bg {
 		@apply relative bg-cover bg-center;
 	}
@@ -126,23 +130,23 @@
 		@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
 	}
 	.cover-content {
-		@apply relative text-white  pb-120 w-2/3;
-		@screen lg {
-			@apply w-1/2;
-		}
-		@screen xl {
-			@apply w-2/5;
-		}
-		padding-top: 630px;
+		@apply relative text-white  pb-120;
+		padding-top: 39.375rem;
 		&-title {
 			@apply font-serif text-80 leading-tight mb-0 text-white;
 		}
 		&-bar {
 			@apply mt-40 mb-20 border-t border-gray;
-			width: 228px;
+			width: 14.25rem;
 		}
 		&-p {
-			@apply text-28 leading-36;
+			@apply text-28 leading-36 w-2/3;
+			@screen lg {
+				@apply w-1/2;
+			}
+			@screen xl {
+				@apply w-2/5;
+			}
 		}
 	}
 }
