@@ -1,13 +1,19 @@
 body.page-template-template-home {
 	@apply bg-tan;
 }
+.hero,
+.about,
+.about-reviews,
+.story-scroller,
+.product-carousel {
+	@apply relative z-10 bg-tan;
+}
 .hero {
-	@apply relative mb-140 overflow-hidden max-h-screen;
+	@apply relative h-200 overflow-hidden max-h-screen;
 
-	max-height: 80vh;
+	height: calc( 100vh - 12.5rem );
 	overflow: hidden;
-	height: 56.26vw;
-	min-height: 50vh;
+	max-height: 56.26vw;
 
 	&-content {
 		@apply absolute bottom-0 container-l flex flex-col md:flex-row items-end pl-140 w-full justify-between z-10;
@@ -16,7 +22,7 @@ body.page-template-template-home {
 			line-height: 1.2;
 		}
 		&-button {
-			@apply text-28 bg-primary hover:bg-warning transition-colors text-tan py-50 pr-100 pl-120 flex items-center;
+			@apply text-28 bg-primary hover:bg-opacity-90 transition-colors text-tan py-50 pr-100 pl-120 flex items-center;
 			border-top-left-radius: 12.5rem;
 			svg {
 				@apply ml-20;
@@ -30,15 +36,15 @@ body.page-template-template-home {
 		}
 	}
 	&-gradient {
-		@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-60;
+		@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-20;
 		bottom: 60%;
 		&.gradient-bottom {
-			@apply bg-gradient-to-t bottom-0;
+			@apply bg-gradient-to-t bottom-0 opacity-50;
 			top: 60%;
 		}
 	}
 	&-video {
-		@apply absolute inset-0 z-0;
+		@apply absolute w-full h-full inset-0 z-0;
 		iframe {
 			@apply absolute left-1/2 top-1/2;
 			width: 110vw;
@@ -50,7 +56,7 @@ body.page-template-template-home {
 	}
 }
 .about {
-	@apply relative bg-tan pt-60 pb-200 text-brown-dark;
+	@apply relative bg-tan pt-200 pb-200 text-brown-dark;
 	&-images {
 		@apply flex overflow-hidden mb-68;
 		border-top-left-radius: 18.75rem;

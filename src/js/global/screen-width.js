@@ -19,12 +19,11 @@ if (
 function detectScreenAndChange() {
 	const pxGuide = document.querySelector( '.px-guide' );
 	if ( pxGuide ) {
-		pxGuide.innerHTML = vw;
-
 		const vw = Math.max(
 			document.documentElement.clientWidth || 0,
 			window.innerWidth || 0
 		);
+		pxGuide.innerHTML = vw;
 	}
 }
 function screenWidthChange() {
