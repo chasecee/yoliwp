@@ -30,7 +30,7 @@ $button_text   = get_field( 'button_text' );
 				<div class="hero">
 					<div class="hero-gradient"></div>
 					<div class="hero-gradient gradient-bottom"></div>
-					<div class="hero-video">
+					<div class="hero-video bg-cover bg-center" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/heroposter.jpg'; ?>);">
 							<iframe src="https://player.vimeo.com/video/582695017?background=1&autoplay=1&loop=1&byline=0&title=0?controls=0"
 									frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					</div>
@@ -56,7 +56,7 @@ $button_text   = get_field( 'button_text' );
 						</div>
 						<div class="about-content">
 									<h2 class="about-content-title">What is Yoli?</h2>
-									<p class="about-content-p">We’re a modern wellness brand creating high-performance, plant‑powered wellness supplements to fuel your mind, body, and soul. We want to make wellness feel easy, joyful, and accessible–so you can focus on being your most vibrant you.</p>
+									<p class="about-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 					</div>
 				</div>

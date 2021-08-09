@@ -37,7 +37,7 @@
 	<div class="product-menu-col">
 		<p class="product-menu-title">Energy</p>
 		<ul>
-			<li><a href="#">Passion</a></li>
+			<li><a href="/products/passion/">Passion</a></li>
 			<li><a href="#">Awaken</a></li>
 			<li><a href="#">Charge</a></li>
 		</ul>
