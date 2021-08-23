@@ -64,8 +64,9 @@
 		</div>
 
 	</footer><!-- .site-footer container-->
-
+<div class="hidden">
 	<?php _s_display_mobile_menu(); ?>
+</div>
 	<?php wp_footer(); ?>
 
 </body>

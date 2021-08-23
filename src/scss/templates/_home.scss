@@ -11,7 +11,7 @@ body.page-template-template-home {
 .hero {
 	@apply relative h-200 overflow-hidden max-h-screen mt-60;
 
-	height: calc( 100vh - 12.5rem );
+	height: calc( 100vh - 8.75rem );
 	overflow: hidden;
 	max-height: 56.26vw;
 
@@ -91,7 +91,7 @@ body.page-template-template-home {
 				}
 			}
 			p {
-				@apply font-sans-alt mx-100 pb-30;
+				@apply text-24 font-sans-alt mx-100 pb-30;
 			}
 		}
 	}

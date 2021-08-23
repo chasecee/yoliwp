@@ -14,12 +14,12 @@
 		<p class="product-menu-title">Vitality</p>
 		<ul>
 			<li><a href="/products/vitality/">Yoli Life Kit</a></li>
-			<li><a href="#">Yes</a></li>
+			<li><a href="/products/yes">Yes</a></li>
 			<li><a href="#">Lean Greens</a></li>
 			<li><a href="#">Omegas</a></li>
 			<li><a href="#">Flex</a></li>
 			<li><a href="#">Enzyme</a></li>
-			<li><a href="#">Defend</a></li>
+			<li><a href="/products/defend/">Defend</a></li>
 			<li><a href="#">Truth</a></li>
 		</ul>
 	</div>
@@ -46,7 +46,7 @@
 	<div class="product-menu-col">
 		<p class="product-menu-title">Balance</p>
 		<ul>
-			<li><a href="#">Alkalete</a></li>
+			<li><a href="/products/alkalete">Alkalete</a></li>
 			<li><a href="#">Pure</a></li>
 			<li><a href="#">Calm Tea</a></li>
 			<li><a href="#">Dream</a></li>
