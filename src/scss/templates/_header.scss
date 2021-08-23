@@ -2,14 +2,27 @@
 // Global Site Header
 //--------------------------------------------------------------
 .site-header {
-	@apply sticky -top-px left-0 right-0 h-140 z-30 text-brown-dark transition-colors duration-200;
+	@apply fixed left-0 right-0 top-0 h-200 z-30 text-brown-dark transition-colors duration-200;
+
+	.site-alert {
+		@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
+		> .container {
+			@apply px-40;
+		}
+	}
 
 	&.default {
-		@apply bg-white;
+		@apply bg-white text-brown-dark;
 		border-bottom: 1px solid rgb( 0 0 0 / 16% );
 	}
-	&.sticky-enabled {
-		@apply bg-white text-brown-dark;
+	&.bg-transparent-text-dark {
+		@apply text-brown-dark;
+		.site-alert {
+			@apply bg-white;
+		}
+	}
+	&.bg-transparent-text-light {
+		@apply text-white;
 	}
 	&.menu-group-active,
 	&.product-menu-active {
@@ -19,27 +32,10 @@
 			@apply text-brown-dark;
 		}
 	}
-
-	&.bg-transparent-text-dark {
-		@apply text-brown-dark;
-		// site-header.transparent-text-dark .sticky
-		@at-root .sticky-enabled & {
-			@apply text-brown-dark;
-		}
-		&.header-blur {
-			backdrop-filter: blur( 5px );
-			background-color: rgb( 250 239 232 / 90% );
-		}
-	}
-
-	&.bg-transparent-text-light {
-		@apply text-white;
-		:hover {
-			@apply text-brown-dark;
-		}
-		// site-header.transparent-text-light.sticky
-		&.sticky-enabled {
-			@apply text-brown-dark;
+	&.sticky-enabled {
+		@apply bg-white text-brown-dark;
+		.site-alert {
+			@apply bg-tan;
 		}
 	}
 
@@ -49,17 +45,7 @@
 	a,
 	path,
 	ellipse {
-		@apply transition-colors duration-200 ease-in-out;
-	}
-	path,
-	ellipse {
-		@apply text-brown-dark;
-	}
-}
-.site-alert {
-	@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
-	> .container {
-		@apply px-40;
+		@apply transition-colors duration-150 ease-in-out;
 	}
 }
 

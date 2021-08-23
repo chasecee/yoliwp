@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Product Page
+ * Template Name: Product Page Pink
  *
  * This template displays a page with a sidebar on the right side of the screen.
  *
@@ -26,6 +26,11 @@ $foreground_color = get_field( 'foreground_color' );
 		color:white;
 		border-color: <?php echo esc_attr( $foreground_color ); ?>;
 	}
+	.btn-accent-outline{
+		border-color:<?php echo esc_attr( $foreground_color ); ?>;
+		color:<?php echo esc_attr( $foreground_color ); ?>;
+		background-color:transparent;
+	}
 </style>
 
 	<div class=" site-main">
@@ -35,7 +40,7 @@ $foreground_color = get_field( 'foreground_color' );
 				the_post();
 				?>
 				<?php
-				// hero product _hero-product.scss.
+				// hero product.
 					// acf vars.
 					$pretitle      = get_field( 'pretitle' );
 					$product_title = get_field( 'product_title' );
@@ -44,11 +49,11 @@ $foreground_color = get_field( 'foreground_color' );
 
 				<div class="hero-product">
 					<div class="hero-product-info">
-						<p class="hero-product-info-pretitle">
-							<?php if ( $pretitle ) : ?>
-								<?php echo esc_html( $pretitle ); ?>
-							<?php endif; ?>
-						</p>
+						<?php if ( $pretitle ) : ?>
+							<p class="hero-product-info-pretitle">
+									<?php echo esc_html( $pretitle ); ?>
+							</p>
+						<?php endif; ?>
 						<h1 class="fg-color">
 							<?php if ( $product_title ) : ?>
 								<?php echo esc_html( $product_title ); ?>
@@ -70,12 +75,11 @@ $foreground_color = get_field( 'foreground_color' );
 				</div>
 
 				<?php
-					// hero product _hero-product.scss.
 					// acf vars.
 					$product_box_image = get_field( 'product_box_image' );
 					$size              = 'full';
 				?>
-				<div class="product-features container">
+				<div class="product-features">
 					<div class="product-features-graphic">
 						<div class="product-features-graphic-line"></div>
 
@@ -130,7 +134,7 @@ $foreground_color = get_field( 'foreground_color' );
 
 				<?php // just hard-coding the rest cuz I'm tired. ?>
 
-				<div class="cover">
+				<!-- <div class="cover">
 					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/covergirl.jpg'; ?>);">
 						<div class="cover-backdrop"></div>
 						<div class="container">
@@ -142,36 +146,111 @@ $foreground_color = get_field( 'foreground_color' );
 						</div>
 
 					</div>
+				</div> -->
+
+				<div class="section-title">
+					<div class="section-title-content">
+						<p class="section-title-content-p">Our Process</p>
+						<h3 class="section-title-content-h">We protect the true nature of every plant, protein, and mineral in our products.</h3>
+					</div>
 				</div>
 
-				<div class="product">
-					<div class="product-content">
-						<p class="product-content-servings">35 Servings</p>
-						<h3 class="product-content-title">Passion</h3>
-						<p class="product-content-p">
-							Featuring Thermo-G™, our proprietary formulation, Passion delivers the energy you need to live your best life. Passion uses carefully selected ingredients to stimulate metabolic activity, promote stamina, and support healthy cognitive function.
-						</p>
-						<div class="product-content-flavors">
-							<button class="btn btn-outline-gray">Tropical Melon</button>
-							<button class="btn btn-outline btn-gray btn-disabled">Berry</button>
-						</div>
-						<div class="product-content-cta">
-							<button class="btn btn-primary btn-accent btn-full">Start Shopping</button>
-
-							<div class="product-content-subinfo">
-								<div class="price">$41.00</div>
-								<div class="divider">|</div>
-								<div class="price-monthly">Get Monthly & Save 30%</div>
+				<div class="cards">
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/nature.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">From Nature</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 							</div>
 						</div>
 					</div>
 
-					<div class="product-image">
-						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/yolipassionbox.png'; ?>">
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/powder.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">To Powder</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">To Body</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<div class="p-reviews">
+				<?php
+					// acf vars.
+					$serving_size          = get_field( 'serving_size' );
+					$product_cta_image     = get_field( 'product_cta_image' );
+					$size                  = 'full';
+					$product_description_2 = get_field( 'product_description_2' );
+					$price                 = get_field( 'price' );
+					$price_monthly         = get_field( 'price_monthly' );
+
+				?>
+				<div class="product">
+					<div class="product-content">
+						<p class="product-content-servings">
+						<?php if ( $serving_size ) : ?>
+							<?php echo esc_html( $serving_size ); ?>
+						<?php endif; ?>
+						</p>
+						<h3 class="product-content-title">
+							<?php if ( $product_title ) : ?>
+									<?php echo esc_html( $product_title ); ?>
+							<?php endif; ?>
+						</h3>
+						<p class="product-content-p">
+						<?php
+						if ( $product_description_2 ) {
+							echo esc_html( $product_description_2 );
+						};
+						?>
+						</p>
+
+						<div class="product-content-cta">
+							<button class="btn btn-primary btn-accent-outline btn-full">
+								Shop Now
+								<?php if ( $price ) : ?>
+									<?php echo ' — '; ?>
+									<?php echo esc_html( $price ); ?>
+								<?php endif; ?>
+							</button>
+							<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
+								<?php if ( $price_monthly ) : ?>
+									<?php echo ' — '; ?>
+									<?php echo esc_html( $price_monthly ); ?>
+								<?php endif; ?>
+							</button>
+
+
+						</div>
+					</div>
+
+					<div class="product-image">
+						<?php
+						if ( $product_cta_image ) {
+							$url = wp_get_attachment_url( $product_cta_image );
+							echo wp_get_attachment_image( $product_cta_image, $size );
+						};
+						?>
+
+					</div>
+				</div>
+
+				<!-- <div class="p-reviews">
 					<div class="container">
 						<div class="p-reviews-title">
 							Reviews
@@ -285,7 +364,7 @@ $foreground_color = get_field( 'foreground_color' );
 						</div>
 					</div>
 
-				</div>
+				</div> -->
 
 
 				<?php

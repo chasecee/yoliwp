@@ -25,6 +25,7 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$_s_class_name .= ' align' . $block['align'];
 }
+$ingredients_title = get_field( 'ingredients_title' )
 
 ?>
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
@@ -50,7 +51,8 @@ if ( ! empty( $block['align'] ) ) {
 				<div
 				class="ingredients-image <?php echo esc_attr( $first_index_class ); ?>"
 				id="<?php echo esc_attr( $i ); ?>"
-				style="background-image:url(<?php echo esc_url( $ingredient_image ); ?>);"></div>
+				style="background-image:url(<?php echo esc_url( $ingredient_image ); ?>);">
+				</div>
 
 				<?php $i++; ?>
 
@@ -58,9 +60,14 @@ if ( ! empty( $block['align'] ) ) {
 		<?php endif; ?>
 
 	</div><!-- .ingredients-images -->
-	<div class="ingredients-spacer"></div>
+	<!-- <div class="ingredients-spacer"></div> -->
 	<div class="ingredients-list container">
-		<div class="ingredients-list-title">Thermo-G™ Proprietary Blend</div>
+		<div class="ingredients-list-title">
+			<?php if ( $ingredients_title ) : ?>
+				<?php echo esc_html( $ingredients_title ); ?>
+			<?php endif; ?>
+		</div>
+
 		<?php if ( have_rows( 'ingredients_list' ) ) : ?>
 			<?php
 			$row_count = count( get_field( 'ingredients_list' ) );
@@ -96,13 +103,13 @@ if ( ! empty( $block['align'] ) ) {
 
 			<?php endwhile; ?>
 		<?php endif; ?>
-		<div class="ingredients-info">
+		<!-- <div class="ingredients-info">
 
 			<?php get_template_part( '/src/images/icons/inline/inline', 'plus.svg' ); ?>
 
 			<div class="ingredients-info-text">View Ingredients<br>& Nutrition Facts</div>
 
-		</div>
+		</div> -->
 
 	</div>
 

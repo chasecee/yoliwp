@@ -40,24 +40,25 @@ $button_text   = get_field( 'button_text' );
 								<h1 class="hero-content-title">
 								Lorem ipsum dolor<br>Sit amet adipiscing.
 								</h1>
-								<button class="hero-content-button">
-									Shop Now <?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
-								</button>
+
 
 					</div>
 				</div>
 
-				<div class="about">
-					<div class="container">
-						<div class="about-images">
-						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-a.jpg'; ?>">
-						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-b.jpg'; ?>">
-						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-c.jpg'; ?>" style=" margin-left: -1px; ">
+				<div class="intro">
+					<div class="intro-left">
+						<div class="intro-image intro-left-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left-a.jpg'; ?>"></div>
+						<div class="intro-image intro-left-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left-b.jpg'; ?>"></div>
+					</div>
+					<div class="intro-content">
+						<div class="intro-content-inner">
+							<h2><span>What is Yoli?</span>Yoli Means Life</h2>
+							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 						</div>
-						<div class="about-content">
-									<h2 class="about-content-title">What is Yoli?</h2>
-									<p class="about-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
+					</div>
+					<div class="intro-right">
+						<div class="intro-image intro-right-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right-a.jpg'; ?>"></div>
+						<div class="intro-image intro-right-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right-b.jpg'; ?>"></div>
 					</div>
 				</div>
 
@@ -93,7 +94,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">Lean Greens</p>
+											<p class="slide-inner-content-title">Defend</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -149,7 +150,7 @@ $button_text   = get_field( 'button_text' );
 											<div class="slide-inner-gradient gradient-bottom"></div>
 										</div>
 										<div class="slide-inner-content">
-											<p class="slide-inner-content-title">T-Kit</p>
+											<p class="slide-inner-content-title">Yes</p>
 											<p class="slide-inner-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 										</div>
 									</div>
@@ -160,7 +161,113 @@ $button_text   = get_field( 'button_text' );
 					</div>
 				</div>
 
-				<div class="story-scroller">
+				<div class="section-title">
+					<div class="section-title-content">
+						<p class="section-title-content-p">Our Process</p>
+						<h3 class="section-title-content-h">We protect the true nature of every plant, protein, and mineral in our products.</h3>
+					</div>
+				</div>
+
+				<div class="cards">
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/nature.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">From Nature</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/powder.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">To Powder</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-inner">
+							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);"></div>
+							<div class="card-gradient"></div>
+							<div class="card-content">
+								<h3 class="card-content-title">To Body</h3>
+								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="section-title">
+					<div class="section-title-content">
+						<p class="section-title-content-p">Lorem Ipsum</p>
+						<h3 class="section-title-content-h">We protect the true nature of every plant, protein, and mineral in our products.</h3>
+					</div>
+				</div>
+
+				<div class="section-info">
+
+					<div class="section-info-a">
+						<div class="section-info-a-video">
+							<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/oranges.jpg'; ?>">
+							<div class="section-info-a-video-gradient"></div>
+							<?php get_template_part( '/src/images/icons/inline/inline', 'play.svg' ); ?>
+						</div>
+					</div>
+
+					<div class="section-info-b">
+						<p class="section-info-b-p">Pasteurization, High Heat, Freeze-Dried, Etc. Lorem Epsom dolor.</p>
+						<div class="section-info-b-line"><div class="line"></div></div>
+
+						<div class="section-info-b-image">
+							<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/cabbage.jpg'; ?>">
+						</div>
+					</div>
+
+				</div>
+
+				<div class="section-title section-title-mb-0">
+					<div class="section-title-content">
+						<p class="section-title-content-p">Yoli & You</p>
+						<h3 class="section-title-content-h">Lorem ipsum dolor sit amet, diam consectectur adipiscing elit, sed.</h3>
+					</div>
+				</div>
+
+
+				<div class="section-testimonials">
+
+					<div class="section-testimonial">
+						<div class="section-testimonial-inner">
+							<div class="section-testimonial-content">
+								<h3 class="section-testimonial-content-title">Have more energy</h3>
+								<p class="section-testimonial-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+								<p class="section-testimonial-content-p">Tamara T. — USA</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="section-testimonial">
+						<div class="section-testimonial-inner">
+							<div class="section-testimonial-content">
+								<h3 class="section-testimonial-content-title">Quality Ingredients</h3>
+								<p class="section-testimonial-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+								<p class="section-testimonial-content-p">Kristen E. — Phillipines</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+
+				<div class="story-scroller hidden">
 					<div class="story-container" id="story-container">
 						<div class="story-content">
 
@@ -254,7 +361,7 @@ $button_text   = get_field( 'button_text' );
 
 				</div>
 
-				<div class="cover cover-rounded">
+				<div class="cover cover-rounded hidden">
 					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage-cover.jpg'; ?>);">
 						<div class="cover-backdrop"></div>
 						<div class="container">
@@ -268,7 +375,7 @@ $button_text   = get_field( 'button_text' );
 					</div>
 				</div>
 
-				<div class="product-carousel carousel-transparent">
+				<div class="product-carousel carousel-transparent hidden">
 
 					<div class="glide">
 						<div class="glide__controls glide__bullets" data-glide-el="controls[nav]">
@@ -343,7 +450,7 @@ $button_text   = get_field( 'button_text' );
 					</div>
 				</div>
 
-				<div class="about-reviews">
+				<!-- <div class="about-reviews ">
 					<div class="container">
 
 						<div class="about-reviews-title">
@@ -407,9 +514,21 @@ $button_text   = get_field( 'button_text' );
 						</div>
 
 					</div>
-				</div>
+				</div> -->
 
-
+				<!-- <div class="about">
+					<div class="container">
+						<div class="about-images">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-a.jpg'; ?>">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-b.jpg'; ?>">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/collage-c.jpg'; ?>" style=" margin-left: -1px; ">
+						</div>
+						<div class="about-content">
+									<h2 class="about-content-title">What is Yoli?</h2>
+									<p class="about-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						</div>
+					</div>
+				</div> -->
 
 
 

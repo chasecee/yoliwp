@@ -62,6 +62,29 @@
 			</div>
 
 		</div>
+		<button type="button" class="btn btn-primary slide-menu__control" data-target="example-menu" data-action="toggle">Toggle</button>
+	<button type="button" class="btn btn-primary slide-menu__control" data-target="example-menu" data-action="back">Back</button>
+		<nav class="slide-menu" id="example-menu">
+
+		<div class="slide-menu__slider">
+			<ul>
+				<li>
+				<a href="#">Home</a>
+				<ul>
+					<li><a href="#">Submenu entry 1</a></li>
+					<li><a href="#">Submenu entry 2</a></li>
+					<li><a href="#">Submenu entry 3</a></li>
+				</ul>
+				</li>
+				<li>
+				<a href="/blog">Blog</a>
+				</li>
+				<li>
+				<a href="/about">About</a>
+				</li>
+			</ul>
+</div>
+			</nav>
 	</footer><!-- .site-footer container-->
 
 	<?php _s_display_mobile_menu(); ?>

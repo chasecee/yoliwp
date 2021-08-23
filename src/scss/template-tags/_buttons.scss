@@ -1,10 +1,13 @@
 .btn {
-	@apply text-20 font-sans-alt leading-24;
+	@apply leading-24 text-center relative;
 	@apply border rounded-lg transition-colors;
 	@apply py-24 px-60 inline-block whitespace-nowrap select-none no-underline;
+	&:active {
+		@apply top-px;
+	}
 }
 .btn-primary {
-	@apply bg-primary text-white rounded-full;
+	@apply bg-primary text-white rounded-lg;
 	:hover {
 		@apply bg-opacity-80;
 	}

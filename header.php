@@ -33,20 +33,21 @@
 	<div class="guide"></div>
 
 
-	<?php get_template_part( 'template-parts/site-alert' ); ?>
+
 
 	<?php
-	if ( is_page_template( 'template-products.php' ) ) {
+	if ( is_page_template( 'template-product.php' ) ) {
 		$header_class = 'bg-transparent-text-dark';
-	} elseif ( is_page_template( 'template-homee.php' ) ) {
+	} elseif ( is_page_template( 'template-product-yellow.php' ) ) {
+		$header_class = 'bg-transparent-text-dark';
+	} elseif ( is_page_template( 'template-home.php' ) ) {
 		$header_class = 'bg-transparent-text-light';
-	} elseif ( is_page_template( 'template-product-blur.php' ) ) {
-		$header_class = 'bg-transparent-text-dark header-blur';
 	} else {
 		$header_class = 'default';
 	}
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
+		<?php get_template_part( 'template-parts/site-alert' ); ?>
 			<div class="container ">
 
 					<nav id="site-navigation" class="main-navigation navigation-menu col-span-4" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
@@ -95,7 +96,7 @@
 						</nav><!-- #site-navigation-->
 					</div>
 					<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) : ?>
-						<button type="button" class="off-canvas-open" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>"></button>
+						<button type="button" class="off-canvas-open " data-target="slide-menu" data-action="toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>">Open</button>
 					<?php endif; ?>
 			</div>
 
@@ -104,5 +105,4 @@
 					<?php get_template_part( '/template-parts/product-menu' ); ?>
 				</div>
 			</div>
-
 		</header><!-- .site-header-->

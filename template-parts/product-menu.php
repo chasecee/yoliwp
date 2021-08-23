@@ -28,9 +28,9 @@
 		<p class="product-menu-title">Mood</p>
 		<ul>
 			<li><a href="#">Mood Kit</a></li>
-			<li><a href="#">Balm</a></li>
-			<li><a href="#">Bliss</a></li>
-			<li><a href="#">Buzz</a></li>
+			<li><a href="/products/shine/">Shine</a></li>
+			<li><a href="/products/cheers/">Cheers</a></li>
+			<li><a href="/products/wow/">Wow</a></li>
 		</ul>
 	</div>
 
