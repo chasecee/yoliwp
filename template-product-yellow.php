@@ -287,7 +287,7 @@ $foreground_color = get_field( 'foreground_color' );
 					</div>
 				</div>
 
-				 <div class="container">
+				<div class="container">
 					<div class="section-title-bars">
 						<h4 class="section-title-bars-h">Recipes</h4>
 					</div>
