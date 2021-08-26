@@ -24,7 +24,10 @@ if ($serverUrl) {
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 }
 
+// The products in JSON.
 $curl_response = curl_exec($curl);
+
+//The parsed products.
 $products = json_decode($curl_response);
 if ($curl_response === false) {
     $info = curl_getinfo($curl);

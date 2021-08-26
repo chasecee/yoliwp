@@ -11,9 +11,10 @@
 
   if(isset($_POST['selLanguage'])) {
     $varLanguage = $_POST['selLanguage'];
-    setcookie('Language', $varLanguage, time() + (86400 * 30), '/');
   }
   
+  setcookie('Language', $varLanguage, time() + (86400 * 30), '/');
+
   echo '<form method="post">';
   echo '<select name="selLanguage" onchange="this.form.submit()">';
 
