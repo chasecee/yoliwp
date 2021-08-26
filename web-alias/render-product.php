@@ -11,9 +11,11 @@ $category = $_GET['webCategoryDescription'];
 
 //Get product details on specific product (phase 2 for populating the product page(s) - still does not contain item images): ​/api​/Products​/{countryCode}​/{itemId}​/{languageCode}
 
-$baseUrl = 'http://localhost/api/Products/pricing/';
+// $baseUrl = 'http://localhost/api/Products/pricing/';
+$baseUrl = 'https://108.59.44.81/api/Products/pricing/';
 $serverUrl = null;
-$defaultUrl = 'http://localhost/api/Products/pricing/US/';
+// $defaultUrl = 'http://localhost/api/Products/pricing/US/';
+$defaultUrl = 'https://108.59.44.81/api/Products/pricing/US/';
 
 // Build the URL for the get-call to the API for the retail and discount prices.
 if(!isset($_COOKIE['Country'])){
@@ -28,9 +30,19 @@ echo 'The product get-call url: ' . $serverUrl . '<br>';
 if ($serverUrl) {
   $curl = curl_init($serverUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    //for debug only!
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+  
 } else { // Make the call for prices with the default url.
   $curl = curl_init($defaultUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    //for debug only!
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+  
 }
 
 $curl_response = curl_exec($curl);

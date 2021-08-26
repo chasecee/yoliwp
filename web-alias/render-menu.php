@@ -4,9 +4,11 @@ include 'get-language.php';
 include 'render-rep-banner.php';
 
 // Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode}
-$baseUrl = 'http://localhost/api/Products/';
+// $baseUrl = 'http://localhost/api/Products/';
+$baseUrl = 'https://108.59.44.81/api/Products/';
 $serverUrl = null;
-$defaultUrl = 'http://localhost/api/Products/US/EN';
+// $defaultUrl = 'http://localhost/api/Products/US/EN';
+$defaultUrl = 'https://108.59.44.81/api/Products/US/EN';
 
 // Store the rep's info--whether real or corporphan.
 $webAlias = $rep->webAlias;
@@ -19,9 +21,19 @@ if (isset($_COOKIE['Country']) && isset($_COOKIE['Language'])) {
 if ($serverUrl) {
   $curl = curl_init($serverUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    //for debug only!
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+  
 } else { // Make the call for products with the default url.
   $curl = curl_init($defaultUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    //for debug only!
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+  
 }
 
 // The products in JSON.

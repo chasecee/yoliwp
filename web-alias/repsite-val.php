@@ -1,8 +1,8 @@
 <?php
 include 'get-url.php'; // This provisions the page with the value of the $webAlias variable.
 
-// $baseUrl = 'https://108.59.44.81/api/alias';
-$baseUrl = 'http://localhost/api/alias';
+$baseUrl = 'https://108.59.44.81/api/alias';
+// $baseUrl = 'http://localhost/api/alias';
 $repUrl = $baseUrl . $path;
 $cookie_name = 'Current_Rep';
 
@@ -18,7 +18,6 @@ if (isset($_COOKIE[$cookie_name])) {
     $rep = $cookie;
   // c. If a web alias is entered but does not match that from the cookie, make a get call to check the alias against the API.
   } else if (('/' . strtolower($cookieAlias)) !== strtolower($path)) {
-    echo '4) /' . strtolower($cookieAlias) . ' doesn\'t equal ' . strtolower($path) . '<br>';
     $rep = getRepInfo($repUrl);
   } 
 // 2. If there is no cookie, set the cookie.
@@ -37,8 +36,13 @@ if (isset($_COOKIE[$cookie_name])) {
 // The call the API, if needed.
 function getRepInfo($url) {
   $curl = curl_init($url);
+  // curl_setopt($curl, CURLOPT_URL, $url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-  
+
+  //for debug only!
+  curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+  curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
   // This responds with an error or the request body in json.
   $curl_response = curl_exec($curl);
   $rep = json_decode($curl_response);
