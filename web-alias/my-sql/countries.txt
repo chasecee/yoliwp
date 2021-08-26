@@ -1,0 +1,5 @@
+CountryCode	CountryName	Priority	
+AU	Australia	1	
+CA	Canada	2	
+PH	Philippines	3	
+US	United States	4	
