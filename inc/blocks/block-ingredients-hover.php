@@ -57,6 +57,7 @@ $ingredients_title = get_field( 'ingredients_title' )
 				<?php $i++; ?>
 
 			<?php endwhile; ?>
+
 		<?php endif; ?>
 
 	</div><!-- .ingredients-images -->
