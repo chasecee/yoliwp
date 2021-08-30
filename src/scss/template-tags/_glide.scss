@@ -22,13 +22,17 @@
 		}
 	}
 	.glide__controls {
-		@apply text-gray-medium text-24 absolute flex justify-center z-10 top-32 left-0 right-0 transform translate-x-0;
+		@apply text-gray-medium  md:text-24 absolute flex z-10 top-32 left-0 right-0 transform translate-x-0;
+		@apply justify-start md:justify-center;
 		bottom: initial;
-
+		width: 200vw;
+		@screen md {
+			@apply w-full;
+		}
 		> div {
 			@apply relative p-20 cursor-pointer;
 			&::after {
-				@apply absolute left-20 right-20 bottom-10 h-px bg-transparent transform-gpu -translate-y-16  transition-all duration-1000;
+				@apply absolute left-20 right-20 bottom-10 h-px bg-transparent transform-gpu -translate-y-10 transition-all duration-1000;
 				content: '';
 			}
 			&:not( :last-child ) {
@@ -53,6 +57,7 @@
 }
 
 .product-carousel {
+	@apply overflow-hidden;
 	&.carousel-transparent {
 		.glide__controls {
 			> div {
@@ -81,26 +86,28 @@
 		}
 	}
 	.slide-inner {
-		@extend .container-l;
-		@apply relative text-white;
-		padding-top: 100vw;
+		@apply container relative text-white;
+		padding-top: 80vh;
 		max-height: calc( 100vh - 12.5rem );
+
 		@screen md {
 			padding-top: 56vw;
+			@apply container-l;
 		}
+
 		.slide-img {
 			@apply absolute inset-0;
 			img {
-				@apply w-full object-fill;
+				@apply max-w-none object-fill object-center h-full;
 			}
 		}
 		&-content {
-			@apply absolute bottom-100 z-10;
+			@apply absolute bottom-100 z-10 pr-30 md:pr-0;
 			&-title {
-				@apply text-60;
+				@apply text-28 md:text-60;
 			}
 			&-p {
-				@apply text-24 w-2/3;
+				@apply md:text-24 md:w-2/3;
 				@screen lg {
 					@apply w-1/2;
 				}

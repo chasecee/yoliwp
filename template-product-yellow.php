@@ -82,6 +82,7 @@ $foreground_color = get_field( 'foreground_color' );
 						class="hero-product-image offscreen-r"
 						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
 						</div>
+						<div class="hero-product-bg-circle-overlay bg-color"></div>
 					</div>
 				</div>
 

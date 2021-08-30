@@ -1,0 +1,84 @@
+// Optional Theme Stylesheet
+@import 'mmenu-light/src/mmenu-light.scss';
+
+$mmspn_item_indent: 0;
+$mmspn_item_height: 3.5rem;
+:root {
+	--mm-spn-item-indent: #{$mmspn_item_indent};
+	--mm-spn-item-height: #{$mmspn_item_height};
+	--mm-ocd-max-width: 80%;
+	--mm-ocd-width: 80%;
+}
+
+.mmenu {
+	@apply relative;
+}
+.mm {
+	@apply bg-white text-brown-dark;
+}
+.shop-now-button > a {
+	&::after {
+		@apply absolute right-0 h-30 rounded-lg;
+	}
+}
+/* stylelint-disable selector-class-pattern */
+body {
+	.sub-menu {
+		@apply bg-white;
+	}
+
+	.mm-spn.mm-spn--navbar {
+		&[data-mm-spn-title='Menu']::after {
+			@apply pl-28 opacity-0;
+			content: '';
+		}
+		&[data-mm-spn-title='Menu']::before {
+			@apply pl-28 opacity-0;
+		}
+		&::after {
+			@apply text-left mr-28 border-b opacity-50 transition-opacity;
+			border-color: #d1d1cf;
+			margin-left: calc( 1.75rem * 2 );
+			top: calc( var( --mm-spn-item-height ) + 1px );
+		}
+		&::before {
+			@apply absolute border-t border-l left-28 opacity-50;
+			top: 5.3rem;
+		}
+		ul {
+			@apply w-full px-28;
+			top: calc( var( --mm-spn-item-height ) * 2 + 1px );
+			.sub-menu {
+				padding-left: calc( 1.75rem * 2 );
+			}
+			&::before {
+				@apply hidden;
+			}
+		}
+	}
+	.mm-ocd__backdrop {
+		@apply transition-opacity opacity-0 bg-black bg-opacity-30;
+		@at-root .mm-ocd-opened & {
+			@apply opacity-100;
+		}
+	}
+	.mm-spn.mm-spn--light {
+		@apply bg-white;
+	}
+	.mm-spn.mm-spn--navbar .mm-spn li::after {
+		border-color: #d1d1cf;
+		@apply opacity-100 ml-0;
+	}
+	.mm-spn li:not( .menu-item-has-children )::before {
+		@apply hidden;
+	}
+	.mm-spn li::before {
+		border-top: 1px solid;
+		border-right: 1px solid;
+		@apply opacity-100;
+	}
+	.mm-spn a:not( :last-child )::after {
+		@apply hidden;
+	}
+}
+/* stylelint-enable selector-class-pattern */

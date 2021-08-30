@@ -412,15 +412,13 @@ function _s_display_mobile_menu() {
 		$menu_location = 'mobile';
 	}
 	?>
-	<div class="off-canvas-screen"></div>
-	<div class="off-canvas-container" id="" aria-label="<?php esc_attr_e( 'Mobile Menu', '_s' ); ?>" aria-hidden="true" tabindex="-1">
 		<?php
 		// Mobile menu args.
 		$mobile_args = [
 			'theme_location'  => $menu_location,
 			'container'       => 'nav',
-			'container_class' => 'slside-menu',
-			'container_id'    => 'slide-menu',
+			'container_class' => '',
+			'container_id'    => '',
 			'menu_id'         => 'site-mobile-menu',
 			'menu_class'      => 'mobile-menu ',
 			'fallback_cb'     => false,
@@ -430,7 +428,6 @@ function _s_display_mobile_menu() {
 		// Display the mobile menu.
 		wp_nav_menu( $mobile_args );
 		?>
-	</div>
 	<?php
 }
 

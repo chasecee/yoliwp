@@ -20,8 +20,14 @@
 // Theme Elements
 //-----------------------------------------
 .site-main {
-	@apply my-0 mt-200;
+	@apply my-0 md:mt-200;
 	@at-root .home & {
+		@apply mt-0;
+	}
+	@at-root .page-template-template-product & {
+		@apply mt-0;
+	}
+	@at-root .page-template-template-product-yellow & {
 		@apply mt-0;
 	}
 }
@@ -30,24 +36,30 @@
 // Global Elements
 //-----------------------------------------
 html {
-	@apply text-11;
+	@apply text-12;
 	@screen md {
-		@apply text-14;
+		@apply text-12;
 	}
 	@screen xl {
-		@apply text-16;
+		@apply text-14;
 	}
 }
 body {
+	@apply text-18;
+	@screen md {
+		@apply text-16;
+	}
 	@apply font-sans antialiased text-brown-dark;
 }
-
+.button,
+.btn {
+	> svg {
+		@apply pointer-events-none;
+	}
+}
 .container {
 	@apply px-40;
 
-	@screen md {
-		@apply px-60;
-	}
 	@screen lg {
 		@apply px-80;
 	}

@@ -16,8 +16,9 @@ if (
 }
 
 function stickyNav() {
-	const headerEl = document.querySelector( '.js-site-header' );
-	const sentinalEl = document.querySelector( '.guide' );
+	const headerEl = document.querySelector( '.js-site-header' ),
+		sentinalEl = document.querySelector( '.guide' ),
+		headerSpacer = document.querySelector( '.header-spacer' );
 
 	const handler = ( entries ) => {
 		//console.log(entries);
@@ -28,8 +29,10 @@ function stickyNav() {
 		// Here observe whether or not that node is in the viewport
 		if ( ! entries[ 0 ].isIntersecting ) {
 			headerEl.classList.add( 'sticky-enabled' );
+			headerSpacer.classList.add( 'sticky-enabled-header' );
 		} else {
 			headerEl.classList.remove( 'sticky-enabled' );
+			headerSpacer.classList.remove( 'sticky-enabled-header' );
 		}
 	};
 

@@ -14,7 +14,7 @@
 		> li {
 			@apply pr-36 transition-colors duration-200;
 			a {
-				@apply block transition-colors duration-200 text-current;
+				@apply block transition-colors duration-200 text-current whitespace-nowrap;
 				line-height: 8.65;
 				border-bottom: 1px solid transparent;
 			}

@@ -8,25 +8,28 @@ body.page-template-template-home {
 .product-carousel {
 	@apply relative z-10 bg-tan;
 }
-.hero {
-	@apply relative h-200 overflow-hidden max-h-screen mt-60;
+// * {
+// 	outline: 1px solid rgba( 255, 0, 0, 0.125 );
+// }
 
-	height: calc( 100vh - 8.75rem );
+.hero {
+	@apply relative overflow-hidden md:max-h-screen md:-top-140;
+
+	height: 150vw;
 	overflow: hidden;
-	max-height: 56.26vw;
+	@screen md {
+		height: calc( 100vh - 3.75rem );
+		max-height: 56.26vw;
+	}
 
 	&-content {
-		@apply absolute bottom-0 container-l flex flex-col md:flex-row items-end pl-140 w-full justify-between z-10;
-		&-title {
-			@apply leading-tight text-60 text-white font-serif mb-68;
-			line-height: 1.2;
+		@apply absolute bottom-0 container flex flex-col md:flex-row md:items-end md:justify-between z-10;
+		@screen md {
+			@apply container-l pl-140 w-full;
 		}
-		&-button {
-			@apply text-28 bg-primary hover:bg-opacity-90 transition-colors text-tan py-50 pr-100 pl-120 flex items-center;
-			border-top-left-radius: 12.5rem;
-			svg {
-				@apply ml-20;
-			}
+		&-title {
+			@apply leading-tight text-40 md:text-60 text-white font-serif mb-30 md:mb-68;
+			line-height: 1.2;
 		}
 	}
 	&-gradient-svg {
@@ -46,7 +49,7 @@ body.page-template-template-home {
 	&-video {
 		@apply absolute w-full h-full inset-0 z-0;
 		iframe {
-			@apply absolute left-1/2 top-1/2;
+			@apply absolute left-1/2 top-1/2 hidden md:block pointer-events-none;
 			width: 110vw;
 			height: 52.85vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
 			min-height: 100vh;
@@ -57,27 +60,53 @@ body.page-template-template-home {
 }
 .intro {
 	@extend .container;
-	@apply flex py-100 items-center;
+	@apply relative flex flex-col md:flex-row pt-50 md:pt-0 pb-50 md:pb-100 items-center overflow-hidden;
 	&-left {
-		@apply relative w-1/4 self-end;
+		@apply relative w-2/3 self-start md:self-end -left-1/4 order-3 md:order-1;
+		padding-top: 75%;
+		@screen md {
+			@apply pt-0 left-0 w-1/4 h-auto;
+		}
 		&-a {
-			@apply relative w-2/3 left-1/4 top-100;
+			@apply absolute;
+			left: 20%;
+			right: 20%;
+			top: 0;
+			z-index: 1;
+			@screen md {
+				@apply relative w-2/3 left-1/4 -top-120 md:-top-100;
+			}
 		}
 		&-b {
-			@apply w-full;
+			@apply absolute bottom-0 w-full;
+			@screen md {
+				@apply w-full;
+			}
 		}
 	}
 	&-right {
-		@apply relative w-1/4 self-start;
+		@apply relative w-2/3 self-end -right-1/4 order-1 md:order-3;
+		padding-top: 75%;
+		@screen md {
+			@apply pt-0 w-1/4 self-start h-auto right-0;
+		}
 		&-a {
-			@apply w-full;
+			@apply absolute top-0 w-full;
+			@screen md {
+				@apply w-full;
+			}
 		}
 		&-b {
-			@apply relative w-2/3 left-1/4 -top-100;
+			@apply absolute;
+			left: 26%;
+			top: 10%;
+			@screen md {
+				@apply relative w-2/3 left-1/4 top-1/4;
+			}
 		}
 	}
 	&-content {
-		@apply w-1/2 py-200 text-center;
+		@apply md:w-1/2 md:pb-200 md:pt-100 text-center order-2;
 		&-inner {
 			@apply relative;
 			&::after {
@@ -85,13 +114,13 @@ body.page-template-template-home {
 				@apply absolute w-px bg-brown-dark h-120;
 			}
 			h2 {
-				@apply text-80 font-serif text-center mb-0;
+				@apply text-44 md:text-80 font-serif text-center mb-0;
 				span {
-					@apply block text-24 font-sans;
+					@apply block text-16 md:text-24 font-sans;
 				}
 			}
 			p {
-				@apply text-24 font-sans-alt mx-100 pb-30;
+				@apply md:text-24 font-sans-alt mx-0 md:mx-30 xl:mx-100 pb-30;
 			}
 		}
 	}
@@ -104,8 +133,7 @@ body.page-template-template-home {
 	}
 }
 .section-title {
-	@extend .container;
-	@apply my-200;
+	@apply container my-200;
 	&.section-title-mb-0 {
 		@apply mb-0;
 	}
@@ -115,23 +143,26 @@ body.page-template-template-home {
 			@apply w-3/4 mx-auto;
 		}
 		&-p {
-			@apply text-24 mb-36;
+			@apply md:text-24 mb-36;
 		}
 		&-h {
-			@apply text-48 mb-0 font-serif;
+			@apply text-28 md:text-48 mb-0 font-serif;
 		}
 	}
 }
 .cards {
-	@apply flex mx-10;
+	@apply flex mx-10 flex-wrap md:flex-nowrap;
 	.card {
-		@apply w-1/3 rounded-lg overflow-hidden;
+		@apply w-full md:w-1/3 mb-30 md:mb-0 rounded-lg overflow-hidden;
 		&:not( :last-child ) {
 			@apply mr-10;
 		}
 		&-inner {
 			@apply h-0 relative;
-			padding-top: 80%;
+			padding-top: 120%;
+			@screen md {
+				padding-top: 80%;
+			}
 		}
 		&-bg {
 			@apply absolute inset-0 bg-cover bg-center;
@@ -142,7 +173,7 @@ body.page-template-template-home {
 		&-content {
 			@apply absolute bottom-0 left-0 right-0 p-40 text-white;
 			&-title {
-				@apply text-48;
+				@apply text-32 md:text-48;
 			}
 			&-p {
 				@apply mb-0 w-4/5;
@@ -151,36 +182,39 @@ body.page-template-template-home {
 	}
 }
 .section-info {
-	@extend .container;
-	@apply flex justify-between;
+	@apply container flex flex-col md:flex-row justify-between;
 	&.section-process {
 		@apply mb-200;
 	}
 	&-a {
-		@apply relative w-6/12;
+		@apply relative w-full md:w-6/12;
 
 		&-video {
 			@apply relative leading-none rounded-lg overflow-hidden;
+			height: 90vw;
+			@screen md {
+				height: 22.5rem;
+			}
 			img {
-				@apply w-full;
+				@apply max-w-none object-cover object-center h-full;
 			}
 			&-gradient {
 				@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
 			}
 			svg {
-				@apply absolute top-1/2 left-1/2 transform-gpu -translate-y-1/2 -translate-x-1/2;
+				@apply w-80 md:w-140 absolute top-1/2 left-1/2 transform-gpu -translate-y-1/2 -translate-x-1/2;
 			}
 		}
 	}
 	&-b {
-		@apply relative w-4/12 text-center;
+		@apply relative w-full md:w-4/12 text-center;
 		&-p {
-			@apply mt-100 mx-20 text-28 font-sans-alt;
+			@apply mt-80 mb-30 md:mt-100 mx-20  md:text-28 font-sans-alt;
 		}
 		&-line {
 			@apply my-60;
 			.line {
-				@apply w-px h-140 mx-auto bg-black;
+				@apply w-px h-50 md:h-140 mx-auto bg-black;
 			}
 		}
 		&-image {
@@ -192,26 +226,31 @@ body.page-template-template-home {
 	}
 }
 .section-testimonials {
-	@extend .container;
-	@apply flex justify-center mb-200 mt-100;
-
+	@apply container flex justify-center mb-200 mt-100 overflow-x-scroll;
+	@screen md {
+		@apply w-full;
+	}
 	.section-testimonial {
-		@apply w-6/12 bg-primary overflow-hidden;
+		@apply w-full md:w-6/12 bg-primary overflow-hidden;
 		border-radius: 6.25rem 6.25rem 6.25rem 0;
 		&:not( :last-child ) {
 			@apply mr-60;
+			@apply hidden md:block;
 		}
 		&-inner {
 			@apply h-0 relative;
-			padding-top: 70%;
+			padding-top: 100%;
+			@screen md {
+				padding-top: 70%;
+			}
 		}
 		&-content {
 			@apply absolute bottom-0 left-0 right-0 p-40 text-white;
 			&-title {
-				@apply text-48;
+				@apply text-24 md:text-48;
 			}
 			&-p {
-				@apply w-4/5;
+				@apply w-full md:w-4/5;
 			}
 		}
 	}

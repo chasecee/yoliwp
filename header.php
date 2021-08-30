@@ -32,8 +32,9 @@
 
 	<div class="guide"></div>
 
+	<?php get_template_part( 'template-parts/site-alert' ); ?>
 
-
+	<div class="header-spacer"></div>
 
 	<?php
 	if ( is_page_template( 'template-product.php' ) ) {
@@ -47,10 +48,10 @@
 	}
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
-		<?php get_template_part( 'template-parts/site-alert' ); ?>
-			<div class="container ">
 
-					<nav id="site-navigation" class="main-navigation navigation-menu col-span-4" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
+			<div class="header-container">
+
+					<nav id="site-navigation" class="main-navigation navigation-menu nav-left" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
 						<?php
 							wp_nav_menu(
 								[
@@ -64,7 +65,7 @@
 							?>
 					</nav>
 
-					<div class="logo col-span-4 col-start-5 justify-self-center leading-none">
+					<div class="logo ">
 
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="inline-block">
 
@@ -74,7 +75,7 @@
 
 					</div>
 
-					<div class="nav-right col-span-4 col-start-9 justify-self-end">
+					<div class="nav-right">
 
 						<nav id="site-navigation-right" class="shop-navigation navigation-menu " aria-label="<?php esc_attr_e( 'Main Navigation Right', '_s' ); ?>">
 							<?php
@@ -94,10 +95,13 @@
 
 							</div>
 						</nav><!-- #site-navigation-->
-					</div>
+
 					<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) : ?>
-						<button type="button" class="off-canvas-open " data-target="slide-menu" data-action="toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>">Open</button>
+						<a href="#off-canvas-menu" class="off-canvas-open " data-target="slide-menu" data-action="toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>">
+							<?php get_template_part( '/src/images/icons/inline/inline', 'hamburger.svg' ); ?>
+						</a>
 					<?php endif; ?>
+					</div>
 			</div>
 
 			<div class="product-menu header-menu js-product-menu">

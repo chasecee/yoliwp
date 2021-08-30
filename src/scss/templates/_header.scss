@@ -1,28 +1,41 @@
 //--------------------------------------------------------------
 // Global Site Header
 //--------------------------------------------------------------
-.site-header {
-	@apply fixed left-0 right-0 top-0 h-200 z-30 text-brown-dark transition-colors duration-200;
 
-	.site-alert {
-		@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20;
-		> .container {
-			@apply px-40;
-		}
-	}
+.site-header {
+	@apply fixed md:relative left-0 right-0 top-0 h-100 md:h-140 z-30 text-brown-dark transform-gpu transition-all duration-100;
 
 	&.default {
 		@apply bg-white text-brown-dark;
 		border-bottom: 1px solid rgb( 0 0 0 / 16% );
 	}
 	&.bg-transparent-text-dark {
-		@apply text-brown-dark;
-		.site-alert {
-			@apply bg-white;
+		@apply text-white;
+		@screen md {
+			@apply text-brown-dark;
+		}
+		&.menu-group-active,
+		&.product-menu-active {
+			@apply bg-white text-brown-dark;
+
+			.menu-item-active,
+			.products-trigger {
+				@apply text-brown-dark;
+			}
 		}
 	}
 	&.bg-transparent-text-light {
 		@apply text-white;
+		&:hover,
+		&.menu-group-active,
+		&.product-menu-active {
+			@apply bg-white text-brown-dark;
+
+			.menu-item-active,
+			.products-trigger {
+				@apply text-brown-dark;
+			}
+		}
 	}
 	&.menu-group-active,
 	&.product-menu-active {
@@ -33,22 +46,74 @@
 		}
 	}
 	&.sticky-enabled {
-		@apply bg-white text-brown-dark;
-		.site-alert {
-			@apply bg-tan;
+		@apply fixed bg-white text-brown-dark -translate-y-24;
+		.logo {
+			svg {
+				@apply translate-y-12 duration-300  scale-90;
+			}
+		}
+		.nav-left,
+		.nav-right {
+			@apply translate-y-12;
 		}
 	}
 
-	> .container {
-		@apply relative px-40 grid grid-cols-12 items-center h-140;
-	}
 	a,
 	path,
 	ellipse {
-		@apply transition-colors duration-150 ease-in-out;
+		@apply transition-colors duration-100 ease-in-out;
+	}
+	> .header-container {
+		@apply relative px-30 md:px-40 grid grid-cols-12 items-center h-full;
+	}
+	.nav-left,
+	.nav-right {
+		@apply transform-gpu transition-all duration-100;
+	}
+	.nav-left {
+		@apply col-span-5;
+	}
+	.logo {
+		@apply col-span-6 md:col-span-2 md:text-center leading-none;
+		a {
+			@apply max-w-full w-80;
+			@screen md {
+				@apply w-auto;
+			}
+			svg {
+				@apply w-full;
+				width: 73px;
+				@screen md {
+					width: 113px;
+				}
+				@apply transition-transform transform duration-200  translate-y-0 origin-center scale-100;
+				transition-delay: 50ms;
+				backface-visibility: hidden;
+			}
+		}
+	}
+
+	.nav-right {
+		@apply col-span-5 col-start-10 justify-self-end;
 	}
 }
-
 .guide {
 	@apply absolute h-60 top-0 left-0;
+}
+.header-spacer {
+	@apply h-0 relative;
+	@screen md {
+		&.sticky-enabled-header {
+			@apply h-140;
+		}
+	}
+}
+.site-alert {
+	@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20 whitespace-nowrap hidden md:block;
+	> .container {
+		@apply px-40;
+	}
+	@at-root .page-template-template-product & {
+		@apply bg-white;
+	}
 }

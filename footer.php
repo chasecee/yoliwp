@@ -17,10 +17,10 @@
 		<div class="container">
 			<div class="footer-info">
 
-				<div class="flex">
+				<div class="footer-info-first">
 
 					<div class="footer-info-logo">
-					<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
+					<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline2.svg' ); ?>
 					</div>
 
 					<div class="footer-info-slogan">Yoli means life. Yoli is a company that helps people love their body and their life.</div>
@@ -64,8 +64,29 @@
 		</div>
 
 	</footer><!-- .site-footer container-->
-<div class="hidden">
-	<?php _s_display_mobile_menu(); ?>
+<div class="" id="off-canvas-container">
+	<div class="off-canvas-container-inner">
+		<button class="off-canvas-close">
+			<?php get_template_part( '/src/images/icons/inline/inline', 'close.svg' ); ?>
+		</button>
+		<?php _s_display_mobile_menu(); ?>
+
+		<div class="off-canvas-bottom">
+			<p>
+				Customer Support<br>
+				8 am MST - 7 pm MST<br>
+				801-727-0877 or 888-295-9009<br>
+				cs@yoli.com
+			</p>
+			<div class="social-links">
+				<a href="#" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+				<a href="#" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+				<a href="#" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+			</div>
+
+		</div>
+
+	</div>
 </div>
 	<?php wp_footer(); ?>
 

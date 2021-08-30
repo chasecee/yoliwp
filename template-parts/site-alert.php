@@ -18,7 +18,7 @@
 				<div class="flex items-center mr-0"><span class="">(801) 837-2451</span> </div>
 			</div>
 			<div class="text-center col-span-6 ">
-				Welcome to Jen Furness’ Experienceee
+				Welcome to Jen Furness’ Experience
 			</div>
 			<div class="col-span-3 flex justify-end">
 				<div class="flex items-center ml-24"><span class="mr-5">En</span> <?php get_template_part( '/src/images/icons/inline/inline', 'caret-down.svg' ); ?></div>

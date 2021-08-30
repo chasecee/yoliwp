@@ -2,33 +2,48 @@
 // Global Site Footer
 //--------------------------------------------------------------
 .site-footer {
-	@apply bg-white pt-100 overflow-hidden;
-	> .container {
-		@apply px-100;
-	}
+	@apply bg-white pt-50 md:pt-100 overflow-hidden;
+
 	.footer-info {
-		@apply flex justify-between;
+		@apply flex justify-between flex-col lg:flex-row;
+
+		.footer-info-first {
+			@apply flex flex-col md:flex-row items-center md:mb-50 lg:mb-0 lg:items-start lg:mr-30;
+		}
 		&-logo {
-			@apply text-primary relative;
-			top: -0.45rem;
-			width: 8.125rem;
-			height: 8.125rem;
+			@apply text-primary relative w-72 flex-none;
+			@screen xl {
+				top: -0.45rem;
+				width: 8.125rem;
+				height: 8.125rem;
+			}
 			svg {
 				@apply w-full h-full;
 			}
 		}
 		&-slogan {
-			@apply ml-160 font-sans-alt text-28 leading-36;
-			max-width: 21.875rem;
+			@apply text-center md:text-left my-50 md:my-0 md:ml-50 xl:ml-160 font-sans-alt text-20 md:text-24 xl:text-28 leading-snug;
+			@screen lg {
+				max-width: 21.875rem;
+			}
 		}
 		&-support {
 			@apply flex justify-between;
+			@screen lg {
+				max-width: 50%;
+			}
 			&-hours {
-				@apply relative;
-				margin-right: 10.625rem;
+				@apply w-6/12 mr-30 md:mr-50;
+				@screen xl {
+					@apply w-auto;
+					margin-right: 10.625rem;
+				}
 			}
 			&-telephone {
-				@apply relative;
+				@apply w-6/12 flex-none;
+				@screen md {
+					@apply w-auto;
+				}
 			}
 		}
 	}
@@ -41,7 +56,7 @@
 		background-color: #d1d1cf;
 	}
 	.footer-line {
-		@apply mt-120 mb-100;
+		@apply my-50 md:mt-120 md:mb-100;
 	}
 	.footer-line-bottom {
 		@apply mt-60 mb-60;
@@ -49,19 +64,22 @@
 }
 .footer-bottom {
 	@apply text-gray-medium flex text-16 justify-between mb-60;
-	.footer-location {
-		@apply mr-160;
+	.footer-copyright {
+		@apply flex-nowrap;
 	}
-	.social-links {
-		@apply text-gray-medium flex;
-		a {
-			@apply block w-26 h-26 ml-10;
-			&:first-child {
-				@apply ml-0;
-			}
-			svg {
-				@apply w-full h-full;
-			}
+	.footer-location {
+		@apply mr-160 hidden sm:block;
+	}
+}
+.social-links {
+	@apply text-gray-medium flex;
+	> a:not( .duh ) {
+		@apply block w-26 h-26 ml-10 p-0;
+		&:first-child {
+			@apply ml-0;
+		}
+		svg {
+			@apply w-full h-full;
 		}
 	}
 }
