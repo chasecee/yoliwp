@@ -38,7 +38,7 @@
 		}
 	}
 	&-image {
-		@apply absolute inset-0 bg-cover;
+		@apply absolute inset-0 bg-cover bg-fixed md:bg-scroll;
 		@screen md {
 			border-top-left-radius: 31.25rem;
 		}
