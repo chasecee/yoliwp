@@ -167,39 +167,45 @@ $button_text   = get_field( 'button_text' );
 						<h3 class="section-title-content-h">We protect the true nature of every plant, protein, and mineral in our products.</h3>
 					</div>
 				</div>
+				<div class="cards-container">
+					<div class="cards ">
+						<div class="card">
+							<div class="card-inner" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);">
+								<div class="card-gradient"></div>
 
-				<div class="cards">
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/nature.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">From Nature</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
 							</div>
 						</div>
-					</div>
 
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/powder.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">To Powder</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+						<div class="card">
+							<div class="card-inner" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/nature.jpg'; ?>);">
+								<div class="card-gradient"></div>
+								<div class="card-content">
+									<h3 class="card-content-title">From Nature</h3>
+									<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+								</div>
 							</div>
 						</div>
-					</div>
 
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">To Body</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+						<div class="card">
+							<div class="card-inner" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/powder.jpg'; ?>);">
+								<div class="card-gradient"></div>
+								<div class="card-content">
+									<h3 class="card-content-title">To Powder</h3>
+									<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+								</div>
 							</div>
 						</div>
+
+						<div class="card">
+							<div class="card-inner" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);">
+								<div class="card-gradient"></div>
+								<div class="card-content">
+									<h3 class="card-content-title">To Body</h3>
+									<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
+								</div>
+							</div>
+						</div>
+						<div class="card"></div>
 					</div>
 				</div>
 

@@ -10,8 +10,10 @@
  */
 
 ?>
+<?php get_template_part( 'web-alias/render-rep-banner' ); ?>
 <div class="site-alert">
 	<div class="container">
+
 		<div class="grid grid-cols-12 h-60 items-center">
 		<div class="col-span-3 flex justify-start">
 				<div class="flex items-center mr-24"><span class="">jen.furness@gmail.com</span> </div>

@@ -44,6 +44,7 @@
 		"postcss-preset-env": "^6.7.0",
 		"prettier": "npm:@wordpress/prettier-config",
 		"sass-loader": "10.2.0",
+		"scrollmagic": "^2.0.8",
 		"stylelint-config-prettier": "^8.0.2",
 		"stylelint-webpack-plugin": "^3.0.1",
 		"svg-spritemap-webpack-plugin": "4.2.0",
@@ -75,6 +76,7 @@
 		"watch": "run-p start sync"
 	},
 	"dependencies": {
-		"@glidejs/glide": "^3.4.1"
+		"@glidejs/glide": "^3.4.1",
+		"gsap": "^3.7.1"
 	}
 }

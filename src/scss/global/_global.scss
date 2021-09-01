@@ -46,6 +46,7 @@ html {
 }
 body {
 	@apply text-20;
+	@apply max-w-screen-xl mx-auto;
 	@screen md {
 		@apply text-18;
 	}
@@ -61,6 +62,7 @@ body {
 	}
 }
 .container {
+	@apply max-w-full;
 	@apply px-40;
 
 	@screen lg {

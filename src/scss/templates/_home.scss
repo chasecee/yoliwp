@@ -151,32 +151,61 @@ body.page-template-template-home {
 	}
 }
 .cards {
-	@apply flex mx-10 flex-wrap md:flex-nowrap;
+	&-container{
+		@apply overflow-x-hidden;
+	}
+	@apply flex  flex-nowrap;
 	.card {
-		@apply w-full md:w-1/3 mb-30 md:mb-0 rounded-lg overflow-hidden;
-		&:not( :last-child ) {
-			@apply mr-10;
+		@apply h-screen flex-shrink-0 flex items-center;
+
+		&.active{
+			.card-content {
+				@apply translate-y-0 opacity-100;
+			}
 		}
+		&:first-child{
+			width: 33vw;
+			@apply opacity-30;
+			 .card-inner{
+				border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+			}
+		}
+		&:last-child{
+			width: 30vw;
+		}
+		&:not( :last-child ) {
+			@apply mr-30;
+		}
+
 		&-inner {
-			@apply h-0 relative;
-			padding-top: 120%;
-			@screen md {
-				padding-top: 80%;
+			@apply bg-cover bg-center relative  rounded-xl overflow-hidden flex items-end;
+			@apply transition-transform transform-gpu -translate-y-20 duration-1000;
+			height: 80vw;
+			width: 80vw;
+			max-width: 60rem;
+			max-height: 60rem;
+			@screen md{
+				height: 47vw;
+			width: 60vw;
+			@at-root .trigger-is-active &{
+				@apply translate-y-0;
+			}
 			}
 		}
 		&-bg {
-			@apply absolute inset-0 bg-cover bg-center;
+			@apply absolute inset-0;
 		}
 		&-gradient {
 			@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
 		}
 		&-content {
-			@apply absolute bottom-0 left-0 right-0 p-40 text-white;
+			@apply p-40 md:pl-80 md:pb-80 md:pr-20 text-white  transform-gpu translate-y-10 opacity-70 transition-all duration-1000;
 			&-title {
 				@apply text-32 md:text-48;
 			}
 			&-p {
-				@apply mb-0 w-4/5;
+				@apply mb-0 lg:w-1/2;
 			}
 		}
 	}
@@ -193,10 +222,10 @@ body.page-template-template-home {
 			@apply relative leading-none rounded-lg overflow-hidden;
 			height: 90vw;
 			@screen md {
-				height: 22.5rem;
+				height: 26vw;
 			}
 			img {
-				@apply max-w-none object-cover object-center h-full;
+				@apply max-w-none object-cover object-center min-w-full min-h-full w-full;
 			}
 			&-gradient {
 				@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
@@ -226,7 +255,7 @@ body.page-template-template-home {
 	}
 }
 .section-testimonials {
-	@apply container flex justify-center mb-200 mt-100 overflow-x-scroll;
+	@apply container flex justify-center mb-200 mt-100 overflow-hidden;
 	@screen md {
 		@apply w-full;
 	}
