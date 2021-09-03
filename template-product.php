@@ -200,8 +200,8 @@ $foreground_color = get_field( 'foreground_color' );
 					$product_description_2 = get_field( 'product_description_2' );
 					$price                 = get_field( 'price' );
 					$price_monthly         = get_field( 'price_monthly' );
-
 				?>
+
 				<div class="product">
 					<div class="product-content">
 						<p class="product-content-servings">

@@ -75,6 +75,7 @@
 		"watch": "run-p start sync"
 	},
 	"dependencies": {
-		"@glidejs/glide": "^3.4.1"
+		"@glidejs/glide": "^3.4.1",
+		"composer": "^4.1.0"
 	}
 }

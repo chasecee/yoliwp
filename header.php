@@ -32,7 +32,6 @@
 
 	<div class="guide"></div>
 
-	<?php get_template_part( 'template-parts/site-alert' ); ?>
 
 	<div class="header-spacer"></div>
 

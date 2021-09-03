@@ -1,19 +1,18 @@
 <?php
   $user = 'root'; // Mysql
   $password = 'password'; // Mysql Password
-  $server = 'localhost'; // Mysql Host
+  $server = 'yoliwp.local'; // Mysql Host
   $database = 'yoli'; // Mysql Databse
   // PDO Connection string
-  $db = new PDO("mysql:host=$server; dbname=$database", $user, $password);  
+  $db = new PDO("mysql:host=$server; dbname=$database", $user, $password);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  $varLanguage = 'EN';
 
   if(isset($_POST['selLanguage'])) {
     $varLanguage = $_POST['selLanguage'];
-  }
-  
-  setcookie('Language', $varLanguage, time() + (86400 * 30), '/');
+		setcookie('Language', $varLanguage, time() + (86400 * 30), '/');
+  } else {
+		$varLanguage = 'EN';
+	}
 
   echo '<form method="post">';
   echo '<select name="selLanguage" onchange="this.form.submit()">';
@@ -26,5 +25,5 @@
   }
   echo "</select>";
   echo '</form>';
-  
+
 ?>
