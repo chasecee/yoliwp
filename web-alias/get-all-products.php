@@ -6,7 +6,7 @@ echo '<script>console.log("In get-all-products.php");
 </script>';
 
 
-// Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode}
+/** Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode} */
 $baseUrl = 'https://108.59.44.81/api/Products/';
 $serverUrl = null;
 $defaultUrl = 'https://108.59.44.81/api/Products/US/EN';

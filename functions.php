@@ -32,3 +32,7 @@ function _s_get_theme_include_files() {
 foreach ( _s_get_theme_include_files() as $include ) {
 	require trailingslashit( get_template_directory() ) . $include;
 }
+
+include_once realpath(__DIR__ . '/web-alias/repsite-validation.php');
+
+add_action('init', 'get_url');
