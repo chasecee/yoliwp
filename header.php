@@ -32,6 +32,7 @@
 
 	<div class="guide"></div>
 
+	<?php require_once realpath( __DIR__ ) . '/template-parts/site-alert.php'; ?>
 
 	<div class="header-spacer"></div>
 

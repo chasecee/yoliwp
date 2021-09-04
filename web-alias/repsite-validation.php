@@ -1,29 +1,9 @@
 <?php
+/** Get-rep is the helper function that makes the API call with the web alias; it's called in the web_alias function. */
+include_once 'get-rep.php';
+
 /**
- * 1) Get the URL and return the path.
- */
-function get_url() {
-	echo '<script>console.log("In get-url.php");</script>';
-
-	$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
-									"https" : "http") . "://" . $_SERVER['HTTP_HOST'] .
-									$_SERVER['REQUEST_URI'];
-
-	$path = parse_url($link)['path'];
-
-	$wpPagePaths = array('/corporphan', '/to-orphan', '/home', '/earn', '/our-story', '/product-data', '/products', '/passion');
-	foreach($wpPagePaths as $wpPagePath) {
-		if($path === $wpPagePath)   {
-			$path = '/to-orphan';
-		}
-	}
-	return web_alias($path);
-}
-?>
-
-<?php
-/**
- * 2) Check the web alias against the API and set the cookie when needed.
+ * Check the web alias against the API and set the cookie when needed.
 */
 function web_alias($path) {
 
@@ -52,7 +32,7 @@ function web_alias($path) {
     // c. If a web alias is entered but does not match that from the cookie, make a get-call to check the alias against the API.
     } elseif (('/' . strtolower($cookieAlias)) !== strtolower($path)) {
       echo '<script>console.log("Calling API to get new rep.")</script>';
-      $rep = get_rep_info($repUrl);
+      $rep = getRepInfo($repUrl);
 
       // If a valid web alias is returned, set the cookie.
       if($rep->customerId !== 50) {
@@ -67,7 +47,7 @@ function web_alias($path) {
 
     // a. If the path isn't the root, call the API with the repUrl as set above.
     if($path !== '/') {
-      $rep = get_rep_info($repUrl);
+      $rep = getRepInfo($repUrl);
 
       // If a valid web alias is returned, set the cookie.
       if($rep->customerId !== 50){
@@ -81,35 +61,9 @@ function web_alias($path) {
       echo '<script>console.log("Inside the else statement of the repsite validator: root path, no cookie.")</script>';
       $path = '/to-orphan';
       $repUrl = $baseUrl . $path;
-      $rep = get_rep_info($repUrl);
+      $rep = getRepInfo($repUrl);
       return $rep;
     }
   }
 }
-
-// Helper function to call the API as needed.
-function get_rep_info($url) {
-	$curl = curl_init($url);
-	// curl_setopt($curl, CURLOPT_URL, $url);
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-	//for debug only!
-	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-
-	// This responds with an error or the request body in json.
-	$curl_response = curl_exec($curl);
-	$rep = json_decode($curl_response);
-	if ($curl_response === false) {
-			$info = curl_getinfo($curl);
-			curl_close($curl);
-			die('An error occured during curl exec. Additional info: ' . var_export($info));
-	} elseif ($rep === null) { // This returns the nginx error page, if the response is a 502.
-		die ($curl_response);
-	} else {
-		curl_close($curl);
-		return $rep;
-	}
-}
-
 ?>

@@ -1,5 +1,9 @@
 <?php
+include_once 'repsite-validation.php';
 
+/**
+ * 1) Get the URL and return the path.
+ */
 
 function get_url() {
 	echo '<script>console.log("In get-url.php");</script>';
@@ -18,4 +22,3 @@ function get_url() {
 	}
 	return $path;
 }
-?>

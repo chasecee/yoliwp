@@ -199,7 +199,7 @@ $foreground_color = get_field( 'foreground_color' );
 					$size                  = 'full';
 					$product_description_2 = get_field( 'product_description_2' );
 
-					// Chad's code.
+					/** Chad's code. */
 					$arr_context_options = array(
 						'ssl' => array(
 							'verify_peer'      => false,
@@ -209,7 +209,7 @@ $foreground_color = get_field( 'foreground_color' );
 						/** The url needs to be built dynamically. */
 						$url = 'https://108.59.44.81/api/products/pricing/us/5748';
 
-						/** file_get_contents() is discouraged. Use wp_remote_get() for remote URLs instead. */
+						/** File_get_contents() is discouraged. Use wp_remote_get() for remote URLs instead. */
 						$resp  = file_get_contents( $url, false, stream_context_create( $arr_context_options ) );
 						$jresp = json_decode( $resp );
 						/** $price                 = get_field( 'price' );
