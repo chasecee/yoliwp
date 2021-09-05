@@ -1,10 +1,6 @@
 
 <?php
-include_once dirname(__DIR__, 1) . '/template-parts/site-alert.php';
-
-echo '<script>console.log("In get-all-products.php");
-</script>';
-
+include_once realpath(__DIR__ . '/..') . '/template-parts/site-alert.php';
 
 /** Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode} */
 $baseUrl = 'https://108.59.44.81/api/Products/';
@@ -18,6 +14,13 @@ $customerId = $rep->customerId;
 if (isset($_COOKIE['Country']) && isset($_COOKIE['Language'])) {
   $serverUrl = $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
 }
+
+// if ($serverUrl) {
+// 	$response = wp_remote_get($serverUrl);
+// 	$products = json_decode($response);
+// 	ehco 'The products: ';
+// 	var_export($products);
+// }
 
 if ($serverUrl) {
   $curl = curl_init($serverUrl);

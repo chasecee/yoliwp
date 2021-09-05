@@ -212,10 +212,10 @@ $foreground_color = get_field( 'foreground_color' );
 						/** File_get_contents() is discouraged. Use wp_remote_get() for remote URLs instead. */
 						$resp  = file_get_contents( $url, false, stream_context_create( $arr_context_options ) );
 						$jresp = json_decode( $resp );
-						/** $price                 = get_field( 'price' );
-						* $price_monthly         = get_field( 'price_monthly' ); */
 						$price         = $jresp->retailPriceFmtd;
 						$price_monthly = $jresp->autoshipPriceFmtd;
+						/** $price                 = get_field( 'price' );
+						* $price_monthly         = get_field( 'price_monthly' ); */
 					?>
 
 				<div class="product">

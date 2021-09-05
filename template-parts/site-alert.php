@@ -1,7 +1,7 @@
 <?php
-include_once realpath(__DIR__ . '/..') . '/web-alias/get-languages.php';
-include_once realpath(__DIR__ . '/..') . '/web-alias/get-countries.php';
-include_once realpath(__DIR__ . '/..') . '/web-alias/set-lang-country.php';
+include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
+include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
+include_once realpath(__DIR__ . '/..') . '/api/set-lang-country.php';
 
 $languages = get_languages();
 $countries = get_countries();
