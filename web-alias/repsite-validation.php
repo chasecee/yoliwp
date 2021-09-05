@@ -38,7 +38,9 @@ function web_alias($path) {
       if($rep->customerId !== 50) {
         $cookie_value = json_encode($rep);
         setcookie('Current_Rep', $cookie_value, time() + (86400 * 30), '/');
-      }
+      } else {
+				$rep = $decoded;
+			}
       return $rep;
     }
 
