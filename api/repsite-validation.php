@@ -1,71 +1,71 @@
 <?php
 /** Get-rep is the helper function that makes the API call with the web alias; it's called in the web_alias function. */
-include_once 'get-rep.php';
+require_once 'get-rep.php';
 
 /**
  * Check the web alias against the API and set the cookie when needed.
-*/
-function web_alias($path) {
+ */
+function web_alias( $path ) {
 
-  $baseUrl = 'https://108.59.44.81/api/alias';
-  $repUrl = $baseUrl . $path;
-  $cookie_name = 'Current_Rep';
+	$baseUrl     = 'https://108.59.44.81/api/alias';
+	$repUrl      = $baseUrl . $path;
+	$cookie_name = 'Current_Rep';
 
-  // 1. If the cookie has already been set, check it's web alias against the $path.
-  if (isset($_COOKIE[$cookie_name])) {
-    echo '<script>console.log("I\'m in the repsite-val if-statement: the cookie is set.")</script> <br>';
+	// 1. If the cookie has already been set, check it's web alias against the $path.
+	if ( isset( $_COOKIE[ $cookie_name ] ) ) {
+		echo '<script>console.log("I\'m in the repsite-val if-statement: the cookie is set.")</script> <br>';
 
-    $cookie = stripslashes($_COOKIE['Current_Rep']);
-    $decoded = json_decode($cookie);
-    $cookieAlias = $decoded->webAlias;
+		$cookie      = stripslashes( $_COOKIE['Current_Rep'] );
+		$decoded     = json_decode( $cookie );
+		$cookieAlias = $decoded->webAlias;
 
-    // a. If the root path is entered, return the rep from the cookie.
-    if($path === '/') {
-      echo '<script>console.log("I\'m in the repsite-val if-if statement: the cookie is set and the path === root.")</script>';
-      return $rep = $decoded;
+		// a. If the root path is entered, return the rep from the cookie.
+		if ( $path === '/' ) {
+			echo '<script>console.log("I\'m in the repsite-val if-if statement: the cookie is set and the path === root.")</script>';
+			return $rep = $decoded;
 
-      // b. If a web alias is entered and matches that from the cookie, return the rep from the cookie.
-    } elseif (strtolower($path) === ('/' . strtolower($cookieAlias))) {
-      echo '<script>console.log("Comparing path and cookie alias on repsite.")</script>';
-      return $rep = $decoded;
+			// b. If a web alias is entered and matches that from the cookie, return the rep from the cookie.
+		} elseif ( strtolower( $path ) === ( '/' . strtolower( $cookieAlias ) ) ) {
+			echo '<script>console.log("Comparing path and cookie alias on repsite.")</script>';
+			return $rep = $decoded;
 
-    // c. If a web alias is entered but does not match that from the cookie, make a get-call to check the alias against the API.
-    } elseif (('/' . strtolower($cookieAlias)) !== strtolower($path)) {
-      echo '<script>console.log("Calling API to get new rep.")</script>';
-      $rep = getRepInfo($repUrl);
+			// c. If a web alias is entered but does not match that from the cookie, make a get-call to check the alias against the API.
+		} elseif ( ( '/' . strtolower( $cookieAlias ) ) !== strtolower( $path ) ) {
+			echo '<script>console.log("Calling API to get new rep.")</script>';
+			$rep = getRepInfo( $repUrl );
 
-      // If a valid web alias is returned, set the cookie.
-      if($rep->customerId !== 50) {
-        $cookie_value = json_encode($rep);
-        setcookie('Current_Rep', $cookie_value, time() + (86400 * 30), '/');
-      } else {
+			// If a valid web alias is returned, set the cookie.
+			if ( $rep->customerId !== 50 ) {
+				$cookie_value = json_encode( $rep );
+				setcookie( 'Current_Rep', $cookie_value, time() + ( 86400 * 30 ), '/' );
+			} else {
 				$rep = $decoded;
 			}
-      return $rep;
-    }
+			return $rep;
+		}
 
-  // 2. If there is no cookie, make a get-call to the API.
-  } else {
+		// 2. If there is no cookie, make a get-call to the API.
+	} else {
 
-    // a. If the path isn't the root, call the API with the repUrl as set above.
-    if($path !== '/') {
-      $rep = getRepInfo($repUrl);
+		// a. If the path isn't the root, call the API with the repUrl as set above.
+		if ( $path !== '/' ) {
+			$rep = getRepInfo( $repUrl );
 
-      // If a valid web alias is returned, set the cookie.
-      if($rep->customerId !== 50){
-        $cookie_value = json_encode($rep);
-        setcookie('Current_Rep', $cookie_value, time() + (86400 * 30), '/');
-      }
-      return $rep;
+			// If a valid web alias is returned, set the cookie.
+			if ( $rep->customerId !== 50 ) {
+				$cookie_value = json_encode( $rep );
+				setcookie( 'Current_Rep', $cookie_value, time() + ( 86400 * 30 ), '/' );
+			}
+			return $rep;
 
-    // b. If the path is the root, set $path = '/to-orphan', reset the repUrl, and call the API to return corporphan. No cookie for corporphan.
-    } else {
-      echo '<script>console.log("Inside the else statement of the repsite validator: root path, no cookie.")</script>';
-      $path = '/to-orphan';
-      $repUrl = $baseUrl . $path;
-      $rep = getRepInfo($repUrl);
-      return $rep;
-    }
-  }
+			// b. If the path is the root, set $path = '/to-orphan', reset the repUrl, and call the API to return corporphan. No cookie for corporphan.
+		} else {
+			echo '<script>console.log("Inside the else statement of the repsite validator: root path, no cookie.")</script>';
+			$path   = '/to-orphan';
+			$repUrl = $baseUrl . $path;
+			$rep    = getRepInfo( $repUrl );
+			return $rep;
+		}
+	}
 }
-?>
+

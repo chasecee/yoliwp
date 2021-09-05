@@ -77,7 +77,7 @@
 	<exclude-pattern>/build/*</exclude-pattern>
 	<exclude-pattern>/node_modules/*</exclude-pattern>
 	<exclude-pattern>/vendor/*</exclude-pattern>
-	<exclude-pattern>/web-alias/*</exclude-pattern>
+	<exclude-pattern>/api/*</exclude-pattern>
 	<exclude-pattern>/template-parts/*</exclude-pattern>
 	<exclude-pattern>/template-product.php</exclude-pattern>
 	<exclude-pattern>/functions.php</exclude-pattern>
