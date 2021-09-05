@@ -12,10 +12,10 @@
 		@apply flex;
 
 		> li {
-			@apply pr-36 transition-colors duration-200;
+			@apply pr-36 transition-colors;
 			a {
-				@apply block transition-colors duration-200 text-current whitespace-nowrap;
-				line-height: 8.65;
+				@apply block transition-colors text-current whitespace-nowrap;
+
 				border-bottom: 1px solid transparent;
 			}
 			&.products-trigger a {

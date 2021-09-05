@@ -3,8 +3,10 @@
 //--------------------------------------------------------------
 
 .site-header {
-	@apply fixed md:relative left-0 right-0 top-0 h-100 md:h-140 z-30 text-brown-dark transform-gpu transition-all duration-100;
-
+	@apply relative  left-0 right-0 top-0 h-100 md:h-200 z-30 text-brown-dark transform-gpu transition-all duration-200;
+	.navigation-menu .menu li a {
+		line-height: 7.75;
+	}
 	&.default {
 		@apply bg-white text-brown-dark;
 		border-bottom: 1px solid rgb( 0 0 0 / 16% );
@@ -45,31 +47,24 @@
 			@apply text-brown-dark;
 		}
 	}
-	&.sticky-enabled {
-		@apply fixed bg-white text-brown-dark -translate-y-24;
+	&.stickyy-enabled {
+		@apply bg-white text-brown-dark;
 		.logo {
 			svg {
-				@apply translate-y-12 duration-300  scale-90;
+				@apply scale-100;
 			}
-		}
-		.nav-left,
-		.nav-right {
-			@apply translate-y-12;
 		}
 	}
 
 	a,
 	path,
 	ellipse {
-		@apply transition-colors duration-100 ease-in-out;
+		@apply transition-colors;
 	}
 	> .header-container {
-		@apply relative px-30 md:px-40 grid grid-cols-12 items-center h-full;
+		@apply relative px-30 md:px-40 grid grid-cols-12 items-center;
 	}
-	.nav-left,
-	.nav-right {
-		@apply transform-gpu transition-all duration-100;
-	}
+
 	.nav-left {
 		@apply col-span-5;
 	}
@@ -86,8 +81,8 @@
 				@screen md {
 					width: 113px;
 				}
-				@apply transition-transform transform duration-200  translate-y-0 origin-center scale-100;
-				transition-delay: 50ms;
+				@apply transition-transform transform-gpu scale-100;
+
 				backface-visibility: hidden;
 			}
 		}
@@ -98,18 +93,18 @@
 	}
 }
 .guide {
-	@apply absolute h-60 top-0 left-0;
+	@apply absolute h-80 top-0 left-0;
 }
 .header-spacer {
 	@apply h-0 relative;
 	@screen md {
 		&.sticky-enabled-header {
-			@apply h-140;
+			@apply h-0;
 		}
 	}
 }
 .site-alert {
-	@apply bg-tan text-brown-dark relative transition-colors duration-100 ease-timing-soft z-20 whitespace-nowrap hidden md:block;
+	@apply bg-tan text-brown-dark relative transition-colors z-20 whitespace-nowrap hidden md:block;
 	> .container {
 		@apply px-40;
 	}

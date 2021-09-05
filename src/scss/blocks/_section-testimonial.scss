@@ -1,0 +1,41 @@
+/* stylelint-disable selector-class-pattern */
+.column-carousel {
+	@apply mb-200 mt-100 overflow-hidden;
+	@screen md {
+		@apply container;
+	}
+
+	.section-testimonial {
+		@apply h-full flex items-end bg-primary overflow-hidden;
+		border-radius: 6.25rem 6.25rem 6.25rem 0;
+
+		&-inner {
+			@apply relative mt-150 md:mt-100;
+		}
+		&-content {
+			@apply p-40 text-white;
+			&-title {
+				@apply text-24 md:text-48;
+			}
+			&-p {
+				@apply w-full md:w-4/5;
+			}
+		}
+	}
+	.glide__slides {
+		@apply items-stretch;
+		.glide__slide {
+			@apply h-auto;
+			.section-testimonial {
+				@apply bg-opacity-70 transition-colors;
+				@apply md:bg-opacity-100;
+			}
+			&.glide__slide--active {
+				.section-testimonial {
+					@apply bg-opacity-100;
+				}
+			}
+		}
+	}
+}
+/* stylelint-enable selector-class-pattern */

@@ -6,12 +6,12 @@
 	}
 	&-info {
 		@apply container;
-		@apply relative z-10 mx-0  -mt-30 md:mt-100 md:mb-200 order-2 md:order-1;
+		@apply relative z-10 flex-none mx-0 md:mr-80 -mt-30 md:mt-100 md:mb-200 order-2 md:order-1;
 		@screen md {
-			@apply w-1/3 px-0;
+			@apply w-1/2 px-0;
 		}
 		@screen lg {
-			@apply w-2/5;
+			width: 34%;
 		}
 		&-pretitle {
 			@apply md:text-24 font-sans-alt;
@@ -26,8 +26,10 @@
 	&-bg {
 		@apply relative w-full order-1 md:order-2;
 		height: 40rem;
+		height: calc( 100vh - 12.5rem );
+		max-height: 62rem;
 		@screen lg {
-			width: 55%;
+			width: 53%;
 		}
 		&-circle-overlay {
 			@apply absolute bottom-0 left-0 right-0 h-150 w-full;
@@ -97,57 +99,7 @@
 		}
 	}
 }
-.ingredients-hover {
-	@apply relative overflow-hidden;
 
-	.ingredients-spacer {
-		@apply pt-200;
-		@screen md {
-			height: 25rem;
-		}
-	}
-	.ingredients-images {
-		@apply absolute inset-0 overflow-hidden bg-black;
-		border-top-left-radius: 9.375rem;
-		@screen md {
-			border-top-left-radius: 18.75rem;
-		}
-		.ingredients-image {
-			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-bottom ease-in;
-			&.target-open,
-			&:nth-child( 0 ) {
-				@apply opacity-100 duration-1000 ease-out;
-				--tw-scale-x: 1.025;
-				--tw-scale-y: 1.025;
-			}
-		}
-		&-backdrop {
-			@apply absolute inset-0 bg-gradient-to-t from-black opacity-80 z-10;
-		}
-	}
-	.ingredients-list {
-		@apply relative pb-100 z-20 text-white;
-		padding-top: 30rem;
-		.ingredients-name {
-			@apply text-gray-medium font-serif text-32 md:text-60  transition-all duration-150 inline-block no-underline;
-			line-height: 1.175;
-
-			&.ingredients-name-active,
-			&:hover {
-				@apply text-white underline;
-			}
-		}
-		&-title {
-			@apply md:text-28 text-white mb-20;
-		}
-		.ingredients-info {
-			@apply flex items-center text-18 leading-24 my-40;
-			svg {
-				@apply mr-40;
-			}
-		}
-	}
-}
 .cover {
 	&.cover-rounded {
 		@apply overflow-hidden;
@@ -196,7 +148,7 @@
 			@apply text-40 md:text-60 leading-tight mb-40;
 		}
 		&-p {
-			@apply md:text-28;
+			@apply md:text-24 lg:text-28;
 		}
 
 		&-cta {
@@ -211,6 +163,12 @@
 		img {
 			@apply relative mx-auto;
 		}
+	}
+}
+.recipes-container {
+	@apply mb-200;
+	.section-title-bars {
+		@apply container mb-100;
 	}
 }
 .section-title-bars {

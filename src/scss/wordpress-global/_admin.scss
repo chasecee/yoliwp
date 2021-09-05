@@ -2,8 +2,19 @@
 // Admin Overrides & Styles
 //--------------------------------------------------------------
 
-.block-editor-writing-flow {
-	@apply text-base leading-normal;
+.is-root-container {
+	@apply text-base leading-normal flex-row;
+
+	.cards {
+		@apply flex-wrap min-w-full;
+		.card {
+			@apply h-auto w-full;
+			&.card-first,
+			&.card-last {
+				@apply hidden;
+			}
+		}
+	}
 }
 
 // admin bar links custom

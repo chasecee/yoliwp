@@ -31,9 +31,7 @@
 
 	<div class="guide"></div>
 
-	<?php
-	get_template_part( 'template-parts/repsite-banner' );
-	?>
+
 
 	<div class="header-spacer"></div>
 
@@ -49,7 +47,9 @@
 	}
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
-
+		<?php
+		get_template_part( 'template-parts/repsite-banner' );
+		?>
 			<div class="header-container">
 
 					<nav id="site-navigation" class="main-navigation navigation-menu nav-left" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
