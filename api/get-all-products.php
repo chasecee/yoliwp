@@ -1,13 +1,10 @@
-<?php
-include 'get-country.php';
-include 'get-language.php';
-include 'render-rep-banner.php';
 
-// Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode}
-// $baseUrl = 'http://localhost/api/Products/';
+<?php
+include_once realpath(__DIR__ . '/..') . '/template-parts/site-alert.php';
+
+/** Get summary of all products for a country (populating the footer / modal menu): ​/api​/Products​/{countryCode}​/{languageCode} */
 $baseUrl = 'https://108.59.44.81/api/Products/';
 $serverUrl = null;
-// $defaultUrl = 'http://localhost/api/Products/US/EN';
 $defaultUrl = 'https://108.59.44.81/api/Products/US/EN';
 
 // Store the rep's info--whether real or corporphan.
@@ -18,6 +15,13 @@ if (isset($_COOKIE['Country']) && isset($_COOKIE['Language'])) {
   $serverUrl = $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
 }
 
+// if ($serverUrl) {
+// 	$response = wp_remote_get($serverUrl);
+// 	$products = json_decode($response);
+// 	ehco 'The products: ';
+// 	var_export($products);
+// }
+
 if ($serverUrl) {
   $curl = curl_init($serverUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -25,7 +29,7 @@ if ($serverUrl) {
     //for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-  
+
 } else { // Make the call for products with the default url.
   $curl = curl_init($defaultUrl);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -33,7 +37,7 @@ if ($serverUrl) {
     //for debug only!
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-  
+
 }
 
 // The products in JSON.
@@ -51,6 +55,11 @@ if ($curl_response === false) {
 }
 curl_close($curl);
 
+
+
+
+
+
 // Get the categories into their own array.
 $prodCategories = array();
 $value = null;
@@ -64,12 +73,12 @@ foreach($products as $category) {
 ?>
 
  <!-- Render the menu. *Note: the anchor tag with the href link and get method is just one way; you could use a button and the post method with global $_POST variable, instead of query params.-->
-<?php
+<!-- <?php
   echo '<table class="product-menu">';
   echo '<tr class="menu-categories">';
-  foreach($prodCategories as $category) { 
+  foreach($prodCategories as $category) {
     echo '<th id="' . $category . '">' . $category . '</th>';
-  } 
+  }
   echo '</tr>';
   echo '<tr class="menu-products">';
   echo '<td><a href="php/render-product.php?itemID=6044&itemCode=YESCAN-US&itemDescription=Yes Cannister&webCategoryDescription=Vitality&webAlias=' . $webAlias . '&customerId=' . $customerId . '">Yes Canister</></td>';
@@ -78,4 +87,7 @@ foreach($products as $category) {
   echo '<td><a href="php/render-product.php?itemID=6058&itemCode=TKPAS-CN-US&itemDescription=Dynamic T-kits Passion - Canister&webCategoryDescription=Transformation&webAlias=' .$webAlias . '&customerId=' . $customerId . '">Dynamic T-kits Passion - Canister</></td>';
   echo '</tr>';
   echo '</table>';
-?>
+
+
+?> -->
+

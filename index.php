@@ -12,7 +12,9 @@
  * @package _s
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 	<main id="main" class="container site-main">
 

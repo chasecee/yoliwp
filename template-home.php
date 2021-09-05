@@ -41,7 +41,6 @@ $button_text   = get_field( 'button_text' );
 								Lorem ipsum dolor<br>Sit amet adipiscing.
 								</h1>
 
-
 					</div>
 				</div>
 
