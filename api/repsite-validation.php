@@ -10,13 +10,18 @@ function web_alias( $path ) {
   $base_url = 'https://108.59.44.81/api/alias';
   $rep_url = $base_url . $path;
   $cookie_name = 'Current_Rep';
+
 	// 1. If the cookie has already been set, check it's web alias against the $path.
 	if ( isset( $_COOKIE[ $cookie_name ] ) ) {
 		echo '<script>console.log("I\'m in the repsite-val if-statement: the cookie is set.")</script> <br>';
 
-    $cookie = sanitize_text_field( wp_unslash($_COOKIE['Current_Rep'] ) );
+    $cookie = ($_COOKIE['Current_Rep'] );
     $decoded = json_decode($cookie);
     $cookie_alias = $decoded->webAlias;
+
+		// foreach ($decoded as $key => $value) {
+    //   if ($key === 'webAlias') $cookie_alias = $value;
+    // }
 
 		// a. If the root path is entered, return the rep from the cookie.
 		if ( $path === '/' ) {
@@ -33,9 +38,18 @@ function web_alias( $path ) {
       echo '<script>console.log("Calling API to get new rep.")</script>';
       $rep = get_rep_info($rep_url);
 
+			echo 'The rep inside repsite-validation: ';
+			var_export($rep);
+			echo '<br><br>';
+			echo 'rep->customerId: ' . $rep->customerId . '<br><br>';
+
 			// If a valid web alias is returned, set the cookie.
 			if ( $rep->customerId !== 50 ) {
 				$cookie_value = json_encode( $rep );
+
+				echo 'The cookie value in repsite validation: ';
+				var_export($cookie_value);
+				echo '<br><br>';
 				setcookie( 'Current_Rep', $cookie_value, time() + ( 86400 * 30 ), '/' );
 			} else {
 				$rep = $decoded;
@@ -53,6 +67,9 @@ function web_alias( $path ) {
 			// If a valid web alias is returned, set the cookie.
 			if ( $rep->customerId !== 50 ) {
 				$cookie_value = json_encode( $rep );
+				echo 'The cookie value in repsite validation when no cookie is set already: ';
+				var_export($cookie_value);
+				echo '<br><br>';
 				setcookie( 'Current_Rep', $cookie_value, time() + ( 86400 * 30 ), '/' );
 			}
 			return $rep;

@@ -262,7 +262,8 @@ function render_repsite_banner() {
 	include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
 
 	$path = get_url();
-	$rep  = web_alias( $path );
+	global $rep;
+	$rep = web_alias( $path );
 
 	// phpcs:ignore
 	if ( isset( $_POST ) ) {

@@ -5,14 +5,19 @@ include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 $languages = get_languages();
 $countries = get_countries();
 
-/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
-if ( isset($_COOKIE['Current_Rep'])) {
-	$cookie = stripslashes($_COOKIE['Current_Rep']);
-	$decoded = json_decode($cookie);
+$email = null;
+$phone = null;
+$welcome_message = null;
 
-	$email = $decoded->email;
-	$phone = $decoded->phone;
-	$welcome_message = 'Welcome to the ' . $decoded->firstName . ' ' . $decoded->lastName . ' experience!';
+echo 'The global rep on repsite-banner: ';
+var_export($rep);
+echo '<br><br>';
+
+/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
+if ($rep) {
+	$email = $rep->email;
+	$phone = $rep->phone;
+	$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
 
 } else {
 	$welcome_message = 'Welcome to Yoli!';
@@ -36,25 +41,23 @@ if ( isset($_COOKIE['Current_Rep'])) {
 			</div>
 			<form class="col-span-3 flex justify-end" method="post">
 				<div class="flex items-center ml-24">
-					<select class="mr-5" name="sel_language" onchange="this.form.submit()">
+				<select class="mr-5" name="sel_language" onchange="this.form.submit()">
+						<option selected="selected">Language</option>
 						<?php
-						while ( $row = $languages->fetch() ) {
-							$slctd = $language === $row[0] ? 'selected' : '';
-							echo '<option value="' . esc_attr($row[0]) . '"' . esc_attr($slctd) . ' >' . esc_html($row[1]) . '</option>';
-						}
-						?>
+						foreach ( $languages as $key => $option) { ?>
+							<option value="<?php echo $key ?>"><?php echo $option ?></option>
+						<?php }	?>
 					</select>
 				</div>
 			</form>
 			<form class="col-span-3 flex justify-end" method="post">
 				<div class="flex items-center ml-24" >
-					<select class="mr-5" name="sel_country" onchange="this.form.submit()">
+				<select class="mr-5" name="sel_country" onchange="this.form.submit()">
+						<option selected="selected">Country</option>
 						<?php
-						while ( $row = $countries->fetch() ) {
-							$slctd = $country === $row[0] ? 'selected' : '';
-							echo '<option value="' . esc_attr($row[0]) . '"' . esc_attr($slctd) . ' >' . esc_html($row[1]) . '</option>';
-						}
-						?>
+							foreach ( $countries as $key => $option) { ?>
+								<option value="<?php echo $key ?>"><?php echo $option ?></option>
+						<?php }	?>
 					</select>
 				</div>
 			</form>
