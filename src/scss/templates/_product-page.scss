@@ -25,10 +25,16 @@
 	}
 	&-bg {
 		@apply relative w-full order-1 md:order-2;
-		height: 40rem;
-		height: calc( 100vh - 12.5rem );
+		height: 30rem;
+		height: calc( 100vh - 20rem );
+		@screen md {
+			height: 40rem;
+			height: calc( 100vh - 12.5rem );
+		}
+
 		max-height: 62rem;
 		@screen lg {
+			min-height: 50rem;
 			width: 53%;
 		}
 		&-circle-overlay {
@@ -132,51 +138,14 @@
 		}
 	}
 }
-.product {
-	@apply container;
-	@apply flex flex-col md:flex-row items-center justify-between py-100;
-	@screen md {
-		@apply pr-0;
-	}
-	&-content {
-		@apply relative w-full md:w-2/5 order-2 md:order-1;
 
-		&-servings {
-			@apply font-sans-alt text-20;
-		}
-		&-title {
-			@apply text-40 md:text-60 leading-tight mb-40;
-		}
-		&-p {
-			@apply md:text-24 lg:text-28;
-		}
-
-		&-cta {
-			@apply mt-50;
-			button:first-child {
-				@apply mb-20;
-			}
-		}
-	}
-	&-image {
-		@apply w-full md:w-1/2 order-1 md:order-2;
-		img {
-			@apply relative mx-auto;
-		}
-	}
-}
 .recipes-container {
 	@apply mb-200;
 	.section-title-bars {
 		@apply container mb-100;
 	}
 }
-.section-title-bars {
-	@apply my-200 text-center;
-	&-h {
-		@apply font-sans-alt text-28 leading-none py-20 border-t border-b;
-	}
-}
+
 .p-reviews {
 	@apply mb-150;
 	&-title {

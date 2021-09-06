@@ -49,10 +49,8 @@ function glideInit() {
 			} );
 		} ); // end foreach slider
 	}
-
-	const recipeSliders = document.querySelectorAll(
-		'.recipes-carousel>.glide'
-	);
+	// for carousels with a focus in the center
+	const recipeSliders = document.querySelectorAll( '.focus-carousel>.glide' );
 
 	if ( recipeSliders ) {
 		recipeSliders.forEach( ( slider ) => {
@@ -76,7 +74,7 @@ function glideInit() {
 						swipeThreshold: 100,
 						dragThreshold: 100,
 						focusAt: 'center',
-						peek: 100,
+						peek: 75,
 						gap: 0,
 						keyboard: true,
 					},
@@ -87,6 +85,7 @@ function glideInit() {
 		} ); // end foreach slider
 	}
 
+	// for carousels with equal cols
 	const columnSliders = document.querySelectorAll(
 		'.column-carousel>.glide'
 	);
@@ -117,6 +116,30 @@ function glideInit() {
 			};
 			const glide = new Glide( slider, columnSlidersconf );
 			glide.mount( { Breakpoints } );
+		} ); // end foreach slider
+	}
+	// for carousels with equal cols
+	const beforeAfterSliders = document.querySelectorAll(
+		'.before-after-carousel>.glide'
+	);
+
+	if ( beforeAfterSliders ) {
+		beforeAfterSliders.forEach( ( slider ) => {
+			const columnSlidersconf = {
+				type: 'slider',
+
+				bound: true,
+				rewind: false,
+				startAt: 0,
+				perView: 1,
+				gap: 60,
+			};
+			const glide = new Glide( slider, columnSlidersconf ).mount();
+
+			const forward = document.querySelector( '#direction-right' );
+			forward.addEventListener( 'click', function () {
+				glide.go( '>' );
+			} );
 		} ); // end foreach slider
 	}
 }

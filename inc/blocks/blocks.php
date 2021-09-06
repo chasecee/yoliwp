@@ -110,6 +110,108 @@ function be_register_blocks() {
 				),
 			)
 		);
+		// section-title-bars.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-title-bars',
+				'title'           => __( 'Section Title Bars', '_s' ),
+				'render_template' => '/inc/blocks/block-section-title-bars.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-kit-slider.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-kit-slider',
+				'title'           => __( 'Section Kit Slider', '_s' ),
+				'render_template' => '/inc/blocks/block-section-kit-slider.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-before-after-slider.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-before-after-slider',
+				'title'           => __( 'Section Before After Slider', '_s' ),
+				'render_template' => '/inc/blocks/block-section-before-after-slider.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// product-cta.
+		acf_register_block_type(
+			array(
+				'name'            => 'product-cta',
+				'title'           => __( 'Product Cta', '_s' ),
+				'render_template' => '/inc/blocks/block-product-cta.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-big-cta.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-big-cta',
+				'title'           => __( 'Section Big Cta', '_s' ),
+				'render_template' => '/inc/blocks/block-section-big-cta.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-hero.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-hero',
+				'title'           => __( 'Section Hero', '_s' ),
+				'render_template' => '/inc/blocks/block-section-hero.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
 
 }
 add_action( 'acf/init', 'be_register_blocks' );

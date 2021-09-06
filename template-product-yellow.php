@@ -293,7 +293,7 @@ $foreground_color = get_field( 'foreground_color' );
 						<h4 class="section-title-bars-h">Recipes</h4>
 					</div>
 
-					<div class="column-carousel recipes-carousel">
+					<div class="recipes-carousel focus-carousel">
 
 						<div class="glide" data-per-view="3">
 

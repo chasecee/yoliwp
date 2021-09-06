@@ -18,6 +18,7 @@ if ( isset($_COOKIE['Current_Rep'])) {
 	$welcome_message = 'Welcome to Yoli!';
 }
 ?>
+
 <div class="site-alert">
 	<div class="container">
 

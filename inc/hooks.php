@@ -254,3 +254,63 @@ function _s_disable_wpautop_for_gutenberg() {
 }
 
 add_filter( 'init', '_s_disable_wpautop_for_gutenberg', 9 );
+
+/**
+ * Function to filter svg code from wp editor.
+ *
+ * @author Corey Collins
+ */
+function get_kses_extended_ruleset() {
+	$kses_defaults = wp_kses_allowed_html( 'post' );
+
+	$svg_args = array(
+		'svg'    => array(
+			'class'           => true,
+			'aria-hidden'     => true,
+			'aria-labelledby' => true,
+			'role'            => true,
+			'xmlns'           => true,
+			'width'           => true,
+			'height'          => true,
+			'viewbox'         => true, // <= Must be lower case!
+		),
+		'g'      => array(
+			'fill'         => true,
+			'transform'    => true,
+			'stroke'       => true,
+			'id'           => true,
+			'stroke-width' => true,
+		),
+		'title'  => array( 'title' => true ),
+		'path'   => array(
+			'd'           => true,
+			'fill'        => true,
+			'transform'   => true,
+			'stroke'      => true,
+			'strokewidth' => true,
+			'id'          => true,
+		),
+		'circle' => array(
+			'd'         => true,
+			'r'         => true,
+			'fill'      => true,
+			'transform' => true,
+			'stroke'    => true,
+			'cx'        => true,
+			'cy'        => true,
+			'id'        => true,
+		),
+	);
+	return array_merge( $kses_defaults, $svg_args );
+}
+
+/**
+ * Add styles to wp editor
+ *
+ * @author Corey Collins
+ */
+function custom_editor_styles() {
+	add_editor_style( 'editor-styles.css' );
+}
+
+add_action( 'admin_init', 'custom_editor_styles' );

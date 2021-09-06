@@ -31,14 +31,14 @@
 
 	<div class="guide"></div>
 
-	<?php require_once realpath( __DIR__ ) . '/template-parts/site-alert.php'; ?>
-
-	<div class="header-spacer"></div>
+	<?php // require_once realpath( __DIR__ ) . '/template-parts/repsite-banner.php'; ?>
 
 	<?php
 	if ( is_page_template( 'template-product.php' ) ) {
 		$header_class = 'bg-transparent-text-dark';
 	} elseif ( is_page_template( 'template-product-yellow.php' ) ) {
+		$header_class = 'bg-transparent-text-dark';
+	} elseif ( is_page_template( 'template-product-blocks.php' ) ) {
 		$header_class = 'bg-transparent-text-dark';
 	} elseif ( is_page_template( 'template-home.php' ) ) {
 		$header_class = 'bg-transparent-text-light';
@@ -48,8 +48,9 @@
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
 		<?php
-		get_template_part( 'template-parts/repsite-banner' );
+		// get_template_part( 'template-parts/repsite-banner' );
 		?>
+		<div class="site-alert h-60"></div>
 			<div class="header-container">
 
 					<nav id="site-navigation" class="main-navigation navigation-menu nav-left" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
@@ -91,7 +92,6 @@
 							);
 							?>
 							<div class="ml-32">
-
 								<?php get_template_part( '/src/images/icons/inline/inline', 'bag.svg' ); ?>
 
 							</div>

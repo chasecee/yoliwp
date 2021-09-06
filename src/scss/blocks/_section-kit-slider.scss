@@ -1,0 +1,76 @@
+/* stylelint-disable selector-class-pattern */
+.focus-carousel {
+	@apply relative my-100;
+	@screen md {
+		@apply container;
+	}
+	@screen lg {
+		@apply mx-auto;
+		max-width: 1400px;
+	}
+	.glide--swipeable {
+		@screen md {
+			cursor: inherit;
+		}
+	}
+	.glide__slides {
+		@apply md:items-center;
+
+		.glide__slide {
+			.focus-carousel-image {
+				@apply mb-16 transform-gpu scale-75 md:scale-100 transition-transform;
+				@screen md {
+					height: 30vw;
+				}
+				img {
+					@apply object-cover object-center w-full h-full;
+				}
+			}
+			.focus-carousel-content {
+				@apply transform-gpu transition-transform;
+				--tw-translate-x: 12%;
+				--tw-translate-y: -100%;
+				@screen md {
+					--tw-translate-x: 0;
+					--tw-translate-y: 0;
+				}
+			}
+			&.glide__slide--active {
+				.focus-carousel-image {
+					@apply scale-100;
+					@screen md {
+						height: 40vw;
+						@apply relative;
+						left: -15%;
+						width: 130%;
+					}
+					@screen lg {
+						left: -10%;
+						width: 120%;
+					}
+					@screen xl {
+						left: -5%;
+						width: 110%;
+					}
+				}
+				.focus-carousel-content {
+					@apply translate-y-0 translate-x-0;
+					@screen md {
+						@apply relative;
+						left: -15%;
+						width: 130%;
+					}
+					@screen lg {
+						left: -10%;
+						width: 120%;
+					}
+					@screen xl {
+						left: -5%;
+						width: 110%;
+					}
+				}
+			}
+		}
+	}
+}
+/* stylelint-enable selector-class-pattern */

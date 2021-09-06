@@ -3,17 +3,38 @@
 //--------------------------------------------------------------
 
 .site-header {
-	@apply relative  left-0 right-0 top-0 h-100 md:h-200 z-30 text-brown-dark transform-gpu transition-all duration-200;
+	@apply fixed md:relative  left-0 right-0 top-0 h-auto md:h-200 z-30 text-brown-dark transform-gpu transition-all duration-200;
 	.navigation-menu .menu li a {
 		line-height: 7.75;
 	}
+
 	&.default {
-		@apply bg-white text-brown-dark;
-		border-bottom: 1px solid rgb( 0 0 0 / 16% );
+		@apply bg-transparent text-brown-dark border-b-0;
+
+		&.product-menu-active {
+			@apply bg-white text-gray-medium;
+
+			.nav-left {
+				@apply text-gray-medium;
+				&.menu-group-active {
+					@apply text-gray-medium;
+				}
+			}
+			.products-trigger {
+				@apply text-brown-dark;
+			}
+
+			@apply bg-white text-brown-dark;
+		}
+		.menu-group-active {
+			@apply text-gray-medium;
+		}
 	}
 	&.bg-transparent-text-dark {
-		@apply text-white;
+		@apply bg-white;
 		@screen md {
+			@apply bg-transparent;
+			@apply text-white;
 			@apply text-brown-dark;
 		}
 		&.menu-group-active,
@@ -36,22 +57,6 @@
 			.menu-item-active,
 			.products-trigger {
 				@apply text-brown-dark;
-			}
-		}
-	}
-	&.menu-group-active,
-	&.product-menu-active {
-		@apply text-gray-medium;
-		.menu-item-active,
-		.products-trigger {
-			@apply text-brown-dark;
-		}
-	}
-	&.stickyy-enabled {
-		@apply bg-white text-brown-dark;
-		.logo {
-			svg {
-				@apply scale-100;
 			}
 		}
 	}
@@ -91,6 +96,18 @@
 	.nav-right {
 		@apply col-span-5 col-start-10 justify-self-end;
 	}
+	.site-alert {
+		@apply bg-white text-brown-dark relative transition-colors z-20 whitespace-nowrap hidden md:block;
+		> .container {
+			@apply px-40;
+		}
+		@at-root .page-template-template-home & {
+			@apply bg-tan;
+		}
+		@at-root .page-template-template-earn & {
+			@apply bg-white;
+		}
+	}
 }
 .guide {
 	@apply absolute h-80 top-0 left-0;
@@ -101,14 +118,5 @@
 		&.sticky-enabled-header {
 			@apply h-0;
 		}
-	}
-}
-.site-alert {
-	@apply bg-tan text-brown-dark relative transition-colors z-20 whitespace-nowrap hidden md:block;
-	> .container {
-		@apply px-40;
-	}
-	@at-root .page-template-template-product & {
-		@apply bg-white;
 	}
 }
