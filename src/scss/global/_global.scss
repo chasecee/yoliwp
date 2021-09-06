@@ -20,7 +20,7 @@
 // Theme Elements
 //-----------------------------------------
 .site-main {
-	@apply my-0 md:mt-200;
+	@apply my-0 md:mt-100;
 	@at-root .home & {
 		@apply mt-0;
 	}

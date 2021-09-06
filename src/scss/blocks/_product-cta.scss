@@ -1,0 +1,33 @@
+.product {
+	@apply container;
+	@apply flex flex-col md:flex-row items-center justify-between my-100;
+	@screen md {
+		@apply pr-0;
+	}
+	&-content {
+		@apply relative w-full md:w-2/5 order-2 md:order-1;
+
+		&-servings {
+			@apply font-sans-alt text-20;
+		}
+		&-title {
+			@apply text-40 md:text-60 leading-tight mb-40;
+		}
+		&-p {
+			@apply md:text-24 lg:text-28;
+		}
+
+		&-cta {
+			@apply mt-50;
+			button:first-child {
+				@apply mb-20;
+			}
+		}
+	}
+	&-image {
+		@apply w-full md:w-1/2 order-1 md:order-2;
+		img {
+			@apply relative mx-auto;
+		}
+	}
+}

@@ -1,0 +1,29 @@
+/* stylelint-disable selector-class-pattern */
+.before-after-carousel {
+	@apply relative container my-72 md:my-160;
+	&-content {
+		@apply flex flex-col md:flex-row justify-between;
+		&-image {
+			@apply md:w-2/5 order-1 md:order-2;
+			img {
+				@apply w-full;
+			}
+		}
+		&-text {
+			@apply md:w-1/2 my-20 md:my-0 order-2 md:order-1;
+			&-quote {
+				@apply text-28 md:text-60;
+			}
+		}
+	}
+	.glide {
+		@apply pb-40 md:pb-0;
+		.glide__arrows {
+			@apply pl-0 -bottom-30 md:bottom-20;
+			> div {
+				@apply text-brown text-opacity-50 hover:text-opacity-100;
+			}
+		}
+	}
+}
+/* stylelint-enable selector-class-pattern */

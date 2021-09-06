@@ -1,0 +1,12 @@
+.section-big-cta {
+	@apply bg-gray-dark text-center container flex justify-center;
+	&-inner {
+		@apply md:w-1/2 py-140 text-white;
+		&-heading {
+			@apply text-28 md:text-60 mb-40;
+		}
+		.btn {
+			@apply bg-white;
+		}
+	}
+}

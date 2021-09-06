@@ -1,0 +1,12 @@
+.section-title-bars {
+	@apply my-72 md:my-200 text-center container;
+	&-h {
+		@apply font-sans-alt md:text-28 leading-none py-20 border-t border-b;
+	}
+	&.no-mb {
+		@apply mb-0;
+	}
+	&.no-mt {
+		@apply mt-0;
+	}
+}

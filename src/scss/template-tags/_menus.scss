@@ -31,6 +31,11 @@
 				@apply text-brown-dark;
 			}
 		}
+		> div > .menu-item {
+			&.menu-item-active {
+				@apply text-brown-dark bg-warning;
+			}
+		}
 		&.menu-right {
 			> li {
 				@apply pr-0 pl-36;

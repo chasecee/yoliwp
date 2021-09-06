@@ -17,6 +17,21 @@
 	}
 }
 
+/* Main column width */
+.wp-block {
+	width: 720px;
+	max-width: 100%;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align='wide'] {
+	max-width: 1080px;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align='full'] {
+	max-width: none;
+}
 // admin bar links custom
 .admin-links {
 	@apply fixed top-0 left-0 z-50 flex text-14 text-center rounded-br-md overflow-hidden;

@@ -14,7 +14,7 @@ function web_alias( $path ) {
 	if ( isset( $_COOKIE[ $cookie_name ] ) ) {
 		echo '<script>console.log("I\'m in the repsite-val if-statement: the cookie is set.")</script> <br>';
 
-    $cookie = stripslashes($_COOKIE['Current_Rep']);
+    $cookie = sanitize_text_field( wp_unslash($_COOKIE['Current_Rep'] ) );
     $decoded = json_decode($cookie);
     $cookie_alias = $decoded->webAlias;
 
