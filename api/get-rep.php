@@ -1,6 +1,6 @@
 <?php
 
-function getRepInfo($url) {
+function get_rep_info($url) {
 	if (!$url) throw new Exception('Bad url.');
 
 	try {
