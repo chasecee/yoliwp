@@ -31,7 +31,7 @@
 
 	<div class="guide"></div>
 
-	<?php require_once realpath( __DIR__ ) . '/template-parts/site-alert.php'; ?>
+	<?php require_once realpath( __DIR__ ) . '/template-parts/repsite-banner.php'; ?>
 
 	<div class="header-spacer"></div>
 
