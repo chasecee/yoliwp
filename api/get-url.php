@@ -14,9 +14,11 @@ function get_url() {
 
 	$path = parse_url( $link )['path'];
 
-	$wpPagePaths = array( '/corporphan', '/to-orphan', '/home', '/earn', '/our-story', '/product-data', '/products', '/passion' );
-	foreach ( $wpPagePaths as $wpPagePath ) {
-		if ( $path === $wpPagePath ) {
+	// Will return all valid pages.
+	$wp_pages = array_column(get_pages(), 'post_name');
+	// $wpPagePaths = array( '/corporphan', '/to-orphan', '/home', '/earn', '/our-story', '/product-data', '/products', '/passion' );
+	foreach ( $wp_pages as $wp_page ) {
+		if ( $path === $wp_page ) {
 			$path = '/to-orphan';
 		}
 	}

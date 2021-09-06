@@ -1,7 +1,6 @@
 <?php
 include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
-include_once realpath(__DIR__ . '/..') . '/api/set-lang-country.php';
 
 $languages = get_languages();
 $countries = get_countries();
@@ -14,6 +13,7 @@ if ( isset($_COOKIE['Current_Rep'])) {
 	$email = $decoded->email;
 	$phone = $decoded->phone;
 	$welcome_message = 'Welcome to the ' . $decoded->firstName . ' ' . $decoded->lastName . ' experience!';
+
 } else {
 	$welcome_message = 'Welcome to Yoli!';
 }
