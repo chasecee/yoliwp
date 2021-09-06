@@ -1,5 +1,7 @@
 // import Glide from '@glidejs/glide/dist/glide.modular.esm';
 import Glide from '@glidejs/glide';
+import { Breakpoints } from '@glidejs/glide/dist/glide.modular.esm';
+
 // Make sure everything is loaded first.
 if (
 	( 'complete' === document.readyState ||
@@ -12,7 +14,7 @@ if (
 }
 
 function glideInit() {
-	const sliders = document.querySelectorAll( '.glide' );
+	const sliders = document.querySelectorAll( '.product-carousel>.glide' );
 	const conf = {
 		type: 'carousel',
 		animationDuration: 500,
@@ -45,6 +47,76 @@ function glideInit() {
 					changeActiveBullet( glide.index, bulletsContainerElement )
 				);
 			} );
+		} ); // end foreach slider
+	}
+
+	const recipeSliders = document.querySelectorAll(
+		'.recipes-carousel>.glide'
+	);
+
+	if ( recipeSliders ) {
+		recipeSliders.forEach( ( slider ) => {
+			const dataPerView = slider.dataset.perView;
+			const columnSlidersconf = {
+				type: 'slider',
+
+				bound: true,
+				rewind: false,
+				startAt: 1,
+				perView: dataPerView,
+				swipeThreshold: false,
+				dragThreshold: false,
+				focusAt: 'center',
+				gap: 60,
+				keyboard: false,
+
+				breakpoints: {
+					767: {
+						perView: 1,
+						swipeThreshold: 100,
+						dragThreshold: 100,
+						focusAt: 'center',
+						peek: 100,
+						gap: 0,
+						keyboard: true,
+					},
+				},
+			};
+			const glide = new Glide( slider, columnSlidersconf );
+			glide.mount( { Breakpoints } );
+		} ); // end foreach slider
+	}
+
+	const columnSliders = document.querySelectorAll(
+		'.column-carousel>.glide'
+	);
+
+	if ( columnSliders ) {
+		columnSliders.forEach( ( slider ) => {
+			const dataPerView = slider.dataset.perView;
+			const columnSlidersconf = {
+				type: 'slider',
+
+				bound: true,
+				rewind: false,
+				startAt: 0,
+				perView: dataPerView,
+				gap: 60,
+
+				breakpoints: {
+					767: {
+						perView: 1,
+						swipeThreshold: 100,
+						dragThreshold: 100,
+						focusAt: 'center',
+						peek: 80,
+						gap: 20,
+						keyboard: true,
+					},
+				},
+			};
+			const glide = new Glide( slider, columnSlidersconf );
+			glide.mount( { Breakpoints } );
 		} ); // end foreach slider
 	}
 }

@@ -288,47 +288,60 @@ $foreground_color = get_field( 'foreground_color' );
 					</div>
 				</div>
 
-				<div class="container">
+				<div class="recipes-container">
 					<div class="section-title-bars">
 						<h4 class="section-title-bars-h">Recipes</h4>
 					</div>
+
+					<div class="column-carousel recipes-carousel">
+
+						<div class="glide" data-per-view="3">
+
+							<div class="glide__track" data-glide-el="track">
+								<ul class="glide__slides">
+
+									<?php if ( have_rows( 'recipes' ) ) : ?>
+										<?php
+										while ( have_rows( 'recipes' ) ) :
+											the_row();
+											?>
+
+											<li class="glide__slide">
+
+												<div class="recipes-carousel-image">
+													<?php
+													$image = get_sub_field( 'image' );
+													$size  = 'full';
+													if ( $image ) {
+														$url = wp_get_attachment_url( $image );
+														echo wp_get_attachment_image( $image, $size );
+													};
+													?>
+												</div>
+
+												<div class="recipes-carousel-content">
+													<?php $recipe_title = get_sub_field( 'recipe_title' ); ?>
+													<?php if ( $recipe_title ) : ?>
+														<div class="recipes-carousel-content-title">
+															<?php echo esc_html( $recipe_title ); ?>
+														</div>
+													<?php endif; ?>
+													<div class="recipes-carousel-content-link">
+													View Recipe
+													</div>
+												</div>
+
+											</li>
+
+										<?php endwhile; ?>
+									<?php endif; ?>
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
-
-				<!-- <div class="cards">
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/nature.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">From Nature</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/powder.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">To Powder</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="card">
-						<div class="card-inner">
-							<div class="card-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/body.jpg'; ?>);"></div>
-							<div class="card-gradient"></div>
-							<div class="card-content">
-								<h3 class="card-content-title">To Body</h3>
-								<p class="card-content-p">Lorem ipsom dolor sit amet, diam conshctetuer adipiscing elit, sed diam lorem ipsum dolor sit amet, diam lorem ipsum dolor sit amet dolor.</p>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
 
 				<?php
 			endwhile; // End of the loop.

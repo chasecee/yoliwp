@@ -10,3 +10,4 @@ import './stickynav';
 import './glide';
 import './screen-width';
 import './mmenulite';
+import './gsap';

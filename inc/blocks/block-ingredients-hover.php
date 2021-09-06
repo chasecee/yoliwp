@@ -2,7 +2,7 @@
 /**
  * Section block
  *
- * @package      Doxy.me
+ * @package      _s
  * @author       Chase Christensen
  * @since        1.0.0
  * @license      GPL-2.0+

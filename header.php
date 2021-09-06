@@ -27,7 +27,6 @@
 <body <?php body_class( 'site-wrapper' ); ?>>
 
 	<?php wp_body_open(); ?>
-
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
 
 	<div class="guide"></div>
@@ -48,7 +47,9 @@
 	}
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
-
+		<?php
+		get_template_part( 'template-parts/repsite-banner' );
+		?>
 			<div class="header-container">
 
 					<nav id="site-navigation" class="main-navigation navigation-menu nav-left" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">

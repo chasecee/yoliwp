@@ -1,0 +1,52 @@
+.ingredients-hover {
+	@apply relative overflow-hidden;
+
+	.ingredients-spacer {
+		@apply pt-200;
+		@screen md {
+			height: 25rem;
+		}
+	}
+	.ingredients-images {
+		@apply absolute inset-0 overflow-hidden bg-black;
+		border-top-left-radius: 9.375rem;
+		@screen md {
+			border-top-left-radius: 18.75rem;
+		}
+		.ingredients-image {
+			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-bottom ease-in;
+			&.target-open,
+			&:nth-child( 0 ) {
+				@apply opacity-100 duration-1000 ease-out;
+				--tw-scale-x: 1.025;
+				--tw-scale-y: 1.025;
+			}
+		}
+		&-backdrop {
+			@apply absolute inset-0 bg-gradient-to-t from-black opacity-80 z-10;
+		}
+	}
+	.ingredients-list {
+		@apply relative pb-100 z-20 text-white;
+		padding-top: 45rem;
+
+		.ingredients-name {
+			@apply text-gray-medium font-serif text-32 md:text-60  transition-all duration-150 inline-block no-underline;
+			line-height: 1.175;
+
+			&.ingredients-name-active,
+			&:hover {
+				@apply text-white underline;
+			}
+		}
+		&-title {
+			@apply md:text-28 text-white mb-20;
+		}
+		.ingredients-info {
+			@apply flex items-center text-18 leading-24 my-40;
+			svg {
+				@apply mr-40;
+			}
+		}
+	}
+}
