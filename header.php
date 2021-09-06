@@ -31,8 +31,6 @@
 
 	<div class="guide"></div>
 
-	<!-- <?php require_once realpath( __DIR__ ) . '/template-parts/repsite-banner.php'; ?> -->
-
 	<?php
 	if ( is_page_template( 'template-product.php' ) ) {
 		$header_class = 'bg-transparent-text-dark';
@@ -48,7 +46,7 @@
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
 		<?php
-		get_template_part( 'template-parts/repsite-banner' );
+		get_template_part( 'template-parts/repsite-banner.php' );
 		?>
 		<div class="site-alert h-60"></div>
 			<div class="header-container">
