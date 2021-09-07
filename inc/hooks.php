@@ -304,14 +304,3 @@ function get_kses_extended_ruleset() {
 	);
 	return array_merge( $kses_defaults, $svg_args );
 }
-
-/**
- * Add styles to wp editor
- *
- * @author Corey Collins
- */
-function custom_editor_styles() {
-	add_editor_style( 'editor-styles.css' );
-}
-
-add_action( 'admin_init', 'custom_editor_styles' );
