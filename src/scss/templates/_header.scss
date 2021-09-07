@@ -3,64 +3,41 @@
 //--------------------------------------------------------------
 
 .site-header {
-	@apply fixed md:relative  left-0 right-0 top-0 h-auto md:h-200 z-30 text-brown-dark transform-gpu transition-all duration-200;
+	@apply bg-white md:bg-transparent fixed md:relative left-0 right-0 top-0 h-auto md:h-200 z-30 text-brown-dark transform-gpu transition-all;
 	.navigation-menu .menu li a {
 		line-height: 7.75;
 	}
 
 	&.default {
-		@apply bg-transparent text-brown-dark border-b-0;
-
-		&.product-menu-active {
-			@apply bg-white text-gray-medium;
-
-			.nav-left {
-				@apply text-gray-medium;
-				&.menu-group-active {
-					@apply text-gray-medium;
-				}
-			}
-			.products-trigger {
-				@apply text-brown-dark;
-			}
-
-			@apply bg-white text-brown-dark;
-		}
-		.menu-group-active {
-			@apply text-gray-medium;
-		}
+		@apply text-brown-dark border-b-0;
 	}
-	&.bg-transparent-text-dark {
-		@apply bg-white;
-		@screen md {
-			@apply bg-transparent;
-			@apply text-white;
-			@apply text-brown-dark;
-		}
-		&.menu-group-active,
-		&.product-menu-active {
-			@apply bg-white text-brown-dark;
-
-			.menu-item-active,
-			.products-trigger {
-				@apply text-brown-dark;
-			}
-		}
+	&:hover {
+		@apply bg-white text-brown-dark;
 	}
 	&.bg-transparent-text-light {
-		@apply text-white;
-		&:hover,
-		&.menu-group-active,
-		&.product-menu-active {
-			@apply bg-white text-brown-dark;
+		@apply text-brown-dark md:text-white;
+	}
+	&.header-hovered {
+		@apply text-brown-dark bg-white;
+	}
+	&.product-menu-active {
+		@apply bg-white text-gray-medium;
 
-			.menu-item-active,
-			.products-trigger {
-				@apply text-brown-dark;
+		.nav-left {
+			@apply text-gray-medium;
+			&.menu-group-active {
+				@apply text-gray-medium;
 			}
 		}
-	}
+		.products-trigger {
+			@apply text-brown-dark;
+		}
 
+		@apply bg-white text-brown-dark;
+	}
+	.menu-group-active {
+		@apply text-gray-medium;
+	}
 	a,
 	path,
 	ellipse {
@@ -86,7 +63,6 @@
 				@screen md {
 					width: 113px;
 				}
-				@apply transition-transform transform-gpu scale-100;
 
 				backface-visibility: hidden;
 			}

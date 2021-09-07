@@ -1,0 +1,36 @@
+.section-cover {
+	.cover {
+		.cover-bg {
+			@apply relative bg-cover bg-center;
+		}
+		.cover-backdrop {
+			@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
+		}
+		.cover-content {
+			@apply relative text-white  pb-120 flex flex-col md:flex-row md:items-end md:justify-between;
+			padding-top: 34rem;
+			&-left {
+				@apply md:w-1/2 md:flex-none mb-40 md:mb-0;
+			}
+			&-right {
+				@apply relative;
+				.btn {
+					@apply border-primary flex items-center justify-between;
+					max-width: 80%;
+					@screen md {
+						max-width: 100%;
+					}
+					span {
+						@apply inline-block mr-20;
+					}
+				}
+			}
+			&-title {
+				@apply text-30 md:text-60 leading-tight mb-20 text-white;
+			}
+			&-p {
+				@apply text-24 leading-30 w-full md:w-full;
+			}
+		}
+	}
+}

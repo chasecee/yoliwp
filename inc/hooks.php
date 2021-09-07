@@ -289,6 +289,7 @@ function get_kses_extended_ruleset() {
 			'stroke'      => true,
 			'strokewidth' => true,
 			'id'          => true,
+			'fill-rule'   => true,
 		),
 		'circle' => array(
 			'd'         => true,

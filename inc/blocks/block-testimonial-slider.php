@@ -9,7 +9,7 @@
  **/
 
 // Create name for prefixing classes and id's.
-$slug = 'testimonial-bubble';
+$slug = 'testimonial-slider';
 
 // Create id attribute allowing for custom "anchor" value.
 $_s_id = $slug . '-' . $block['id'];
@@ -25,7 +25,6 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$_s_class_name .= ' align' . $block['align'];
 }
-$ingredients_title = get_field( 'ingredients_title' )
 
 ?>
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
@@ -41,12 +40,17 @@ $show_on_desktop = get_field( 'show_on_desktop' );
 if ( $show_on_desktop ) :
 	$count = $show_on_desktop;
 endif;
-
+$style          = get_field( 'style' );
+$gap_on_desktop = get_field( 'gap_on_desktop' );
+if ( ! $gap_on_desktop ) {
+	$gap_on_desktop = 30;
+}
 ?>
-<?php if ( have_rows( 'testimonials' ) ) : ?>
-	<div class="column-carousel">
 
-		<div class="glide" data-per-view="<?php echo esc_html( $count ); ?>">
+<?php if ( have_rows( 'testimonials' ) ) : ?>
+	<div class="column-carousel <?php echo esc_html( $style ); ?>">
+
+		<div class="glide" data-per-view="<?php echo esc_html( $count ); ?>" data-gap-desktop="<?php echo esc_html( $gap_on_desktop ); ?>">
 
 			<div class="glide__track" data-glide-el="track">
 				<ul class="glide__slides">
@@ -64,12 +68,27 @@ endif;
 							<div class="section-testimonial">
 								<div class="section-testimonial-inner">
 									<div class="section-testimonial-content">
+									<?php if ( 'testimonial-two-col' === $style ) : ?>
+										<div class="section-testimonial-content-image">
+											<div class="section-testimonial-content-image-bg"
+												style="background-image:url(<?php echo esc_url( get_sub_field( 'testimonial_image' ) ); ?>)"></div>
 
+										<?php if ( $testimonial_title ) : ?>
+											<h3 class="section-testimonial-content-image-title">
+												<?php echo esc_html( $testimonial_title ); ?>
+											</h3>
+										<?php endif; ?>
+										</div>
+									<?php endif; ?>
+									<?php if ( 'testimonial-two-col' !== $style ) : ?>
 										<?php if ( $testimonial_title ) : ?>
 											<h3 class="section-testimonial-content-title">
 												<?php echo esc_html( $testimonial_title ); ?>
 											</h3>
 										<?php endif; ?>
+									<?php endif; ?>
+
+
 
 										<?php if ( $testimonial_content ) : ?>
 											<p class="section-testimonial-content-p">

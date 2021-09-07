@@ -19,8 +19,9 @@
 
 /* Main column width */
 .wp-block {
-	width: 720px;
+	width: 100%;
 	max-width: 100%;
+	@apply px-0;
 }
 
 /* Width of "wide" blocks */

@@ -43,6 +43,8 @@ function subMenu() {
 		const headerEl = document.querySelector( '.site-header' );
 
 		if ( headerEl ) {
+			headerEl.addEventListener( 'mouseenter', headerEnter );
+			headerEl.addEventListener( 'mouseleave', headerLeave );
 			headerEl
 				.querySelectorAll( '.menu-item' )
 				.forEach( function ( childElement ) {
@@ -62,6 +64,13 @@ function subMenu() {
 			navRight.addEventListener( 'mouseleave', menuGroupHoverLeave );
 		}
 
+		function headerEnter() {
+			this.classList.add( 'header-hovered' );
+		}
+
+		function headerLeave() {
+			this.classList.remove( 'header-hovered' );
+		}
 		function mouseEnter() {
 			this.classList.add( 'menu-item-active' );
 		}

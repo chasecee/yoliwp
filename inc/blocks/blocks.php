@@ -37,12 +37,12 @@ function be_register_blocks() {
 				),
 			)
 		);
-		// testimonial bubble.
+		// testimonial slider.
 		acf_register_block_type(
 			array(
-				'name'            => 'testimonial-bubble',
-				'title'           => __( 'Testimonial Bubble', '_s' ),
-				'render_template' => '/inc/blocks/block-testimonial-bubble.php',
+				'name'            => 'testimonial-slider',
+				'title'           => __( 'Testimonial Slider', '_s' ),
+				'render_template' => '/inc/blocks/block-testimonial-slider.php',
 				'category'        => 'formatting',
 				'icon'            => 'superhero-alt',
 				'mode'            => 'preview',
@@ -201,6 +201,40 @@ function be_register_blocks() {
 				'name'            => 'section-hero',
 				'title'           => __( 'Section Hero', '_s' ),
 				'render_template' => '/inc/blocks/block-section-hero.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// inline-svg.
+		acf_register_block_type(
+			array(
+				'name'            => 'inline-svg',
+				'title'           => __( 'Inline Svg', '_s' ),
+				'render_template' => '/inc/blocks/block-inline-svg.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-cover.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-cover',
+				'title'           => __( 'Section Cover', '_s' ),
+				'render_template' => '/inc/blocks/block-section-cover.php',
 				'category'        => 'formatting',
 				'icon'            => 'superhero-alt',
 				'mode'            => 'preview',

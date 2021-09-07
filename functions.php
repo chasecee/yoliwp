@@ -46,7 +46,7 @@ function render_repsite_banner() {
 		set_language_and_country( $_POST );
 	}
 }
-add_action( 'init', 'render_repsite_banner' );
+// add_action( 'init', 'render_repsite_banner' );
 
 // function wpml_get_code( $lang = "" ) {
 

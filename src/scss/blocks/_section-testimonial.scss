@@ -4,21 +4,111 @@
 	@screen md {
 		@apply container;
 	}
+	&.testimonial-bubble {
+		.section-testimonial {
+			@apply bg-primary;
+			border-radius: 6.25rem 6.25rem 6.25rem 0;
+			&-inner {
+				@apply mt-150 md:mt-100;
+			}
+			&-content {
+				@apply p-40 text-white;
+				&-p {
+					@apply w-full md:w-4/5;
+				}
+			}
+		}
+	}
+	&.three-col-yellow {
+		.section-testimonial {
+			@apply bg-primary rounded-xl md:rounded-none;
+			&-inner {
+				@apply mt-200;
+				@screen md {
+					margin-top: 19rem;
+				}
+			}
+			&-content {
+				@apply p-40 text-white;
+				&-title {
+					@apply relative;
+					&::after {
+						@screen md {
+							content: '';
+							@apply absolute h-2 bg-white w-72 -top-20 left-0;
+						}
+					}
+				}
+				&-p {
+					@apply w-full md:w-4/5;
+				}
+			}
+		}
+		.glide__slide {
+			@apply transform-gpu transition-transform scale-95 md:scale-100;
+			&.glide__slide--active {
+				@apply scale-100;
+			}
+		}
+		.glide__slide:first-child {
+			.section-testimonial {
+				@screen md {
+					border-top-left-radius: 12.5rem;
+				}
+			}
+		}
+	}
+	&.testimonial-two-col {
+		.section-testimonial {
+			@apply h-full flex items-end overflow-hidden;
 
+			&-inner {
+				@apply relative;
+			}
+			&-content {
+				@apply p-0;
+				&-image {
+					@apply relative mb-30;
+					&-bg {
+						@apply bg-cover bg-center h-0;
+						padding-top: 130%;
+						@screen md {
+							padding-top: 80%;
+						}
+					}
+					&-title {
+						@apply bg-primary absolute bottom-0 right-0 text-20  p-50 pb-30 mb-0;
+						border-top-left-radius: 12.5rem;
+					}
+				}
+
+				&-title {
+					@apply text-24 md:text-48;
+				}
+				&-p {
+					@apply lg:mr-100;
+					&:last-child {
+						@apply font-sans-alt;
+					}
+				}
+			}
+		}
+		.glide__slide:first-child {
+			.section-testimonial-content-image-bg {
+				border-top-left-radius: 12.5rem;
+			}
+		}
+	}
 	.section-testimonial {
-		@apply h-full flex items-end bg-primary overflow-hidden;
-		border-radius: 6.25rem 6.25rem 6.25rem 0;
+		@apply h-full flex items-end  overflow-hidden;
 
 		&-inner {
-			@apply relative mt-150 md:mt-100;
+			@apply relative;
 		}
 		&-content {
-			@apply p-40 text-white;
+			@apply p-40;
 			&-title {
 				@apply text-24 md:text-48;
-			}
-			&-p {
-				@apply w-full md:w-4/5;
 			}
 		}
 	}

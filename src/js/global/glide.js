@@ -93,6 +93,7 @@ function glideInit() {
 	if ( columnSliders ) {
 		columnSliders.forEach( ( slider ) => {
 			const dataPerView = slider.dataset.perView;
+			const dataGapDesktop = slider.dataset.gapDesktop;
 			const columnSlidersconf = {
 				type: 'slider',
 
@@ -100,7 +101,7 @@ function glideInit() {
 				rewind: false,
 				startAt: 0,
 				perView: dataPerView,
-				gap: 60,
+				gap: dataGapDesktop,
 
 				breakpoints: {
 					767: {
@@ -108,7 +109,7 @@ function glideInit() {
 						swipeThreshold: 100,
 						dragThreshold: 100,
 						focusAt: 'center',
-						peek: 80,
+						peek: 40,
 						gap: 20,
 						keyboard: true,
 					},
