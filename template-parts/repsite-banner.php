@@ -1,12 +1,6 @@
 <?php
 
 function render_banner($rep) {
-
-	echo 'The rep in repsite-banner is: ';
-	var_export( $rep );
-	echo '<br><br>';
-	echo 'The rep\'s customer id: ' . $rep->customerId . '<br>';
-
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 

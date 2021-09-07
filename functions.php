@@ -32,23 +32,3 @@ function _s_get_theme_include_files() {
 foreach ( _s_get_theme_include_files() as $include ) {
 	require trailingslashit( get_template_directory() ) . $include;
 }
-
-/** Render the repsite banner. */
-function render_repsite_banner() {
-	include_once realpath( __DIR__ ) . '/api/get-url.php';
-	include_once realpath( __DIR__  ) . '/api/repsite-validation.php';
-	include_once realpath( __DIR__  ) . '/api/set-lang-country.php';
-	include_once realpath( __DIR__  ) . '/template-parts/repsite-banner.php';
-
-	$path = get_url();
-	$rep  = web_alias( $path );
-
-	render_banner( $rep );
-
-	// phpcs:ignore
-	if ( isset( $_POST ) ) {
-		// phpcs:ignore
-		set_language_and_country( $_POST );
-	}
-}
-add_action( 'init', 'render_repsite_banner' );
