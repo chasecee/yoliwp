@@ -45,10 +45,7 @@
 	}
 	?>
 		<header class="site-header js-site-header <?php echo esc_attr( $header_class ); ?>">
-		<?php
-		// require_once realpath( __DIR__ ) . '/template-parts/repsite-banner.php';
-		?>
-		<div class="site-alert h-60"></div>
+				<div class="site-alert h-60"></div>
 			<div class="header-container">
 
 					<nav id="site-navigation" class="main-navigation navigation-menu nav-left" aria-label="<?php esc_attr_e( 'Main Navigation', '_s' ); ?>">
