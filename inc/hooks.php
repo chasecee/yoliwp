@@ -260,10 +260,12 @@ function render_repsite_banner() {
 	include_once realpath( __DIR__ . '/..' ) . '/api/get-url.php';
 	include_once realpath( __DIR__ . '/..' ) . '/api/repsite-validation.php';
 	include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
+	include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
 
 	$path = get_url();
-	global $rep;
-	$rep = web_alias( $path );
+	$rep  = web_alias( $path );
+
+	render_banner( $rep );
 
 	// phpcs:ignore
 	if ( isset( $_POST ) ) {
