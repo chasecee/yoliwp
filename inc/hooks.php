@@ -323,9 +323,6 @@ function render_repsite_banner() {
 	include realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
 
 	$path = get_url();
-	$rep  = web_alias( $path );
-
-	render_banner( $rep );
 
 	// phpcs:ignore
 	if ( isset( $_POST ) ) {

@@ -1,6 +1,6 @@
 <?php
 
-function render_banner($rep) {
+function render_banner($rep, $link, $boolean) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
@@ -10,6 +10,30 @@ function render_banner($rep) {
 	$email = null;
 	$phone = null;
 	$welcome_message = null;
+
+	$cookie_name  = 'beenhere';
+	$arr_cookie_options = array(
+		'expires' => time() + 3600,
+		'path' => '/',
+		'secure' => true,
+		'httponly' => true,
+		'samesite' => 'Strict'
+	);
+
+	// if (!isset($_COOKIE[$cookie_name])) {
+	// 	setcookie($cookie_name, 1, $arr_cookie_options);
+	// 	header('Location: ' . $home);
+	// 	// header('Location: http://localhost:10008/');
+	// 	exit;
+	// }
+
+	if ($boolean === true) {
+		echo 'The boolean in the if-statement: ' . $boolean . '<br>';
+		echo 'The redirect link is: ' . $link . '<br><br>';
+		// header('Location: ' . $link);
+		header('Location: http://localhost:10008/');
+		exit;
+	}
 
 	/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
 	if ( $rep->customerId !== 50) {
