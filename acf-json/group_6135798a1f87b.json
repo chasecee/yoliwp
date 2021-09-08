@@ -1,0 +1,47 @@
+{
+    "key": "group_6135798a1f87b",
+    "title": "UTILITY - Spacing",
+    "fields": [
+        {
+            "key": "field_61357990571dd",
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "mb-0": "Margin Bot 0",
+                "mt-0": "Margin Top 0"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1631142217
+}

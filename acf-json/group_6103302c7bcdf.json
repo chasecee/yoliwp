@@ -1,0 +1,79 @@
+{
+    "key": "group_6103302c7bcdf",
+    "title": "UTILITY - SVG Selector",
+    "fields": [
+        {
+            "key": "field_6103303e94def",
+            "label": "Select SVG",
+            "name": "select_svg",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "custom": "Custom Icon",
+                "cognitive": "Two Circles with Orbit",
+                "bolt": "Lightning Bolt",
+                "waves": "Two wavy lines",
+                "drop": "Droplet Icon"
+            },
+            "default_value": "custom",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_6135679d595b9",
+            "label": "Custom SVG Code",
+            "name": "custom_svg_code",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6103303e94def",
+                        "operator": "==",
+                        "value": "custom"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1631142218
+}

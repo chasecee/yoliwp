@@ -59,6 +59,7 @@ if ( $spacing ) {
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
+						<div class="section-hero-info-line"></div>
 					</div>
 
 					<div class="section-hero-bg">
