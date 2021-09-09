@@ -14,8 +14,7 @@ function get_url() {
 	$path = (str_replace('/', '', parse_url( $link )['path']));
 
 	// echo 'The url is: http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '<br><br>';
-	echo 'The requested url link is: ' . $link . '<br>';
-	echo 'The path is: ' . $path . '<br>';
+
 	// Will return all valid pages: ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding )
 	$wp_pages = array_column(get_pages(), 'post_name');
 

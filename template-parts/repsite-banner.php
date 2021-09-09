@@ -20,18 +20,11 @@ function render_banner($rep, $home, $boolean) {
 		'samesite' => 'Strict'
 	);
 
-	// if (!isset($_COOKIE[$cookie_name])) {
-	// 	setcookie($cookie_name, 1, $arr_cookie_options);
-	// 	header('Location: ' . $home);
-	// 	// header('Location: http://localhost:10008/');
-	// 	exit;
-	// }
-
-	echo 'The rep\'s customerId on the repsite-banner is: ' . $rep->customerId . '<br>';
-	echo 'The boolean on the repsite-banner is: ' . $boolean . '<br>';
+	// echo 'The rep\'s customerId on the repsite-banner is: ' . $rep->customerId . '<br>';
+	// echo 'The boolean on the repsite-banner is: ' . $boolean . '<br>';
 
 	if ($boolean === 1) {
-		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
+		// echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
 		// header('Location: http://localhost:10008/');
 		header('Location: ' . $home);
 		exit;

@@ -102,7 +102,7 @@
 
 			<div class="product-menu header-menu js-product-menu">
 				<div class="product-menu-content">
-					<?php get_template_part( '/template-parts/product-menu' ); ?>
+					<?php get_template_part( '/template-parts/product-menu-api' ); ?>
 				</div>
 			</div>
 		</header><!-- .site-header-->
