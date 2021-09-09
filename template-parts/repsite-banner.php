@@ -1,6 +1,6 @@
 <?php
 
-function render_banner($rep, $link, $boolean) {
+function render_banner($rep, $home, $boolean) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
@@ -27,11 +27,13 @@ function render_banner($rep, $link, $boolean) {
 	// 	exit;
 	// }
 
-	if ($boolean === true) {
-		echo 'The boolean in the if-statement: ' . $boolean . '<br>';
-		echo 'The redirect link is: ' . $link . '<br><br>';
-		// header('Location: ' . $link);
-		header('Location: http://localhost:10008/');
+	echo 'The rep\'s customerId on the repsite-banner is: ' . $rep->customerId . '<br>';
+	echo 'The boolean on the repsite-banner is: ' . $boolean . '<br>';
+
+	if ($boolean === 1) {
+		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
+		// header('Location: http://localhost:10008/');
+		header('Location: ' . $home);
 		exit;
 	}
 
