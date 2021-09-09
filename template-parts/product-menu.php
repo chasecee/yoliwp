@@ -18,8 +18,8 @@
 			<li><a href="#">Lean Greens</a></li>
 			<li><a href="#">Omegas</a></li>
 			<li><a href="#">Flex</a></li>
-			<li><a href="#">Enzyme</a></li>
-			<li><a href="/products/defend/">Defend</a></li>
+			<li><a href="/products/enzyme/">Enzyme</a></li>
+			<li><a href="/products/dose/">Dose</a></li>
 			<li><a href="#">Truth</a></li>
 		</ul>
 	</div>
