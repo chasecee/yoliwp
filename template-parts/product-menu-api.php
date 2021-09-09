@@ -35,7 +35,7 @@ if ( $serverUrl ) {
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
 		<ul>
 			<?php foreach($item->products as $product) { ?>
-				<li><a href="products/<?php echo esc_attr(strtolower($product->itemDescription))?>"><?php echo esc_html($product->itemDescription) ?></a></li>
+				<li><a href="products/<?php echo esc_attr(strtolower($product->itemDescription))?>?item_id=<?php echo $product->itemID ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php } ?>

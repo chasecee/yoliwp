@@ -9,6 +9,9 @@
  * @package _s
  */
 
+include_once realpath(__DIR__) . '/api/get-url.php';
+include_once realpath(__DIR__) . '/api/get-prices.php';
+
 get_header();
 // acf vars.
 $background_color = get_field( 'background_color' );
@@ -206,14 +209,11 @@ $foreground_color = get_field( 'foreground_color' );
 							'verify_peer_name' => false,
 						),
 					);
-						/** The url needs to be built dynamically. */
-						$url = 'https://108.59.44.81/api/products/pricing/us/5748';
-
-						/** File_get_contents() is discouraged. Use wp_remote_get() for remote URLs instead. */
-						$resp  = file_get_contents( $url, false, stream_context_create( $arr_context_options ) );
-						$jresp = json_decode( $resp );
-						$price         = $jresp->retailPriceFmtd;
-						$price_monthly = $jresp->autoshipPriceFmtd;
+						// Get the item's id and call the api for prices.
+						$item_id = get_item_id();
+						$prices_api = get_prices($item_id);
+						$price         = $prices_api->retailPriceFmtd;
+						$price_monthly = $prices_api->autoshipPriceFmtd;
 						/** $price                 = get_field( 'price' );
 						* $price_monthly         = get_field( 'price_monthly' ); */
 					?>
