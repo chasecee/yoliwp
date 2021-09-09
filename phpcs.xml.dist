@@ -81,6 +81,7 @@
 	<exclude-pattern>/template-parts/*</exclude-pattern>
 	<exclude-pattern>/template-product.php</exclude-pattern>
 	<exclude-pattern>/functions.php</exclude-pattern>
+	<exclude-pattern>/acf-json/</exclude-pattern>
 
 
 </ruleset>

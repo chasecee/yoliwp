@@ -1,73 +1,73 @@
 {
-    "key": "group_6139460156d64",
-    "title": "BLOCK - Join Now Button",
-    "fields": [
-        {
-            "key": "field_6139467653b18",
-            "label": "Style",
-            "name": "style",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "Default",
-                "arrow": "With Arrow",
-                "price": "With Price"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "default",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_613955e3602dc",
-            "label": "Width",
-            "name": "width",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "w-auto": "Auto Width",
-                "w-full": "Full Width"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "auto",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf\/button-join"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "modified": 1631147600
+	"key": "group_6139460156d64",
+	"title": "BLOCK - Join Now Button",
+	"fields": [
+		{
+			"key": "field_6139467653b18",
+			"label": "Style",
+			"name": "style",
+			"type": "radio",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"default": "Default",
+				"arrow": "With Arrow",
+				"price": "With Price"
+			},
+			"allow_null": 0,
+			"other_choice": 0,
+			"default_value": "default",
+			"layout": "vertical",
+			"return_format": "value",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_613955e3602dc",
+			"label": "Width",
+			"name": "width",
+			"type": "radio",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"w-auto": "Auto Width",
+				"w-full": "Full Width"
+			},
+			"allow_null": 0,
+			"other_choice": 0,
+			"default_value": "auto",
+			"layout": "vertical",
+			"return_format": "value",
+			"save_other_choice": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/button-join"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"modified": 1631147600
 }

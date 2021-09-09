@@ -1,115 +1,115 @@
 {
-    "key": "group_6139608995022",
-    "title": "BLOCK - Video Player",
-    "fields": [
-        {
-            "key": "field_6139609209a96",
-            "label": "Cover Image",
-            "name": "cover_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_613960b709a97",
-            "label": "Vimeo ID",
-            "name": "vimeo_id",
-            "type": "text",
-            "instructions": "Just the Vimeo ID numbers, NOT the Vimeo link. Something like 582695017",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": 582695017,
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6139648c3ca7f",
-            "label": "Aspect Ratio",
-            "name": "aspect_ratio",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "default": "16x9",
-                "short": "21x9"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_61396597c139d",
-            "label": "Style",
-            "name": "style",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "rounded-lg": "Rounded",
-                "rounded-none": "Square"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "rounded-lg",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
-        }
-    ],
-    "location": [
-        [
-            {
-                "param": "block",
-                "operator": "==",
-                "value": "acf\/video-player"
-            }
-        ]
-    ],
-    "menu_order": 0,
-    "position": "normal",
-    "style": "default",
-    "label_placement": "top",
-    "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": true,
-    "description": "",
-    "modified": 1631151634
+	"key": "group_6139608995022",
+	"title": "BLOCK - Video Player",
+	"fields": [
+		{
+			"key": "field_6139609209a96",
+			"label": "Cover Image",
+			"name": "cover_image",
+			"type": "image",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"return_format": "id",
+			"preview_size": "medium",
+			"library": "all",
+			"min_width": "",
+			"min_height": "",
+			"min_size": "",
+			"max_width": "",
+			"max_height": "",
+			"max_size": "",
+			"mime_types": ""
+		},
+		{
+			"key": "field_613960b709a97",
+			"label": "Vimeo ID",
+			"name": "vimeo_id",
+			"type": "text",
+			"instructions": "Just the Vimeo ID numbers, NOT the Vimeo link. Something like 582695017",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"default_value": "",
+			"placeholder": 582695017,
+			"prepend": "",
+			"append": "",
+			"maxlength": ""
+		},
+		{
+			"key": "field_6139648c3ca7f",
+			"label": "Aspect Ratio",
+			"name": "aspect_ratio",
+			"type": "radio",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"default": "16x9",
+				"short": "21x9"
+			},
+			"allow_null": 0,
+			"other_choice": 0,
+			"default_value": "",
+			"layout": "vertical",
+			"return_format": "value",
+			"save_other_choice": 0
+		},
+		{
+			"key": "field_61396597c139d",
+			"label": "Style",
+			"name": "style",
+			"type": "radio",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"rounded-lg": "Rounded",
+				"rounded-none": "Square"
+			},
+			"allow_null": 0,
+			"other_choice": 0,
+			"default_value": "rounded-lg",
+			"layout": "vertical",
+			"return_format": "value",
+			"save_other_choice": 0
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf/video-player"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"modified": 1631151634
 }
