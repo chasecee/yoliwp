@@ -5,13 +5,18 @@ function set_language_and_country( $selection ) {
 
 	if ( isset( $_POST['sel_language'] ) ) {
 		$language = $selection['sel_language'];
-		setcookie( 'Language', $language, time() + ( 86400 * 30 ), '/' );
+	} else {
+		$language = 'en';
 	}
 
 	/** For anything other than the US, set the country cookie. */
 	if ( isset( $_POST['sel_country'] ) ) {
 		$country = $selection['sel_country'];
-		setcookie( 'Country', $country, time() + ( 86400 * 30 ), '/' );
+	} else {
+		$country = 'US';
 	}
+
+	setcookie( 'Language', $language, time() + ( 86400 * 30 ), '/' );
+	setcookie( 'Country', $country, time() + ( 86400 * 30 ), '/' );
 }
 

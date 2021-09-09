@@ -9,7 +9,7 @@
  * @package _s
  */
 
-include_once realpath(__DIR__) . '/api/get-url.php';
+include_once realpath(__DIR__) . '/api/get-item-id.php';
 include_once realpath(__DIR__) . '/api/get-prices.php';
 
 get_header();

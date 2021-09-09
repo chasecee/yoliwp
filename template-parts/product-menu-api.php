@@ -4,13 +4,17 @@ $base_url    = 'https://108.59.44.81/api/Products/';
 $server_url  = null;
 $default_url = 'https://108.59.44.81/api/Products/US/EN';
 $host_url = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
-// Check for the country and language cookies, otherwise use the default url -> /US/EN.
+
+echo 'The server url: ' . $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'] . '<br>';
+// Check for the country and language cookies.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) {
-	$serverUrl = $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
+	$server_url = $base_url . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
+	echo 'The server url in product-menu-api: ' . $server_url . '<br>';
+	echo '<script>console.log("The country and language cookies are set in product-menu-api.")</script>';
 }
 
 // Get the cookie alias and ID if set; otherwise, corporphan
-if ( $serverUrl ) {
+if ( $server_url ) {
 	try {
 		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
 		$menu      = json_decode( $response['body'] );
@@ -25,7 +29,6 @@ if ( $serverUrl ) {
 		echo 'Caught exception: ', $e->getMessage(), '\n';
 	}
 }
-
 ?>
 
 <div class="product-menu-cols">
@@ -37,7 +40,7 @@ if ( $serverUrl ) {
 			<?php foreach($item->products as $product) { ?>
 				<li><a href="products/<?php echo esc_attr(strtolower($product->itemDescription))?>?item_id=<?php echo $product->itemID ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
-			</ul>
+		</ul>
 		<?php } ?>
 	</div>
 
@@ -50,4 +53,3 @@ if ( $serverUrl ) {
 	</div>
 
 </div>
-

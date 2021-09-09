@@ -11,7 +11,7 @@ function render_banner($rep, $home, $boolean) {
 	$phone = null;
 	$welcome_message = null;
 
-	// echo 'The repID: ' . $rep->customerId . '<br>';
+	echo 'The repID: ' . $rep->customerId . '<br>';
 
 	if ($boolean === 1) {
 		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
