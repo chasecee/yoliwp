@@ -11,20 +11,10 @@ function render_banner($rep, $home, $boolean) {
 	$phone = null;
 	$welcome_message = null;
 
-	$cookie_name  = 'beenhere';
-	$arr_cookie_options = array(
-		'expires' => time() + 3600,
-		'path' => '/',
-		'secure' => true,
-		'httponly' => true,
-		'samesite' => 'Strict'
-	);
-
-	// echo 'The rep\'s customerId on the repsite-banner is: ' . $rep->customerId . '<br>';
-	// echo 'The boolean on the repsite-banner is: ' . $boolean . '<br>';
+	// echo 'The repID: ' . $rep->customerId . '<br>';
 
 	if ($boolean === 1) {
-		// echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
+		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
 		// header('Location: http://localhost:10008/');
 		header('Location: ' . $home);
 		exit;

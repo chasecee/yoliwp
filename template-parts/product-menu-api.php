@@ -3,7 +3,7 @@
 $base_url    = 'https://108.59.44.81/api/Products/';
 $server_url  = null;
 $default_url = 'https://108.59.44.81/api/Products/US/EN';
-
+$host_url = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
 // Check for the country and language cookies, otherwise use the default url -> /US/EN.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) {
 	$serverUrl = $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
@@ -33,11 +33,11 @@ if ( $serverUrl ) {
 	<div class="product-menu-col">
 		<?php foreach($menu as $item) { ?>
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
+		<ul>
 			<?php foreach($item->products as $product) { ?>
-			<ul>
-				<li><a href="/products/ <?php esc_attr($product->itemDescription)?>"><?php echo esc_html($product->itemDescription) ?></a></li>
-			</ul>
+				<li><a href="products/<?php echo esc_attr(strtolower($product->itemDescription))?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
+			</ul>
 		<?php } ?>
 	</div>
 
