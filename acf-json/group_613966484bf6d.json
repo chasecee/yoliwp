@@ -1,9 +1,28 @@
 {
-    "key": "group_6135798a1f87b",
-    "title": "UTILITY - Spacing",
+    "key": "group_613966484bf6d",
+    "title": "BLOCK - Section Story",
     "fields": [
         {
-            "key": "field_61357990571dd",
+            "key": "field_613966c11acd8",
+            "label": "Story Title",
+            "name": "story_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Our Story",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61398141cd955",
             "label": "Spacing",
             "name": "spacing",
             "type": "radio",
@@ -23,7 +42,7 @@
             },
             "allow_null": 0,
             "other_choice": 0,
-            "default_value": "default",
+            "default_value": "",
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
@@ -32,9 +51,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/section-story"
             }
         ]
     ],
@@ -46,5 +65,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631158977
+    "modified": 1631159063
 }

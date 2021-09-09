@@ -264,7 +264,7 @@ function get_kses_extended_ruleset() {
 	$kses_defaults = wp_kses_allowed_html( 'post' );
 
 	$svg_args = array(
-		'svg'    => array(
+		'defs'           => array(
 			'class'           => true,
 			'aria-hidden'     => true,
 			'aria-labelledby' => true,
@@ -274,15 +274,47 @@ function get_kses_extended_ruleset() {
 			'height'          => true,
 			'viewbox'         => true, // <= Must be lower case!
 		),
-		'g'      => array(
+		'lineargradient' => array(
+			'id'            => true,
+			'x1'            => true,
+			'x2'            => true,
+			'y2'            => true,
+			'gradientunits' => true,
+			'width'         => true,
+
+		),
+		'rect'           => array(
+			'id'        => true,
+			'data-name' => true,
+			'opacity'   => true,
+			'fill'      => true,
+			'width'     => true,
+			'height'    => true,
+		),
+		'stop'           => array(
+			'offset'     => true,
+			'stop-color' => true,
+
+		),
+		'svg'            => array(
+			'class'           => true,
+			'aria-hidden'     => true,
+			'aria-labelledby' => true,
+			'role'            => true,
+			'xmlns'           => true,
+			'width'           => true,
+			'height'          => true,
+			'viewbox'         => true, // <= Must be lower case!
+		),
+		'g'              => array(
 			'fill'         => true,
 			'transform'    => true,
 			'stroke'       => true,
 			'id'           => true,
 			'stroke-width' => true,
 		),
-		'title'  => array( 'title' => true ),
-		'path'   => array(
+		'title'          => array( 'title' => true ),
+		'path'           => array(
 			'd'           => true,
 			'fill'        => true,
 			'transform'   => true,
@@ -291,7 +323,7 @@ function get_kses_extended_ruleset() {
 			'id'          => true,
 			'fill-rule'   => true,
 		),
-		'circle' => array(
+		'circle'         => array(
 			'd'         => true,
 			'r'         => true,
 			'fill'      => true,

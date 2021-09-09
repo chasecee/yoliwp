@@ -80,6 +80,7 @@ $foreground_color = get_field( 'foreground_color' );
 					// acf vars.
 					$product_box_image = get_field( 'product_box_image' );
 					$size              = 'full';
+					$features_list_title = get_field( 'features_list_title' );
 				?>
 				<div class="product-features">
 					<div class="product-features-graphic">
@@ -98,6 +99,11 @@ $foreground_color = get_field( 'foreground_color' );
 						?>
 					</div>
 					<div class="product-features-list">
+							<?php if ( $features_list_title ) : ?>
+								<div class="product-features-list-title">
+									<?php echo esc_html( $features_list_title ); ?>
+								</div>
+							<?php endif; ?>
 						<ul>
 						<?php
 						if ( have_rows( 'features_list' ) ) :

@@ -246,6 +246,108 @@ function be_register_blocks() {
 				),
 			)
 		);
+		// section-cover-rounded.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-cover-rounded',
+				'title'           => __( 'Section Cover Rounded', '_s' ),
+				'render_template' => '/inc/blocks/block-section-cover-rounded.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// button-join.
+		acf_register_block_type(
+			array(
+				'name'            => 'button-join',
+				'title'           => __( 'Button Join', '_s' ),
+				'render_template' => '/inc/blocks/block-button-join.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// button-shop.
+		acf_register_block_type(
+			array(
+				'name'            => 'button-shop',
+				'title'           => __( 'Button Shop', '_s' ),
+				'render_template' => '/inc/blocks/block-button-shop.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// video-player.
+		acf_register_block_type(
+			array(
+				'name'            => 'video-player',
+				'title'           => __( 'Video Player', '_s' ),
+				'render_template' => '/inc/blocks/block-video-player.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// section-story.
+		acf_register_block_type(
+			array(
+				'name'            => 'section-story',
+				'title'           => __( 'Section Story', '_s' ),
+				'render_template' => '/inc/blocks/block-section-story.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// image-columns.
+		acf_register_block_type(
+			array(
+				'name'            => 'image-columns',
+				'title'           => __( 'Image Columns', '_s' ),
+				'render_template' => '/inc/blocks/block-image-columns.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
 
 }
 add_action( 'acf/init', 'be_register_blocks' );

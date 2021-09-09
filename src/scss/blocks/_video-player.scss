@@ -1,0 +1,41 @@
+.video-player {
+	@apply relative leading-none overflow-hidden bg-black;
+	padding-top: 56.25%;
+	&.aspect-short {
+		padding-top: 42%;
+	}
+	@screen md {
+		height: 26vw;
+	}
+	&:hover {
+		svg {
+			@apply scale-100;
+		}
+		img {
+			@apply scale-110;
+		}
+	}
+	&-cover {
+		@apply cursor-pointer absolute inset-0;
+	}
+	img {
+		@apply max-w-none object-cover object-center min-w-full min-h-full w-full transform-gpu transition-transform duration-1000 scale-105;
+	}
+	&-gradient {
+		@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
+	}
+	svg {
+		@apply w-72 scale-90 md:w-140 absolute top-1/2 left-1/2 transform-gpu -translate-y-1/2 -translate-x-1/2 transition-transform;
+	}
+	&.js-video-is-playing {
+		.video-player-cover {
+			@apply hidden;
+		}
+		iframe {
+			@apply block;
+		}
+	}
+	iframe {
+		@apply hidden absolute inset-0 w-full h-full object-contain;
+	}
+}

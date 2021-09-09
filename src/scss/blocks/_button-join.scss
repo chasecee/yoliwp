@@ -1,0 +1,17 @@
+.btn-join {
+	@apply inline-flex items-center border-primary justify-center;
+	&-text {
+		@apply inline-block;
+	}
+	&-svg {
+		@apply inline-block w-30;
+		svg {
+			@apply w-full;
+		}
+	}
+}
+.btn-style-arrow {
+	.btn-join-text {
+		@apply mr-20;
+	}
+}

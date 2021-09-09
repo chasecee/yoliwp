@@ -25,6 +25,11 @@
 		h1 {
 			@apply text-48 md:text-100;
 		}
+		&-line {
+			@apply absolute left-1/2 w-px bg-brown;
+			height: 40%;
+			top: 100%;
+		}
 	}
 	&-bg {
 		@apply relative w-full order-1 md:order-2;
@@ -39,7 +44,7 @@
 
 		@screen lg {
 			min-height: 50rem;
-			width: 53%;
+			width: 50%;
 		}
 		&-circle-overlay {
 			@apply absolute bg-tan -bottom-px left-0 right-0 h-150 w-full;

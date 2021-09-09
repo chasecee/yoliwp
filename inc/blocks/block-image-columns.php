@@ -9,7 +9,7 @@
  **/
 
 // Create name for prefixing classes and id's.
-$slug = 'section-info-video';
+$slug = 'image-columns';
 
 // Create id attribute allowing for custom "anchor" value.
 $_s_id = $slug . '-' . $block['id'];
@@ -27,39 +27,27 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // acf vars.
-$size  = 'full';
-$text  = get_field( 'text' );
-$image = get_field( 'image' );
+
 ?>
 
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
 
-<div class="section-info">
-
-	<div class="section-info-a">
-		<?php echo '<InnerBlocks />'; ?>
-	</div>
-
-	<div class="section-info-b">
-	<?php if ( $text ) : ?>
-		<p class="section-info-b-p">
-			<?php echo esc_html( $text ); ?>
-		</p>
-	<?php endif; ?>
-
-		<div class="section-info-b-line"><div class="line"></div></div>
-
-		<div class="section-info-b-image">
-			<?php
-			if ( $image ) {
-				$url = wp_get_attachment_url( $image );
-				echo wp_get_attachment_image( $image, $size );
-			};
-			?>
+<?php if ( have_rows( 'images' ) ) : ?>
+	<?php
+	while ( have_rows( 'images' ) ) :
+		the_row();
+		?>
+		<div class="image-columns-image">
+		<?php
+		$image = get_sub_field( 'image' );
+		$size  = 'full';
+		if ( $image ) {
+			$url = wp_get_attachment_url( $image );
+			echo wp_get_attachment_image( $image, $size );
+		};
+		?>
 		</div>
-	</div>
-
-</div>
-
+	<?php endwhile; ?>
+<?php endif; ?>
 
 </div>

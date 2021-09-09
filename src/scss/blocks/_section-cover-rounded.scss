@@ -1,0 +1,30 @@
+$rounded-tl-300: 12.5rem;
+.section-cover-rounded {
+	@apply overflow-hidden relative;
+	border-top-left-radius: $rounded-tl-300;
+	.cover {
+		.cover-bg {
+			@apply relative bg-cover bg-center;
+		}
+		.cover-backdrop {
+			@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
+		}
+		.cover-content {
+			@apply relative text-white  pb-120 flex flex-col md:flex-row md:items-end md:justify-between;
+			padding-top: 34rem;
+			&-left {
+				@apply relative  pt-30 md:flex-none mb-40 md:mb-0;
+			}
+
+			&-title {
+				@apply font-sans-alt lg:w-2/3 text-32 md:text-48 leading-tight mb-20 text-white;
+			}
+			&-p {
+				@apply text-24 lg:w-1/2 leading-30 w-full md:w-full;
+			}
+			&-line {
+				@apply absolute top-0 w-200 h-px bg-current;
+			}
+		}
+	}
+}

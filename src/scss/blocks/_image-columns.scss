@@ -1,0 +1,14 @@
+.image-columns {
+	@apply relative flex my-150;
+	&-image {
+		@apply relative w-1/3 overflow-hidden;
+		height: 35rem;
+		@screen md {
+			height: 48rem;
+		}
+
+		img {
+			@apply absolute inset-0 object-cover object-center min-h-full;
+		}
+	}
+}

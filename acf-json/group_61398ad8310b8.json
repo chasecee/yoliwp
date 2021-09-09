@@ -1,9 +1,9 @@
 {
-    "key": "group_6136a57d50633",
-    "title": "BLOCK - Section Cover",
+    "key": "group_61398ad8310b8",
+    "title": "BLOCK - Section Cover Rounded",
     "fields": [
         {
-            "key": "field_6136a5b146161",
+            "key": "field_61398ad836797",
             "label": "Cover Title",
             "name": "cover_title",
             "type": "text",
@@ -22,26 +22,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_6136a5b946162",
-            "label": "Cover Text",
-            "name": "cover_text",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6136a5d246165",
+            "key": "field_61398ad8367a9",
             "label": "Cover BG Image",
             "name": "cover_bg_image",
             "type": "image",
@@ -63,30 +44,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_6139894e78d37",
-            "label": "Style",
-            "name": "style",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "square": "Square",
-                "rounded": "Rounded & Title Line"
-            },
-            "allow_null": 0,
-            "other_choice": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value",
-            "save_other_choice": 0
         }
     ],
     "location": [
@@ -94,7 +51,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/section-cover"
+                "value": "acf\/section-cover-rounded"
             }
         ]
     ],
@@ -106,5 +63,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1631160859
+    "modified": 1631161314
 }

@@ -54,6 +54,7 @@ $price_monthly        = '$150';
 				<?php if ( $product_text_content ) : ?>
 					<?php echo esc_html( $product_text_content ); ?>
 				<?php endif; ?>
+				<?php echo '<InnerBlocks />'; ?>
 			</p>
 
 			<div class="product-content-cta">

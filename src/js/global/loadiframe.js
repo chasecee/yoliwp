@@ -18,12 +18,31 @@ function iframeInit() {
 			const videoCover = section.querySelector(
 				'.section-info-a-video-cover'
 			);
-			const dataSrc = iframeEl.dataset.source;
 
-			videoCover.addEventListener( 'click', function () {
-				section.classList.add( 'js-video-is-playing' );
-				iframeEl.src = dataSrc;
-			} );
+			if ( iframeEl && videoCover ) {
+				const dataSrc = iframeEl.dataset.source;
+				videoCover.addEventListener( 'click', function () {
+					section.classList.add( 'js-video-is-playing' );
+					iframeEl.src = dataSrc;
+				} );
+			}
+		} );
+	}
+
+	const videoPlayers = document.querySelectorAll( '.video-player' );
+
+	if ( videoPlayers ) {
+		videoPlayers.forEach( ( section ) => {
+			const iframeEl = section.querySelector( '.js-iframe' );
+			const videoCover = section.querySelector( '.video-player-cover' );
+			if ( iframeEl && videoCover ) {
+				const dataSrc = iframeEl.dataset.source;
+
+				videoCover.addEventListener( 'click', function () {
+					section.classList.add( 'js-video-is-playing' );
+					iframeEl.src = dataSrc;
+				} );
+			}
 		} );
 	}
 }

@@ -1,0 +1,19 @@
+.section-story {
+	@apply relative container text-center;
+
+	&-content {
+		@apply md:w-1/2 mx-auto;
+		&-h {
+			@apply font-serif text-32 md:text-48;
+		}
+		&-p {
+			@apply md:text-24;
+			p {
+				@apply mb-40;
+				&:last-child {
+					@apply mb-0;
+				}
+			}
+		}
+	}
+}

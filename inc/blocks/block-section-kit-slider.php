@@ -25,11 +25,16 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$_s_class_name .= ' align' . $block['align'];
 }
-
+$style = get_field( 'style' );
+if ( $style ) {
+	$slider_style = $style;
+} else {
+	$slider_style = 'kitslider';
+}
 ?>
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
 
-<div class="kit-carousel focus-carousel">
+<div class="kit-carousel focus-carousel <?php echo esc_attr( $slider_style ); ?>">
 	<div class="glide" data-per-view="3">
 
 		<div class="glide__track" data-glide-el="track">
@@ -62,9 +67,20 @@ if ( ! empty( $block['align'] ) ) {
 									<?php echo esc_html( $slide_title ); ?>
 									</div>
 								<?php endif; ?>
-								<div class="focus-carousel-content-link">
-								Learn More
-								</div>
+								<?php if ( 'kitslider' === $style ) { ?>
+									<div class="focus-carousel-content-link">
+									Learn More
+									</div>
+								<?php } ?>
+								<?php if ( 'testimonial' === $style ) { ?>
+									<?php $testimonial_name = get_sub_field( 'testimonial_name' ); ?>
+									<?php if ( $testimonial_name ) : ?>
+										<div class="focus-carousel-content-name">
+										<?php echo esc_html( $testimonial_name ); ?>
+										</div>
+									<?php endif; ?>
+								<?php } ?>
+
 							</div>
 
 						</li>

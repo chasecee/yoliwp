@@ -13,9 +13,19 @@ get_header();
 // acf vars.
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
+$background_svg   = get_field( 'background_svg' );
 ?>
+<?php
+$str     = wp_kses( $background_svg, get_kses_extended_ruleset() );
+$new_str = str_replace( array( "\r\n", "\r", "\n", "\t" ), ' ', $str );
+?>
+<?php if ( $background_svg ) : ?>
+<div class="svg-bg" style="">
+
+</div>
+<?php endif; ?>
 <style>
-	body,.bg-color{
+	.abody,.bg-color{
 		background-color: <?php echo esc_attr( $background_color ); ?>
 	}
 	h1,.fg-color{
@@ -31,6 +41,7 @@ $foreground_color = get_field( 'foreground_color' );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
+
 </style>
 
 	<div class=" site-main">
@@ -55,6 +66,7 @@ $foreground_color = get_field( 'foreground_color' );
 					$process_caption      = get_field( 'process_caption' );
 					$process_caption_copy = get_field( 'process_caption_copy' );
 					$size                 = 'full';
+					$features_list_title  = get_field( 'features_list_title' );
 				?>
 
 				<div class="hero-product">
@@ -104,6 +116,11 @@ $foreground_color = get_field( 'foreground_color' );
 						?>
 					</div>
 					<div class="product-features-list">
+						<?php if ( $features_list_title ) : ?>
+							<div class="product-features-list-title">
+								<?php echo esc_html( $features_list_title ); ?>
+							</div>
+						<?php endif; ?>
 						<ul>
 						<?php
 						if ( have_rows( 'features_list' ) ) :

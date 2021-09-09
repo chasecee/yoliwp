@@ -9,7 +9,7 @@
  **/
 
 // Create name for prefixing classes and id's.
-$slug = 'section-cover';
+$slug = 'section-cover-rounded';
 
 // Create id attribute allowing for custom "anchor" value.
 $_s_id = $slug . '-' . $block['id'];
@@ -25,10 +25,7 @@ if ( ! empty( $block['className'] ) ) {
 if ( ! empty( $block['align'] ) ) {
 	$_s_class_name .= ' align' . $block['align'];
 }
-$cover_title       = get_field( 'cover_title' );
-$cover_text        = get_field( 'cover_text' );
-$cover_button_text = get_field( 'cover_button_text' );
-$cover_button_link = get_field( 'cover_button_link' );
+$cover_title = get_field( 'cover_title' );
 ?>
 
 
@@ -42,22 +39,20 @@ $cover_button_link = get_field( 'cover_button_link' );
 		<div class="cover-backdrop"></div>
 		<div class="container">
 			<div class="cover-content">
-					<div class="cover-content-left">
-					<?php if ( $cover_title ) : ?>
-						<h3 class="cover-content-title">
-						<?php echo esc_html( $cover_title ); ?>
-						</h3>
-					<?php endif; ?>
 
-					<?php if ( $cover_text ) : ?>
-						<p class="cover-content-p">
-							<?php echo esc_html( $cover_text ); ?>
-						</p>
-					<?php endif; ?>
+					<div class="cover-content-left">
+						<div class="cover-content-line"></div>
+						<?php if ( $cover_title ) : ?>
+							<h3 class="cover-content-title">
+							<?php echo esc_html( $cover_title ); ?>
+							</h3>
+						<?php endif; ?>
+
+						<div class="cover-content-p">
+							<?php echo '<InnerBlocks />'; ?>
+						</div>
 					</div>
-					<div class="cover-content-right">
-						<?php echo '<InnerBlocks />'; ?>
-					</div>
+
 			</div>
 		</div>
 	</div>

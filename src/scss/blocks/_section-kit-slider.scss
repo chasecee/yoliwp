@@ -8,6 +8,21 @@
 		@apply mx-auto;
 		max-width: 1400px;
 	}
+	&.testimonial {
+		.glide__slides .glide__slide .focus-carousel-content {
+			--tw-translate-y: -35%;
+			--tw-translate-x: 15%;
+			max-width: 81%;
+			@screen md {
+				--tw-translate-x: 0;
+				--tw-translate-y: 0;
+				max-width: none;
+			}
+			&-name {
+				@apply font-sans-alt mt-20;
+			}
+		}
+	}
 	.glide--swipeable {
 		@screen md {
 			cursor: inherit;
