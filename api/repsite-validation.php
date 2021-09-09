@@ -59,7 +59,7 @@ function web_alias( $path, $home ) {
 			if ( $rep->customerId === 50 ) {
 				echo '<script>console.log("There is a cookie and the customer id is 50, so set rep to cookie.")</script>';
 				$rep = $decoded;
-				$boolean = 0;
+				$boolean = 1;
 			} else {
 				echo '<script>console.log("A valid web alias was return, so let\'s set the cookie.")</script>';
 				$cookie_value = json_encode( $rep );
