@@ -336,3 +336,31 @@ function get_kses_extended_ruleset() {
 	);
 	return array_merge( $kses_defaults, $svg_args );
 }
+
+/**
+ * Add styles to wp editor
+ *
+ * @author Corey Collins
+ */
+function custom_editor_styles() {
+	add_editor_style( 'editor-styles.css' );
+}
+
+add_action( 'admin_init', 'custom_editor_styles' );
+
+/** Render the repsite banner. */
+function render_repsite_banner() {
+	include_once realpath( __DIR__ . '/..' ) . '/api/get-url.php';
+	include_once realpath( __DIR__ . '/..' ) . '/api/repsite-validation.php';
+	include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
+	include realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
+
+	$path = get_url();
+
+	// phpcs:ignore
+	if ( isset( $_POST ) ) {
+		// phpcs:ignore
+		set_language_and_country( $_POST );
+	}
+}
+add_action( 'init', 'render_repsite_banner' );

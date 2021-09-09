@@ -11,7 +11,7 @@
 ?>
 
 <?php
-require_once realpath( __DIR__ . '/..' ) . '/web-alias/repsite-validation.php';
+// require_once realpath( __DIR__ . '/..' ) . '/web-alias/repsite-validation.php';
 
 echo '<script>console.log("In site-alert.php");</script>';
 

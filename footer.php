@@ -45,7 +45,7 @@
 			<div class="footer-line"></div>
 			<div class="product-menu footer-menu">
 				<div class="product-menu-content">
-					<?php get_template_part( '/template-parts/product-menu' ); ?>
+					<?php get_template_part( '/template-parts/product-menu-api' ); ?>
 				</div>
 			</div>
 			<div class="footer-line-bottom"></div>

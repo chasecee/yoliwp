@@ -32,8 +32,9 @@ $product_title        = get_field( 'product_title' );
 $product_text_content = get_field( 'product_text_content' );
 $product_image        = get_field( 'product_image' );
 $size                 = 'full';
-$price                = '$160';
+$price                = '$169';
 $price_monthly        = '$150';
+
 ?>
 
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
