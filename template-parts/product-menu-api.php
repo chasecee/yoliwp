@@ -13,25 +13,24 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) {
 if ( $server_url ) {
 	try {
 		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
-		$menu      = json_decode( $response['body'] );
+		$product_menu      = json_decode( $response['body'] );
 	} catch ( Exception $e ) {
 		echo 'Caught exception: ', $e->getMessage(), '\n';
 	}
 } else {
 	try {
 		$response = wp_remote_get( $default_url, array( 'sslverify' => false, 'timeout' => 60 ) );
-		$menu      = json_decode( $response['body'] );
+		$product_menu      = json_decode( $response['body'] );
 	} catch ( Exception $e ) {
 		echo 'Caught exception: ', $e->getMessage(), '\n';
 	}
 }
-
 ?>
 
 <div class="product-menu-cols">
 
 	<div class="product-menu-col">
-		<?php foreach($menu as $item) { ?>
+		<?php foreach($product_menu as $item) { ?>
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
 		<ul>
 			<?php foreach($item->products as $product) { ?>
