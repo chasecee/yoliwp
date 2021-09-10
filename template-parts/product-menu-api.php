@@ -3,7 +3,7 @@
 $base_url    = 'https://108.59.44.81/api/Products/';
 $server_url  = null;
 $default_url = 'https://108.59.44.81/api/Products/US/EN';
-$host_url = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
+
 // Check for the country and language cookies, otherwise use the default url -> /US/EN.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) {
 	$server_url = $base_url . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
@@ -25,6 +25,9 @@ if ( $server_url ) {
 		echo 'Caught exception: ', $e->getMessage(), '\n';
 	}
 }
+
+	$host_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
+	echo 'The host url: ' . $host_url . '<br>';
 ?>
 
 <div class="product-menu-cols">
@@ -34,7 +37,7 @@ if ( $server_url ) {
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
 		<ul>
 			<?php foreach($item->products as $product) { ?>
-				<li><a href="products/<?php echo esc_attr(strtolower($product->itemDescription))?>?item_id=<?php echo $product->itemID ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
+				<li><a href="<?php echo esc_attr($host_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php } ?>

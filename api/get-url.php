@@ -6,13 +6,13 @@ include_once 'repsite-validation.php';
  */
 
 function get_url() {
-	$link = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ?
+	$link = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
 									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] .
 									$_SERVER['REQUEST_URI'];
 
 	$home = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
 	$path = parse_url( $link )['path'];
-	$link_components = parse_url( $link );
+	$link_components = wp_parse_url( $link );
 	if ( isset($link_components['query'])) {
 		parse_str( $link_components['query'], $params);
 	}

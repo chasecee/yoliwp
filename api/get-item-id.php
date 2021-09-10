@@ -4,7 +4,7 @@ function get_item_id() {
 	'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] .
 	$_SERVER['REQUEST_URI'];
 
-	$link_components = parse_url( $link );
+	$link_components = wp_parse_url( $link );
 
 	if ( !empty( $link_components['query'] ) ):
 	parse_str( $link_components['query'], $params);
