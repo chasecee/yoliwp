@@ -54,9 +54,9 @@
 				<div class="flex">
 					<div class="footer-location">2080 Industrial Rd B, Salt Lake City, Utah 84104</div>
 					<div class="social-links">
-						<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-						<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-						<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+						<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+						<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+						<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -79,9 +79,9 @@
 				cs@yoli.com
 			</p>
 			<div class="social-links">
-				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-				<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-				<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+				<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+				<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
 			</div>
 
 		</div>
