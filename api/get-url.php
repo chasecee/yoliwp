@@ -25,10 +25,10 @@ function get_url() {
 	$wp_pages = array_column(get_pages(), 'post_name');
 
 	foreach ( $wp_pages as $wp_page ) {
-		if ( $path === '/' . $wp_page . '/' || $path === '/' . 'products/' . $wp_page . '/' || $path === '/' . 'products/' . $wp_page ) {
+		if ( '/' . $wp_page . '/' === $path || '/products/' . $wp_page . '/' === $path || '/products/' . $wp_page === $path ) :
 			// echo 'The path inside the get-url for-loop: ' . $path . '<br>';
 			$path = '/';
-		}
+		endif;
 	}
 
 	web_alias( $path, $home );
