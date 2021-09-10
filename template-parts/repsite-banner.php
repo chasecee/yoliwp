@@ -49,7 +49,6 @@ function render_banner($rep, $home, $boolean) {
 					echo '<div class="flex items-center ml-24">';
 					echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
 						echo '<option selected="selected">Language</option>';
-						// <?php
 						foreach ( $languages as $key => $option) {
 							echo '<option value="' . esc_attr($key) . '">' . esc_html($option) . '</option>';
 						}
