@@ -218,8 +218,18 @@ $foreground_color = get_field( 'foreground_color' );
 						// Get the item's id and call the api for prices.
 						$item_id = get_item_id();
 						$prices_api = get_prices($item_id);
-						$price         = $prices_api->retailPriceFmtd;
-						$price_monthly = $prices_api->autoshipPriceFmtd;
+						if ( !empty($prices_api->retailPriceFmtd)) {
+							$price = $prices_api->retailPriceFmtd;
+						} else {
+							$price = null;
+						}
+
+						if ( !empty($prices_api->autoshipPriceFmtd) ) {
+							$price_monthly = $prices_api->autoshipPriceFmtd;
+						} else {
+							$price_monthly = null;
+						}
+
 						/** $price                 = get_field( 'price' );
 						* $price_monthly         = get_field( 'price_monthly' ); */
 					?>

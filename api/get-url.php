@@ -13,7 +13,9 @@ function get_url() {
 	$home = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
 	$path = parse_url( $link )['path'];
 	$link_components = parse_url( $link );
-	parse_str( $link_components['query'], $params);
+	if ( isset($link_components['query'])) {
+		parse_str( $link_components['query'], $params);
+	}
 
 	// echo 'The path is: ' . $path . '<br>';
 	// echo 'The query param is: ' . $params['item_id'] . '<br>';
