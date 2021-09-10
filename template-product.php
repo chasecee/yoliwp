@@ -11,6 +11,7 @@
 
 include_once realpath(__DIR__) . '/api/get-item-id.php';
 include_once realpath(__DIR__) . '/api/get-prices.php';
+include_once realpath(__DIR__) . '/api/buy-button-urls.php';
 
 get_header();
 // acf vars.
@@ -208,33 +209,23 @@ $foreground_color = get_field( 'foreground_color' );
 					$size                  = 'full';
 					$product_description_2 = get_field( 'product_description_2' );
 
-					/** Chad's code. */
-					$arr_context_options = array(
-						'ssl' => array(
-							'verify_peer'      => false,
-							'verify_peer_name' => false,
-						),
-					);
-						// Get the item's id and call the api for prices.
-						$item_id = get_item_id();
-						$prices_api = get_prices($item_id);
-						if ( !empty($prices_api->retailPriceFmtd)) {
-							$price = $prices_api->retailPriceFmtd;
-						} else {
-							$price = null;
-						}
+					// Get the item's id and call the api for prices.
+					$prices_api = get_prices();
+					if ( !empty($prices_api->retailPriceFmtd)) {
+						$price = $prices_api->retailPriceFmtd;
+					} else {
+						$price = null;
+					}
 
-						if ( !empty($prices_api->autoshipPriceFmtd) ) {
-							$price_monthly = $prices_api->autoshipPriceFmtd;
-						} else {
-							$price_monthly = null;
-						}
-
-						/** $price                 = get_field( 'price' );
-						* $price_monthly         = get_field( 'price_monthly' ); */
+					if ( !empty($prices_api->autoshipPriceFmtd) ) {
+						$price_monthly = $prices_api->autoshipPriceFmtd;
+					} else {
+						$price_monthly = null;
+					}
 					?>
 
 				<div class="product">
+
 					<div class="product-content">
 						<p class="product-content-servings">
 						<?php if ( $serving_size ) : ?>
@@ -255,21 +246,23 @@ $foreground_color = get_field( 'foreground_color' );
 						</p>
 
 						<div class="product-content-cta">
-							<button class="btn btn-primary btn-accent-outline btn-full">
-								Shop Now
-								<?php if ( $price ) : ?>
-									<?php echo ' — '; ?>
-									<?php echo esc_html( $price ); ?>
-								<?php endif; ?>
-							</button>
-							<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
-								<?php if ( $price_monthly ) : ?>
-									<?php echo ' — '; ?>
-									<?php echo esc_html( $price_monthly ); ?>
-								<?php endif; ?>
-							</button>
-
-
+							<a href="<?php echo $retail_url = retail_buy_button_url(); ?>">
+								<button class="btn btn-primary btn-accent-outline btn-full">
+									Shop Now
+									<?php if ( $price ) : ?>
+										<?php echo ' — '; ?>
+										<?php echo esc_html( $price ); ?>
+									<?php endif; ?>
+								</button>
+							</a>
+							<a href="">
+								<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
+									<?php if ( $price_monthly ) : ?>
+										<?php echo ' — '; ?>
+										<?php echo esc_html( $price_monthly ); ?>
+									<?php endif; ?>
+								</button>
+							</a>
 						</div>
 					</div>
 

@@ -15,20 +15,33 @@ if ( $server_url ) {
 		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
 		$product_menu      = json_decode( $response['body'] );
 	} catch ( Exception $e ) {
-		echo 'Caught exception: ', $e->getMessage(), '\n';
+		echo 'Caught exception: ', esc_html($e), '\n';
 	}
 } else {
 	try {
 		$response = wp_remote_get( $default_url, array( 'sslverify' => false, 'timeout' => 60 ) );
 		$product_menu      = json_decode( $response['body'] );
 	} catch ( Exception $e ) {
-		echo 'Caught exception: ', $e->getMessage(), '\n';
+		echo 'Caught exception: ', esc_html($e), '\n';
 	}
 }
 
-	$host_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
-	echo 'The host url: ' . $host_url . '<br>';
-?>
+	$cookie_name = 'Current_Rep';
+	if( isset( $_COOKIE[$cookie_name] ) ):
+		$cookie = wp_unslash( ($_COOKIE[$cookie_name] ) );
+    $decoded = json_decode($cookie);
+    $customer_id = $decoded->customerId;
+		$alias = $decoded->webAlias;
+	else :
+		$customer_id = 50;
+		$alias = 50;
+	endif;
+
+	$redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
+
+	// Url = `https://1160-web1.vm.epicservers.com/corporphan/additem?ItemCode=ItemA&Country=US&OwnerID=1 `.
+
+	?>
 
 <div class="product-menu-cols">
 
@@ -37,7 +50,7 @@ if ( $server_url ) {
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
 		<ul>
 			<?php foreach($item->products as $product) { ?>
-				<li><a href="<?php echo esc_attr($host_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
+				<li><a href="<?php echo esc_attr($redirect_base_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>&item_code=<?php echo $product->itemCode ?>&customer_id=<?php echo $customer_id ?>&web_alias=<?php echo $alias ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php } ?>

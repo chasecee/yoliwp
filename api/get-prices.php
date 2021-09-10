@@ -1,8 +1,8 @@
 <?php
-function get_prices($item_id) {
-	// echo 'The item\'s id: ' . $item_id . '<br>';
-
-	// Get product details on specific product (phase 2 for populating the product page(s) - still does not contain item images): ​/api​/Products​/{countryCode}​/{itemId}​/{languageCode}
+function get_prices() {
+	if ( isset ( $_GET['item_id'] ) ) :
+		$item_id = $_GET['item_id'];
+	endif;
 
 	$base_url   = 'https://108.59.44.81/api/Products/pricing/';
 	$server_url = null;
