@@ -1,6 +1,6 @@
 <?php
 include_once 'repsite-validation.php';
-// include_once 'get-prices.php';
+
 /**
  * 1) Get the URL and return the path.
  */

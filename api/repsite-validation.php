@@ -1,6 +1,7 @@
 <?php
 /** Get-rep is the helper function that makes the API call with the web alias; it's called in the web_alias function. */
-include 'get-rep-curl.php';
+include_once 'get-rep-curl.php';
+include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
 
 /**
  * Check the web alias against the API and set the cookie when needed.
