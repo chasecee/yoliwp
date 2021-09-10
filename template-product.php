@@ -1,3 +1,6 @@
+<script>
+	console.log('At the top of template-product.php');
+</script>
 <?php
 /**
  * Template Name: Product Page Pink
@@ -8,9 +11,6 @@
  *
  * @package _s
  */
-
-include_once realpath(__DIR__) . '/api/get-url.php';
-include_once realpath(__DIR__) . '/api/get-prices.php';
 
 get_header();
 // acf vars.
@@ -81,8 +81,8 @@ $foreground_color = get_field( 'foreground_color' );
 
 				<?php
 					// acf vars.
-					$product_box_image = get_field( 'product_box_image' );
-					$size              = 'full';
+					$product_box_image   = get_field( 'product_box_image' );
+					$size                = 'full';
 					$features_list_title = get_field( 'features_list_title' );
 				?>
 				<div class="product-features">
@@ -216,10 +216,24 @@ $foreground_color = get_field( 'foreground_color' );
 						),
 					);
 						// Get the item's id and call the api for prices.
-						$item_id = get_item_id();
-						$prices_api = get_prices($item_id);
-						$price         = $prices_api->retailPriceFmtd;
+						require_once realpath( __DIR__ ) . '/api/get-item-id.php';
+						require_once realpath( __DIR__ ) . '/api/get-prices.php';
+
+						$item_id    = get_item_id();
+						$prices_api = get_prices( $item_id );
+						echo 'The item id: ' . $item_id . '<br>';
+						echo 'The prices: ';
+						var_export( $prices_api );
+						echo '<br>';
+						echo '<script>console.log("In the template-product page that\'s not working.")</script>';
+							// phpcs:ignore
+					if ( ! empty( $prices_api->retailPriceFmtd ) ) {
+						$price = $prices_api->retailPriceFmtd;
+					}
+						// phpcs:ignore
+					if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
 						$price_monthly = $prices_api->autoshipPriceFmtd;
+					}
 						/** $price                 = get_field( 'price' );
 						* $price_monthly         = get_field( 'price_monthly' ); */
 					?>
