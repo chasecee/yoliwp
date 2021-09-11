@@ -8,9 +8,11 @@ function set_language_and_country( $selection ) {
 	endif;
 
 	/** For anything other than the US, set the country cookie. */
-	if ( isset( $_POST['sel_country'] ) ) {
+	if ( isset( $_POST['sel_country'] ) ) :
 		$country = $selection['sel_country'];
 		setcookie( 'Country', $country, time() + ( 86400 * 30 ), '/' );
-	}
+		header('Location: http://localhost:10008/');
+		exit;
+	endif;
 }
 

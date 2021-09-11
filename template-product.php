@@ -209,7 +209,6 @@ $foreground_color = get_field( 'foreground_color' );
 					$size                  = 'full';
 					$product_description_2 = get_field( 'product_description_2' );
 
-					// Get the item's id and call the api for prices.
 					$prices_api = get_prices();
 					if ( !empty($prices_api->retailPriceFmtd)) {
 						$price = $prices_api->retailPriceFmtd;
@@ -255,7 +254,7 @@ $foreground_color = get_field( 'foreground_color' );
 									<?php endif; ?>
 								</button>
 							</a>
-							<a href="">
+							<a href="<?php echo $retail_url = retail_buy_button_url(); ?>">
 								<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
 									<?php if ( $price_monthly ) : ?>
 										<?php echo ' — '; ?>
