@@ -4,7 +4,8 @@ function render_banner($rep, $home, $redirect) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
-	$languages = get_languages();
+	// Turn on $languages when ready for the dropdown; uncomment html below.
+	// $languages = get_languages();
 	$countries = get_countries();
 
 	$email = null;
@@ -12,20 +13,17 @@ function render_banner($rep, $home, $redirect) {
 	$welcome_message = null;
 
 	if ($redirect === 1) {
-		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
-		// header('Location: http://localhost:10008/');
 		header('Location: ' . $home);
 		exit;
 	}
 
 	/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
-	if ( $rep->customerId !== 50) {
+	if ( 50 === $rep->customerId ) {
+		$welcome_message = 'Welcome to Yoli!';
+	} else {
 		$email = $rep->email;
 		$phone = $rep->phone;
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
-
-	} else {
-		$welcome_message = 'Welcome to Yoli!';
 	}
 
 	echo '<div class="site-alert">';

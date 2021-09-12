@@ -83,6 +83,4 @@
 	<exclude-pattern>/functions.php</exclude-pattern>
 	<exclude-pattern>/acf-json/</exclude-pattern>
 	<exclude-pattern>/inc/blocks/block-product-cta.php</exclude-pattern>
-
-
 </ruleset>

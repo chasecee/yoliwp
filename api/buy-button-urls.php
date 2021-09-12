@@ -1,11 +1,17 @@
 <?php
 
 function retail_buy_button_url() {
-	if ( isset( $_GET)) :
-		$alias = $_GET['web_alias'];
-		$item_code = $_GET['item_code'];
-		$customer_id = $_GET['customer_id'];
+	if ( isset( $_COOKIE['Current_Rep'])) :
+		$cookie = wp_unslash( ($_COOKIE[$cookie_name] ) );
+    $decoded = json_decode($cookie);
+    $alias = $decoded->webAlias;
+		$customer_id = $decoded->customerId;
+	else :
+		$alias = 50;
+		$customer_id = 50;
 	endif;
+
+	$item_code = $_GET['item_code'];
 
 	if ( isset( $_COOKIE['Country'] ) ) :
 		$country_code = $_COOKIE['Country'];

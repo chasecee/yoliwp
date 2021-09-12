@@ -5,10 +5,6 @@ $server_url  = null;
 $country = 'US';
 $language = 'en';
 
-// if ( isset( $_POST['sel_country']) || isset($_POST['sel_language']) ) :
-// 	echo '<meta http-equiv="refresh" content="0">';
-// endif;
-
 // Check for the country and language cookies, otherwise use the default url -> /US/EN.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 	$country = $_COOKIE['Country'];
@@ -60,7 +56,7 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
 		<ul>
 			<?php foreach($item->products as $product) { ?>
-				<li><a href="<?php echo esc_attr($redirect_base_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>&item_code=<?php echo $product->itemCode ?>&customer_id=<?php echo $customer_id ?>&web_alias=<?php echo $alias ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
+				<li><a href="<?php echo esc_attr($redirect_base_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>&item_code=<?php echo $product->itemCode ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php } ?>
