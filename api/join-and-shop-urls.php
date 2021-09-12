@@ -14,11 +14,7 @@ if ( ! empty( $_COOKIE[$cookie_name] ) ) :
 	endif;
 
 // Build the join url.
-if ( 50 === $alias ) :
-		$join_url = $base_url . 'enrollment/enrollmentconfiguration';
-	else :
-			$join_url = $base_url . $alias . '/enrollment/enrollmentconfiguration';
-	endif;
+$join_url = $base_url . $alias . '/enrollment/enrollmentconfiguration';
 
 // The login_link is not our purvue.
 $login_link    = 'https://1160-web1.vm.epicservers.com:444/login';

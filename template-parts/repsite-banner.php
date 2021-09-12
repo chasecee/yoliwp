@@ -1,6 +1,6 @@
 <?php
 
-function render_banner($rep, $home, $boolean) {
+function render_banner($rep, $home, $redirect) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
@@ -11,9 +11,7 @@ function render_banner($rep, $home, $boolean) {
 	$phone = null;
 	$welcome_message = null;
 
-	// echo 'The repID: ' . $rep->customerId . '<br>';
-
-	if ($boolean === 1) {
+	if ($redirect === 1) {
 		echo '<script>console.log("Repsite-banner -> boolean === true -> redirect to home.")</script>';
 		// header('Location: http://localhost:10008/');
 		header('Location: ' . $home);
@@ -22,7 +20,6 @@ function render_banner($rep, $home, $boolean) {
 
 	/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
 	if ( $rep->customerId !== 50) {
-
 		$email = $rep->email;
 		$phone = $rep->phone;
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
@@ -45,22 +42,23 @@ function render_banner($rep, $home, $boolean) {
 				echo '<div class="text-center col-span-6 ">';
 					echo esc_html($welcome_message);
 				echo '</div>';
-				echo '<form class="col-span-3 flex justify-end" method="post">';
-					echo '<div class="flex items-center ml-24">';
-					echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
-						echo '<option selected="selected">Language</option>';
-						foreach ( $languages as $key => $option) {
-							echo '<option value="' . esc_attr($key) . '">' . esc_html($option) . '</option>';
-						}
-					echo	'</select>';
-					echo '</div>';
-				echo '</form>';
+				// echo '<form class="col-span-3 flex justify-end" method="post">';
+				// 	echo '<div class="flex items-center ml-24">';
+				// 	echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
+				// 		echo '<option selected disabled>Language</option>';
+				// 		foreach ( $languages as $key => $option) {
+				// 			echo '<option value="' . esc_attr($key) . '" >' . esc_html($option) . '</option>';
+				// 		}
+				// 	echo	'</select>';
+				// 	echo '</div>';
+				// echo '</form>';
 				echo '<form class="col-span-3 flex justify-end" method="post">';
 					echo '<div class="flex items-center ml-24" >';
 					echo '<select class="mr-5" name="sel_country" onchange="this.form.submit()">';
-						echo '<option selected="selected">Country</option>';
+						echo '<option selected="selected" disabled>Country</option>';
 								foreach ( $countries as $key => $option) {
-									echo '<option value="' . esc_attr($key) . '">' . esc_html($option) . '</option>';
+									$slctd = ( isset($_POST['sel_country']) && $_POST['sel_country'] === $key ) ? 'selected' : '';
+									echo '<option value="' . esc_attr($key) . '" ' . $slctd . '>' . esc_html($option) . '</option>';
 							 }
 						echo '</select>';
 					echo '</div>';

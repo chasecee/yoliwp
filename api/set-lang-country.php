@@ -1,17 +1,29 @@
 <?php
 /** Set the language and country cookies */
 function set_language_and_country( $selection ) {
+	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+
+	$arr_cookie_options = array (
+		'expires' => time() + ( 86400 * 30 ),
+		'path' => '/',
+		// 'domain' => '.example.com', // leading dot for compatibility or use subdomain
+		'secure' => true,
+		'httponly' => true,
+		'samesite' => 'Strict'
+		);
+
 	/** For anything other than English, set the language cookie. */
 	if ( isset( $_POST['sel_language'] ) ) :
 		$language = $selection['sel_language'];
-		setcookie( 'Language', $language, time() + ( 86400 * 30 ), '/' );
+		setcookie( 'Language', $language, $arr_cookie_options );
 	endif;
 
 	/** For anything other than the US, set the country cookie. */
 	if ( isset( $_POST['sel_country'] ) ) :
 		$country = $selection['sel_country'];
-		setcookie( 'Country', $country, time() + ( 86400 * 30 ), '/' );
-		header('Location: http://localhost:10008/');
+		setcookie( 'Country', $country, $arr_cookie_options );
+		header('Location: ' . $home);
 		exit;
 	endif;
 }

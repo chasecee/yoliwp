@@ -27,7 +27,6 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 
 // Get the cookie alias and ID if set; otherwise, corporphan
 if ( $server_url ) {
-	echo 'The server url on product-menu-api.php: ' . $server_url . '<br>';
 
 	try {
 		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
