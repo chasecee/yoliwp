@@ -56,7 +56,7 @@ function render_banner($rep, $home, $redirect) {
 					echo '<select class="mr-5" name="sel_country" onchange="this.form.submit()">';
 						echo '<option selected="selected" disabled>Country</option>';
 								foreach ( $countries as $key => $option) {
-									$slctd = ( isset($_POST['sel_country']) && $_POST['sel_country'] === $key ) ? 'selected' : '';
+									$slctd = ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) ? 'selected' : '';
 									echo '<option value="' . esc_attr($key) . '" ' . $slctd . '>' . esc_html($option) . '</option>';
 							 }
 						echo '</select>';
