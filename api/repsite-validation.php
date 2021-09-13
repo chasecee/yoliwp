@@ -12,14 +12,26 @@ function web_alias( $path, $home ) {
 
 	$cookie_name        = 'Current_Rep';
 	$cookie_value       = '';
-	$arr_cookie_options = array(
-		'expires'  => time() + ( 86400 * 30 ),
-		'path'     => '/',
-		// 'domain' => '.example.com', // leading dot for compatibility or use subdomain
-		'secure' => true,
-		'httponly' => true,
-		'samesite' => 'Strict'
-		);
+
+	if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
+		$arr_cookie_options = array(
+			'expires'  => time() + ( 86400 * 30 ),
+			'path'     => '/',
+			'domain' => 'localhost',
+			'secure' => true,
+			'httponly' => true,
+			'samesite' => 'Strict'
+			);
+		else :
+			$arr_cookie_options = array(
+			'expires'  => time() + ( 86400 * 30 ),
+			'path'     => '/',
+			'domain' => 'localhost',
+			'secure' => false,
+			'httponly' => true,
+			'samesite' => 'Strict'
+			);
+		endif;
 
 	// 1. If the cookie has already been set, check it's web alias against the $path.
 	if ( !empty( $_COOKIE[ $cookie_name ] ) ) {
