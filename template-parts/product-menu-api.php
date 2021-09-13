@@ -27,13 +27,12 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 
 
 			// Get the cookie alias and ID if set; otherwise, corporphan.
-			if ( $server_url ) {
-
+			if ( $server_url ) :
 				try {
 					$response     = wp_remote_get(
 						$server_url,
 						array(
-							'sslverify' => false,
+							'sslverify' => false, // For development only.
 							'timeout'   => 60,
 						)
 					);
@@ -41,7 +40,8 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 				} catch ( Exception $e ) {
 					echo 'Caught exception: ', esc_html( $e ), '\n';
 				}
-			}
+endif;
+
 
 			// Retrieve rep info from the cookie for the url.
 			$cookie_name = 'Current_Rep';
@@ -74,7 +74,7 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 				<li><a href="
 				<?php
 				// phpcs:ignore
-					echo esc_attr( $redirect_base_url . strtolower( $product->itemDescription ) . '/' );
+					echo esc_attr( $redirect_base_url . strtolower( $product->productPage ) . '/' );
 				?>
 					?item_id=
 					<?php

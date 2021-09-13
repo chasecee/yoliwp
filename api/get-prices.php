@@ -31,7 +31,11 @@ function get_prices() {
 		}
 	} else {
 		try {
-			$response = wp_remote_get( $base_url, array( 'sslverify' => false, 'timeout' => 60 ) );
+			$response = wp_remote_get(
+				$base_url,
+				array(
+					'sslverify' => false, // For development only.
+					'timeout' => 60 ) );
 			$prices = json_decode( $response['body'] );
 		} catch ( Exception $e ) {
 			echo 'Caught exception: ', esc_html($e), '\n';

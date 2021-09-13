@@ -14,13 +14,6 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) {
 	$serverUrl = $baseUrl . $_COOKIE['Country'] . '/' . $_COOKIE['Language'];
 }
 
-// if ($serverUrl) {
-// $response = wp_remote_get($serverUrl);
-// $products = json_decode($response);
-// ehco 'The products: ';
-// var_export($products);
-// }
-
 if ( $serverUrl ) {
 	$curl = curl_init( $serverUrl );
 	curl_setopt( $curl, CURLOPT_RETURNTRANSFER, true );
@@ -72,7 +65,7 @@ foreach ( $products as $category ) {
 ?>
 
  <!-- Render the menu. *Note: the anchor tag with the href link and get method is just one way; you could use a button and the post method with global $_POST variable, instead of query params.-->
-<!-- 
+<!--
 <?php
   echo '<table class="product-menu">';
   echo '<tr class="menu-categories">';
