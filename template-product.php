@@ -1,3 +1,6 @@
+<script>
+	console.log('At the top of template-product.php');
+</script>
 <?php
 /**
  * Template Name: Product Page Pink
@@ -82,8 +85,8 @@ $foreground_color = get_field( 'foreground_color' );
 
 				<?php
 					// acf vars.
-					$product_box_image = get_field( 'product_box_image' );
-					$size              = 'full';
+					$product_box_image   = get_field( 'product_box_image' );
+					$size                = 'full';
 					$features_list_title = get_field( 'features_list_title' );
 				?>
 				<div class="product-features">

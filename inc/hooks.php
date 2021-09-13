@@ -359,7 +359,6 @@ function language_country_cookie() {
 }
 add_action( 'init', 'language_country_cookie' );
 
-
 /** Render the repsite banner. */
 function render_repsite_banner() {
 	include_once realpath( __DIR__ . '/..' ) . '/api/get-url.php';

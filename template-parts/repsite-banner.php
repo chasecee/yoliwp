@@ -8,11 +8,11 @@ function render_banner($rep, $home, $redirect) {
 	// $languages = get_languages();
 	$countries = get_countries();
 
-	$email = null;
-	$phone = null;
+	$email           = null;
+	$phone           = null;
 	$welcome_message = null;
 
-	if ($redirect === 1) {
+	if (1 === $redirect) {
 		header('Location: ' . $home);
 		exit;
 	}
@@ -23,6 +23,7 @@ function render_banner($rep, $home, $redirect) {
 	} else {
 		$email = $rep->email;
 		$phone = $rep->phone;
+				// phpcs:ignore
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
 	}
 
@@ -31,14 +32,14 @@ function render_banner($rep, $home, $redirect) {
 			echo '<div class="grid grid-cols-12 h-60 items-center">';
 				echo '<div class="col-span-3 flex justify-start">';
 					echo '<div class="flex items-center mr-24">';
-						echo '<span class="">' . esc_html($email) . '</span>';
+						echo '<span class="">' . esc_html( $email ) . '</span>';
 					echo '</div>';
 					echo '<div class="flex items-center mr-0">';
-						echo '<span class="">' . esc_html($phone) . '</span>';
+						echo '<span class="">' . esc_html( $phone ) . '</span>';
 					echo '</div>';
 				echo '</div>';
 				echo '<div class="text-center col-span-6 ">';
-					echo esc_html($welcome_message);
+					echo esc_html( $welcome_message );
 				echo '</div>';
 				// echo '<form class="col-span-3 flex justify-end" method="post">';
 				// 	echo '<div class="flex items-center ml-24">';
@@ -65,4 +66,3 @@ function render_banner($rep, $home, $redirect) {
 		echo '</div>';
 	echo '</div>';
 }
-?>

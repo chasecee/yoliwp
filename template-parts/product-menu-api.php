@@ -1,47 +1,60 @@
 <?php
-/** Get list of all products by category per country to populate the footer and modal menus): ​/api​/Products​/{countryCode}​/{languageCode} */
-$base_url    = 'https://108.59.44.81/api/Products/';
-$server_url  = null;
-$country = 'US';
-$language = 'en';
+/**
+ * Get list of all products by category per country to populate the footer and modal menus): ​/api​/Products​/{countryCode}​/{languageCode}
+ *
+ * @package _s
+ */
+
+$base_url   = 'https://108.59.44.81/api/Products/';
+$server_url = null;
+$country    = 'US';
+$language   = 'en';
 
 // Check for the country and language cookies, otherwise use the default url -> /US/EN.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
-	$country = $_COOKIE['Country'];
-	$language = $_COOKIE['Language'];
+	$country    = $_COOKIE['Country'];
+	$language   = $_COOKIE['Language'];
 	$server_url = $base_url . $country . '/' . $language;
-	elseif ( isset( $_COOKIE['Country'] ) && !isset( $_COOKIE['Language'] ) ) :
-		$country = $_COOKIE['Country'];
+	elseif ( isset( $_COOKIE['Country'] ) && ! isset( $_COOKIE['Language'] ) ) :
+		$country    = $_COOKIE['Country'];
 		$server_url = $base_url . $country . '/' . $language;
-		elseif ( !isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
-			$language = $_COOKIE['Language'];
+		elseif ( ! isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
+			$language   = $_COOKIE['Language'];
 			$server_url = $base_url . $country . '/' . $language;
 			else :
 				$server_url = $base_url . $country . '/' . $language;
 			endif;
 
 
-// Get the cookie alias and ID if set; otherwise, corporphan
-if ( $server_url ) {
+			// Get the cookie alias and ID if set; otherwise, corporphan.
+			if ( $server_url ) {
 
-	try {
-		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
-		$product_menu      = json_decode( $response['body'] );
-	} catch ( Exception $e ) {
-		echo 'Caught exception: ', esc_html($e), '\n';
-	}
-}
+				try {
+					$response     = wp_remote_get(
+						$server_url,
+						array(
+							'sslverify' => false,
+							'timeout'   => 60,
+						)
+					);
+					$product_menu = json_decode( $response['body'] );
+				} catch ( Exception $e ) {
+					echo 'Caught exception: ', esc_html( $e ), '\n';
+				}
+			}
 
-// Retrieve rep info from the cookie for the url.
-$cookie_name = 'Current_Rep';
-if( isset( $_COOKIE[$cookie_name] ) ):
-	$cookie = wp_unslash( ($_COOKIE[$cookie_name] ) );
-	$decoded = json_decode($cookie);
-	$customer_id = $decoded->customerId;
-	$alias = $decoded->webAlias;
+			// Retrieve rep info from the cookie for the url.
+			$cookie_name = 'Current_Rep';
+			if ( isset( $_COOKIE[ $cookie_name ] ) ) :
+				$cookie  = wp_unslash( ( $_COOKIE[ $cookie_name ] ) );
+				$decoded = json_decode( $cookie );
+					// phpcs:ignore
+				$customer_id = $decoded->customerId;
+					// phpcs:ignore
+				$alias       = $decoded->webAlias;
 else :
 	$customer_id = 50;
-	$alias = 50;
+	$alias       = 50;
 endif;
 
 // The base for the redirect url.
@@ -52,11 +65,21 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 <div class="product-menu-cols">
 
 	<div class="product-menu-col">
-		<?php foreach($product_menu as $item) { ?>
-		<p class="product-menu-title"><?php echo esc_html($item->category) ?></p>
+		<?php foreach ( $product_menu as $item ) { ?>
+		<p class="product-menu-title"><?php echo esc_html( $item->category ); ?></p>
 		<ul>
-			<?php foreach($item->products as $product) { ?>
-				<li><a href="<?php echo esc_attr($redirect_base_url . strtolower($product->itemDescription) . '/')?>?item_id=<?php echo $product->itemID ?>&item_code=<?php echo $product->itemCode ?>"><?php echo esc_html($product->itemDescription) ?></a></li>
+			<?php
+			foreach ( $item->products as $product ) {
+				?>
+				<li><a href="
+				<?php
+				// phpcs:ignore
+					echo esc_attr( $redirect_base_url . strtolower( $product->itemDescription ) . '/' );
+				?>
+					?item_id=
+					<?php
+					// phpcs:ignore
+					echo esc_attr($product->itemID); ?>&item_code=<?php echo esc_attr($product->itemCode); ?>"><?php echo esc_html( $product->itemDescription ); ?></a></li>
 			<?php } ?>
 			</ul>
 		<?php } ?>
@@ -71,4 +94,3 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 	</div>
 
 </div>
-

@@ -2,7 +2,7 @@
 
 function retail_buy_button_url() {
 	if ( isset( $_COOKIE['Current_Rep'])) :
-		$cookie = wp_unslash( ($_COOKIE[$cookie_name] ) );
+		$cookie = wp_unslash( ($_COOKIE['Current_Rep'] ) );
     $decoded = json_decode($cookie);
     $alias = $decoded->webAlias;
 		$customer_id = $decoded->customerId;

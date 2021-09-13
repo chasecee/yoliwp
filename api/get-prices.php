@@ -18,8 +18,14 @@ function get_prices() {
 
 	if ( $server_url ) {
 		try {
-			$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
-			$prices = json_decode( $response['body'] );
+			$response = wp_remote_get(
+				$server_url,
+				array(
+					'sslverify' => false,
+					'timeout'   => 60,
+				)
+			);
+			$prices   = json_decode( $response['body'] );
 		} catch ( Exception $e ) {
 			echo 'Caught exception: ', esc_html($e), '\n';
 		}
@@ -34,4 +40,3 @@ function get_prices() {
 
 	return $prices;
 }
-?>
