@@ -46,6 +46,7 @@ function render_banner($rep, $home, $redirect) {
 				// 	echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
 				// 		echo '<option selected disabled>Language</option>';
 				// 		foreach ( $languages as $key => $option) {
+				// 			$slctd = ( isset($_COOKIE['Language']) && $_COOKIE['Language'] === $key ) ? 'selected' : '';
 				// 			echo '<option value="' . esc_attr($key) . '" >' . esc_html($option) . '</option>';
 				// 		}
 				// 	echo	'</select>';
