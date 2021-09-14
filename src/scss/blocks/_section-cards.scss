@@ -30,7 +30,7 @@
 			}
 		}
 		&-bg {
-			@apply absolute inset-0;
+			@apply absolute inset-0 bg-cover;
 		}
 		&-gradient {
 			@apply absolute inset-0 bg-gradient-to-t from-black opacity-60;
