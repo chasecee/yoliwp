@@ -1,6 +1,4 @@
 <?php
-include_once 'repsite-validation.php';
-
 /**
  * 1) Get the URL and return the path.
  */
@@ -13,20 +11,35 @@ function get_url() {
 
 	$link = $home . $_SERVER['REQUEST_URI'];
 	$path = parse_url( $link )['path'];
+	$redirect = null;
 	$link_components = wp_parse_url( $link );
 	if ( isset($link_components['query'])) {
 		parse_str( $link_components['query'], $params);
 	}
 
-	// Will return all valid pages: ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
+	// Will return an array of all valid, client-facing wp-pages, e.g., ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
 	$wp_pages = array_column( get_pages(), 'post_name' );
+	$wp2 = array('wp-admin', 'robots.txt', 'sitemap.xml', 'wp-login.php', 'admin-ajax.php', 'admin-post.php', 'post.php', 'index.php');
 
-	foreach ( $wp_pages as $wp_page ) {
-		if ( '/' . $wp_page . '/' === $path || '/products/' . $wp_page . '/' === $path || '/products/' . $wp_page === $path ) :
-			// echo 'The path inside the get-url for-loop: ' . $path . '<br>';
-			$path = '/';
+	$real_paths = array_merge($wp_pages, $wp2);
+
+	foreach ( $real_paths as $page ) {
+		if (
+			'/'. $page === $path ||
+			'/' . $page . '/' === $path ||
+			'/products/' . $page . '/' === $path ||
+			'/products/' . $page === $path ||
+			'/archives/' . $page === $path ||
+			strpos($link, '/wp-admin/') !== false ||
+			strpos($link, '/wp-json/') !== false
+			// 0 === strpos($path, '/wp-admin/' )
+			) :
+			$redirect = '/';
 		endif;
 	}
-	web_alias( $path, $home );
+
+	if ($redirect === null ) : $redirect = $path; endif;
+
+	web_alias( $redirect, $home, $path );
 }
 ?>

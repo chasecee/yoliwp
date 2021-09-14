@@ -7,7 +7,7 @@ function get_rep_info($url) {
 		$response = wp_remote_get( $url, array( 'sslverify' => false, 'timeout' => 60 ) );
 		$rep      = json_decode( $response['body'] );
 	} catch ( Exception $e ) {
-		echo 'Caught exception: ', $e->getMessage(), '\n';
+		echo 'Caught exception: ', esc_html($e), '\n';
 	}
 	echo 'The rep in get-rep: ';
 	var_export($rep);

@@ -350,19 +350,23 @@ add_action( 'admin_init', 'custom_editor_styles' );
 
 /** Set the language and country cookies. */
 function language_country_cookie() {
-	include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
+	if ( ! is_admin() ) {
+		include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
 	// phpcs:ignore
 	if ( isset( $_POST ) ) {
-		// phpcs:ignore
-		set_language_and_country( $_POST );
+			// phpcs:ignore
+			set_language_and_country( $_POST );
+		}
 	}
 }
-add_action( 'init', 'language_country_cookie' );
+	add_action( 'init', 'language_country_cookie' );
 
 /** Render the repsite banner. */
 function render_repsite_banner() {
-	include_once realpath( __DIR__ . '/..' ) . '/api/get-url.php';
+	if ( ! is_admin() ) {
+		include_once realpath( __DIR__ . '/..' ) . '/api/get-url.php';
 
-	$path = get_url();
+		$path = get_url();
+	}
 }
 add_action( 'init', 'render_repsite_banner' );

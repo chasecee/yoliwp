@@ -1,6 +1,6 @@
 <?php
 
-function render_banner($rep, $home, $redirect) {
+function render_banner($rep, $home, $redirect_boolean, $path) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
@@ -12,7 +12,7 @@ function render_banner($rep, $home, $redirect) {
 	$phone           = null;
 	$welcome_message = null;
 
-	if (1 === $redirect) {
+	if (1 === $redirect_boolean) {
 		header('Location: ' . $home);
 		exit;
 	}
@@ -26,6 +26,10 @@ function render_banner($rep, $home, $redirect) {
 				// phpcs:ignore
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
 	}
+
+	if ( strpos($path, '/wp-') === 0) :
+		return;
+	endif;
 
 	echo '<div class="site-alert">';
 		echo '<div class="container">';
