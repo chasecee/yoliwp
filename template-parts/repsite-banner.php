@@ -27,7 +27,7 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
 	}
 
-	if ( strpos($path, '/wp-admin/') === 0) :
+	if ( strpos($path, '/wp-') === 0) :
 		return;
 	endif;
 
