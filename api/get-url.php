@@ -23,7 +23,16 @@ function get_url() {
 	$real_paths = array_merge($wp_pages, $wp2);
 
 	foreach ( $real_paths as $page ) {
-		if ( '/' . $page . '/' === $path || '/'. $page === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($path, '/wp-admin/' ) ) :
+		if (
+			'/'. $page === $path ||
+			'/' . $page . '/' === $path ||
+			'/products/' . $page . '/' === $path ||
+			'/products/' . $page === $path ||
+			'/archives/' . $page === $path ||
+			strpos($link, '/wp-admin/') !== false ||
+			strpos($link, '/wp-json/') !== false
+			// 0 === strpos($path, '/wp-admin/' )
+			) :
 			$redirect = '/';
 		endif;
 	}

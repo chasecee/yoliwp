@@ -7,6 +7,7 @@ include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
  * Check the web alias against the API and set the cookie when needed.
  */
 function web_alias( $redirect, $home, $path ) {
+
 	$base_url = 'https://108.59.44.81/api/alias';
 	$rep_url  = $base_url . $redirect;
 

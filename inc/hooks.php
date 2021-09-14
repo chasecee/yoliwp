@@ -368,6 +368,5 @@ function render_repsite_banner() {
 
 		$path = get_url();
 	}
-
 }
 add_action( 'init', 'render_repsite_banner' );
