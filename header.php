@@ -67,8 +67,16 @@
 					</div>
 
 					<div class="nav-right">
+							<?php
+							require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+							echo '<a href=" ' . esc_attr( $join_url ) . ' ">Join</a>';
+							echo '<a href=" ' . esc_attr( $login_link ) . ' ">Login</a>';
+							echo '<a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a>';
+							?>
+
 
 						<nav id="site-navigation-right" class="shop-navigation navigation-menu " aria-label="<?php esc_attr_e( 'Main Navigation Right', '_s' ); ?>">
+							<!--
 							<?php
 							wp_nav_menu(
 								[
@@ -80,6 +88,7 @@
 								]
 							);
 							?>
+							-->
 							<div class="ml-32">
 								<?php get_template_part( '/src/images/icons/inline/inline', 'bag.svg' ); ?>
 

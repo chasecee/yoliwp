@@ -55,14 +55,12 @@ if ( $curl_response === false ) {
 curl_close( $curl );
 ?>
 
-<!-- url = `https://1160-web1.vm.epicservers.com/${customer.webAlias}/additem?ItemCode=${itemCode}&Country=${customer.countryCode}&OwnerID=${customer.customerID}`; -->
-
 <div class="<?php $category; ?>" id=" <?php $itemID; ?> ">
   <h1>Product Detail and Purchase Page</h1>
   <h4>Item Category: <?php echo $category; ?></h4>
   <h5>Item Name: <?php echo $itemDescription; ?></h5>
   <h6>Item Code: <?php echo $itemCode; ?></h6>
-  
+
   <?php
 	// Loop through the prices returned by the API: in the html, there is both a link and a button, the latter printing the redirect url and being for development purposes only.
 	foreach ( $itemPrices as $price ) {
@@ -79,7 +77,7 @@ curl_close( $curl );
 		}
 	}
 	?>
-	 
+
 </div>
 
 <?php

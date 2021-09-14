@@ -32,7 +32,6 @@ $width             = get_field( 'width' );
 $cover_button_text = 'Shop Now';
 $cover_button_link = '#';
 
-
 ?>
 
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">

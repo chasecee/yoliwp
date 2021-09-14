@@ -1,45 +1,32 @@
 <?php
 include_once 'repsite-validation.php';
-// include_once 'get-prices.php';
+
 /**
  * 1) Get the URL and return the path.
  */
 
+require_once 'repsite-validation.php';
+// phpcs:ignore
 function get_url() {
-	$link = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ?
-									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] .
-									$_SERVER['REQUEST_URI'];
+	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 
-	$home = 'http://' . $_SERVER['SERVER_NAME'] . ':10008/';
+	$link = $home . $_SERVER['REQUEST_URI'];
 	$path = parse_url( $link )['path'];
-	$link_components = parse_url( $link );
-	parse_str( $link_components['query'], $params);
-
-	// echo 'The path is: ' . $path . '<br>';
-	// echo 'The query param is: ' . $params['item_id'] . '<br>';
-	// echo 'The url is: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '<br><br>';
-
-	// Will return all valid pages: ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding )
-	$wp_pages = array_column(get_pages(), 'post_name');
-
-	foreach ( $wp_pages as $wp_page ) {
-		if ( $path === '/' . $wp_page . '/' || $path === '/' . 'products/' . $wp_page . '/' || $path === '/' . 'products/' . $wp_page ) {
-			// echo 'The path inside the get-url for-loop: ' . $path . '<br>';
-			$path = '/';
-		}
+	$link_components = wp_parse_url( $link );
+	if ( isset($link_components['query'])) {
+		parse_str( $link_components['query'], $params);
 	}
 
+	// Will return all valid pages: ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
+	$wp_pages = array_column( get_pages(), 'post_name' );
+
+	foreach ( $wp_pages as $wp_page ) {
+		if ( '/' . $wp_page . '/' === $path || '/products/' . $wp_page . '/' === $path || '/products/' . $wp_page === $path ) :
+			// echo 'The path inside the get-url for-loop: ' . $path . '<br>';
+			$path = '/';
+		endif;
+	}
 	web_alias( $path, $home );
-}
-
-function get_item_id() {
-	$link = ( isset( $_SERVER['HTTPS'] ) && $_SERVER['HTTPS'] === 'on' ?
-	'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'] .
-	$_SERVER['REQUEST_URI'];
-
-	$link_components = parse_url( $link );
-	parse_str( $link_components['query'], $params);
-
-	return $params['item_id'];
 }
 ?>
