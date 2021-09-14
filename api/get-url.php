@@ -1,6 +1,4 @@
 <?php
-include_once 'repsite-validation.php';
-
 /**
  * 1) Get the URL and return the path.
  */
@@ -25,13 +23,15 @@ function get_url() {
 	$real_paths = array_merge($wp_pages, $wp2);
 
 	foreach ( $real_paths as $page ) {
-		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($path, 'wp-admin' ) ) :
+		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($path, '/wp-admin/' ) ) :
 			$redirect = '/';
 		endif;
 	}
 
 	if ($redirect === null ) : $redirect = $path; endif;
 
+	echo 'The path is: ' . $path . '<br>';
+	echo 'The redirect is: ' . $redirect . '<br>';
 	web_alias( $redirect, $home, $path );
 }
 ?>

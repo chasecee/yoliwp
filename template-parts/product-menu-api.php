@@ -25,7 +25,6 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 				$server_url = $base_url . $country . '/' . $language;
 			endif;
 
-
 			// Get the cookie alias and ID if set; otherwise, corporphan.
 			if ( $server_url ) :
 				try {

@@ -4,8 +4,6 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
-
-
 	// Turn on $languages when ready for the dropdown; uncomment html below.
 	// $languages = get_languages();
 	$countries = get_countries();

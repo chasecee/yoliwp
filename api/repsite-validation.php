@@ -41,15 +41,11 @@ function web_alias( $redirect, $home, $path ) {
 
 		// a. If the root path is entered, return the rep from the cookie.
 		if ($redirect === '/') {
-			// echo '<script>console.log("Repsite-val -> cookie is set -> path === root -> set rep = cookie -> no redirect.")</script>';
 			$rep = $decoded;
 			$redirect_boolean = 0;
 		}
 			// b. If a web alias is entered and matches that from the cookie, return the rep from the cookie.
 		elseif ( (strtolower($redirect) ===  '/' . strtolower($cookie_alias))) {
-			// echo '<script>console.log("Repsite-val -> cookie is set -> path === the cookie alias.")</script>';
-			// echo 'The $path in matches cookie is ' . strtolower($path) . '<br>';
-			// echo 'The $cookie_alias in matches path is ' . strtolower($cookie_alias) . '<br>';
 			$rep = $decoded;
 			$redirect_boolean = 1;
 
@@ -73,7 +69,6 @@ function web_alias( $redirect, $home, $path ) {
 
     // a. If the path is the root, return corporphan; no cookie for corporphan
     if($redirect === '/') {
-			// echo '<script>console.log("Repsite-val -> no cookie -> path === root.")</script>';
       ;
       $rep = (object) array ('customerId' => 50, 'webAlias' => 50);
 			$redirect_boolean = 0;
