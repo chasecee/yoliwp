@@ -13,6 +13,7 @@ function get_url() {
 
 	$link = $home . $_SERVER['REQUEST_URI'];
 	$path = parse_url( $link )['path'];
+	$redirect = null;
 	$link_components = wp_parse_url( $link );
 	if ( isset($link_components['query'])) {
 		parse_str( $link_components['query'], $params);
@@ -24,10 +25,10 @@ function get_url() {
 	$real_paths = array_merge($wp_pages, $wp2);
 
 	foreach ( $real_paths as $page ) {
-		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path ) :
-			$path = '/';
+		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($page, 'wp-admin' ) ) :
+			$redirect = '/';
 		endif;
 	}
-	web_alias( $path, $home );
+	web_alias( $redirect, $home, $path );
 }
 ?>

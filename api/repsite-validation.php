@@ -6,9 +6,9 @@ include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
 /**
  * Check the web alias against the API and set the cookie when needed.
  */
-function web_alias( $path, $home ) {
+function web_alias( $redirect, $home, $path ) {
 	$base_url = 'https://108.59.44.81/api/alias';
-	$rep_url  = $base_url . $path;
+	$rep_url  = $base_url . $redirect;
 
 	$cookie_name        = 'Current_Rep';
 	$cookie_value       = '';
@@ -40,21 +40,21 @@ function web_alias( $path, $home ) {
     $cookie_alias = $decoded->webAlias;
 
 		// a. If the root path is entered, return the rep from the cookie.
-		if ($path === '/') {
+		if ($redirect === '/') {
 			// echo '<script>console.log("Repsite-val -> cookie is set -> path === root -> set rep = cookie -> no redirect.")</script>';
 			$rep = $decoded;
-			$redirect = 0;
+			$redirect_boolean = 0;
 		}
 			// b. If a web alias is entered and matches that from the cookie, return the rep from the cookie.
-		elseif ( (strtolower($path) ===  '/' . strtolower($cookie_alias))) {
+		elseif ( (strtolower($redirect) ===  '/' . strtolower($cookie_alias))) {
 			// echo '<script>console.log("Repsite-val -> cookie is set -> path === the cookie alias.")</script>';
 			// echo 'The $path in matches cookie is ' . strtolower($path) . '<br>';
 			// echo 'The $cookie_alias in matches path is ' . strtolower($cookie_alias) . '<br>';
 			$rep = $decoded;
-			$redirect = 1;
+			$redirect_boolean = 1;
 
 			// c. If a web alias is entered but does not match that from the cookie, make a get-call to check the alias against the API.
-		} elseif ( ( strtolower( $path ) !== '/' . strtolower( $cookie_alias ) ) ) {
+		} elseif ( ( strtolower( $redirect ) !== '/' . strtolower( $cookie_alias ) ) ) {
 			$rep = get_rep_info( $rep_url );
 
 			// If an invalid web alias is returned, set rep from the cookie.
@@ -65,18 +65,18 @@ function web_alias( $path, $home ) {
 				$cookie_value = json_encode( $rep );
 				setcookie( $cookie_name, $cookie_value, $arr_cookie_options );
 			}
-			$redirect = 1;
+			$redirect_boolean = 1;
 		}
 
 		// 2. If there is no cookie, make a get-call to the API.
 	} else {
 
     // a. If the path is the root, return corporphan; no cookie for corporphan
-    if($path === '/') {
+    if($redirect === '/') {
 			// echo '<script>console.log("Repsite-val -> no cookie -> path === root.")</script>';
       ;
       $rep = (object) array ('customerId' => 50, 'webAlias' => 50);
-			$redirect = 0;
+			$redirect_boolean = 0;
 
 			// b. If the path is not the root, call the API to return the rep.
 		} else {
@@ -85,7 +85,7 @@ function web_alias( $path, $home ) {
 			$rep = get_rep_info( $rep_url );
 
 			// Set the redirect to true, in order to redirect to the homepage.
-			$redirect = 1;
+			$redirect_boolean = 1;
 
 			// If a valid web alias is returned, set the cookie.
 				// phpcs:ignore
@@ -96,5 +96,5 @@ function web_alias( $path, $home ) {
 		}
 	}
 
-	render_banner( $rep, $home, $redirect );
+	render_banner( $rep, $home, $redirect_boolean, $path);
 }
