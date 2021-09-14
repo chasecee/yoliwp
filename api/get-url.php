@@ -19,16 +19,19 @@ function get_url() {
 		parse_str( $link_components['query'], $params);
 	}
 
-	// Will return all valid pages: ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
+	// Will return an array of all valid, client-facing wp-pages, e.g., ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
 	$wp_pages = array_column( get_pages(), 'post_name' );
 	$wp2 = array('wp-admin', 'robots.txt', 'sitemap.xml');
 	$real_paths = array_merge($wp_pages, $wp2);
 
 	foreach ( $real_paths as $page ) {
-		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($page, 'wp-admin' ) ) :
+		if ( '/' . $page . '/' === $path || '/products/' . $page . '/' === $path || '/products/' . $page === $path || 0 === strpos($path, 'wp-admin' ) ) :
 			$redirect = '/';
 		endif;
 	}
+
+	if ($redirect === null ) : $redirect = $path; endif;
+
 	web_alias( $redirect, $home, $path );
 }
 ?>
