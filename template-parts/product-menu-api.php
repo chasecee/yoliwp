@@ -63,8 +63,9 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 
 <div class="product-menu-cols">
 
-	<div class="product-menu-col">
+
 		<?php foreach ( $product_menu as $item ) { ?>
+			<div class="product-menu-col">
 		<p class="product-menu-title"><?php echo esc_html( $item->category ); ?></p>
 		<ul>
 			<?php
@@ -81,8 +82,9 @@ $redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
 					echo esc_attr($product->itemID); ?>&item_code=<?php echo esc_attr($product->itemCode); ?>"><?php echo esc_html( $product->itemDescription ); ?></a></li>
 			<?php } ?>
 			</ul>
+			</div>
 		<?php } ?>
-	</div>
+
 
 	<div class="product-menu-col footer-hidden" >
 		<div class="promo">

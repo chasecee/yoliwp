@@ -20,10 +20,10 @@
 				<div class="footer-info-first">
 
 					<div class="footer-info-logo">
-					<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline2.svg' ); ?>
+					<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
 					</div>
 
-					<div class="footer-info-slogan">Yoli means life. Yoli is a company that helps people love their body and their life.</div>
+					<div class="footer-info-slogan">Yoli helps you feel what it’s like to really live. Experience a lifestyle aligned with nature. Come to life.</div>
 
 				</div>
 
@@ -35,8 +35,8 @@
 					</div>
 
 					<div class="footer-info-support-telephone">
-						801-727-0877 or 888-295-9009<br/>
-						cs@yoli.com
+						<a class="underline" href="tel:1-801-727-0877">801-727-0877</a> or <a class="underline" href="tel:1-801-727-0877">888-295-9009</a><br/>
+						<a href="mailto:cs@yoli.com" class="underline" target="_blank">cs@yoli.com</a>
 					</div>
 
 				</div>
@@ -45,7 +45,7 @@
 			<div class="footer-line"></div>
 			<div class="product-menu footer-menu">
 				<div class="product-menu-content">
-					<?php get_template_part( '/template-parts/product-menu-api' ); ?>
+					<?php get_template_part( '/template-parts/product-menu' ); ?>
 				</div>
 			</div>
 			<div class="footer-line-bottom"></div>
@@ -54,9 +54,9 @@
 				<div class="flex">
 					<div class="footer-location">2080 Industrial Rd B, Salt Lake City, Utah 84104</div>
 					<div class="social-links">
-						<a href="#" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-						<a href="#" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-						<a href="#" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+						<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+						<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+						<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -79,9 +79,9 @@
 				cs@yoli.com
 			</p>
 			<div class="social-links">
-				<a href="#" title="Yoli on Pinterest"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-				<a href="#" title="Yoli on Instagram"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-				<a href="#" title="Yoli on Facebook"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
+				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+				<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
+				<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
 			</div>
 
 		</div>

@@ -13,24 +13,22 @@
 	<div class="product-menu-col">
 		<p class="product-menu-title">Vitality</p>
 		<ul>
-			<li><a href="/products/vitality/">Yoli Life Kit</a></li>
-			<li><a href="/products/yes">Yes</a></li>
-			<li><a href="#">Lean Greens</a></li>
-			<li><a href="#">Omegas</a></li>
-			<li><a href="#">Flex</a></li>
+			<li><a href="/products/yoli-life-kit/">Yoli Life Kit</a></li>
+			<li><a href="/products/yes/">Yes</a></li>
+			<li><a href="/products/lean-greens/">Lean Greens</a></li>
+			<li><a href="/products/omegas/">Omegas</a></li>
+			<li><a href="/products/flex/">Flex</a></li>
 			<li><a href="/products/enzyme/">Enzyme</a></li>
-			<li><a href="/products/dose/">Dose</a></li>
-			<li><a href="#">Truth</a></li>
+			<li><a href="/products/defend/">Defend</a></li>
+			<li><a href="/products/truth/">Truth</a></li>
 		</ul>
 	</div>
 
 	<div class="product-menu-col">
 		<p class="product-menu-title">Mood</p>
 		<ul>
-			<li><a href="#">Mood Kit</a></li>
 			<li><a href="/products/shine/">Shine</a></li>
 			<li><a href="/products/cheers/">Cheers</a></li>
-			<li><a href="/products/wow/">Wow</a></li>
 		</ul>
 	</div>
 
@@ -38,45 +36,44 @@
 		<p class="product-menu-title">Energy</p>
 		<ul>
 			<li><a href="/products/passion/">Passion</a></li>
-			<li><a href="#">Awaken</a></li>
-			<li><a href="#">Charge</a></li>
+			<li><a href="/products/awaken/">Awaken</a></li>
+			<li><a href="/products/charge/">Charge</a></li>
 		</ul>
 	</div>
 
 	<div class="product-menu-col">
 		<p class="product-menu-title">Balance</p>
 		<ul>
-			<li><a href="/products/alkalete">Alkalete</a></li>
-			<li><a href="#">Pure</a></li>
-			<li><a href="#">Calm Tea</a></li>
-			<li><a href="#">Dream</a></li>
-			<li><a href="#">Fun</a></li>
+			<li><a href="/products/alkalete/">Alkalete</a></li>
+			<li><a href="/products/pure/">Pure</a></li>
+			<li><a href="/products/calm-tea">Calm Tea</a></li>
+			<li><a href="/products/dream/">Dream</a></li>
+			<li><a href="/products/fun/">Fun</a></li>
 		</ul>
 	</div>
 
 	<div class="product-menu-col">
 		<p class="product-menu-title">Beauty</p>
 		<ul>
-			<li><a href="#">Collagen</a></li>
-			<li><a href="#">Glow</a></li>
+			<li><a href="/products/collagen/">Collagen</a></li>
+			<li><a href="/products/glow/">Glow</a></li>
 		</ul>
 	</div>
 
 	<div class="product-menu-col">
 		<p class="product-menu-title">Transformation</p>
 		<ul>
-			<li><a href="#">T-Kit</a></li>
-			<li><a href="#">Thermoburn</a></li>
-			<li><a href="#">Resolve</a></li>
+			<li><a href="/products/t-kit/">T-Kit</a></li>
+			<li><a href="/products/thermoburn/">Thermoburn</a></li>
+			<li><a href="/products/resolve/">Resolve</a></li>
 		</ul>
 	</div>
 
 	<div class="product-menu-col header-hidden">
 		<p class="product-menu-title">Support</p>
 		<ul>
-			<li><a href="#">Contact Us</a></li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Careers</a></li>
+			<li><a href="mailto:cs@yoli.com" target="_blank">Contact Us</a></li>
+			<li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li>
 			<li><a href="#">Privacy Policy</a></li>
 		</ul>
 	</div>

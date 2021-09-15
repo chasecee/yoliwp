@@ -19,7 +19,8 @@ function get_url() {
 
 	// Will return an array of all valid, client-facing wp-pages, e.g., ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
 	$wp_pages = array_column( get_pages(), 'post_name' );
-	$wp2 = array('wp-admin', 'robots.txt', 'sitemap.xml', 'wp-login.php', 'admin-ajax.php');
+	$wp2 = array('wp-admin', 'robots.txt', 'sitemap.xml', 'wp-login.php', 'admin-ajax.php', 'admin-post.php', 'post.php', 'index.php');
+
 	$real_paths = array_merge($wp_pages, $wp2);
 
 	foreach ( $real_paths as $page ) {
