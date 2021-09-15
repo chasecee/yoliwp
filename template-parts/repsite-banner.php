@@ -63,7 +63,7 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 								foreach ( $countries as $key => $option) {
 									$slctd = ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) ? 'selected' : '';
 									echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
-							 }
+							 	}
 						echo '</select>';
 					echo '</div>';
 				echo '</form>';
