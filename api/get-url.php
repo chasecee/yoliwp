@@ -27,9 +27,7 @@ function get_url() {
 		if (
 			'/'. $page === $path ||
 			'/' . $page . '/' === $path ||
-			'/products/' . $page . '/' === $path ||
-			'/products/' . $page === $path ||
-			'/archives/' . $page === $path ||
+			strpos($link, '/products/') ||
 			strpos($link, '/wp-') !== false
 			) :
 			$redirect = '/';

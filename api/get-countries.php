@@ -2,7 +2,7 @@
 /** Function used to connect to the db to access its countries options for the dropdown country menu. */
 function get_countries() {
 	try {
-		$base_url = 'https://108.59.44.81/api/';
+		$base_url = $_SERVER['APICON'];
 		$server_url = $base_url . 'cultures/countries';
 		$response = wp_remote_get( $server_url, array( 'sslverify' => false, 'timeout' => 60 ) );
 		$countries      = json_decode( $response['body'] );

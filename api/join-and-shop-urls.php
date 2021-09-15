@@ -1,6 +1,7 @@
 <?php
 	// Fetch the web alias and use to populate the earn and shop-now redirect urls.
-$base_url = 'https://1160-web1.vm.epicservers.com/';
+$base_url = $_SERVER['SHOPCON'];
+;
 $cookie_name = 'Current_Rep';
 
 if ( ! empty( $_COOKIE[$cookie_name] ) ) :
@@ -10,7 +11,7 @@ if ( ! empty( $_COOKIE[$cookie_name] ) ) :
 	$alias = strtolower($decoded->webAlias);
 
 	else :
-		$alias = 50;
+		$alias = '50';
 	endif;
 
 // Build the join url.

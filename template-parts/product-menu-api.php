@@ -5,10 +5,11 @@
  * @package _s
  */
 
-$base_url   = 'https://108.59.44.81/api/Products/';
-$server_url = null;
-$country    = 'US';
-$language   = 'en';
+$base_api_url = $_SERVER['APICON'];
+$base_url     = $base_api_url . 'Products/';
+$server_url   = null;
+$country      = 'US';
+$language     = 'en';
 
 // Check for the country and language cookies, otherwise use the default url -> /US/EN.
 if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
@@ -41,7 +42,6 @@ if ( isset( $_COOKIE['Country'] ) && isset( $_COOKIE['Language'] ) ) :
 				}
 endif;
 
-
 			// Retrieve rep info from the cookie for the url.
 			$cookie_name = 'Current_Rep';
 			if ( isset( $_COOKIE[ $cookie_name ] ) ) :
@@ -53,11 +53,12 @@ endif;
 				$alias       = $decoded->webAlias;
 else :
 	$customer_id = 50;
-	$alias       = 50;
+	$alias       = '50';
 endif;
 
-// The base for the redirect url.
-$redirect_base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/products/';
+$home              = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+$redirect_base_url = $home . '/products/';
 
 ?>
 
