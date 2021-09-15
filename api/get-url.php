@@ -29,9 +29,10 @@ function get_url() {
 			'/products/' . $page . '/' === $path ||
 			'/products/' . $page === $path ||
 			'/archives/' . $page === $path ||
-			strpos($link, '/wp-admin/') !== false ||
-			strpos($link, '/wp-json/') !== false
-			// 0 === strpos($path, '/wp-admin/' )
+			strpos($link, '/wp-') !== false
+
+			// strpos($link, '/wp-admin/') !== false ||
+			// strpos($link, '/wp-json/') !== false
 			) :
 			$redirect = '/';
 		endif;
