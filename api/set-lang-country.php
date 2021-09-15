@@ -8,7 +8,7 @@ if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
 	$arr_cookie_options = array(
 		'expires'  => time() + ( 86400 * 30 ),
 		'path'     => '/',
-		'domain' => 'localhost',
+		// 'domain' => 'localhost',
 		'secure' => true,
 		'httponly' => true,
 		'samesite' => 'Strict'
