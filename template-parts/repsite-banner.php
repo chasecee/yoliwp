@@ -43,7 +43,7 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 				echo '<div class="col-span-3 flex justify-start">';
 					echo '<div class="flex items-center mr-24">';
 						$display = !empty( $rep->photo ) ? '' : 'none';
-						echo '<img style="display:' . $display . '" src="data:image/png;base64,' . esc_attr($image) . '" alt="avatar"/>';
+						echo '<img class="w-40 h-40 rounded-full" style="display:' . $display . '" src="data:image/png;base64,' . esc_attr($image) . '" alt="avatar"/>';
 					echo '</div>';
 
 					echo '<div class="flex items-center mr-24">';
