@@ -12,6 +12,12 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 	$phone           = null;
 	$welcome_message = null;
 
+	if ( empty($rep->photo) ) :
+		$image = null;
+		else :
+			$image = $rep->photo;
+		endif;
+
 	if (1 === $redirect_boolean) {
 		header('Location: ' . $home);
 		exit;
@@ -37,7 +43,7 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 				echo '<div class="col-span-3 flex justify-start">';
 					echo '<div class="flex items-center mr-24">';
 						$display = !empty( $rep->photo ) ? '' : 'none';
-						echo '<img style="display:' . $display . '" src="data:image/png;base64,' . esc_attr($rep->photo) . '" alt="avatar"/>';
+						echo '<img style="display:' . $display . '" src="data:image/png;base64,' . esc_attr($image) . '" alt="avatar"/>';
 					echo '</div>';
 
 					echo '<div class="flex items-center mr-24">';
@@ -64,9 +70,16 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 				echo '<form class="col-span-3 flex justify-end mb-0 h-26" method="post">';
 					echo '<div class="flex items-center" >';
 					echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
-						echo '<option selected="selected" disabled>Country</option>';
+					echo '<option selected="selected" disabled>Country</option>';
 								foreach ( $countries as $key => $option) {
-									$slctd = ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) ? 'selected' : '';
+									// $slctd = ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) ? 'selected' : '';
+									if ( !isset( $_COOKIE['Country'] ) && $key === 'US' ) :
+										$slctd = 'selected';
+										elseif ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) :
+											$slctd = 'selected';
+											else :
+												$slctd = '';
+											endif;
 									echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
 							 	}
 						echo '</select>';
