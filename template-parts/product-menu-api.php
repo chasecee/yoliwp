@@ -5,7 +5,7 @@
  * @package _s
  */
 
-$base_api_url = $_SERVER['APICON'];
+$base_api_url = isset( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
 $base_url     = $base_api_url . 'Products/';
 $server_url   = null;
 $country      = 'US';
