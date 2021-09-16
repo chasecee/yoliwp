@@ -13,9 +13,6 @@ function get_url() {
 	$path = parse_url( $link )['path'];
 	$redirect = null;
 	$link_components = wp_parse_url( $link );
-	if ( isset($link_components['query'])) {
-		parse_str( $link_components['query'], $params);
-	}
 
 	// Will return an array of all valid, client-facing wp-pages, e.g., ( [0] => earn [1] => home [2] => our-story [3] => product-data [4] => products [5] => alkalete [6] => cheers [7] => defend [8] => passion [9] => shine [10] => yes [11] => sample-page [12] => scaffolding ).
 	$wp_pages = array_column( get_pages(), 'post_name' );

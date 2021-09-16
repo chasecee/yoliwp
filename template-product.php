@@ -257,7 +257,7 @@ $foreground_color = get_field( 'foreground_color' );
 									<?php endif; ?>
 								</button>
 							</a>
-							<a href="<?php echo $retail_url = retail_buy_button_url(); ?>">
+							<a href="<?php echo $subscription_url = subscription_buy_button_url(); ?>">
 								<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
 									<?php if ( $price_monthly ) : ?>
 										<?php echo ' — '; ?>

@@ -7,32 +7,26 @@ include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
  * Check the web alias against the API and set the cookie when needed.
  */
 function web_alias( $redirect, $home, $path ) {
-
-	$base_api_url = isset( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
+	$base_api_url = !empty( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
 	$base_url = $base_api_url . 'alias';
 	$rep_url  = $base_url . $redirect;
 
 	$cookie_name        = 'Current_Rep';
 	$cookie_value       = '';
 
+	// Set the cookie's parameters.
+	$arr_cookie_options = array(
+		'expires'  => time() + ( 86400 * 30 ),
+		'path'     => '/',
+		// 'domain' => 'localhost',
+		'secure' => false,
+		'httponly' => true,
+		'samesite' => 'Strict'
+		);
+
+	// Set secure to true if https or false if http.
 	if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
-		$arr_cookie_options = array(
-			'expires'  => time() + ( 86400 * 30 ),
-			'path'     => '/',
-			// 'domain' => 'localhost',
-			'secure' => true,
-			'httponly' => true,
-			'samesite' => 'Strict'
-			);
-		else :
-			$arr_cookie_options = array(
-			'expires'  => time() + ( 86400 * 30 ),
-			'path'     => '/',
-			// 'domain' => 'localhost',
-			'secure' => false,
-			'httponly' => true,
-			'samesite' => 'Strict'
-			);
+		$arr_cookies_options['secure'] = true;
 		endif;
 
 	// 1. If the cookie has already been set, check it's web alias against the $path.
