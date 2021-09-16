@@ -1,6 +1,6 @@
 <?php
 
-function render_banner($rep, $home, $redirect_boolean, $path) {
+function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 	include_once realpath(__DIR__ . '/..') . '/api/get-languages.php';
 	include_once realpath(__DIR__ . '/..') . '/api/get-countries.php';
 
@@ -33,7 +33,7 @@ function render_banner($rep, $home, $redirect_boolean, $path) {
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
 	}
 
-	if ( strpos($path, '/wp-') === 0) :
+	if ( $show_banner === false ) :
 		return;
 	endif;
 

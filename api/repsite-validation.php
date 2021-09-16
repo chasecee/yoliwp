@@ -6,7 +6,7 @@ include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
 /**
  * Check the web alias against the API and set the cookie when needed.
  */
-function web_alias( $redirect, $home, $path ) {
+function web_alias( $redirect, $home, $path, $show_banner ) {
 	$base_api_url = !empty( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
 	$base_url = $base_api_url . 'alias';
 	$rep_url  = $base_url . $redirect;
@@ -87,5 +87,5 @@ function web_alias( $redirect, $home, $path ) {
 		}
 	}
 
-	render_banner( $rep, $home, $redirect_boolean, $path);
+	render_banner( $rep, $home, $redirect_boolean, $path, $show_banner);
 }
