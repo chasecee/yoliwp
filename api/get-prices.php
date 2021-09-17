@@ -3,6 +3,8 @@ function get_prices() {
 	// Get the item id from the query params.
 	if ( isset ( $_GET['item_id'] ) ) :
 		$item_id = $_GET['item_id'];
+		else :
+			$item_id = null;
 	endif;
 
 	$base_api_url = !empty( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
