@@ -50,6 +50,9 @@ function get_url() {
 
 	if ($redirect === null ) : $redirect = $path; endif;
 
+	echo 'The path in get-url is: ' . $path . '<br>';
+	echo 'The redirect in get-url is: ' . $redirect . '<br>';
+
 	web_alias( $redirect, $home, $path, $show_banner );
 }
 ?>
