@@ -3,7 +3,6 @@
   // Helper function to call the API as needed.
   function get_rep_info($url) {
     $curl = curl_init($url);
-    // curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
     //for debug only!
@@ -22,6 +21,7 @@
       die ($curl_response);
     } else {
       curl_close($curl);
-      return $rep;
     }
+
+		return $rep;
   }

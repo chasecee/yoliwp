@@ -1,7 +1,7 @@
 <?php
 function buy_button_url($auto_order) {
-	if ( isset( $_COOKIE['Current_Rep'])) :
-		$cookie = wp_unslash( ($_COOKIE['Current_Rep'] ) );
+	if ( isset( $_COOKIE['wordpress_current_rep'])) :
+		$cookie = wp_unslash( ($_COOKIE['wordpress_current_rep'] ) );
     $decoded = json_decode($cookie);
     $alias = $decoded->webAlias;
 		$customer_id = $decoded->customerId;

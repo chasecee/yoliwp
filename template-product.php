@@ -12,7 +12,6 @@
  * @package _s
  */
 
-include_once realpath(__DIR__) . '/api/get-item-id.php';
 include_once realpath(__DIR__) . '/api/get-prices.php';
 include_once realpath(__DIR__) . '/api/buy-button-urls.php';
 

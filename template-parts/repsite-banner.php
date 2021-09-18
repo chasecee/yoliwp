@@ -59,29 +59,32 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				// echo '<form class="col-span-3 flex justify-end" method="post">';
 				// 	echo '<div class="flex items-center ml-24">';
 				// 	echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
-				// 		echo '<option selected disabled>Language</option>';
-				// 		foreach ( $languages as $key => $option) {
-				// 			$slctd = ( isset($_COOKIE['Language']) && $_COOKIE['Language'] === $key ) ? 'selected' : '';
-				// 			echo '<option value="' . esc_attr($key) . '" >' . esc_html($option) . '</option>';
-				// 		}
+				// foreach ( $languages as $key => $option) {
+				// 	if ( !isset( $_COOKIE['wordpress_language'] ) && $key === 'US' ) :
+				// 		$slctd = 'selected';
+				// 		elseif ( isset($_COOKIE['wordpress_language']) && $_COOKIE['wordpress_language'] === $key ) :
+				// 			$slctd = 'selected';
+				// 			else :
+				// 				$slctd = '';
+				// 			endif;
+				// 	echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
+				// }
 				// 	echo	'</select>';
 				// 	echo '</div>';
 				// echo '</form>';
 				echo '<form class="col-span-3 flex justify-end mb-0 h-26" method="post">';
 					echo '<div class="flex items-center" >';
-					echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
-					// echo '<option selected="selected" disabled>Country</option>';
-								foreach ( $countries as $key => $option) {
-									// $slctd = ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) ? 'selected' : '';
-									if ( !isset( $_COOKIE['Country'] ) && $key === 'US' ) :
+						echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
+							foreach ( $countries as $key => $option) {
+								if ( !isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) :
+									$slctd = 'selected';
+									elseif ( isset($_COOKIE['wordpress_country']) && $_COOKIE['wordpress_country'] === $key ) :
 										$slctd = 'selected';
-										elseif ( isset($_COOKIE['Country']) && $_COOKIE['Country'] === $key ) :
-											$slctd = 'selected';
-											else :
-												$slctd = '';
-											endif;
-									echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
-							 	}
+										else :
+											$slctd = '';
+										endif;
+								echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
+							}
 						echo '</select>';
 					echo '</div>';
 				echo '</form>';

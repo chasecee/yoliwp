@@ -13,7 +13,7 @@ Nathan Cox
 	- [x] Displays a dropdown with choices of languages for the user to choose from, populated from the API; saves the selection in a cookie and redirects the user to the homepage.
 	- [x] When a valid web alias is entered into the URL's path, a welcome banner with the rep's email, phone, and name is displayed.
 	- [x] The rep's data is stored in a cookie, in order to return the user to the rep's site in future automatically; and for use in other areas of the site. 
-	- [x] When an incorrect web alias is entered, either the generic banner is displayed, if there is no 'Current_Rep' cookie, or a banner is displayed with the info of the rep in the cookie. 
+	- [x] When an incorrect web alias is entered, either the generic banner is displayed, if there is no 'wordpress_current_rep' cookie, or a banner is displayed with the info of the rep in the cookie. 
 	- [ ] Display the country (and language) selected.
 
 - [x] Links

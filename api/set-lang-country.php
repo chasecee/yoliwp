@@ -27,13 +27,13 @@ if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
 	/** For anything other than English, set the language cookie. */
 	if ( isset( $_POST['sel_language'] ) ) :
 		$language = $selection['sel_language'];
-		setcookie( 'Language', $language, $arr_cookie_options );
+		setcookie( 'wordpress_language', $language, $arr_cookie_options );
 	endif;
 
 	/** For anything other than the US, set the country cookie. */
 	if ( isset( $_POST['sel_country'] ) ) :
 		$country = $selection['sel_country'];
-		setcookie( 'Country', $country, $arr_cookie_options );
+		setcookie( 'wordpress_country', $country, $arr_cookie_options );
 		header('Location: ' . $home);
 		exit;
 	endif;

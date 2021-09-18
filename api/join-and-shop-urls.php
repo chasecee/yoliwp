@@ -1,8 +1,8 @@
 <?php
 	// Fetch the web alias and use to populate the earn and shop-now redirect urls.
-$base_url = !empty( $_SERVER['SHOPCON'] ) ? $_SERVER['SHOPCON'] : 'https://1160-web1.vm.epicservers.com/';
+$base_url = $_SERVER['SHOPCON'];
 
-$cookie_name = 'Current_Rep';
+$cookie_name = 'wordpress_current_rep';
 
 if ( ! empty( $_COOKIE[$cookie_name] ) ) :
 	$cookie = wp_unslash( ($_COOKIE[$cookie_name] ) );
