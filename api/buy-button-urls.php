@@ -12,8 +12,8 @@ function buy_button_url($auto_order) {
 
 	$item_code = $_GET['item_code'];
 
-	if ( isset( $_COOKIE['Country'] ) ) :
-		$country_code = $_COOKIE['Country'];
+	if ( isset( $_COOKIE['wordpress_country'] ) ) :
+		$country_code = $_COOKIE['wordpress_country'];
 		else :
 			$country_code = 'US';
 		endif;
