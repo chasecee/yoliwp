@@ -86,15 +86,6 @@ $redirect_base_url = $home . '/products/';
 			</div>
 		<?php } ?>
 
-
-	<div class="product-menu-col footer-hidden" >
-		<div class="promo">
-			<div class="promo-image" style="background-image:url('<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/smallimg-glasses.jpg'; ?>');"></div>
-			<div class="promo-gradient"></div>
-			<div class="promo-title">Happy Hour Replacement Introducing: Buzz</div>
-		</div>
-	</div>
-
 	<div class="product-menu-col header-hidden">
 		<p class="product-menu-title">Support</p>
 		<ul>
@@ -103,5 +94,15 @@ $redirect_base_url = $home . '/products/';
 			<li><a href="#">Privacy Policy</a></li>
 		</ul>
 	</div>
+
+	<div class="product-menu-col footer-hidden">
+		<div class="promo">
+			<div class="promo-image" style="background-image:url('<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/smallimg-glasses.jpg'; ?>');"></div>
+			<div class="promo-gradient"></div>
+			<div class="promo-title">Happy Hour Replacement Introducing: Buzz</div>
+		</div>
+	</div>
+
+
 
 </div>
