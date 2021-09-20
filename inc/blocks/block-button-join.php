@@ -31,10 +31,10 @@ $style             = get_field( 'style' );
 $width             = get_field( 'width' );
 $cover_button_text = 'Join Now';
 $cover_button_link = '#';
-
 if ( 'price' === $style ) {
 	$cover_button_text = 'Join Now for $39';
 }
+
 ?>
 
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">

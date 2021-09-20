@@ -39,7 +39,7 @@ $_s_class_name .= ' fg-color-as-bg-color';
 			<?php echo esc_html( $title_text ); ?>
 		<?php endif; ?>
 	</h3>
-	<a href="#" class="btn fg-color">Shop Now</a>
+	<!-- <a href="#" class="btn fg-color">Shop Now</a> -->
 </div>
 
 </div>

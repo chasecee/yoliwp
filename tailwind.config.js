@@ -41,6 +41,7 @@ module.exports = {
 					/text-center/,
 					/^list-/,
 					/^backdrop-/,
+					/^border-gray-/,
 				],
 			},
 		},

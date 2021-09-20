@@ -71,7 +71,7 @@
 
 							<?php
 							require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
-							echo '<li class="menu-item"><a href=" ' . esc_attr( $join_url ) . ' ">Join</a></li>';
+
 							echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
 							echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';
 							?>
