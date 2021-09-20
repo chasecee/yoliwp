@@ -1,4 +1,5 @@
 <?php
+
 function buy_button_url($auto_order) {
 	if ( isset( $_COOKIE['wordpress_current_rep'])) :
 		$cookie = wp_unslash( ($_COOKIE['wordpress_current_rep'] ) );
