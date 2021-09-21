@@ -247,7 +247,7 @@ $foreground_color = get_field( 'foreground_color' );
 						</p>
 
 						<div class="product-content-cta">
-							<a href="<?php echo $retail_url = buy_button_url('false'); ?>">
+							<a href="<?php echo esc_attr(buy_button_url('false')); ?>">
 								<button class="btn btn-primary btn-accent-outline btn-full">
 									Shop Now
 									<?php if ( $price ) : ?>
@@ -256,7 +256,7 @@ $foreground_color = get_field( 'foreground_color' );
 									<?php endif; ?>
 								</button>
 							</a>
-							<a href="<?php echo $subscription_url = buy_button_url('true'); ?>">
+							<a href="<?php echo esc_attr(buy_button_url('true')); ?>">
 								<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
 									<?php if ( $price_monthly ) : ?>
 										<?php echo ' — '; ?>
