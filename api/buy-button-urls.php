@@ -19,7 +19,7 @@ function buy_button_url($auto_order) {
 			$country_code = 'US';
 		endif;
 
-	$base_url = !empty( $_SERVER['SHOPCON'] ) ? $_SERVER['SHOPCON'] : 'https://1160-web1.vm.epicservers.com/';
+	$base_url = $_SERVER['SHOPCON'];
 	$buy_url = $base_url . $alias . '/additem?ItemCode=' . $item_code . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=' . $auto_order;
 	return $buy_url;
 }

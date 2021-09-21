@@ -8,7 +8,6 @@ include_once realpath( __DIR__ . '/..' ) . '/template-parts/repsite-banner.php';
  */
 function web_alias( $redirect, $home, $path, $show_banner ) {
 
-	// $base_api_url = !empty( $_SERVER['APICON'] ) ? $_SERVER['APICON'] : 'https://108.59.44.81/api/';
 	$base_api_url = $_SERVER['APICON'];
 	$base_url = $base_api_url . 'alias';
 	$rep_url  = $base_url . $redirect;

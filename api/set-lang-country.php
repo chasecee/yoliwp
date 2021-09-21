@@ -4,25 +4,25 @@ function set_language_and_country( $selection ) {
 	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
 									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 
-if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
-	$arr_cookie_options = array(
-		'expires'  => time() + ( 86400 * 30 ),
-		'path'     => '/',
-		// 'domain' => 'localhost',
-		'secure' => true,
-		'httponly' => true,
-		'samesite' => 'Strict'
-		);
-	else :
+	if ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ) :
 		$arr_cookie_options = array(
-		'expires'  => time() + ( 86400 * 30 ),
-		'path'     => '/',
-		// 'domain' => 'localhost',
-		'secure' => false,
-		'httponly' => true,
-		'samesite' => 'Strict'
-		);
-	endif;
+			'expires'  => time() + ( 86400 * 30 ),
+			'path'     => '/',
+			// 'domain' => 'localhost',
+			'secure' => true,
+			'httponly' => true,
+			'samesite' => 'Strict'
+			);
+		else :
+			$arr_cookie_options = array(
+			'expires'  => time() + ( 86400 * 30 ),
+			'path'     => '/',
+			// 'domain' => 'localhost',
+			'secure' => false,
+			'httponly' => true,
+			'samesite' => 'Strict'
+			);
+		endif;
 
 	/** For anything other than English, set the language cookie. */
 	if ( isset( $_POST['sel_language'] ) ) :
