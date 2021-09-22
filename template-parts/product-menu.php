@@ -8,6 +8,7 @@
  */
 
 ?>
+
 <div class="product-menu-cols">
 
 	<div class="product-menu-col">

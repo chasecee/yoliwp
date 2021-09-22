@@ -80,7 +80,7 @@
 	<exclude-pattern>/api/*</exclude-pattern>
 	<exclude-pattern>/template-product.php</exclude-pattern>
 	<exclude-pattern>/template-parts/repsite-banner.php</exclude-pattern>
-
+	<exclude-pattern>/template-parts/privacy-policy.php</exclude-pattern>
 	<exclude-pattern>/acf-json/</exclude-pattern>
 
 

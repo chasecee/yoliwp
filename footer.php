@@ -11,7 +11,6 @@
 
 ?>
 <?php get_template_part( 'template-parts/mini-admin-bar' ); ?>
-<?php require_once realpath( __DIR__ ) . '/template-parts/privacy-policy.php'; ?>
 
 <footer class="site-footer">
 	<div class="container">
@@ -46,9 +45,6 @@
 			<div class="footer-copyright">© Yoli 2021. All rights reserved.</div>
 			<div class="flex">
 				<div class="footer-location">2080 Industrial Rd B, Salt Lake City, Utah 84104</div>
-				<div class="privacy-policy">
-					<a href="<?php echo esc_attr( privacy_policy() ); ?>">Privacy Policy</a>
-				</div>
 				<div class="social-links">
 					<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
 					<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
