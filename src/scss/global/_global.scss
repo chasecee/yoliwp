@@ -21,7 +21,6 @@
 //-----------------------------------------
 .site-main {
 	@apply my-0 md:mt-100;
-	@apply bg-warning;
 	@at-root .home & {
 		@apply mt-0;
 	}
