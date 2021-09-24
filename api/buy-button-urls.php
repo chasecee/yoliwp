@@ -1,4 +1,5 @@
 <?php
+
 function buy_button_url($auto_order) {
 	if ( isset( $_COOKIE['wordpress_current_rep'])) :
 		$cookie = wp_unslash( ($_COOKIE['wordpress_current_rep'] ) );
@@ -12,13 +13,13 @@ function buy_button_url($auto_order) {
 
 	$item_code = $_GET['item_code'];
 
-	if ( isset( $_COOKIE['Country'] ) ) :
-		$country_code = $_COOKIE['Country'];
+	if ( isset( $_COOKIE['wordpress_country'] ) ) :
+		$country_code = $_COOKIE['wordpress_country'];
 		else :
 			$country_code = 'US';
 		endif;
 
-	$base_url = !empty( $_SERVER['SHOPCON'] ) ? $_SERVER['SHOPCON'] : 'https://1160-web1.vm.epicservers.com/';
+	$base_url = $_SERVER['SHOPCON'];
 	$buy_url = $base_url . $alias . '/additem?ItemCode=' . $item_code . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=' . $auto_order;
 	return $buy_url;
 }
