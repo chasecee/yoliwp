@@ -370,3 +370,37 @@ function render_repsite_banner() {
 	}
 }
 add_action( 'init', 'render_repsite_banner' );
+
+// Show page templates in pages view in WP Admin.
+
+add_filter( 'manage_pages_columns', 'codismo_table_columns', 10, 1 );
+add_action( 'manage_pages_custom_column', 'codismo_table_column', 10, 2 );
+
+/** Render the repsite banner.
+ *
+ * @param string $columns content dump from WYSIWYG.
+ */
+function codismo_table_columns( $columns ) {
+
+	$custom_columns = array(
+		'codismo_template' => 'Template',
+	);
+
+	$columns = array_merge( $columns, $custom_columns );
+
+	return $columns;
+
+}
+
+/** Render the repsite banner.
+ *
+ * @param string $column content dump from WYSIWYG.
+ * @param string $post_id content dump from WYSIWYG.
+ */
+function codismo_table_column( $column, $post_id ) {
+
+	if ( 'codismo_template' === $column ) {
+		echo esc_html( basename( get_page_template() ) );
+	}
+
+}

@@ -1,0 +1,52 @@
+.home-hero {
+	@apply relative;
+	.hero {
+		@apply relative overflow-hidden md:max-h-screen md:-top-140;
+
+		height: 150vw;
+		overflow: hidden;
+		@screen md {
+			height: calc( 100vh - 3.75rem );
+			max-height: 56.26vw;
+		}
+
+		&-content {
+			@apply absolute bottom-0 container flex flex-col z-10 text-white mb-30 md:mb-68;
+			@screen md {
+				@apply container-l pl-140 w-full;
+			}
+			&-title {
+				@apply leading-tight text-40 md:text-80 font-serif;
+				line-height: 1.2;
+			}
+			&-subtitle {
+				@apply text-24 md:w-1/2;
+			}
+		}
+		&-gradient-svg {
+			@apply absolute inset-0 z-10 mix-blend-multiply;
+			svg {
+				@apply w-full h-full absolute inset-0;
+			}
+		}
+		&-gradient {
+			@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-20;
+			bottom: 60%;
+			&.gradient-bottom {
+				@apply bg-gradient-to-t bottom-0 opacity-50;
+				top: 60%;
+			}
+		}
+		&-video {
+			@apply absolute w-full h-full inset-0 z-0;
+			iframe {
+				@apply absolute left-1/2 top-1/2 hidden md:block pointer-events-none;
+				width: 110vw;
+				height: 52.85vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+				min-height: 100vh;
+				min-width: 233.33vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+				transform: translate( -50%, -50% );
+			}
+		}
+	}
+}

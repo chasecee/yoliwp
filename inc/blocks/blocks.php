@@ -349,5 +349,58 @@ function be_register_blocks() {
 			)
 		);
 
+		// home-hero.
+		acf_register_block_type(
+			array(
+				'name'            => 'home-hero',
+				'title'           => __( 'Home Hero', '_s' ),
+				'render_template' => '/inc/blocks/block-home-hero.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'home', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+		// home-intro.
+		acf_register_block_type(
+			array(
+				'name'            => 'home-intro',
+				'title'           => __( 'Home Intro', '_s' ),
+				'render_template' => '/inc/blocks/block-home-intro.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'home', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+
+		// home-slider.
+		acf_register_block_type(
+			array(
+				'name'            => 'home-slider',
+				'title'           => __( 'Home Slider', '_s' ),
+				'render_template' => '/inc/blocks/block-home-slider.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'home', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+
 }
 add_action( 'acf/init', 'be_register_blocks' );
