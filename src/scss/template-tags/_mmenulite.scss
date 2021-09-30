@@ -6,8 +6,8 @@ $mmspn_item_height: 3.5rem;
 :root {
 	--mm-spn-item-indent: #{$mmspn_item_indent};
 	--mm-spn-item-height: #{$mmspn_item_height};
-	--mm-ocd-max-width: 80%;
-	--mm-ocd-width: 80%;
+	--mm-ocd-max-width: 88%;
+	--mm-ocd-width: 88%;
 }
 
 .mmenu {
@@ -21,12 +21,26 @@ $mmspn_item_height: 3.5rem;
 		@apply absolute right-0 h-30 rounded-lg;
 	}
 }
+.mm-spn li .shop-link {
+	@apply flex justify-between items-center;
+	&-icon {
+		@apply rounded-full h-full bg-primary py-10 px-16;
+		svg {
+			@apply w-32;
+		}
+	}
+}
 /* stylelint-disable selector-class-pattern */
 body {
 	.sub-menu {
 		@apply bg-white;
 	}
-
+	.mmm-ocd__content {
+		@apply overflow-y-scroll overscroll-none;
+		.mm-spn {
+			height: 200vh;
+		}
+	}
 	.mm-spn.mm-spn--navbar {
 		&[data-mm-spn-title='Menu']::after {
 			@apply pl-28 opacity-0;
@@ -38,19 +52,18 @@ body {
 		&::after {
 			@apply text-left mr-28 border-b opacity-50 transition-opacity;
 			border-color: #d1d1cf;
-			margin-left: calc( 1.75rem * 2 );
+			margin-left: 1.75rem;
+			text-indent: 1.75rem;
 			top: calc( var( --mm-spn-item-height ) + 1px );
 		}
 		&::before {
-			@apply absolute border-t border-l left-28 opacity-50;
+			@apply absolute border-t border-l left-32 opacity-50;
 			top: 5.3rem;
 		}
 		ul {
-			@apply w-full px-28;
+			@apply w-full px-32;
 			top: calc( var( --mm-spn-item-height ) * 2 + 1px );
-			.sub-menu {
-				padding-left: calc( 1.75rem * 2 );
-			}
+
 			&::before {
 				@apply hidden;
 			}
@@ -70,6 +83,9 @@ body {
 		@apply opacity-100 ml-0;
 	}
 	.mm-spn li:not( .menu-item-has-children )::before {
+		@apply hidden;
+	}
+	.mm-spn li:last-child::after {
 		@apply hidden;
 	}
 	.mm-spn li::before {

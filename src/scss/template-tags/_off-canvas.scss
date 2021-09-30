@@ -20,6 +20,12 @@
 		@apply hidden;
 	}
 }
-.off-canvas-bottom {
-	@apply flex flex-col absolute bottom-28 left-28 right-28 text-brown z-10 text-14;
+.menu-bottom {
+	@apply text-brown hidden mt-100;
+	.promo {
+		@apply mb-100;
+	}
+	@at-root .mm-ocd--open & {
+		@apply block;
+	}
 }

@@ -48,7 +48,6 @@ module.exports = {
 	},
 	corePlugins: {
 		boxDecorationBreak: false,
-		// overscrollBehavior: false,
 		brightness: false,
 		contrast: false,
 		hueRotate: false,

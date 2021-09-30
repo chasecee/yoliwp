@@ -61,21 +61,9 @@
 			<?php get_template_part( '/src/images/icons/inline/inline', 'close.svg' ); ?>
 		</button>
 
-		<?php _s_display_mobile_menu(); ?>
+		<?php get_template_part( '/template-parts/product-menu-mobile-api' ); ?>
 
-		<div class="off-canvas-bottom">
-			<p>
-				Customer Support<br>
-				8 am MST - 7 pm MST<br>
-				801-727-0877 or 888-295-9009<br>
-				cs@yoli.com
-			</p>
-			<div class="social-links">
-				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-				<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-				<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
-			</div>
-		</div>
+
 	</div>
 </div>
 
