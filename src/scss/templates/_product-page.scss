@@ -84,12 +84,7 @@
 		}
 		ul {
 			@apply py-30 md:py-0 mx-20 md:mx-0;
-			@screen xl {
-				@apply pl-50;
-			}
-			@screen xl {
-				@apply pl-160;
-			}
+
 			@apply list-none;
 			li {
 				@apply flex items-center text-20 md:text-28;

@@ -1,5 +1,5 @@
 .product-menu {
-	@apply bg-white;
+	@apply bg-white relative -top-px;
 
 	.product-menu-cols {
 		@apply flex md:justify-between flex-col md:flex-row flex-wrap md:flex-nowrap;
@@ -78,6 +78,9 @@
 .promo {
 	@apply relative text-white leading-tight;
 	padding-top: 70%;
+	@at-root .product-menu-active & {
+		@apply block;
+	}
 	&-image {
 		@apply absolute inset-0 bg-cover;
 	}

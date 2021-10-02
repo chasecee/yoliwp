@@ -404,3 +404,49 @@ function codismo_table_column( $column, $post_id ) {
 	}
 
 }
+
+/** Tabs shortcode wrapper.
+ *
+ * @param string $atts content dump from WYSIWYG.
+ * @param string $content content dump from WYSIWYG.
+ */
+function tabs_shortcode( $atts, $content = null ) {
+
+	$atts = shortcode_atts(
+		array(
+			'target' => 'tab-1',
+		),
+		$atts,
+		'[tabs]'
+	);
+	return '<div class="tabs">' . $content . '</div>';
+}
+add_shortcode( 'tabs', 'tabs_shortcode' );
+
+/** Tabs nav shortcode wrapper.
+ *
+ * @param string $atts content dump from WYSIWYG.
+ * @param string $content content dump from WYSIWYG.
+ */
+function tabs_nav( $atts, $content = null ) {
+	return '<ul class="tabs-nav nav">' . $content . '</ul>';
+}
+add_shortcode( 'tabs-nav', 'tabs_nav' );
+
+/** Tabs nav item li.
+ *
+ * @param string $atts content dump from WYSIWYG.
+ */
+function tabs_nav_item( $atts ) {
+
+	$atts = shortcode_atts(
+		array(
+			'text'   => 'Tab Name',
+			'target' => 'tab-1',
+		),
+		$atts
+	);
+	return '<li class=""><a href="' . $target . "'>" . $text . '</a></li>';
+
+}
+add_shortcode( 'tabs-nav-item', 'tabs_nav_item' );

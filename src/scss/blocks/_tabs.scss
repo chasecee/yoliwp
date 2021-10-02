@@ -1,0 +1,48 @@
+.tabs {
+	@apply pt-80 relative;
+	@screen md {
+		@apply container;
+	}
+	/* stylelint-disable selector-class-pattern */
+	.glide__slides {
+		min-width: 100%;
+	}
+	/* stylelint-enable selector-class-pattern */
+	.nav-tabs {
+		@apply w-full flex justify-center left-0;
+		@apply m-0 transform-gpu -translate-y-full absolute list-none;
+		> li {
+			> a {
+				@apply text-gray-medium block py-2 px-2;
+				@apply border-b border-opacity-0 border-current;
+				&:hover {
+					@apply text-gray-dark;
+				}
+			}
+			&:not( :last-child ) {
+				@apply mr-40;
+			}
+			&.active {
+				> a,
+				> a:hover,
+				> a:focus {
+					@apply text-current;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	.tab-content {
+		@apply w-full relative;
+
+		> .tab-pane {
+			@apply relative z-0 h-0 overflow-hidden;
+			visibility: hidden;
+
+			&.active {
+				@apply z-10 visible h-auto;
+			}
+		}
+	}
+}

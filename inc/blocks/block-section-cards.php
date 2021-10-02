@@ -35,7 +35,7 @@ $last_row = end( $repeater );
 	<div class="cards-container">
 		<div class="cards ">
 			<div class="card card-first">
-				<div class="card-inner" style="background-image:url(
+				<!-- <div class="card-inner" style="background-image:url(
 				<?php
 				echo esc_url(
 					$last_row['card_image']
@@ -43,7 +43,7 @@ $last_row = end( $repeater );
 				?>
 				);">
 					<div class="card-gradient"></div>
-				</div>
+				</div> -->
 			</div>
 			<?php if ( have_rows( 'cards' ) ) : ?>
 				<?php

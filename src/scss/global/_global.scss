@@ -46,7 +46,8 @@ html {
 }
 body {
 	@apply text-20;
-	@apply max-w-screen-xl mx-auto;
+	@apply mx-auto;
+	max-width: 1920px;
 
 	@screen md {
 		@apply text-18;

@@ -1,19 +1,32 @@
 .cards {
 	&-container {
-		@apply overflow-x-hidden;
+		@apply overflow-hidden relative;
+		.cards-backdrop {
+			@apply absolute inset-0 -bottom-1/4 bg-gradient-to-b from-error via-primary to-info;
+			@apply opacity-0 transition-opacity duration-200;
+		}
+		&.trigger-is-active {
+			.cards-backdrop {
+				@apply opacity-50 duration-1000;
+			}
+		}
 	}
 	@apply flex  flex-nowrap;
 	.card {
 		@apply h-screen flex-shrink-0 flex items-center;
 
 		&-first {
-			@apply ml-50 md:ml-100;
+			@apply mr-0;
+			width: 30vw;
+			@screen md {
+				width: 15vw;
+			}
 		}
 
 		&-last {
 			width: 30vw;
 		}
-		&:not( .card-last ) {
+		&:not( .card-last, .card-first ) {
 			@apply mr-30;
 		}
 
@@ -22,11 +35,11 @@
 
 			height: 80vw;
 			width: 80vw;
-			max-width: 60rem;
-			max-height: 60rem;
 			@screen md {
-				height: 43vw;
-				width: 60vw;
+				height: 50vw;
+				width: 50vw;
+				max-height: 60rem;
+				max-width: 60rem;
 			}
 		}
 		&-bg {
@@ -41,7 +54,7 @@
 				@apply text-32 md:text-48;
 			}
 			&-p {
-				@apply mb-0 lg:w-1/2;
+				@apply mb-0 lg:w-1/2 text-24 leading-relaxed;
 			}
 		}
 	}

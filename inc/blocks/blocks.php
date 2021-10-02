@@ -402,5 +402,23 @@ function be_register_blocks() {
 			)
 		);
 
+		// tabs.
+		acf_register_block_type(
+			array(
+				'name'            => 'tabs',
+				'title'           => __( 'Tabs', '_s' ),
+				'render_template' => '/inc/blocks/block-tabs.php',
+				'category'        => 'formatting',
+				'icon'            => 'superhero-alt',
+				'mode'            => 'preview',
+				'keywords'        => array( 'home', 'container', 'full', 'fullwidth' ),
+				'supports'        => array(
+					'anchor'          => true,
+					'customClassName' => true,
+					'jsx'             => true,
+				),
+			)
+		);
+
 }
 add_action( 'acf/init', 'be_register_blocks' );
