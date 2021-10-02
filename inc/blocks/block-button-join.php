@@ -8,6 +8,9 @@
  * @license      GPL-2.0+
  **/
 
+// Require the url-builder.
+require realpath( __DIR__ . '/../..' ) . '/api/join-and-shop-urls.php';
+
 // Create name for prefixing classes and id's.
 $slug = 'button-join';
 
@@ -30,7 +33,7 @@ if ( ! empty( $block['align'] ) ) {
 $style             = get_field( 'style' );
 $width             = get_field( 'width' );
 $cover_button_text = 'Join Now';
-$cover_button_link = '#';
+$cover_button_link = $join_url;
 if ( 'price' === $style ) {
 	$cover_button_text = 'Join Now for $39';
 }

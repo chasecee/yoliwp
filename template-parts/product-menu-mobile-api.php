@@ -11,6 +11,7 @@
 <?php
 require_once 'privacy-policy.php';
 
+// For the API call to get a list of products.
 $base_api_url = $_SERVER['APICON'];
 $base_url     = $base_api_url . 'Products/';
 $server_url   = null;
@@ -68,9 +69,6 @@ $redirect_base_url = $home . '/products/';
 
 ?>
 
-
-
-
 <ul id="site-mobile-menu" class="mobile-menu">
 	<li class="menu-item">
 		<a href="/our-story/" aria-current="page">Our Story</a>
@@ -110,21 +108,17 @@ $redirect_base_url = $home . '/products/';
 	<li class="menu-item"><a href="/earn/">Earn</a></li>
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
-
 	</li>
 
 	<?php
-	// Add shop/join urls vars.
-
-	require_once realpath( __DIR__ . '/..' ) . '/api/join-and-shop-urls.php';
+	require realpath( __DIR__ . '/..' ) . '/api/join-and-shop-urls.php';
 	?>
-
-
-	<li class="menu-item"><a class="login-link" href="#<?php echo esc_attr( $login_link ); ?>">Login</a></li>
 	<li class="menu-item">
-		<a  class="shop-link" href="<?php echo esc_attr( $shop_now_url ); ?>">
-		Shop Now
-		<div class="shop-link-icon"><?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?></div>
+		<a class="login-link" href="<?php echo esc_attr( $login_link ); ?> ">Login</a>
+	</li>
+	<li class="menu-item">
+		<a class="shop-link" href="<?php echo esc_attr( $shop_now_url ); ?>">Shop Now
+			<div class="shop-link-icon"><?php echo esc_html( get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ) ); ?></div>
 		</a>
 	</li>
 
