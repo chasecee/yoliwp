@@ -10,14 +10,11 @@
 		@screen md {
 			@apply w-1/2 px-0;
 		}
-		@screen lg {
-			width: 34%;
-		}
 		&-pretitle {
 			@apply md:text-24 font-sans-alt;
 		}
 		&-description {
-			@apply md:text-24;
+			@apply md:text-24 lg:w-3/4;
 			&:last-child {
 				@apply mb-50 md:mb-0;
 			}

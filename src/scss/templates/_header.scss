@@ -74,7 +74,7 @@
 	}
 }
 .site-alert {
-	@apply bg-white text-brown-dark fixed top-0 md:relative transition-colors z-20 whitespace-nowrap;
+	@apply bg-white text-brown-dark fixed top-0 md:relative transition-colors z-20 whitespace-nowrap w-full;
 	> .container {
 		@apply px-40;
 	}

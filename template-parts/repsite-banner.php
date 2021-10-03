@@ -37,10 +37,10 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 		return;
 	endif;
 
-	echo '<div class="site-alert">';
+	echo '<div class="site-alert" style="display:none;">';
 		echo '<div class="container">';
 			echo '<div class="grid grid-cols-12 h-60 items-center">';
-				echo '<div class="col-span-3 flex justify-start">';
+				echo '<div class="col-span-3 hidden md:flex justify-start">';
 					echo '<div class="flex items-center flex-none mr-24">';
 						$display = !empty( $rep->photo ) ? '' : 'none';
 						echo '<img class="w-40 h-40 rounded-full" style="display:' . $display . '" src="data:image/png;base64,' . esc_attr($image) . '" alt="avatar"/>';
@@ -53,7 +53,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 						echo '<span class="">' . esc_html( $phone ) . '</span>';
 					echo '</div>';
 				echo '</div>';
-				echo '<div class="text-center col-span-6 ">';
+				echo '<div class="text-center col-span-12 md:col-span-6 ">';
 					echo esc_html( $welcome_message );
 				echo '</div>';
 				// echo '<form class="col-span-3 flex justify-end" method="post">';
@@ -72,7 +72,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				// 	echo	'</select>';
 				// 	echo '</div>';
 				// echo '</form>';
-				echo '<form class="col-span-3 flex justify-end mb-0 h-26" method="post">';
+				echo '<form class="col-span-3 hidden md:flex justify-end mb-0 h-26" method="post">';
 					echo '<div class="flex items-center" >';
 						echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
 							foreach ( $countries as $key => $option) {

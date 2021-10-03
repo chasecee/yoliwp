@@ -22,6 +22,12 @@
 
 	<?php wp_head(); ?>
 
+	<?php
+	// Hide alert til page loads.
+	?>
+	<style>
+		.ready .site-alert{display:block!important;}
+	</style>
 </head>
 
 <body <?php body_class( 'site-wrapper' ); ?>>
