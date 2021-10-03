@@ -114,8 +114,8 @@ $redirect_base_url = $home . '/products/';
 		<span>Country</span>
 		<ul class="sub-menu">
 		<form method="POST">
+		<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()" size="4">
 		<?php
-		echo '<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
 		foreach ( $countries as $key => $option ) {
 				// phpcs:ignore
 				if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) : $slctd = 'selected';
