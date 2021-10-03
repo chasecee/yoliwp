@@ -10,7 +10,7 @@
 ?>
 <?php
 require_once 'privacy-policy.php';
-include_once realpath( __DIR__ . '/..' ) . '/api/get-countries.php';
+require_once realpath( __DIR__ . '/..' ) . '/api/get-countries.php';
 
 $countries = get_countries();
 
