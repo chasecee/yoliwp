@@ -10,6 +10,9 @@
 ?>
 <?php
 require_once 'privacy-policy.php';
+include_once realpath( __DIR__ . '/..' ) . '/api/get-countries.php';
+
+$countries = get_countries();
 
 // For the API call to get a list of products.
 $base_api_url = $_SERVER['APICON'];
@@ -108,6 +111,25 @@ $redirect_base_url = $home . '/products/';
 	<li class="menu-item"><a href="/earn/">Earn</a></li>
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
+		<ul class="sub-menu">
+						<?php
+						echo '<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
+						foreach ( $countries as $key => $option ) {
+							// phpcs:ignore
+							if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) :
+								$slctd = 'selected';
+								elseif ( isset( $_COOKIE['wordpress_country'] ) && $_COOKIE['wordpress_country'] === $key ) :
+									$slctd = 'selected';
+									else :
+										$slctd = '';
+									endif;
+									// phpcs:ignore
+							echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
+						}
+						echo '</select>';
+						// phpcs:ignore
+					?>
+		</ul>
 	</li>
 
 	<?php

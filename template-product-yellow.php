@@ -9,21 +9,19 @@
  * @package _s
  */
 
+// Require the url-builder.
+require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+
 get_header();
+
+// api_vars.
+$cover_button_link = $shop_now_url;
+
 // acf vars.
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
-$background_svg   = get_field( 'background_svg' );
 ?>
-<?php
-$str     = wp_kses( $background_svg, get_kses_extended_ruleset() );
-$new_str = str_replace( array( "\r\n", "\r", "\n", "\t" ), ' ', $str );
-?>
-<?php if ( $background_svg ) : ?>
-<div class="svg-bg" style="">
 
-</div>
-<?php endif; ?>
 <style>
 	.abody,.bg-color{
 		background-color: <?php echo esc_attr( $background_color ); ?>
@@ -41,7 +39,6 @@ $new_str = str_replace( array( "\r\n", "\r", "\n", "\t" ), ' ', $str );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
-
 </style>
 
 	<div class=" site-main">
@@ -86,7 +83,7 @@ $new_str = str_replace( array( "\r\n", "\r", "\n", "\t" ), ' ', $str );
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
-						<a href="#" class="btn btn-accent btn-full mt-50">Shop Now</a>
+						<a href="<?php echo esc_url( $cover_button_link ); ?>" class="btn btn-accent btn-full mt-50">Shop Now</a>
 					</div>
 
 					<div class="hero-product-bg">
@@ -245,65 +242,7 @@ $new_str = str_replace( array( "\r\n", "\r", "\n", "\t" ), ' ', $str );
 
 
 
-				<?php
-					// acf vars.
-					$serving_size          = get_field( 'serving_size' );
-					$product_cta_image     = get_field( 'product_cta_image' );
-					$size                  = 'full';
-					$product_description_2 = get_field( 'product_description_2' );
-					$price                 = get_field( 'price' );
-					$price_monthly         = get_field( 'price_monthly' );
 
-				?>
-				<div class="product">
-					<div class="product-content">
-						<p class="product-content-servings">
-						<?php if ( $serving_size ) : ?>
-							<?php echo esc_html( $serving_size ); ?>
-						<?php endif; ?>
-						</p>
-						<h3 class="product-content-title">
-							<?php if ( $product_title ) : ?>
-									<?php echo esc_html( $product_title ); ?>
-							<?php endif; ?>
-						</h3>
-						<p class="product-content-p">
-						<?php
-						if ( $product_description_2 ) {
-							echo esc_html( $product_description_2 );
-						};
-						?>
-						</p>
-
-						<div class="product-content-cta">
-							<button class="btn btn-primary btn-accent-outline btn-full">
-								Shop Now
-								<?php if ( $price ) : ?>
-									<?php echo ' — '; ?>
-									<?php echo esc_html( $price ); ?>
-								<?php endif; ?>
-							</button>
-							<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
-								<?php if ( $price_monthly ) : ?>
-									<?php echo ' — '; ?>
-									<?php echo esc_html( $price_monthly ); ?>
-								<?php endif; ?>
-							</button>
-
-
-						</div>
-					</div>
-
-					<div class="product-image">
-						<?php
-						if ( $product_cta_image ) {
-							$url = wp_get_attachment_url( $product_cta_image );
-							echo wp_get_attachment_image( $product_cta_image, $size );
-						};
-						?>
-
-					</div>
-				</div>
 
 				<div class="recipes-container">
 					<div class="section-title-bars">

@@ -26,14 +26,38 @@ if ( ! empty( $block['align'] ) ) {
 	$_s_class_name .= ' align' . $block['align'];
 }
 
+// Require the url-builder and get prices.
+require_once realpath( __DIR__ . '/../..' ) . '/api/get-prices.php';
+require_once realpath( __DIR__ . '/../..' ) . '/api/buy-button-urls.php';
+
+
+
 // acf vars.
 $pretitle             = get_field( 'pretitle' );
 $product_title        = get_field( 'product_title' );
 $product_text_content = get_field( 'product_text_content' );
 $product_image        = get_field( 'product_image' );
 $size                 = 'full';
-$price                = '$169';
-$price_monthly        = '$150';
+$price                = 'No price available';
+$price_monthly        = 'No monthly price available';
+
+// override acf if dynamic prices exist.
+$prices_api = get_prices();
+// phpcs:ignore
+if ( ! empty( $prices_api->retailPriceFmtd ) ) {
+	// phpcs:ignore
+	$price = $prices_api->retailPriceFmtd;
+} else {
+	$price = 'not loading price';
+}
+
+// phpcs:ignore
+if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
+	// phpcs:ignore
+	$price_monthly = $prices_api->autoshipPriceFmtd;
+} else {
+	$price_monthly = 'not loading price';
+}
 
 ?>
 
@@ -51,27 +75,31 @@ $price_monthly        = '$150';
 						<?php echo esc_html( $product_title ); ?>
 				<?php endif; ?>
 			</h3>
-			<p class="product-content-p">
+			<div class="product-content-p">
 				<?php if ( $product_text_content ) : ?>
 					<?php echo esc_html( $product_text_content ); ?>
 				<?php endif; ?>
 				<?php echo '<InnerBlocks />'; ?>
-			</p>
+			</div>
 
 			<div class="product-content-cta">
-				<button class="btn btn-primary btn-accent-outline btn-full">
-					Shop Now
-					<?php if ( $price ) : ?>
-						<?php echo ' — '; ?>
-						<?php echo esc_html( $price ); ?>
-					<?php endif; ?>
-				</button>
-				<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
-					<?php if ( $price_monthly ) : ?>
-						<?php echo ' — '; ?>
-						<?php echo esc_html( $price_monthly ); ?>
-					<?php endif; ?>
-				</button>
+				<a href="<?php echo esc_attr( buy_button_url( 'false' ) ); ?>">
+					<button class="btn btn-primary btn-accent-outline btn-full">
+						Shop Now
+						<?php if ( $price ) : ?>
+							<?php echo ' — '; ?>
+							<?php echo esc_html( $price ); ?>
+						<?php endif; ?>
+					</button>
+				</a>
+				<a href="<?php echo esc_attr( buy_button_url( 'true' ) ); ?>">
+					<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
+						<?php if ( $price_monthly ) : ?>
+							<?php echo ' — '; ?>
+							<?php echo esc_html( $price_monthly ); ?>
+						<?php endif; ?>
+					</button>
+				</a>
 
 
 			</div>

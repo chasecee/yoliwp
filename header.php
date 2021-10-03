@@ -67,27 +67,30 @@
 
 					<div class="nav-right">
 						<nav id="site-navigation-right" class="shop-navigation navigation-menu " aria-label="<?php esc_attr_e( 'Main Navigation Right', '_s' ); ?>">
-						<ul class="menu menu-right" id="primary-menu-right">
+							<ul class="menu menu-right" id="primary-menu-right">
 
-							<?php
-							require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+								<?php
+								require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 
-							echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
-							echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';
-							?>
+								echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
+								echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';
+								?>
 
-						</ul></nav>
+							</ul>
 						</nav>
 
+						<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) : ?>
+							<a href="#off-canvas-menu" class="off-canvas-open " data-target="slide-menu" data-action="toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>">
+								<?php get_template_part( '/src/images/icons/inline/inline', 'hamburger.svg' ); ?>
+							</a>
+						<?php endif; ?>
+					</div>
 
 
 
 
-					<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'mobile' ) ) : ?>
-						<a href="#off-canvas-menu" class="off-canvas-open " data-target="slide-menu" data-action="toggle" aria-expanded="false" aria-label="<?php esc_attr_e( 'Open Menu', '_s' ); ?>">
-							<?php get_template_part( '/src/images/icons/inline/inline', 'hamburger.svg' ); ?>
-						</a>
-					<?php endif; ?>
+
+
 					</div>
 			</div>
 
@@ -96,4 +99,4 @@
 					<?php get_template_part( '/template-parts/product-menu-api' ); ?>
 				</div>
 			</div>
-		</header><!-- .site-header-->
+		</header>

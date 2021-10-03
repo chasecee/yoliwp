@@ -270,3 +270,17 @@
 						</div>
 					</div>
 				</div> -->
+
+				<!-- <div class="cover">
+					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/covergirl.jpg'; ?>);">
+						<div class="cover-backdrop"></div>
+						<div class="container">
+							<div class="cover-content ">
+								<h3 class="cover-content-title">True to Nature</h3>
+								<hr class="cover-content-bar">
+								<p class="cover-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+							</div>
+						</div>
+
+					</div>
+				</div> -->

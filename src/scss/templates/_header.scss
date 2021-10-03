@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 
 .site-header {
-	@apply bg-white md:bg-transparent fixed md:relative left-0 right-0 top-0 h-auto md:h-140 z-30 text-brown-dark transform-gpu transition-all;
+	@apply bg-white md:bg-transparent fixed md:relative left-0 right-0 top-60 md:top-0 h-auto md:h-140 z-30 text-brown-dark transform-gpu transition-all;
 	.navigation-menu .menu li a {
 		line-height: 7.75;
 	}
@@ -74,7 +74,7 @@
 	}
 }
 .site-alert {
-	@apply bg-white text-brown-dark relative transition-colors z-20 whitespace-nowrap hidden md:block;
+	@apply bg-white text-brown-dark fixed top-0 md:relative transition-colors z-20 whitespace-nowrap;
 	> .container {
 		@apply px-40;
 	}

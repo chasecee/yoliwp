@@ -9,7 +9,14 @@
  * @package _s
  */
 
+// Require the url-builder.
+require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+
 get_header();
+
+// api_vars.
+$cover_button_link = $shop_now_url;
+
 // acf vars.
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
@@ -71,6 +78,7 @@ $background_svg   = get_field( 'background_svg' );
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
+						<a href="<?php echo esc_url( $cover_button_link ); ?>" class="btn btn-accent btn-full mt-50">Shop Now</a>
 					</div>
 
 					<div class="hero-product-bg">
@@ -81,6 +89,7 @@ $background_svg   = get_field( 'background_svg' );
 						<div class="hero-product-bg-circle-overlay bg-color"></div>
 
 					</div>
+
 				</div>
 
 				<?php
