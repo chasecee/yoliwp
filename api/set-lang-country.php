@@ -38,4 +38,4 @@ function set_language_and_country( $selection ) {
 		exit;
 	endif;
 }
-
+?>

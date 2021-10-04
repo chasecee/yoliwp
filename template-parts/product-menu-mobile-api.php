@@ -109,26 +109,28 @@ $redirect_base_url = $home . '/products/';
 		</ul>
 	</li>
 	<li class="menu-item"><a href="/earn/">Earn</a></li>
+
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
 		<ul class="sub-menu">
-						<?php
-						echo '<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
-						foreach ( $countries as $key => $option ) {
-							// phpcs:ignore
-							if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) :
-								$slctd = 'selected';
-								elseif ( isset( $_COOKIE['wordpress_country'] ) && $_COOKIE['wordpress_country'] === $key ) :
-									$slctd = 'selected';
-									else :
-										$slctd = '';
-									endif;
-									// phpcs:ignore
-							echo '<option value="' . esc_attr($key) . '" ' . esc_attr($slctd) . '>' . esc_html($option) . '</option>';
-						}
-						echo '</select>';
+		<form method="POST">
+		<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()" size="4">
+		<?php
+		foreach ( $countries as $key => $option ) {
+				// phpcs:ignore
+				if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) : $slctd = 'selected';
+					elseif ( isset( $_COOKIE['wordpress_country'] ) && $_COOKIE['wordpress_country'] === $key ) :
+						$slctd = 'selected';
+						else :
+							$slctd = '';
+							endif;
 						// phpcs:ignore
-					?>
+						echo 'the key is: ' . $key . '<br>';
+						echo '<option value="' . esc_attr( $key ) . '" ' . esc_attr( $slctd ) . '>' . esc_html( $option ) . '</option>';
+		}
+		?>
+			</select>
+	</form>
 		</ul>
 	</li>
 

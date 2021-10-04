@@ -75,7 +75,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				echo '<form class="col-span-3 hidden md:flex justify-end mb-0 h-26" method="post">';
 					echo '<div class="flex items-center" >';
 						echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
-							foreach ( $countries as $key => $option) {
+							foreach ( $countries as $key => $option ) {
 								if ( !isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) :
 									$slctd = 'selected';
 									elseif ( isset($_COOKIE['wordpress_country']) && $_COOKIE['wordpress_country'] === $key ) :

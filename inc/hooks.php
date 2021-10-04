@@ -351,7 +351,7 @@ add_action( 'admin_init', 'custom_editor_styles' );
 /** Set the language and country cookies. */
 function language_country_cookie() {
 	if ( ! is_admin() ) {
-		include_once realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
+		require realpath( __DIR__ . '/..' ) . '/api/set-lang-country.php';
 	// phpcs:ignore
 	if ( isset( $_POST ) ) {
 			// phpcs:ignore
