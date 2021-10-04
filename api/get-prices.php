@@ -28,7 +28,7 @@ function get_prices() {
 				$ip_address = $_SERVER['REMOTE_ADDR'];
 			endif;
 
-	// echo 'The address of the client: ' . $ip_address . '<br>';
+	// Make a call to a third-party geolocator?
 	// $response = wp_remote_get( $url . $ip_address, array( 'sslverify' => false, 'timeout' => 60 ) );
 
 	// Build the URL for the get-call to the API for the retail and discount prices.
