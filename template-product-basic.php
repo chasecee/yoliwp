@@ -9,7 +9,29 @@
  * @package _s
  */
 
+// Require the url-builder and get prices.
+require_once realpath( __DIR__ ) . '/api/get-prices.php';
+require_once realpath( __DIR__ ) . '/api/buy-button-urls.php';
+
 get_header();
+
+// override acf if dynamic prices exist.
+$prices_api = get_prices();
+// phpcs:ignore
+if ( ! empty( $prices_api->retailPriceFmtd ) ) {
+	// phpcs:ignore
+	$price = $prices_api->retailPriceFmtd;
+} else {
+	$price = 'not loading price';
+}
+// phpcs:ignore
+if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
+	// phpcs:ignore
+	$price_monthly = $prices_api->autoshipPriceFmtd;
+} else {
+	$price_monthly = 'not loading price';
+}
+
 // acf vars.
 $background_color = get_field( 'background_color' );
 $foreground_color = get_field( 'foreground_color' );
@@ -67,6 +89,25 @@ $foreground_color = get_field( 'foreground_color' );
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
+							<div class="product-content-cta">
+								<a href="<?php echo esc_attr( buy_button_url( 'false' ) ); ?>">
+									<button class="btn btn-primary btn-accent-outline btn-full">
+										Shop Now
+										<?php if ( $price ) : ?>
+											<?php echo ' — '; ?>
+											<?php echo esc_html( $price ); ?>
+										<?php endif; ?>
+									</button>
+								</a>
+								<a href="<?php echo esc_attr( buy_button_url( 'true' ) ); ?>">
+									<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
+										<?php if ( $price_monthly ) : ?>
+											<?php echo ' — '; ?>
+											<?php echo esc_html( $price_monthly ); ?>
+										<?php endif; ?>
+									</button>
+								</a>
+						</div>
 					</div>
 
 					<div class="hero-product-bg">
