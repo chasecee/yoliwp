@@ -37,7 +37,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 		return;
 	endif;
 
-	echo '<div class="site-alert" style="display:none;">';
+	echo '<div class="site-alert" style="display:none">';
 		echo '<div class="container">';
 			echo '<div class="grid grid-cols-12 h-60 items-center">';
 				echo '<div class="col-span-3 hidden md:flex justify-start">';

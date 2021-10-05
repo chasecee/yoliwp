@@ -145,7 +145,6 @@ $redirect_base_url = $home . '/products/';
 			<div class="shop-link-icon"><?php echo esc_html( get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ) ); ?></div>
 		</a>
 	</li>
-
 	<li class="menu-item">
 		<div class="menu-bottom">
 			<div class="promo">
@@ -153,11 +152,14 @@ $redirect_base_url = $home . '/products/';
 				<div class="promo-gradient"></div>
 				<div class="promo-title">Happy Hour Replacement Introducing: Buzz</div>
 			</div>
+			<?php
+			require realpath( __DIR__ ) . '/contact-info.php';
+			?>
 			<p>
 				Customer Support<br>
-				8 am MST - 7 pm MST<br>
-				801-727-0877 or 888-295-9009<br>
-				cs@yoli.com
+				<?php echo esc_html( $hours ); ?><br>
+				<?php echo esc_html( $phone_one ); ?> or <?php echo esc_html( $phone_two ); ?><br>
+				<?php echo esc_html( $email ); ?>
 			</p>
 			<div class="social-links">
 				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
