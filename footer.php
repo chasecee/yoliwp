@@ -23,7 +23,7 @@
 					Yoli helps you feel what it’s like to really live. Experience a lifestyle aligned with nature. Come to life.
 				</div>
 			</div>
-			<?php require_once realpath( __DIR__ ) . '/template-parts/contact-info.php'; ?>
+			<?php require realpath( __DIR__ ) . '/template-parts/contact-info.php'; ?>
 				<div class="footer-info-support">
 					<div class="footer-info-support-hours">
 						Customer Support<br/>
