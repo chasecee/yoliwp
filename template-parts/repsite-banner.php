@@ -37,7 +37,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 		return;
 	endif;
 
-	echo '<div class="site-alert" style="display:none;">';
+	echo '<div class="site-alert" style="display:none">';
 		echo '<div class="container">';
 			echo '<div class="grid grid-cols-12 h-60 items-center">';
 				echo '<div class="col-span-3 hidden md:flex justify-start">';
@@ -47,10 +47,10 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 					echo '</div>';
 
 					echo '<div class="flex items-center mr-24">';
-						echo '<span class="">' . esc_html( $email ) . '</span>';
+						echo '<span class=""><a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a></span>';
 					echo '</div>';
 					echo '<div class="flex items-center mr-0">';
-						echo '<span class="">' . esc_html( $phone ) . '</span>';
+						echo '<span class=""><a href="tel:' . esc_attr( $phone ) . '">' . esc_html( $phone ) . '</a></span>';
 					echo '</div>';
 				echo '</div>';
 				echo '<div class="text-center col-span-12 md:col-span-6 ">';

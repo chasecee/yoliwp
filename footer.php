@@ -23,14 +23,18 @@
 					Yoli helps you feel what it’s like to really live. Experience a lifestyle aligned with nature. Come to life.
 				</div>
 			</div>
+			<?php require_once realpath( __DIR__ ) . '/template-parts/contact-info.php'; ?>
 				<div class="footer-info-support">
 					<div class="footer-info-support-hours">
 						Customer Support<br/>
-						8 am MST - 7 pm MST
+						<?php echo esc_html( $hours ); ?>
 					</div>
 					<div class="footer-info-support-telephone">
-						<a class="underline" href="tel:1-801-727-0877">801-727-0877</a> or <a class="underline" href="tel:1-801-727-0877">888-295-9009</a><br/>
-						<a href="mailto:cs@yoli.com" class="underline" target="_blank">cs@yoli.com</a>
+						<a class="underline" href="tel:<?php echo esc_attr( $phone_one_number ); ?>"><?php echo esc_html( $phone_one ); ?></a>
+						or
+						<a class="underline" href="tel:<?php echo esc_attr( $phone_two_number ); ?>"><?php echo esc_html( $phone_two ); ?></a>
+						<br/>
+						<a href="mailto:<?php echo esc_attr( $email ); ?>" class="underline" target="_blank"><?php echo esc_html( $email ); ?></a>
 					</div>
 				</div>
 			</div>
@@ -46,7 +50,11 @@
 			<div class="flex">
 				<div class="footer-location">2080 Industrial Rd B, Salt Lake City, Utah 84104</div>
 				<div class="social-links">
-					<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
+					<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank">
+					<?php
+					get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' );
+					?>
+						</a>
 					<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
 					<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
 				</div>
