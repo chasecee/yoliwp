@@ -13,6 +13,7 @@
 
 				svg {
 					@apply w-full h-full;
+					max-height: 1.5rem;
 				}
 			}
 		}
@@ -74,6 +75,7 @@
 
 						svg {
 							@apply w-full h-full;
+							max-height: 1.5rem;
 						}
 					}
 				}

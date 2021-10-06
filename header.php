@@ -26,8 +26,11 @@
 	// Hide alert til page loads.
 	?>
 	<style>
-		.ready .site-alert,
-		.ready .banner-mobile{display:block!important;}
+		.ready .site-alert{display:block!important;}
+
+		@media (max-width: 768px){
+			.ready .banner-mobile{display:block!important;}
+		}
 	</style>
 </head>
 
