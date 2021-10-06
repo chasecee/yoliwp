@@ -107,7 +107,7 @@ $foreground_color = get_field( 'foreground_color' );
 										<?php endif; ?>
 									</button>
 								</a>
-						</div>
+							</div>
 					</div>
 
 					<div class="hero-product-bg">

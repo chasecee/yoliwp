@@ -26,7 +26,8 @@
 	// Hide alert til page loads.
 	?>
 	<style>
-		.ready .site-alert{display:block!important;}
+		.ready .site-alert,
+		.ready .banner-mobile{display:block!important;}
 	</style>
 </head>
 
