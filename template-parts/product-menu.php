@@ -74,7 +74,7 @@
 		<p class="product-menu-title">Support</p>
 		<ul>
 			<li><a href="mailto:cs@yoli.com" target="_blank">Contact Us</a></li>
-			<li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li>
+			<!-- <li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li> -->
 			<li><a href="#">Privacy Policy</a></li>
 		</ul>
 	</div>
