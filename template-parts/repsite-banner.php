@@ -26,11 +26,13 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 	/** If the rep's customer ID === 50, generic welcome message; otherwise, repsite banner. */
 	if ( 50 === $rep->customerId ) {
 		$welcome_message = 'Welcome to Yoli!';
+		$mobile_banner_visible = false;
 	} else {
 		$email = $rep->email;
 		$phone = $rep->phone;
 				// phpcs:ignore
 		$welcome_message = 'Welcome to the ' . $rep->firstName . ' ' . $rep->lastName . ' experience!';
+		$mobile_banner_visible = true;
 	}
 
 	if ( $show_banner === false ) :
@@ -94,6 +96,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 	echo '</div>';
 
 	// mobile version of the banner;
+	if (true === $mobile_banner_visible) :
 	?>
 			<div class="banner-mobile" style="display:none;">
 
@@ -155,4 +158,5 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				</div>
 			</div>
 	<?php
+	endif;
 }

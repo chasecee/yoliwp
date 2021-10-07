@@ -1,13 +1,5 @@
-<!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg width="26px" height="26px"  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 48 32.1" style="enable-background:new 0 0 48 32.1;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:none;stroke:#6f6f6f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
-</style>
-<g>
-	<rect x="1" y="1" class="st0" width="46" height="30.1"/>
-	<polyline class="st0" points="1,1 24,18.7 47,1 	"/>
-	<line class="st0" x1="1" y1="31" x2="17.8" y2="14"/>
-	<line class="st0" x1="47" y1="31" x2="30.2" y2="13.9"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="13.433" height="8.469" viewBox="0 0 13.433 8.469">
+  <g id="noun_Mail_1200951" transform="translate(-4 -973.362)">
+    <path id="Path_2616" data-name="Path 2616" d="M4.584,973.362a.593.593,0,0,0-.584.584v7.3a.593.593,0,0,0,.584.584H16.849a.593.593,0,0,0,.584-.584v-7.3a.593.593,0,0,0-.584-.584Zm1.013.876H15.836l-5.12,4.389Zm-.721.529,5.558,4.764a.438.438,0,0,0,.566,0l5.558-4.764v6.187H4.876Z" fill="#aaa"/>
+  </g>
 </svg>

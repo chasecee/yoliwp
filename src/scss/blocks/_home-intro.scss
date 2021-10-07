@@ -1,7 +1,7 @@
 .home-intro {
 	.intro {
 		@extend .container;
-		@apply relative flex flex-col md:flex-row pt-50 md:pt-0 pb-50 md:pb-100 items-center overflow-hidden;
+		@apply relative flex flex-col md:flex-row py-50 md:py-150 items-center overflow-hidden;
 		&-left {
 			@apply relative w-2/3 self-start md:self-end -left-1/4 order-3 md:order-1;
 			padding-top: 75%;

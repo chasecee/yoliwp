@@ -52,7 +52,7 @@
 		}
 	}
 	&-image {
-		@apply absolute inset-0 top-60 md:top-0 bg-cover bg-top md:bg-center bg-fixed md:bg-scroll;
+		@apply absolute inset-0 top-0 md:top-0 bg-cover bg-top md:bg-center bg-fixed md:bg-scroll;
 		@screen md {
 			border-top-left-radius: 31.25rem;
 		}

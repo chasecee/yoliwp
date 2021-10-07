@@ -103,7 +103,7 @@ $foreground_color = get_field( 'foreground_color' );
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
-						<div class="product-content-cta">
+						<!-- <div class="product-content-cta">
 								<a href="<?php echo esc_attr( buy_button_url( 'false' ) ); ?>">
 									<button class="btn btn-primary btn-accent-outline btn-full">
 										Shop Now
@@ -121,7 +121,7 @@ $foreground_color = get_field( 'foreground_color' );
 										<?php endif; ?>
 									</button>
 								</a>
-							</div>
+							</div> -->
 					</div>
 
 					<div class="hero-product-bg">
