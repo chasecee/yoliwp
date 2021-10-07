@@ -1,267 +1,310 @@
 {
-	"key": "group_61356699d337d",
-	"title": "TEMPLATE - Products Page Blocks",
-	"fields": [
-		{
-			"key": "field_61356699d9051",
-			"label": "Background Color",
-			"name": "background_color",
-			"type": "color_picker",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "#F8F5EB",
-			"enable_opacity": 0,
-			"return_format": "string"
-		},
-		{
-			"key": "field_61399347b5fc1",
-			"label": "Background Svg",
-			"name": "background_svg",
-			"type": "textarea",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"placeholder": "",
-			"maxlength": "",
-			"rows": "",
-			"new_lines": ""
-		},
-		{
-			"key": "field_61356699d9059",
-			"label": "Foreground Color",
-			"name": "foreground_color",
-			"type": "color_picker",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "#FF795A",
-			"enable_opacity": false,
-			"return_format": "string"
-		},
-		{
-			"key": "field_61356699d9061",
-			"label": "Product Title",
-			"name": "product_title",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"placeholder": "",
-			"prepend": "",
-			"append": "",
-			"maxlength": ""
-		},
-		{
-			"key": "field_61356699d9068",
-			"label": "PreTitle",
-			"name": "pretitle",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"placeholder": "",
-			"prepend": "",
-			"append": "",
-			"maxlength": ""
-		},
-		{
-			"key": "field_61356699d9070",
-			"label": "Description",
-			"name": "description",
-			"type": "textarea",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "",
-			"new_lines": "",
-			"maxlength": "",
-			"placeholder": "",
-			"rows": ""
-		},
-		{
-			"key": "field_61356699d9077",
-			"label": "Hero Image",
-			"name": "hero_image",
-			"type": "image",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "url",
-			"preview_size": "medium",
-			"library": "all",
-			"min_width": "",
-			"min_height": "",
-			"min_size": "",
-			"max_width": "",
-			"max_height": "",
-			"max_size": "",
-			"mime_types": ""
-		},
-		{
-			"key": "field_61356699d907f",
-			"label": "Product Box Image",
-			"name": "product_box_image",
-			"type": "image",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"return_format": "id",
-			"preview_size": "medium",
-			"library": "all",
-			"min_width": "",
-			"min_height": "",
-			"min_size": "",
-			"max_width": "",
-			"max_height": "",
-			"max_size": "",
-			"mime_types": ""
-		},
-		{
-			"key": "field_61398f9b2aa3c",
-			"label": "Features List Title",
-			"name": "features_list_title",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "Find your happy place.",
-			"placeholder": "",
-			"prepend": "",
-			"append": "",
-			"maxlength": ""
-		},
-		{
-			"key": "field_61356699d9087",
-			"label": "Features List",
-			"name": "features_list",
-			"type": "repeater",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"collapsed": "",
-			"min": 0,
-			"max": 0,
-			"layout": "table",
-			"button_label": "",
-			"sub_fields": [
-				{
-					"key": "field_61356699e601e",
-					"label": "Icon",
-					"name": "icon",
-					"type": "clone",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"clone": [ "group_6103302c7bcdf" ],
-					"display": "seamless",
-					"layout": "block",
-					"prefix_label": 0,
-					"prefix_name": 0
-				},
-				{
-					"key": "field_61356699e6027",
-					"label": "Label",
-					"name": "label",
-					"type": "text",
-					"instructions": "",
-					"required": 0,
-					"conditional_logic": 0,
-					"wrapper": {
-						"width": "",
-						"class": "",
-						"id": ""
-					},
-					"default_value": "",
-					"placeholder": "",
-					"prepend": "",
-					"append": "",
-					"maxlength": ""
-				}
-			]
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "page_template",
-				"operator": "==",
-				"value": "template-product-blocks.php"
-			}
-		],
-		[
-			{
-				"param": "page_template",
-				"operator": "==",
-				"value": "template-product-basic.php"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"modified": 1631167565
+    "key": "group_61356699d337d",
+    "title": "TEMPLATE - Products Page Blocks",
+    "fields": [
+        {
+            "key": "field_615e60bb87cde",
+            "label": "Column 1",
+            "name": "column_1",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_615e60ca87cdf",
+            "label": "Column 2",
+            "name": "column_2",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_615e60cc87ce0",
+            "label": "Column 3",
+            "name": "column_3",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_61356699d9051",
+            "label": "Background Color",
+            "name": "background_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#F8F5EB",
+            "enable_opacity": 0,
+            "return_format": "string"
+        },
+        {
+            "key": "field_61356699d9059",
+            "label": "Foreground Color",
+            "name": "foreground_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#FF795A",
+            "enable_opacity": false,
+            "return_format": "string"
+        },
+        {
+            "key": "field_61356699d9061",
+            "label": "Product Title",
+            "name": "product_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61356699d9068",
+            "label": "PreTitle",
+            "name": "pretitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61356699d9070",
+            "label": "Description",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": ""
+        },
+        {
+            "key": "field_61356699d9077",
+            "label": "Hero Image",
+            "name": "hero_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_61356699d907f",
+            "label": "Product Box Image",
+            "name": "product_box_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_61398f9b2aa3c",
+            "label": "Features List Title",
+            "name": "features_list_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Find your happy place.",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61356699d9087",
+            "label": "Features List",
+            "name": "features_list",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_61356699e601e",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_6103302c7bcdf"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                },
+                {
+                    "key": "field_61356699e6027",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-product-blocks.php"
+            }
+        ],
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "template-product-basic.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1633576780
 }

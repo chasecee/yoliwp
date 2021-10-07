@@ -105,7 +105,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 						<div class="accordion-item-header">
 							<div>
 
-								<h4 class="accordion-item-header-text mb-0 "><?php echo esc_html( $welcome_message ); ?></h4>
+								<div class="accordion-item-header-text mb-0"><?php echo esc_html( $welcome_message ); ?></div>
 								<div class="accordion-item-icon">
 									<?php get_template_part( '/src/images/icons/inline/inline', 'caret-down.svg' ); ?>
 								</div>

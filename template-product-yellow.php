@@ -84,6 +84,20 @@ $foreground_color = get_field( 'foreground_color' );
 					$process_caption_copy = get_field( 'process_caption_copy' );
 					$size                 = 'full';
 					$features_list_title  = get_field( 'features_list_title' );
+
+					$column_1 = get_field( 'column_1' );
+					$column_2 = get_field( 'column_2' );
+					$column_3 = get_field( 'column_3' );
+				if ( $column_1 ) {
+					$column_1_width = 'width:' . $column_1 . '%;';
+				}
+				if ( $column_2 ) {
+					$column_2_width = 'width:' . $column_2 . '%;';
+				}
+				if ( $column_3 ) {
+					$column_3_width = 'width:' . $column_3 . '%;';
+				}
+
 				?>
 
 				<div class="hero-product">
@@ -135,14 +149,26 @@ $foreground_color = get_field( 'foreground_color' );
 
 
 				<div class="product-features ">
-					<div class="product-features-graphic">
+					<div class="product-features-graphic" style="
+					<?php
+					if ( $column_1_width ) :
+						echo esc_attr( $column_1_width );
+endif;
+					?>
+					" >
 						<div class="product-features-graphic-line"></div>
 
 						<div class="product-features-graphic-svg fg-color">
 							<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
 						</div>
 					</div>
-					<div class="product-features-image">
+					<div class="product-features-image" style="
+					<?php
+					if ( $column_2_width ) :
+						echo esc_attr( $column_2_width );
+endif;
+					?>
+					">
 						<?php
 						if ( $product_box_image ) {
 							$url = wp_get_attachment_url( $product_box_image );
@@ -150,7 +176,13 @@ $foreground_color = get_field( 'foreground_color' );
 						};
 						?>
 					</div>
-					<div class="product-features-list">
+					<div class="product-features-list" style="
+					<?php
+					if ( $column_3_width ) :
+						echo esc_attr( $column_3_width );
+endif;
+					?>
+					">
 						<?php if ( $features_list_title ) : ?>
 							<div class="product-features-list-title">
 								<?php echo esc_html( $features_list_title ); ?>

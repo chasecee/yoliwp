@@ -11,10 +11,10 @@
 			@apply font-sans-alt text-20;
 		}
 		&-title {
-			@apply text-40 md:text-60 leading-tight mb-40;
+			@apply text-40 md:text-80 leading-tight mt-20 mb-32 font-serif;
 		}
 		&-p {
-			@apply md:text-24 lg:text-28;
+			@apply md:text-20 lg:text-24;
 		}
 
 		&-cta {

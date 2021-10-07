@@ -1,5 +1,5 @@
 .btn {
-	@apply leading-24 text-center relative;
+	@apply leading-24 text-center relative text-18;
 	@apply border rounded-lg transition-colors;
 	@apply py-24 px-60 inline-block whitespace-nowrap select-none no-underline;
 	&:active {
