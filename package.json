@@ -36,7 +36,7 @@
 		"eslint-plugin-eslint-comments": "^3.2.0",
 		"eslint-webpack-plugin": "^2.5.4",
 		"file-loader": "^6.2.0",
-		"gsap": "^3.7.1",
+		"gsap": "^3.8.0",
 		"imagemin-webpack-plugin": "^2.4.2",
 		"mini-css-extract-plugin": "^1.6.2",
 		"mmenu-light": "^3.0.9",
