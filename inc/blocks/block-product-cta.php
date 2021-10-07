@@ -70,7 +70,7 @@ if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
 					<?php echo esc_html( $pretitle ); ?>
 				<?php endif; ?>
 			</p>
-			<h3 class="product-content-title">
+			<h3 class="product-content-title ">
 				<?php if ( $product_title ) : ?>
 						<?php echo esc_html( $product_title ); ?>
 				<?php endif; ?>
