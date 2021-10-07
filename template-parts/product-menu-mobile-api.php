@@ -70,6 +70,15 @@ $home              = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] 
 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 $redirect_base_url = $home . '/products/';
 
+$post_url = $_SERVER['HTTP_REFERER'];
+
+echo '<script type="text/javascript">
+	function captureCountry(event) {
+		const hiddenForm = document.getElementById("country");
+		hiddenForm.innerHTML = `<input name="sel_country" value="${event.value}">${event.value}</input>`;
+		hiddenForm.submit();
+	}
+</script>';
 ?>
 
 <ul id="site-mobile-menu" class="mobile-menu">
@@ -112,27 +121,23 @@ $redirect_base_url = $home . '/products/';
 
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
-		<ul class="sub-menu">
-		<form method="POST">
-		<select class="pt-10 bg-transparent text-right" name="sel_country" onchange="this.form.submit()" size="4">
-		<?php
-		foreach ( $countries as $key => $option ) {
-				// phpcs:ignore
-				if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) : $slctd = 'selected';
-					elseif ( isset( $_COOKIE['wordpress_country'] ) && $_COOKIE['wordpress_country'] === $key ) :
-						$slctd = 'selected';
-						else :
-							$slctd = '';
-							endif;
-						// phpcs:ignore
-						echo 'the key is: ' . $key . '<br>';
-						echo '<option value="' . esc_attr( $key ) . '" ' . esc_attr( $slctd ) . '>' . esc_html( $option ) . '</option>';
-		}
-		?>
-			</select>
-	</form>
+		<ul class="sub-menu" >
+						<?php
+						foreach ( $countries as $key => $option ) {
+								// phpcs:ignore
+								if ( ! isset( $_COOKIE['wordpress_country'] ) && $key === 'US' ) : $slctd = 'selected';
+									elseif ( isset( $_COOKIE['wordpress_country'] ) && $_COOKIE['wordpress_country'] === $key ) :
+										$slctd = 'selected';
+										else :
+											$slctd = '';
+											endif;
+										// phpcs:ignore
+										?>
+											<li onclick="captureCountry(event.target.attributes.value)" name="sel_country" value="<?php echo esc_attr( $key ); ?>" <?php echo esc_attr( $slctd ); ?>><?php echo esc_html( $option ); ?></li>
+				<?php	} ?>
 		</ul>
 	</li>
+	<form hidden id="country" method="post" ></form>
 
 	<?php
 	require realpath( __DIR__ . '/..' ) . '/api/join-and-shop-urls.php';

@@ -58,6 +58,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				echo '<div class="text-center col-span-12 md:col-span-6 ">';
 					echo esc_html( $welcome_message );
 				echo '</div>';
+
 				// echo '<form class="col-span-3 flex justify-end" method="post">';
 				// 	echo '<div class="flex items-center ml-24">';
 				// 	echo '<select class="mr-5" name="sel_language" onchange="this.form.submit()">';
@@ -74,6 +75,7 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 				// 	echo	'</select>';
 				// 	echo '</div>';
 				// echo '</form>';
+
 				echo '<form class="col-span-3 flex justify-end mb-0 h-26" method="post">';
 					echo '<div class="flex items-center" >';
 						echo '<select class="bg-transparent text-right" name="sel_country" onchange="this.form.submit()">';
@@ -90,8 +92,8 @@ function render_banner($rep, $home, $redirect_boolean, $path, $show_banner) {
 						echo '</select>';
 					echo '</div>';
 				echo '</form>';
-			echo '</div>';
 
+			echo '</div>';
 		echo '</div>';
 	echo '</div>';
 
