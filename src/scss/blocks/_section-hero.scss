@@ -10,11 +10,14 @@
 		@screen md {
 			@apply w-1/2 px-0;
 		}
+		@screen lg {
+			width: 34%;
+		}
 		&-pretitle {
 			@apply md:text-24 font-sans-alt;
 		}
 		&-description {
-			@apply md:text-24 lg:w-3/4;
+			@apply md:text-24;
 			&:last-child {
 				@apply mb-50 md:mb-0;
 			}
@@ -52,7 +55,7 @@
 		}
 	}
 	&-image {
-		@apply absolute inset-0 top-0 md:top-0 bg-cover bg-top md:bg-center bg-fixed md:bg-scroll;
+		@apply absolute inset-0 top-60 md:top-0 bg-cover bg-top md:bg-center bg-fixed md:bg-scroll;
 		@screen md {
 			border-top-left-radius: 31.25rem;
 		}
