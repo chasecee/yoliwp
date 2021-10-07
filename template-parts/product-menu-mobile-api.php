@@ -75,7 +75,7 @@ $post_url = $_SERVER['HTTP_REFERER'];
 echo '<script type="text/javascript">
 	function captureCountry(event) {
 		const hiddenForm = document.getElementById("country");
-		hiddenForm.innerHTML = `<input name="sel_country" value="${event.value}">${event.value}</input>`;
+		hiddenForm.innerHTML = `<input name="sel_country" value="${event.value}"></input>`;
 		hiddenForm.submit();
 	}
 </script>';
