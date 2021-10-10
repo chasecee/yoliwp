@@ -11,14 +11,16 @@
 			@apply flex flex-col md:flex-row items-center md:mb-50 lg:mb-0 lg:items-start lg:mr-30;
 		}
 		&-logo {
-			@apply text-primary relative w-72 flex-none;
+			@apply text-primary relative w-120 flex-none;
 			@screen xl {
 				top: -0.45rem;
 				width: 8.125rem;
 				height: 8.125rem;
 			}
 			svg {
-				@apply w-full h-full;
+				width: 8.125rem;
+				height: 8.125rem;
+				@apply max-w-full;
 			}
 		}
 		&-slogan {

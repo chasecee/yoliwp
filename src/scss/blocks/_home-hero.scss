@@ -1,13 +1,14 @@
 .home-hero {
 	@apply relative;
 	.hero {
-		@apply relative overflow-hidden md:max-h-screen md:-top-140;
+		@apply relative overflow-hidden md:max-h-screen;
 
 		height: 150vw;
 		overflow: hidden;
 		@screen md {
 			height: calc( 100vh - 3.75rem );
 			max-height: 56.26vw;
+			min-height: 50rem;
 		}
 
 		&-content {

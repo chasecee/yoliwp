@@ -22,6 +22,16 @@
 
 	<?php wp_head(); ?>
 
+	<?php
+	// Hide alert til page loads.
+	?>
+	<style>
+		.ready .site-alert{display:block!important;}
+
+		@media (max-width: 768px){
+			.ready .banner-mobile{display:block!important;}
+		}
+	</style>
 </head>
 
 <body <?php body_class( 'site-wrapper' ); ?>>

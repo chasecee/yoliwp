@@ -35,7 +35,7 @@
 		visibility: hidden;
 		.product-menu-col {
 			@apply w-auto;
-			&:last-child {
+			&.footer-hidden {
 				@apply w-1/4 flex-none;
 			}
 		}

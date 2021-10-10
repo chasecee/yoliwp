@@ -68,16 +68,16 @@
 //-----------------------------------------
 // Menu Items With Children
 //-----------------------------------------
-.menu-item-has-children {
-	@apply relative;
+// .menu-item-has-children {
+// 	@apply relative;
 
-	&:hover,
-	&.focus {
-		> .sub-menu {
-			@apply left-0;
-		}
-	}
-}
+// 	&:hover,
+// 	&.focus {
+// 		> .sub-menu {
+// 			@apply left-0;
+// 		}
+// 	}
+// }
 
 //-----------------------------------------
 // Dropdown Styles

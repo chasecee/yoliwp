@@ -36,25 +36,12 @@
 // Global Elements
 //-----------------------------------------
 html {
-	@apply text-12;
-	@screen md {
-		@apply text-12;
-	}
-	@screen xl {
-		@apply text-14;
-	}
+	@apply text-13;
 }
 body {
-	@apply text-20;
 	@apply mx-auto;
 	max-width: 1920px;
 
-	@screen md {
-		@apply text-18;
-	}
-	@screen xl {
-		@apply text-16;
-	}
 	@apply font-sans antialiased text-brown-dark;
 }
 
