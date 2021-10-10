@@ -72,6 +72,7 @@ $redirect_base_url = $home . '/products/';
 
 $post_url = $_SERVER['HTTP_REFERER'];
 
+// This populates the hidden form so that the chosen country will post to the server and be available in the $_POST array.
 echo '<script type="text/javascript">
 	function captureCountry(event) {
 		const hiddenForm = document.getElementById("country");

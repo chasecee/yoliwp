@@ -41,9 +41,6 @@ $price_monthly        = 'No monthly price available';
 
 // override acf if dynamic prices exist.
 $prices_api = get_prices();
-echo 'The result of calling get_prices ';
-var_dump($prices_api);
-echo '<br>';
 
 // phpcs:ignore
 if ( ! empty( $prices_api->retailPriceFmtd ) ) {
