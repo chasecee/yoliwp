@@ -36,6 +36,9 @@ if ( $spacing ) {
 
 
 
+
+
+
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
 
 
@@ -122,5 +125,3 @@ if ( $spacing ) {
 <?php endif; ?>
 
 </div>
-
-

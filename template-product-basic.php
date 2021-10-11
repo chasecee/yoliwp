@@ -56,6 +56,8 @@ $foreground_color = get_field( 'foreground_color' );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
+
+
 </style>
 
 	<div class=" site-main">
@@ -191,6 +193,7 @@ $foreground_color = get_field( 'foreground_color' );
 								$custom_svg_code = get_sub_field( 'custom_svg_code' )
 
 								?>
+
 									<li>
 										<?php if ( $icon ) : ?>
 											<?php

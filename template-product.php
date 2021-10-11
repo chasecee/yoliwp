@@ -125,18 +125,29 @@ $foreground_color = get_field( 'foreground_color' );
 						if ( have_rows( 'features_list' ) ) :
 							while ( have_rows( 'features_list' ) ) :
 								the_row();
-								$icon  = get_sub_field( 'select_svg' );
-								$label = get_sub_field( 'label' );
+								$icon            = get_sub_field( 'select_svg' );
+								$label           = get_sub_field( 'label' );
+								$custom_svg_code = get_sub_field( 'custom_svg_code' )
+
 								?>
 									<li>
 										<?php if ( $icon ) : ?>
-
+											<?php
+											if ( 'custom' === $icon ) {
+												if ( $custom_svg_code ) {
+													?>
+													<div class="icon">
+														<?php echo wp_kses( $custom_svg_code, get_kses_extended_ruleset() ); ?>
+													</div>
+													<?php } ?>
+											<?php } else { ?>
 											<div class="icon">
 												<?php $icon_filename = $icon . '.svg'; ?>
 												<?php get_template_part( '/src/images/icons/inline/inline', $icon_filename ); ?>
 											</div>
+											<?php } ?>
 
-										<?php endif; ?>
+										<?php endif; // end if icon. ?>
 
 										<?php if ( $label ) : ?>
 

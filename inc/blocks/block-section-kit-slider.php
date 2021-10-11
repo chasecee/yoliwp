@@ -67,11 +67,7 @@ if ( $style ) {
 									<?php echo esc_html( $slide_title ); ?>
 									</div>
 								<?php endif; ?>
-								<?php if ( 'kitslider' === $style ) { ?>
-									<div class="focus-carousel-content-link">
-									Learn More
-									</div>
-								<?php } ?>
+
 								<?php if ( 'testimonial' === $style ) { ?>
 									<?php $testimonial_name = get_sub_field( 'testimonial_name' ); ?>
 									<?php if ( $testimonial_name ) : ?>
