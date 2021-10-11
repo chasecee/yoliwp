@@ -67,7 +67,7 @@
 
 					<div class="logo ">
 
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="inline-block">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="inline-block relative -right-6 -bottom-4">
 
 							<?php get_template_part( '/src/images/icons/inline/inline', 'logo.svg' ); ?>
 
