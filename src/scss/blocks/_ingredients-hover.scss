@@ -29,6 +29,9 @@
 	.ingredients-list {
 		@apply relative pb-100 z-20 text-white w-4/5 ml-0;
 		padding-top: 45rem;
+		@media only screen and (max-width: 600px) {
+			padding-top: 35rem;
+		}
 
 		.ingredients-name {
 			@apply text-gray-medium font-serif text-32 md:text-60  transition-all duration-150 inline-block no-underline;

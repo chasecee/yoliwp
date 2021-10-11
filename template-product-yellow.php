@@ -59,6 +59,15 @@ $foreground_color = get_field( 'foreground_color' );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
+
+.hero-product-image {
+background-attachment:scroll;
+-o-background-size:cover;
+-moz-background-size:cover;
+-webkit-background-size:cover;
+background-size:cover;
+background-repeat:no-repeat;
+}
 </style>
 
 	<div class=" site-main">
