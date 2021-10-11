@@ -2,21 +2,22 @@
 	@apply relative;
 }
 
-
 .product-carousel .slide-inner-content {
-    position: absolute;
-    bottom: 6.25rem;
-    z-index: 10;
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 0 0;
-    margin: auto;
-    max-width: 1680px;
+	position: absolute;
+	bottom: 6.25rem;
+	z-index: 10;
+	width: 100%;
+	left: 0;
+	right: 0;
+	padding: 0 0;
+	margin: auto;
+	max-width: 1680px;
 }
 
-.product-carousel .slide-inner-content a.btn.btn-primary.btn-shop.btn-style-arrow.w-auto {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.product-carousel
+	.slide-inner-content
+	a.btn.btn-primary.btn-shop.btn-style-arrow.w-auto {
+	position: absolute;
+	right: 0;
+	bottom: 0;
 }
