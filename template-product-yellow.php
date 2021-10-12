@@ -10,8 +10,9 @@
  */
 
 // Require the url-builder and get prices.
-require_once realpath( __DIR__ ) . '/api/get-prices.php';
-require_once realpath( __DIR__ ) . '/api/buy-button-urls.php';
+require realpath( __DIR__ ) . '/api/get-prices.php';
+require realpath( __DIR__ ) . '/api/buy-button-urls.php';
+require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 
 get_header();
 
