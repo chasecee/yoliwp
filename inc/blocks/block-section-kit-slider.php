@@ -31,11 +31,31 @@ if ( $style ) {
 } else {
 	$slider_style = 'kitslider';
 }
+$rows = count( get_field( 'slides' ) );
+if ( 3 < $rows ) {
+	$static_on_desktop_switch    = '100';
+	$static_on_desktop_classname = 'slide-on-desktop';
+} else {
+	$static_on_desktop_switch    = '0';
+	$static_on_desktop_classname = 'static-on-desktop';
+}
 ?>
-<div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
+<div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>" data-rows="<?php echo esc_attr( $rows ); ?>">
 
-<div class="kit-carousel focus-carousel <?php echo esc_attr( $slider_style ); ?>">
-	<div class="glide" data-per-view="3">
+<div class="kit-carousel focus-carousel <?php echo esc_attr( $slider_style ); ?> <?php echo esc_attr( $static_on_desktop_classname ); ?>">
+	<div class="focus-carousel-blocker"></div>
+	<div class="glide" data-per-view="3" data-static-on-desktop="<?php echo esc_attr( $static_on_desktop_switch ); ?>">
+
+		<div class="glide__arrows" data-glide-el="controls">
+			<div data-glide-dir="<">
+				<div class="transform rotate-180">
+					<?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
+				</div>
+			</div>
+			<div data-glide-dir="&gt;">
+				<?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
+			</div>
+		</div>
 
 		<div class="glide__track" data-glide-el="track">
 			<ul class="glide__slides">
@@ -55,6 +75,7 @@ if ( $style ) {
 								if ( $slide_image ) {
 									$url = wp_get_attachment_url( $slide_image );
 									echo wp_get_attachment_image( $slide_image, $size );
+
 								};
 								?>
 							</div>

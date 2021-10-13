@@ -3,7 +3,7 @@
 		@extend .container;
 		@apply relative flex flex-col md:flex-row py-50 md:py-150 items-center overflow-hidden;
 		&-left {
-			@apply relative w-2/3 self-start md:self-end -left-1/4 order-3 md:order-1;
+			@apply relative w-2/3 self-start md:self-end -left-1/4 order-3 md:order-1 hidden md:block;
 			padding-top: 75%;
 			@screen md {
 				@apply pt-0 left-0 w-1/4 h-auto;
@@ -26,7 +26,7 @@
 			}
 		}
 		&-right {
-			@apply relative w-2/3 self-end -right-1/4 order-1 md:order-3;
+			@apply relative w-2/3 self-end -right-1/4 order-1 md:order-3 hidden md:block;
 			padding-top: 75%;
 			@screen md {
 				@apply pt-0 w-1/4 self-start h-auto right-0;
@@ -42,26 +42,28 @@
 				left: 26%;
 				top: 10%;
 				@screen md {
-					@apply relative w-2/3 left-1/4 top-1/4;
+					@apply relative w-2/3 left-1/4 top-1/4 mt-40;
 				}
 			}
 		}
 		&-content {
-			@apply md:w-1/2 md:pb-200 md:pt-100 text-center order-2;
+			@apply md:w-1/2 py-150 text-center order-2;
 			&-inner {
 				@apply relative;
 				&::after {
-					content: '';
-					@apply absolute w-px bg-brown-dark h-120;
+					@screen md{
+						content: '';
+						@apply absolute w-px bg-brown-dark h-120;
+					}
 				}
 				h2 {
-					@apply text-44 md:text-80 font-serif text-center mb-0;
+					@apply text-44 md:text-80 font-serif text-center md:mb-0 leading-relaxed mb-5;
 					span {
 						@apply block text-16 md:text-24 font-sans;
 					}
 				}
 				p {
-					@apply md:text-24 font-sans-alt mx-0 md:mx-30 xl:mx-100 pb-30;
+					@apply text-20 md:text-24 font-sans-alt mx-0 md:mx-50 xl:mx-100 md:pb-30;
 				}
 			}
 		}

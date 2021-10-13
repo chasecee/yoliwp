@@ -3,7 +3,8 @@
 	.hero {
 		@apply relative overflow-hidden md:max-h-screen;
 
-		height: 150vw;
+		height: 60rem;
+		max-height: 85vh;
 		overflow: hidden;
 		@screen md {
 			height: calc( 100vh - 3.75rem );
@@ -17,11 +18,11 @@
 				@apply container-l pl-140 w-full;
 			}
 			&-title {
-				@apply leading-tight text-40 md:text-80 font-serif;
+				@apply leading-tight text-44 md:text-80 font-serif;
 				line-height: 1.2;
 			}
 			&-subtitle {
-				@apply text-24 md:w-1/2;
+				@apply text-20 md:text-24 md:w-1/2;
 			}
 		}
 		&-gradient-svg {

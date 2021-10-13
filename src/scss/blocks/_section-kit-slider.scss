@@ -6,13 +6,13 @@
 	}
 	@screen lg {
 		@apply mx-auto;
-		max-width: 1400px;
+		max-width: 1800px;
 	}
+
 	&.testimonial {
 		.glide__slides .glide__slide .focus-carousel-content {
 			--tw-translate-y: -35%;
 			--tw-translate-x: 15%;
-			max-width: 81%;
 			@screen md {
 				--tw-translate-x: 0;
 				--tw-translate-y: 0;
@@ -23,67 +23,76 @@
 			}
 		}
 	}
-	.glide--swipeable {
-		@screen md {
-			cursor: inherit;
+	&.static-on-desktop {
+		.glide--swipeable {
+			@screen md {
+				cursor: inherit;
+			}
+			.glide__arrows{
+				@apply md:hidden;
+			}
+		}
+		/* stylelint-disable declaration-no-important */
+		@screen md{
+			.glide__slides{
+				transform: translate3d(0, 0, 0) !important;
+			}
+		}
+		/* stylelint-enable declaration-no-important */
+		.focus-carousel-blocker{
+			@screen md{
+				@apply absolute inset-0 z-30;
+			}
+		}
+		.glide__arrows{
+			@apply hidden;
+
 		}
 	}
+	&.slide-on-desktop{
+		.glide__arrows{
+			@apply absolute top-1/2 -left-60 -right-60 z-0 justify-between hidden md:flex transform-gpu -translate-y-full;
+			> div {
+				&:hover {
+					@apply text-brown-dark;
+				}
+				&:active {
+					@apply scale-95;
+				}
+			}
+		}
+	}
+
 	.glide__slides {
-		@apply md:items-center;
+		@apply md:items-center md:overflow-visible overflow-hidden;
 
 		.glide__slide {
+			@apply transform-gpu md:scale-90 transition-transform;
+			--tw-scale-x: 0.85;
+			--tw-scale-y: 0.85;
+
 			.focus-carousel-image {
-				@apply mb-16 transform-gpu scale-75 md:scale-100 transition-transform;
+				@apply mb-16;
+				height: 30rem;
 				@screen md {
-					height: 30vw;
+					height: 40rem;
 				}
 				img {
 					@apply object-cover object-center w-full h-full;
 				}
 			}
 			.focus-carousel-content {
-				@apply transform-gpu transition-transform;
 				--tw-translate-x: 12%;
 				--tw-translate-y: -100%;
 				@screen md {
-					--tw-translate-x: 0;
-					--tw-translate-y: 0;
+					--tw-translate-x: 12%;
+					--tw-translate-y: -4rem;
 				}
 			}
 			&.glide__slide--active {
-				.focus-carousel-image {
-					@apply scale-100;
-					@screen md {
-						height: 40vw;
-						@apply relative;
-						left: -15%;
-						width: 130%;
-					}
-					@screen lg {
-						left: -10%;
-						width: 120%;
-					}
-					@screen xl {
-						left: -5%;
-						width: 110%;
-					}
-				}
-				.focus-carousel-content {
-					@apply translate-y-0 translate-x-0;
-					@screen md {
-						@apply relative;
-						left: -15%;
-						width: 130%;
-					}
-					@screen lg {
-						left: -10%;
-						width: 120%;
-					}
-					@screen xl {
-						left: -5%;
-						width: 110%;
-					}
-				}
+				@apply scale-100;
+
+
 			}
 		}
 	}

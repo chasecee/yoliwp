@@ -65,7 +65,7 @@ if ( $spacing ) {
 							<?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
 						</div>
 					</div>
-					<div data-glide-dir=">/">
+					<div data-glide-dir="&gt;">
 						<?php get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ); ?>
 					</div>
 				</div>

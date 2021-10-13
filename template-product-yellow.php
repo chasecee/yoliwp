@@ -43,7 +43,7 @@ $foreground_color = get_field( 'foreground_color' );
 ?>
 
 <style>
-	.abody,.bg-color{
+	.bg-color{
 		background-color: <?php echo esc_attr( $background_color ); ?>
 	}
 	h1,.fg-color{
