@@ -1,14 +1,14 @@
 /* stylelint-disable selector-class-pattern */
 .home-slider {
 	@apply relative;
-	.glide__arrows{
+	.glide__arrows {
 		@apply hidden md:flex;
 	}
 	.product-carousel {
 		.slide-inner-content {
 			@apply container absolute z-10 w-full left-0 bottom-40;
 
-			@screen md{
+			@screen md {
 				bottom: 6.25rem;
 			}
 
@@ -18,6 +18,5 @@
 		}
 	}
 }
-
 
 /* stylelint-enable selector-class-pattern */

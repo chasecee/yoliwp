@@ -51,7 +51,7 @@
 			&-inner {
 				@apply relative;
 				&::after {
-					@screen md{
+					@screen md {
 						content: '';
 						@apply absolute w-px bg-brown-dark h-120;
 					}

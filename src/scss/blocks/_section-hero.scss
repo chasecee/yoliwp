@@ -47,7 +47,7 @@
 		}
 		&-circle-overlay {
 			@apply absolute bg-tan -bottom-px left-0 right-0 h-150 w-full;
-			border-top-left-radius:  6.25rem;
+			border-top-left-radius: 6.25rem;
 			@screen md {
 				@apply hidden;
 			}

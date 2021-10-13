@@ -28,29 +28,28 @@
 			@screen md {
 				cursor: inherit;
 			}
-			.glide__arrows{
+			.glide__arrows {
 				@apply md:hidden;
 			}
 		}
 		/* stylelint-disable declaration-no-important */
-		@screen md{
-			.glide__slides{
-				transform: translate3d(0, 0, 0) !important;
+		@screen md {
+			.glide__slides {
+				transform: translate3d( 0, 0, 0 ) !important;
 			}
 		}
 		/* stylelint-enable declaration-no-important */
-		.focus-carousel-blocker{
-			@screen md{
+		.focus-carousel-blocker {
+			@screen md {
 				@apply absolute inset-0 z-30;
 			}
 		}
-		.glide__arrows{
+		.glide__arrows {
 			@apply hidden;
-
 		}
 	}
-	&.slide-on-desktop{
-		.glide__arrows{
+	&.slide-on-desktop {
+		.glide__arrows {
 			@apply absolute top-1/2 -left-60 -right-60 z-0 justify-between hidden md:flex transform-gpu -translate-y-full;
 			> div {
 				&:hover {
@@ -91,8 +90,6 @@
 			}
 			&.glide__slide--active {
 				@apply scale-100;
-
-
 			}
 		}
 	}
