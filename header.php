@@ -80,7 +80,7 @@
 							<ul class="menu menu-right" id="primary-menu-right">
 
 								<?php
-								require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+								require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';
