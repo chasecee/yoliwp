@@ -151,7 +151,7 @@ $background_svg   = get_field( 'background_svg' );
 						<?php
 						if ( $column_3_width ) :
 							echo esc_attr( $column_3_width );
-							endif;
+						endif;
 						?>
 					">
 						<?php if ( $features_list_title ) : ?>

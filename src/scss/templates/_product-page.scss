@@ -49,6 +49,10 @@
 .product-features {
 	@apply relative flex flex-col md:flex-row items-center md:py-160 md:my-160 container;
 	@screen md {
+		.product-features-list {
+			padding-left: 180px;
+			margin-right: 0;
+		}
 		@apply pr-0;
 	}
 	&-graphic {
@@ -80,6 +84,7 @@
 				@apply flex items-center text-20 md:text-28;
 				&:not( :last-child ) {
 					@apply mb-20 md:mb-60;
+					margin-bottom: 4.85rem;
 				}
 				.icon {
 					@apply w-20 h-20 md:h-40 md:w-40 mr-20 flex-none;
@@ -93,6 +98,13 @@
 			}
 		}
 	}
+
+	.product-features-list ul li .icon {
+		height: 2.3rem;
+		width: 2.3rem;
+	}
+
+	margin-right: 0;
 }
 
 .cover {

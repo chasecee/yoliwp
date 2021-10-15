@@ -253,7 +253,6 @@ endif;
 
 
 
-
 				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/blocks. ?>
 				<div class="content"><?php the_content(); ?></div>
 

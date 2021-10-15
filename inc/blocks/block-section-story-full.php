@@ -9,7 +9,7 @@
  **/
 
 // Create name for prefixing classes and id's.
-$slug = 'section-story';
+$slug = 'section-story-full';
 
 // Create id attribute allowing for custom "anchor" value.
 $_s_id = $slug . '-' . $block['id'];
@@ -27,9 +27,9 @@ if ( ! empty( $block['align'] ) ) {
 }
 
 // acf-vars.
-$story_title      = get_field( 'story_title' );
-$custom_css_class = get_field( 'custom_css_class' );
-$spacing          = get_field( 'spacing' );
+$story_title = get_field( 'story_title' );
+
+$spacing = get_field( 'spacing' );
 if ( $spacing ) {
 	$spacing_class_name = $spacing;
 } else {
@@ -37,7 +37,7 @@ if ( $spacing ) {
 }
 ?>
 <div class="<?php echo esc_attr( $_s_class_name ); ?> <?php echo esc_attr( $spacing_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
-	<div class="section-story-content <?php echo esc_html( $custom_css_class ); ?>">
+	<div class="section-story-content">
 		<h3 class="section-story-content-h">
 			<?php if ( $story_title ) : ?>
 				<?php echo esc_html( $story_title ); ?>

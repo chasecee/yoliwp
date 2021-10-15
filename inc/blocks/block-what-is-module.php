@@ -9,7 +9,7 @@
  **/
 
 ?>
-
+<div class="max-1920">
 <div class="sc-title">
 	<h4><?php the_field( 'title' ); ?></h4>
 </div>
@@ -37,11 +37,4 @@
 <?php endif; ?>
 
 </div>
-
-
-
-
-
-
-
-
+	</div>

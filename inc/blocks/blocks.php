@@ -352,6 +352,25 @@ function be_register_blocks() {
 				),
 			)
 		);
+
+				// section-story-full.
+				acf_register_block_type(
+					array(
+						'name'            => 'section-story-full',
+						'title'           => __( 'Section Story Full', '_s' ),
+						'render_template' => '/inc/blocks/block-section-story-full.php',
+						'category'        => 'formatting',
+						'icon'            => 'superhero-alt',
+						'mode'            => 'preview',
+						'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+						'supports'        => array(
+							'anchor'          => true,
+							'customClassName' => true,
+							'jsx'             => true,
+						),
+					)
+				);
+
 		// image-columns.
 		acf_register_block_type(
 			array(

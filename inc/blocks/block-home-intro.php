@@ -33,8 +33,8 @@ $intro_text  = get_field( 'intro_text' );
 
 	<div class="intro">
 		<div class="intro-left">
-			<div class="intro-image intro-left-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left-a.jpg'; ?>"></div>
-			<div class="intro-image intro-left-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left-b.jpg'; ?>"></div>
+			<div class="intro-image intro-left-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left.png'; ?>"></div>
+			<div class="intro-image intro-left-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-left-bg.png'; ?>"></div>
 		</div>
 		<div class="intro-content">
 			<div class="intro-content-inner">
@@ -58,8 +58,8 @@ $intro_text  = get_field( 'intro_text' );
 			</div>
 		</div>
 		<div class="intro-right">
-			<div class="intro-image intro-right-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right-a.jpg'; ?>"></div>
-			<div class="intro-image intro-right-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right-b.jpg'; ?>"></div>
+			<div class="intro-image intro-right-a"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right-bg.png'; ?>"></div>
+			<div class="intro-image intro-right-b"><img  src="<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/homepage/intro-right.png'; ?>"></div>
 		</div>
 	</div>
 

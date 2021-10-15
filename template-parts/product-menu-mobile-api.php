@@ -120,7 +120,7 @@ echo '<script type="text/javascript">
 
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
-		<ul class="sub-menu">
+		<ul class="sub-menu" >
 						<?php
 						foreach ( $countries as $key => $option ) {
 								// phpcs:ignore

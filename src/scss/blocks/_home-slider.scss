@@ -60,4 +60,24 @@
 	}
 }
 
+.home-slider .product-carousel .slide-inner-content,
+.home-intro .intro {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+@screen sm {
+	.home-slider .product-carousel .slide-inner-content,
+	.home-intro .intro {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+}
+
+@screen md {
+	.home-hero .hero-content-subtitle {
+		width: 40%;
+	}
+}
+
 /* stylelint-enable selector-class-pattern */

@@ -12,7 +12,7 @@ function privacy_policy() {
 		$country = 'US';
 	endif;
 
-	$base_url = 'https://yolillc-my.sharepoint.com/:b:/g/personal/md_yoli_com/';
+	$base_url = 'https://yolillc-my.sharepoint.com/:b:/g/personal/md_yoli_com/EWmnCH2W_olIikeW13Sbo1cBqbu_-0CZXnAJZJOKphWfYw?e=TZ63dv';
 
 	if ( 'AU' === $country || 'US' === $country ) :
 		$url = $base_url . 'EZTGMec3ZnBLpgOLwUG2fz4B4j2EEp2QER4FZR_x5Q2Qgg?e=T0IfF9';

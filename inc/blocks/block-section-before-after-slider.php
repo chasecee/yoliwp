@@ -74,6 +74,8 @@ if ( $spacing ) {
 												echo wp_get_attachment_image( $slide_image, $size );
 											};
 											?>
+
+											<div class="rouded-edge"><?php the_sub_field( 'rounded_edge' ); ?></div>
 										</div>
 
 										<div class="before-after-carousel-content-text">
