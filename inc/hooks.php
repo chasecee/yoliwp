@@ -370,7 +370,8 @@ function render_repsite_banner() {
 		$path = get_url();
 	}
 }
-add_action( 'wp_body_open', 'render_repsite_banner' );
+// Attempt to hook into 'wp_body_open' resulted in headers going out before the banner was run (on MS server, not on NGINX).
+add_action( 'init', 'render_repsite_banner' );
 
 // Show page templates in pages view in WP Admin.
 
