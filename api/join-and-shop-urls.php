@@ -18,7 +18,7 @@ if ( ! empty( $_COOKIE[$cookie_name] ) ) :
 $join_url = $base_url . $alias . '/enrollment/enrollmentconfiguration';
 
 // The login_link is not our purvue.
-$login_link    = 'https://1160-web1.vm.epicservers.com:444/login';
+$login_link    = $_SERVER['LOGINCON'];
 
 // Build the shop-now url.
 $shop_now_url = $base_url . $alias . '/products';
