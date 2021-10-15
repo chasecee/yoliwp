@@ -1,9 +1,14 @@
 //--------------------------------------------------------------
 // Global Site Header
 //--------------------------------------------------------------
-
+.master-transition {
+	transition-property: background-color, border-color, color, fill, stroke;
+	transition-timing-function: ease-in-out;
+	transition-duration: 200ms;
+}
 .site-header {
-	@apply bg-white md:bg-transparent fixed md:relative left-0 right-0 top-60 md:top-0 h-auto md:h-140 z-30 text-brown-dark transform-gpu transition-all;
+	@apply bg-white md:bg-transparent relative md:relative left-0 right-0 md:top-0 h-auto py-28 md:py-0 md:h-140 z-30 text-brown-dark transform-gpu transition-colors;
+	@apply master-transition;
 	.navigation-menu .menu li a {
 		line-height: 7.75;
 	}
@@ -15,10 +20,19 @@
 		@apply bg-white text-brown-dark;
 	}
 	&.bg-transparent-text-light {
-		@apply text-brown-dark md:text-white;
+		@apply text-white  bg-transparent py-0 h-0;
+		> .header-container {
+			@apply master-transition;
+		}
 	}
 	&.header-hovered {
 		@apply text-brown-dark bg-white;
+		&.bg-transparent-text-light {
+			@apply text-white md:text-brown-dark;
+			> .header-container {
+				@apply bg-white;
+			}
+		}
 	}
 	&.product-menu-active {
 		@apply bg-white text-gray-medium;
@@ -41,10 +55,10 @@
 	a,
 	path,
 	ellipse {
-		@apply transition-colors;
+		@apply relative;
 	}
 	> .header-container {
-		@apply relative px-30 md:px-40 grid grid-cols-12 items-center;
+		@apply relative py-16 md:py-0 px-40 md:px-40 grid grid-cols-12 items-center;
 	}
 
 	.nav-left {
@@ -90,12 +104,4 @@
 }
 .guide {
 	@apply absolute h-80 top-0 left-0;
-}
-.header-spacer {
-	@apply h-0 relative;
-	@screen md {
-		&.sticky-enabled-header {
-			@apply h-0;
-		}
-	}
 }

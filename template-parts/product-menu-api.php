@@ -6,6 +6,7 @@
  */
 
 require_once 'privacy-policy.php';
+require 'contact-info.php';
 
 $base_api_url = $_SERVER['APICON'];
 $base_url     = $base_api_url . 'Products/';
@@ -98,8 +99,8 @@ $redirect_base_url = $home . '/products/';
 	<div class="product-menu-col header-hidden">
 		<p class="product-menu-title">Support</p>
 		<ul>
-			<li><a href="mailto:cs@yoli.com" target="_blank">Contact Us</a></li>
-			<li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li>
+			<li><a href="mailto:<?php echo esc_attr( $email ) ?>" target="_blank">Contact Us</a></li>
+			<!-- <li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li> -->
 			<li><a href="<?php echo esc_attr( privacy_policy() ); ?>">Privacy Policy</a></li>
 		</ul>
 	</div>

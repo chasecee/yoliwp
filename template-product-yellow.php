@@ -9,8 +9,29 @@
  * @package _s
  */
 
-// Require the url-builder.
+// Require the url-builder and get prices.
+require realpath( __DIR__ ) . '/api/get-prices.php';
+require realpath( __DIR__ ) . '/api/buy-button-urls.php';
 require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+
+get_header();
+
+// override acf if dynamic prices exist.
+$prices_api = get_prices();
+// phpcs:ignore
+if ( ! empty( $prices_api->retailPriceFmtd ) ) {
+	// phpcs:ignore
+	$price = $prices_api->retailPriceFmtd;
+} else {
+	$price = 'not loading price';
+}
+// phpcs:ignore
+if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
+	// phpcs:ignore
+	$price_monthly = $prices_api->autoshipPriceFmtd;
+} else {
+	$price_monthly = 'not loading price';
+}
 
 get_header();
 
@@ -23,7 +44,7 @@ $foreground_color = get_field( 'foreground_color' );
 ?>
 
 <style>
-	.abody,.bg-color{
+	.bg-color{
 		background-color: <?php echo esc_attr( $background_color ); ?>
 	}
 	h1,.fg-color{
@@ -39,6 +60,15 @@ $foreground_color = get_field( 'foreground_color' );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
+
+.hero-product-image {
+background-attachment:scroll;
+-o-background-size:cover;
+-moz-background-size:cover;
+-webkit-background-size:cover;
+background-size:cover;
+background-repeat:no-repeat;
+}
 </style>
 
 	<div class=" site-main">
@@ -64,6 +94,20 @@ $foreground_color = get_field( 'foreground_color' );
 					$process_caption_copy = get_field( 'process_caption_copy' );
 					$size                 = 'full';
 					$features_list_title  = get_field( 'features_list_title' );
+
+					$column_1 = get_field( 'column_1' );
+					$column_2 = get_field( 'column_2' );
+					$column_3 = get_field( 'column_3' );
+				if ( $column_1 ) {
+					$column_1_width = 'width:' . $column_1 . '%;';
+				}
+				if ( $column_2 ) {
+					$column_2_width = 'width:' . $column_2 . '%;';
+				}
+				if ( $column_3 ) {
+					$column_3_width = 'width:' . $column_3 . '%;';
+				}
+
 				?>
 
 				<div class="hero-product">
@@ -83,7 +127,25 @@ $foreground_color = get_field( 'foreground_color' );
 								<?php echo esc_html( $description ); ?>
 							<?php endif; ?>
 						</p>
-						<a href="<?php echo esc_url( $cover_button_link ); ?>" class="btn btn-accent btn-full mt-50">Shop Now</a>
+						<!-- <div class="product-content-cta">
+								<a href="<?php echo esc_attr( buy_button_url( 'false' ) ); ?>">
+									<button class="btn btn-primary btn-accent-outline btn-full">
+										Shop Now
+										<?php if ( $price ) : ?>
+											<?php echo ' — '; ?>
+											<?php echo esc_html( $price ); ?>
+										<?php endif; ?>
+									</button>
+								</a>
+								<a href="<?php echo esc_attr( buy_button_url( 'true' ) ); ?>">
+									<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
+										<?php if ( $price_monthly ) : ?>
+											<?php echo ' — '; ?>
+											<?php echo esc_html( $price_monthly ); ?>
+										<?php endif; ?>
+									</button>
+								</a>
+							</div> -->
 					</div>
 
 					<div class="hero-product-bg">
@@ -97,14 +159,26 @@ $foreground_color = get_field( 'foreground_color' );
 
 
 				<div class="product-features ">
-					<div class="product-features-graphic">
+					<div class="product-features-graphic" style="
+					<?php
+					if ( $column_1_width ) :
+						echo esc_attr( $column_1_width );
+endif;
+					?>
+					" >
 						<div class="product-features-graphic-line"></div>
 
 						<div class="product-features-graphic-svg fg-color">
 							<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
 						</div>
 					</div>
-					<div class="product-features-image">
+					<div class="product-features-image" style="
+					<?php
+					if ( $column_2_width ) :
+						echo esc_attr( $column_2_width );
+endif;
+					?>
+					">
 						<?php
 						if ( $product_box_image ) {
 							$url = wp_get_attachment_url( $product_box_image );
@@ -112,7 +186,13 @@ $foreground_color = get_field( 'foreground_color' );
 						};
 						?>
 					</div>
-					<div class="product-features-list">
+					<div class="product-features-list" style="
+					<?php
+					if ( $column_3_width ) :
+						echo esc_attr( $column_3_width );
+endif;
+					?>
+					">
 						<?php if ( $features_list_title ) : ?>
 							<div class="product-features-list-title">
 								<?php echo esc_html( $features_list_title ); ?>
@@ -150,28 +230,9 @@ $foreground_color = get_field( 'foreground_color' );
 						</ul>
 					</div>
 				</div>
-				<div class="cover cover-rounded">
-					<div class="cover-bg" style="background-image:url(<?php echo esc_url( get_field( 'cover_image' ) ); ?>);">
-						<div class="cover-backdrop"></div>
-						<div class="container">
-							<div class="cover-content ">
-								<h3 class="cover-content-title">
-									<?php if ( $cover_title ) : ?>
-										<?php echo esc_html( $cover_title ); ?>
-									<?php endif; ?>
-								</h3>
-								<p class="cover-content-p">
-									<?php if ( $cover_text ) : ?>
-										<?php echo esc_html( $cover_text ); ?>
-									<?php endif; ?>
-								</p>
-							</div>
-						</div>
 
-					</div>
-				</div>
 
-				<div class="section-title">
+				<!-- <div class="section-title">
 					<div class="section-title-content">
 						<p class="section-title-content-p">
 							<?php if ( $process_pretitle ) : ?>
@@ -219,30 +280,10 @@ $foreground_color = get_field( 'foreground_color' );
 						</div>
 					</div>
 
-				</div>
+				</div> -->
 
 				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/blocks. ?>
 				<div class="content"><?php the_content(); ?></div>
-
-				<?php // just hard-coding the rest cuz I'm tired. ?>
-
-				<!-- <div class="cover">
-					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/covergirl.jpg'; ?>);">
-						<div class="cover-backdrop"></div>
-						<div class="container">
-							<div class="cover-content ">
-								<h3 class="cover-content-title">True to Nature</h3>
-								<hr class="cover-content-bar">
-								<p class="cover-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-						</div>
-
-					</div>
-				</div> -->
-
-
-
-
 
 				<div class="recipes-container">
 					<div class="section-title-bars">

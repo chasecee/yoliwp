@@ -12,3 +12,4 @@ import './screen-width';
 import './mmenulite';
 import './gsap';
 import './loadiframe';
+import './accordion';

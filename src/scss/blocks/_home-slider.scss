@@ -1,3 +1,41 @@
+/* stylelint-disable selector-class-pattern */
 .home-slider {
 	@apply relative;
+	.glide__arrows {
+		@apply hidden md:flex;
+	}
+	.product-carousel {
+		.slide-inner-content {
+			@apply container absolute z-10 w-full left-0 bottom-40;
+
+			@screen md {
+				bottom: 6.25rem;
+			}
+
+			a.btn.btn-primary.btn-shop.btn-style-arrow {
+				@apply md:absolute right-0 bottom-0 outline-none;
+			}
+		}
+	}
 }
+
+.home-slider .product-carousel .slide-inner-content, .home-intro .intro {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+
+@screen sm{
+	.home-slider .product-carousel .slide-inner-content, .home-intro .intro {
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+ }
+
+ @screen md {
+	.home-hero .hero-content-subtitle {
+		width: 40%;
+	}
+ }
+
+/* stylelint-enable selector-class-pattern */

@@ -20,7 +20,7 @@
 // Theme Elements
 //-----------------------------------------
 .site-main {
-	@apply my-0 md:mt-100;
+	@apply my-0;
 	@at-root .home & {
 		@apply mt-0;
 	}
@@ -36,25 +36,12 @@
 // Global Elements
 //-----------------------------------------
 html {
-	@apply text-12;
-	@screen md {
-		@apply text-12;
-	}
-	@screen xl {
-		@apply text-14;
-	}
+	@apply text-13;
 }
 body {
-	@apply text-20;
 	@apply mx-auto;
 	max-width: 1920px;
 
-	@screen md {
-		@apply text-18;
-	}
-	@screen xl {
-		@apply text-16;
-	}
 	@apply font-sans antialiased text-brown-dark;
 }
 
@@ -68,10 +55,22 @@ body {
 	}
 	&.page-id-148 {
 		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffc400'/%3E%3Cstop offset='0.281' stop-color='%23fff5aa'/%3E%3Cstop offset='0.645' stop-color='%23ffc400'/%3E%3Cstop offset='0.754' stop-color='%23ffeab9'/%3E%3Cstop offset='0.906' stop-color='%239989af'/%3E%3Cstop offset='1' stop-color='%23857cb8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1722' data-name='Rectangle 1722' width='1920' height='9316' opacity='0.4' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
+
+		.hero-product-bg-circle-overlay {
+			background-color: #ffedab;
+		}
 	}
 	&.page-id-221 {
 		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffaa48'/%3E%3Cstop offset='0.31' stop-color='%23ffdb96'/%3E%3Cstop offset='0.764' stop-color='%23f57600'/%3E%3Cstop offset='0.897' stop-color='%23e15600'/%3E%3Cstop offset='1' stop-color='%23ce3800'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1723' data-name='Rectangle 1723' width='1920' height='9316' opacity='0.35' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
+		.hero-product-bg-circle-overlay {
+			background-color: #ffe6c6;
+		}
 	}
+}
+
+.product-features-graphic svg {
+	display: block;
+	width: 108;
 }
 
 /*stylelint-enable function-url-quotes*/

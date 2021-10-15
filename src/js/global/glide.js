@@ -55,6 +55,8 @@ function glideInit() {
 	if ( recipeSliders ) {
 		recipeSliders.forEach( ( slider ) => {
 			const dataPerView = slider.dataset.perView;
+			const datastaticOnDesktop = slider.dataset.staticOnDesktop;
+
 			const columnSlidersconf = {
 				type: 'slider',
 
@@ -62,10 +64,10 @@ function glideInit() {
 				rewind: false,
 				startAt: 1,
 				perView: dataPerView,
-				swipeThreshold: false,
-				dragThreshold: false,
+				swipeThreshold: datastaticOnDesktop,
+				dragThreshold: datastaticOnDesktop,
 				focusAt: 'center',
-				gap: 60,
+				gap: 10,
 				keyboard: false,
 
 				breakpoints: {
@@ -74,12 +76,16 @@ function glideInit() {
 						swipeThreshold: 100,
 						dragThreshold: 100,
 						focusAt: 'center',
-						peek: 75,
+						peek: 50,
 						gap: 0,
 						keyboard: true,
+						startAt: 0,
 					},
 				},
 			};
+			/* eslint-disable no-console */
+			console.log( columnSlidersconf );
+			/* eslint-enable no-console */
 			const glide = new Glide( slider, columnSlidersconf );
 			glide.mount( { Breakpoints } );
 		} ); // end foreach slider

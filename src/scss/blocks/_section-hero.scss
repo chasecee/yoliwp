@@ -10,11 +10,14 @@
 		@screen md {
 			@apply w-1/2 px-0;
 		}
+		@screen lg {
+			width: 34%;
+		}
 		&-pretitle {
 			@apply md:text-24 font-sans-alt;
 		}
 		&-description {
-			@apply md:text-24 lg:w-3/4;
+			@apply md:text-24;
 			&:last-child {
 				@apply mb-50 md:mb-0;
 			}
@@ -31,12 +34,11 @@
 	&-bg {
 		@apply relative w-full order-1 md:order-2;
 		height: 30rem;
-		height: calc( 100vh - 20rem );
-		min-height: 30rem;
-		max-height: 62rem;
+
 		@screen md {
 			height: 40rem;
 			height: calc( 100vh - 12.5rem );
+			max-height: 60rem;
 		}
 
 		@screen lg {
@@ -45,14 +47,14 @@
 		}
 		&-circle-overlay {
 			@apply absolute bg-tan -bottom-px left-0 right-0 h-150 w-full;
-			border-top-left-radius: 9.375rem;
+			border-top-left-radius: 6.25rem;
 			@screen md {
 				@apply hidden;
 			}
 		}
 	}
 	&-image {
-		@apply absolute inset-0 top-60 md:top-0 bg-cover bg-top md:bg-center bg-fixed md:bg-scroll;
+		@apply absolute inset-0 top-0 bg-cover bg-top md:bg-center;
 		@screen md {
 			border-top-left-radius: 31.25rem;
 		}

@@ -27,6 +27,10 @@
 	?>
 	<style>
 		.ready .site-alert{display:block!important;}
+
+		@media (max-width: 768px){
+			.ready .banner-mobile{display:block!important;}
+		}
 	</style>
 </head>
 
@@ -63,7 +67,7 @@
 
 					<div class="logo ">
 
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="inline-block">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="inline-block relative -right-6 -bottom-4">
 
 							<?php get_template_part( '/src/images/icons/inline/inline', 'logo.svg' ); ?>
 
@@ -76,7 +80,7 @@
 							<ul class="menu menu-right" id="primary-menu-right">
 
 								<?php
-								require_once realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
+								require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';

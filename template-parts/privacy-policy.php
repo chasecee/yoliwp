@@ -12,16 +12,14 @@ function privacy_policy() {
 		$country = 'US';
 	endif;
 
-	$base_url = 'https://yolillc-my.sharepoint.com/:b:/g/personal/md_yoli_com/';
+	$base_url = 'https://yolillc-my.sharepoint.com/:b:/g/personal/md_yoli_com/EWmnCH2W_olIikeW13Sbo1cBqbu_-0CZXnAJZJOKphWfYw?e=TZ63dv';
 
-	if ( 'AU' === $country ) :
-		$url = $base_url . 'EWRLTMpoBPhClmZEuOYxv5cBmlDxguFxGQAjY9-wFXwbPQ?e=PFYcjX';
+	if ( 'AU' === $country || 'US' === $country ) :
+		$url = $base_url . 'EZTGMec3ZnBLpgOLwUG2fz4B4j2EEp2QER4FZR_x5Q2Qgg?e=T0IfF9';
 		elseif ( 'PH' === $country ) :
-			$url = $base_url . 'EWmBt7h72OtAgHF-sKzYHocBqSaj91v5a-lwJhRQbtdu5Q?e=RRHK1U';
+			$url = $base_url . 'Ed-1KaSIlCFNp2QCUKov3d4BSV-PY12Gyq-jB8IaCmnmqg?e=ymAnKW';
 			elseif ( 'CA' === $country ) :
 				$url = $base_url . 'ESBUSgiHELRArKkr-RjkyhcBiSFVCVbX6FPN4VJ6TZE3QQ?e=XC5iDm';
-				else :
-					$url = $base_url . 'EWRLTMpoBPhClmZEuOYxv5cBmlDxguFxGQAjY9-wFXwbPQ?e=PFYcjX';
 				endif;
 
 				return $url;

@@ -8,9 +8,10 @@
 .glide {
 	@apply relative;
 	.glide__arrows {
-		@extend .container-l;
-		@apply absolute flex z-10 bottom-20 -left-10;
-
+		@apply absolute flex z-10;
+		@at-root .home-slider & {
+			@apply bottom-20 -left-10 container pr-0;
+		}
 		> div {
 			@apply px-10 py-20 text-gray-medium transition-colors duration-200 cursor-pointer transform-gpu origin-center;
 			&:hover {

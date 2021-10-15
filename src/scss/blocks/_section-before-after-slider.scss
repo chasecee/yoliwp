@@ -26,4 +26,28 @@
 		}
 	}
 }
+
+
+.before-after-carousel-content-image {
+    order: 2;
+    width: 40%;
+    position: relative;
+	overflow: hidden;
+
+	.rouded-edge {
+		background-color: #e69e2b;
+		padding: 42px 126px 34px 60px;
+		max-width: 500px;
+		border-radius: 46%;
+		height: 230px;
+		position: absolute;
+		bottom: -22%;
+		right: -100px;
+	}
+}
+
 /* stylelint-enable selector-class-pattern */
+
+
+
+

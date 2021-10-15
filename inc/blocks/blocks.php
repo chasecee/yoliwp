@@ -37,6 +37,27 @@ function be_register_blocks() {
 				),
 			)
 		);
+
+	// "what is" module.
+				acf_register_block_type(
+					array(
+						'name'            => 'what-is-module',
+						'title'           => __( 'What Is? Module', '_s' ),
+						'render_template' => '/inc/blocks/block-what-is-module.php',
+						'category'        => 'formatting',
+						'icon'            => 'superhero-alt',
+						'mode'            => 'preview',
+						'align'           => 'full',
+						'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+						'supports'        => array(
+							'align'           => true,
+							'anchor'          => true,
+							'customClassName' => true,
+							'jsx'             => true,
+						),
+					)
+				);
+
 		// testimonial slider.
 		acf_register_block_type(
 			array(
@@ -331,6 +352,26 @@ function be_register_blocks() {
 				),
 			)
 		);
+
+				// section-story-full.
+				acf_register_block_type(
+					array(
+						'name'            => 'section-story-full',
+						'title'           => __( 'Section Story Full', '_s' ),
+						'render_template' => '/inc/blocks/block-section-story-full.php',
+						'category'        => 'formatting',
+						'icon'            => 'superhero-alt',
+						'mode'            => 'preview',
+						'keywords'        => array( 'column', 'container', 'full', 'fullwidth' ),
+						'supports'        => array(
+							'anchor'          => true,
+							'customClassName' => true,
+							'jsx'             => true,
+						),
+					)
+				);
+
+
 		// image-columns.
 		acf_register_block_type(
 			array(
@@ -390,24 +431,6 @@ function be_register_blocks() {
 				'name'            => 'home-slider',
 				'title'           => __( 'Home Slider', '_s' ),
 				'render_template' => '/inc/blocks/block-home-slider.php',
-				'category'        => 'formatting',
-				'icon'            => 'superhero-alt',
-				'mode'            => 'preview',
-				'keywords'        => array( 'home', 'container', 'full', 'fullwidth' ),
-				'supports'        => array(
-					'anchor'          => true,
-					'customClassName' => true,
-					'jsx'             => true,
-				),
-			)
-		);
-
-		// tabs.
-		acf_register_block_type(
-			array(
-				'name'            => 'tabs',
-				'title'           => __( 'Tabs', '_s' ),
-				'render_template' => '/inc/blocks/block-tabs.php',
 				'category'        => 'formatting',
 				'icon'            => 'superhero-alt',
 				'mode'            => 'preview',

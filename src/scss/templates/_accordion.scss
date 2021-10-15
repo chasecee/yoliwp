@@ -1,0 +1,86 @@
+.accordion:not( :last-of-type ) {
+	@apply mb-12;
+}
+.accordion-item {
+	@apply bg-white;
+
+	.accordion-item-header {
+		> div {
+			@apply flex items-center justify-between px-40 space-x-20 py-28 rounded-md cursor-pointer border-b border-gray-light transition-colors;
+
+			.accordion-item-icon {
+				@apply flex-none rotate-0 transform-gpu transition-transform origin-center duration-300 w-20 h-20;
+				position: relative;
+
+				svg {
+					@apply w-full h-full;
+					max-height: 1.5rem;
+				}
+			}
+		}
+	}
+	.accordion-item-content {
+		@apply h-0 overflow-hidden;
+		.inner {
+			@apply transform-gpu -translate-y-8 opacity-0 transition-all delay-150;
+			p:last-child {
+				@apply mb-0;
+			}
+		}
+	}
+	&.open {
+		.accordion-item-header > div {
+			.accordion-item-icon {
+				@apply rotate-180;
+			}
+		}
+		.accordion-item-content {
+			@apply h-auto;
+			.inner {
+				@apply translate-y-0 opacity-100;
+			}
+		}
+	}
+}
+.banner-mobile {
+	@apply bg-white block md:hidden relative z-50;
+	&-inner {
+		@apply flex items-start px-40 py-36 flex-col sm:flex-row;
+		> div {
+			@apply w-full sm:w-1/2;
+		}
+		&-left {
+			@apply flex items-start mb-20 sm:mb-0;
+			&-avatar {
+				@apply mr-20 flex-none;
+				img {
+					@apply relative -top-4;
+				}
+			}
+			&-name {
+				@apply relative;
+			}
+		}
+		&-right {
+			@apply flex flex-col text-gray-dark;
+			&-item {
+				@apply flex items-center ml-10 sm:ml-0;
+				&:not( :last-child ) {
+					@apply mb-20;
+				}
+				> a {
+					@apply flex items-center break-all text-gray-dark;
+
+					.icon {
+						@apply mr-28 flex-none w-20;
+
+						svg {
+							@apply w-full h-full;
+							max-height: 1.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}

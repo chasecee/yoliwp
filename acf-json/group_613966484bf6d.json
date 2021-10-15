@@ -1,69 +1,88 @@
 {
-	"key": "group_613966484bf6d",
-	"title": "BLOCK - Section Story",
-	"fields": [
-		{
-			"key": "field_613966c11acd8",
-			"label": "Story Title",
-			"name": "story_title",
-			"type": "text",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"default_value": "Our Story",
-			"placeholder": "",
-			"prepend": "",
-			"append": "",
-			"maxlength": ""
-		},
-		{
-			"key": "field_61398141cd955",
-			"label": "Spacing",
-			"name": "spacing",
-			"type": "radio",
-			"instructions": "",
-			"required": 0,
-			"conditional_logic": 0,
-			"wrapper": {
-				"width": "",
-				"class": "",
-				"id": ""
-			},
-			"choices": {
-				"default": "Default",
-				"mb-0": "Margin Bot 0",
-				"mt-0": "Margin Top 0",
-				"my-0": "No Margin"
-			},
-			"allow_null": 0,
-			"other_choice": 0,
-			"default_value": "",
-			"layout": "vertical",
-			"return_format": "value",
-			"save_other_choice": 0
-		}
-	],
-	"location": [
-		[
-			{
-				"param": "block",
-				"operator": "==",
-				"value": "acf/section-story"
-			}
-		]
-	],
-	"menu_order": 0,
-	"position": "normal",
-	"style": "default",
-	"label_placement": "top",
-	"instruction_placement": "label",
-	"hide_on_screen": "",
-	"active": true,
-	"description": "",
-	"modified": 1631159063
+    "key": "group_613966484bf6d",
+    "title": "BLOCK - Section Story",
+    "fields": [
+        {
+            "key": "field_613966c11acd8",
+            "label": "Story Title",
+            "name": "story_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Our Story",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61398141cd955",
+            "label": "Spacing",
+            "name": "spacing",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "mb-0": "Margin Bot 0",
+                "mt-0": "Margin Top 0",
+                "my-0": "No Margin"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_61692e0dcd895",
+            "label": "Custom CSS class",
+            "name": "custom_css_class",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/section-story"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1634283030
 }

@@ -56,7 +56,7 @@ $video_id      = get_field( 'video_id' );
 							<?php echo esc_html( $hero_subtitle ); ?>
 						</h2>
 					<?php endif; ?>
-
+					<?php echo '<InnerBlocks />'; ?>
 		</div>
 	</div>
 

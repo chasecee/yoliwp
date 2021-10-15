@@ -47,7 +47,9 @@ $foreground_color = get_field( 'foreground_color' );
 					$pretitle      = get_field( 'pretitle' );
 					$product_title = get_field( 'product_title' );
 					$description   = get_field( 'description' );
+
 				?>
+
 
 				<div class="hero-product">
 					<div class="hero-product-info">
@@ -83,16 +85,28 @@ $foreground_color = get_field( 'foreground_color' );
 					$product_box_image   = get_field( 'product_box_image' );
 					$size                = 'full';
 					$features_list_title = get_field( 'features_list_title' );
+					$column_1 = get_field( 'column_1' );
+					$column_2 = get_field( 'column_2' );
+					$column_3 = get_field( 'column_3' );
+				if ( $column_1 ) {
+					$column_1_width = 'width:' . $column_1 . '%;';
+				}
+				if ( $column_2 ) {
+					$column_2_width = 'width:' . $column_2 . '%;';
+				}
+				if ( $column_3 ) {
+					$column_3_width = 'width:' . $column_3 . '%;';
+				}
 				?>
 				<div class="product-features">
-					<div class="product-features-graphic">
+					<div class="product-features-graphic" style="<?php if ( $column_1_width ) : echo esc_attr($column_1_width); endif; ?>" >
 						<div class="product-features-graphic-line"></div>
 
 						<div class="product-features-graphic-svg fg-color">
 							<?php get_template_part( '/src/images/icons/inline/inline', 'product-tagline.svg' ); ?>
 						</div>
 					</div>
-					<div class="product-features-image">
+					<div class="product-features-image" style="<?php if ( $column_2_width ) : echo esc_attr($column_2_width); endif; ?>">
 						<?php
 						if ( $product_box_image ) {
 							$url = wp_get_attachment_url( $product_box_image );
@@ -100,7 +114,7 @@ $foreground_color = get_field( 'foreground_color' );
 						};
 						?>
 					</div>
-					<div class="product-features-list">
+					<div class="product-features-list" style="<?php if ( $column_3_width ) : echo esc_attr($column_3_width); endif; ?>" >
 							<?php if ( $features_list_title ) : ?>
 								<div class="product-features-list-title">
 									<?php echo esc_html( $features_list_title ); ?>
@@ -111,18 +125,29 @@ $foreground_color = get_field( 'foreground_color' );
 						if ( have_rows( 'features_list' ) ) :
 							while ( have_rows( 'features_list' ) ) :
 								the_row();
-								$icon  = get_sub_field( 'select_svg' );
-								$label = get_sub_field( 'label' );
+								$icon            = get_sub_field( 'select_svg' );
+								$label           = get_sub_field( 'label' );
+								$custom_svg_code = get_sub_field( 'custom_svg_code' )
+
 								?>
 									<li>
 										<?php if ( $icon ) : ?>
-
+											<?php
+											if ( 'custom' === $icon ) {
+												if ( $custom_svg_code ) {
+													?>
+													<div class="icon">
+														<?php echo wp_kses( $custom_svg_code, get_kses_extended_ruleset() ); ?>
+													</div>
+													<?php } ?>
+											<?php } else { ?>
 											<div class="icon">
 												<?php $icon_filename = $icon . '.svg'; ?>
 												<?php get_template_part( '/src/images/icons/inline/inline', $icon_filename ); ?>
 											</div>
+											<?php } ?>
 
-										<?php endif; ?>
+										<?php endif; // end if icon. ?>
 
 										<?php if ( $label ) : ?>
 

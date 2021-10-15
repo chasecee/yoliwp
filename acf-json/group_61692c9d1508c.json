@@ -1,0 +1,64 @@
+{
+    "key": "group_61692c9d1508c",
+    "title": "BLOCK - Section Story Full",
+    "fields": [
+        {
+            "key": "field_61692cce45fea",
+            "label": "story_title",
+            "name": "story_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_61692cd345feb",
+            "label": "spacing",
+            "name": "spacing",
+            "type": "radio",
+            "instructions": "default : Default\r\nmb-0 : Margin Bot 0\r\nmt-0 : Margin Top 0\r\nmy-0 : No Margin",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": [],
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/section-story-full"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "modified": 1634282800
+}

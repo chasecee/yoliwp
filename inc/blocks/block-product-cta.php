@@ -30,8 +30,6 @@ if ( ! empty( $block['align'] ) ) {
 require_once realpath( __DIR__ . '/../..' ) . '/api/get-prices.php';
 require_once realpath( __DIR__ . '/../..' ) . '/api/buy-button-urls.php';
 
-
-
 // acf vars.
 $pretitle             = get_field( 'pretitle' );
 $product_title        = get_field( 'product_title' );
@@ -43,6 +41,7 @@ $price_monthly        = 'No monthly price available';
 
 // override acf if dynamic prices exist.
 $prices_api = get_prices();
+
 // phpcs:ignore
 if ( ! empty( $prices_api->retailPriceFmtd ) ) {
 	// phpcs:ignore
@@ -70,7 +69,7 @@ if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
 					<?php echo esc_html( $pretitle ); ?>
 				<?php endif; ?>
 			</p>
-			<h3 class="product-content-title">
+			<h3 class="product-content-title ">
 				<?php if ( $product_title ) : ?>
 						<?php echo esc_html( $product_title ); ?>
 				<?php endif; ?>
@@ -90,7 +89,7 @@ if ( ! empty( $prices_api->autoshipPriceFmtd ) ) {
 							<?php echo ' — '; ?>
 							<?php echo esc_html( $price ); ?>
 						<?php endif; ?>
-					</button>
+				</button>
 				</a>
 				<a href="<?php echo esc_attr( buy_button_url( 'true' ) ); ?>">
 					<button class="btn btn-primary btn-accent btn-full">Subscribe & Save
