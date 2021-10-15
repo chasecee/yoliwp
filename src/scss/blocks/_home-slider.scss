@@ -8,16 +8,6 @@
 	.product-carousel {
 		@apply overflow-hidden;
 
-		.glide__controls.glide__bullets {
-			@apply left-40 md:left-0 right-40 md:right-0 w-auto justify-between md:justify-start;
-			> div {
-				@apply px-0 md:px-20;
-				&::after {
-					@apply left-0 right-0 md:left-40 md:right-40;
-				}
-			}
-		}
-
 		.slide-inner {
 			@apply container relative text-white;
 			padding-top: 60rem;
@@ -29,8 +19,8 @@
 
 			.slide-img {
 				@apply absolute inset-0;
-				img {
-					@apply max-w-none object-fill object-center min-w-full h-full;
+				&-image {
+					@apply bg-cover bg-center absolute inset-0;
 				}
 			}
 			&-content {

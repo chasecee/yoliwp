@@ -23,17 +23,16 @@
 		}
 	}
 	.glide__controls {
-		@apply text-gray-medium  md:text-24 absolute flex z-10 top-32 left-0 right-0 transform translate-x-0;
-		@apply justify-start md:justify-center;
+		@apply text-gray-medium  md:text-24 absolute flex z-10 top-32 left-40 md:left-0 right-40 md:right-0 transform translate-x-0;
+		@apply w-auto md:w-full;
+		@apply justify-center;
 		bottom: initial;
-		width: 200vw;
-		@screen md {
-			@apply w-full;
-		}
+
 		> div {
-			@apply relative p-20 cursor-pointer;
+			@apply relative px-8 md:px-20 py-20 cursor-pointer;
 			&::after {
-				@apply absolute left-20 right-20 bottom-10 h-px bg-transparent transform-gpu -translate-y-10 transition-all duration-1000;
+				@apply absolute left-8 right-8 md:left-20 md:right-20 bottom-10 h-px bg-transparent;
+				@apply transform-gpu -translate-y-10 transition-all duration-1000;
 				content: '';
 			}
 			&:not( :last-child ) {

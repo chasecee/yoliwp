@@ -83,7 +83,34 @@ if ( $spacing ) {
 								<div class="slide-inner">
 									<div class="slide-img">
 
-										<img class="" src="<?php the_sub_field( 'image' ); ?>">
+										<?php
+										// ACF Vars.
+											$image                   = get_sub_field( 'image' );
+											$image_mobile            = get_sub_field( 'image_mobile' );
+											$image_index_class       = 'slide-img-image-index-' . $i;
+											$image_index_class_style = '.' . $image_index_class;
+										?>
+										<style>
+											<?php if ( $image_mobile ) : ?>
+												<?php echo esc_html( $image_index_class_style ); ?>{
+													background-image:url(<?php echo esc_url( $image_mobile ); ?>);
+												}
+											<?php endif; ?>
+
+											<?php if ( $image_mobile ) : ?>
+												@media (min-width: 768px){
+											<?php endif; ?>
+
+												<?php echo esc_html( $image_index_class_style ); ?> {
+													background-image:url(<?php echo esc_url( $image ); ?>);
+												}
+											<?php if ( $image_mobile ) : ?>
+												}
+											<?php endif; ?>
+
+										</style>
+
+										<div class="slide-img-image <?php echo esc_html( $image_index_class ); ?>"></div>
 										<div class="slide-inner-gradient"></div>
 										<div class="slide-inner-gradient gradient-bottom"></div>
 									</div>

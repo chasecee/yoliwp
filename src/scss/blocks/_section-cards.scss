@@ -33,8 +33,12 @@
 		&-inner {
 			@apply bg-cover bg-center relative  rounded-xl overflow-hidden flex items-end;
 
-			height: 80vw;
-			width: 80vw;
+			height: 130vw;
+			width: 90vw;
+			@screen sm {
+				height: 110vw;
+				width: 90vw;
+			}
 			@screen md {
 				height: 50vw;
 				width: 50vw;

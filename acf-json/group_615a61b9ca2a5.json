@@ -1,10 +1,10 @@
 {
     "key": "group_615a61b9ca2a5",
-    "title": "Home Product Carusel Slider",
+    "title": "Home Product Carousel Slider",
     "fields": [
         {
             "key": "field_615a61c1032f3",
-            "label": "Carusel Slider",
+            "label": "Carousel Slider",
             "name": "carousel_slider",
             "type": "repeater",
             "instructions": "",
@@ -25,6 +25,30 @@
                     "key": "field_615a61f0032f4",
                     "label": "Image",
                     "name": "image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "full",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_61693023ddc5c",
+                    "label": "Image Mobile",
+                    "name": "image_mobile",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -160,5 +184,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633618745
+    "modified": 1634283981
 }

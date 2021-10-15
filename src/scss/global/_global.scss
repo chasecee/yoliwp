@@ -46,6 +46,7 @@ body {
 }
 
 /*stylelint-disable function-url-quotes*/
+
 .page-template-template-product-yellow {
 	@apply bg-opacity-0;
 	@apply bg-cover bg-top;
@@ -53,9 +54,10 @@ body {
 	.site-header .site-alert {
 		@apply bg-opacity-50;
 	}
+
+	/* go to https://yoksel.github.io/url-encoder/ to encode the svg and paste the "Ready for CSS:" code to the appropriate page id below */
 	&.page-id-148 {
 		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffc400'/%3E%3Cstop offset='0.281' stop-color='%23fff5aa'/%3E%3Cstop offset='0.645' stop-color='%23ffc400'/%3E%3Cstop offset='0.754' stop-color='%23ffeab9'/%3E%3Cstop offset='0.906' stop-color='%239989af'/%3E%3Cstop offset='1' stop-color='%23857cb8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1722' data-name='Rectangle 1722' width='1920' height='9316' opacity='0.4' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
-
 		.hero-product-bg-circle-overlay {
 			background-color: #ffedab;
 		}
