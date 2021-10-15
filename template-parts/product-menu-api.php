@@ -95,7 +95,7 @@ $redirect_base_url = $home . '/products/';
 		<p class="product-menu-title">Support</p>
 		<ul>
 			<li><a href="mailto:<?php echo esc_attr( $email ) ?>" target="_blank">Contact Us</a></li>
-			<li><a href="<?php echo esc_attr( $_SERVER['PRIVCON'] ); ?>">Privacy Policy</a></li>
+			<li><a href="<?php echo esc_attr( $_SERVER['PRIVCON'] ); ?>" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
 		</ul>
 	</div>
 </div>
