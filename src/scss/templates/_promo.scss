@@ -4,11 +4,11 @@
 	@at-root .product-menu-active & {
 		@apply block;
 	}
-	a.promo-link{
+	a.promo-link {
 		@apply relative block min-w-full;
 		padding-top: 70%;
 	}
-	a.promo-shop-now{
+	a.promo-shop-now {
 		@apply text-gray-dark inline-block mt-16;
 	}
 	&-image {

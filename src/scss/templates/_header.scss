@@ -26,7 +26,7 @@
 		}
 	}
 	&.header-hovered {
-		@screen md{
+		@screen md {
 			@apply text-brown-dark bg-white;
 			&.bg-transparent-text-light {
 				@apply text-white md:text-brown-dark;

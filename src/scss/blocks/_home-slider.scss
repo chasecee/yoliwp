@@ -8,11 +8,11 @@
 	.product-carousel {
 		@apply overflow-hidden;
 
-		.glide__controls.glide__bullets{
+		.glide__controls.glide__bullets {
 			@apply left-40 md:left-0 right-40 md:right-0 w-auto justify-between md:justify-start;
-			> div{
+			> div {
 				@apply px-0 md:px-20;
-				&::after{
+				&::after {
 					@apply left-0 right-0 md:left-40 md:right-40;
 				}
 			}
@@ -21,7 +21,6 @@
 		.slide-inner {
 			@apply container relative text-white;
 			padding-top: 60rem;
-
 
 			@screen md {
 				padding-top: 56vw;
@@ -49,12 +48,12 @@
 						@apply w-2/5;
 					}
 				}
-				&-inner{
+				&-inner {
 					@apply flex flex-col md:flex-row justify-start md:justify-between;
-					&-left{
+					&-left {
 						@apply mb-32 md:mb-50;
 					}
-					.btn{
+					.btn {
 						@apply self-start md:self-end;
 					}
 				}
