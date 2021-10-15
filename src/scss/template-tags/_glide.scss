@@ -10,7 +10,7 @@
 	.glide__arrows {
 		@apply absolute flex z-10;
 		@at-root .home-slider & {
-			@apply bottom-20 -left-10 container pr-0;
+			@apply bottom-20 -left-10 container pr-0 w-auto;
 		}
 		> div {
 			@apply px-10 py-20 text-gray-medium transition-colors duration-200 cursor-pointer transform-gpu origin-center;
