@@ -1,0 +1,23 @@
+.promo {
+	@apply relative text-white leading-tight;
+
+	@at-root .product-menu-active & {
+		@apply block;
+	}
+	a.promo-link{
+		@apply relative block min-w-full;
+		padding-top: 70%;
+	}
+	a.promo-shop-now{
+		@apply text-gray-dark inline-block mt-16;
+	}
+	&-image {
+		@apply absolute inset-0 bg-cover;
+	}
+	&-gradient {
+		@apply absolute inset-0 bg-gradient-to-t from-black opacity-50;
+	}
+	&-title {
+		@apply text-24 absolute bottom-0 left-0 right-0 p-20;
+	}
+}

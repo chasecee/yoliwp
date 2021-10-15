@@ -148,12 +148,21 @@ background-repeat:no-repeat;
 							</div> -->
 					</div>
 
+					<style>
+						.hero-product-image{
+							background-image:url(<?php echo esc_url( get_field( 'hero_image_mobile' ) ); ?>);
+						}
+						@media (min-width: 768px){
+							.hero-product-image {
+								background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);
+							}
+						}
+					</style>
+
 					<div class="hero-product-bg">
-						<div
-						class="hero-product-image offscreen-r"
-						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
-						</div>
+						<div class="hero-product-image offscreen-r" ></div>
 						<div class="hero-product-bg-circle-overlay bg-color"></div>
+
 					</div>
 				</div>
 
@@ -203,18 +212,29 @@ endif;
 						if ( have_rows( 'features_list' ) ) :
 							while ( have_rows( 'features_list' ) ) :
 								the_row();
-								$icon  = get_sub_field( 'select_svg' );
-								$label = get_sub_field( 'label' );
+								$icon            = get_sub_field( 'select_svg' );
+								$label           = get_sub_field( 'label' );
+								$custom_svg_code = get_sub_field( 'custom_svg_code' );
+
 								?>
 									<li>
 										<?php if ( $icon ) : ?>
-
-											<div class="icon">
+											<?php
+											if ( 'custom' === $icon ) {
+												if ( $custom_svg_code ) {
+													?>
+													<div class="icon">
+														<?php echo wp_kses( $custom_svg_code, get_kses_extended_ruleset() ); ?>
+													</div>
+													<?php } ?>
+											<?php } else { ?>
+												<div class="icon">
 												<?php $icon_filename = $icon . '.svg'; ?>
 												<?php get_template_part( '/src/images/icons/inline/inline', $icon_filename ); ?>
-											</div>
+												</div>
+											<?php } ?>
 
-										<?php endif; ?>
+										<?php endif; // end if icon. ?>
 
 										<?php if ( $label ) : ?>
 
@@ -230,99 +250,12 @@ endif;
 						</ul>
 					</div>
 				</div>
-				<div class="cover cover-rounded">
-					<div class="cover-bg" style="background-image:url(<?php echo esc_url( get_field( 'cover_image' ) ); ?>);">
-						<div class="cover-backdrop"></div>
-						<div class="container">
-							<div class="cover-content ">
-								<h3 class="cover-content-title">
-									<?php if ( $cover_title ) : ?>
-										<?php echo esc_html( $cover_title ); ?>
-									<?php endif; ?>
-								</h3>
-								<p class="cover-content-p">
-									<?php if ( $cover_text ) : ?>
-										<?php echo esc_html( $cover_text ); ?>
-									<?php endif; ?>
-								</p>
-							</div>
-						</div>
 
-					</div>
-				</div>
 
-				<div class="section-title">
-					<div class="section-title-content">
-						<p class="section-title-content-p">
-							<?php if ( $process_pretitle ) : ?>
-								<?php echo esc_html( $process_pretitle ); ?>
-							<?php endif; ?>
-						</p>
-						<h3 class="section-title-content-h">
-						<?php if ( $process_title ) : ?>
-							<?php echo esc_html( $process_title ); ?>
-<?php endif; ?>
-						</h3>
-					</div>
-				</div>
 
-				<div class="section-info section-process">
-
-					<div class="section-info-a">
-						<div class="section-info-a-video">
-							<?php
-							if ( $process_video_image ) {
-								$url = wp_get_attachment_url( $process_video_image );
-								echo wp_get_attachment_image( $process_video_image, $size );
-							};
-							?>
-							<div class="section-info-a-video-gradient"></div>
-							<?php get_template_part( '/src/images/icons/inline/inline', 'play.svg' ); ?>
-						</div>
-					</div>
-
-					<div class="section-info-b">
-						<p class="section-info-b-p">
-							<?php if ( $process_caption ) : ?>
-								<?php echo esc_html( $process_caption ); ?>
-							<?php endif; ?>
-						</p>
-						<div class="section-info-b-line"><div class="line"></div></div>
-
-						<div class="section-info-b-image">
-							<?php
-							if ( $process_caption_copy ) {
-								$url = wp_get_attachment_url( $process_caption_copy );
-								echo wp_get_attachment_image( $process_caption_copy, $size );
-							};
-							?>
-						</div>
-					</div>
-
-				</div>
 
 				<?php // I put the ingredients hover as a block so we can use that block elsewhere. found in inc/blocks. ?>
 				<div class="content"><?php the_content(); ?></div>
-
-				<?php // just hard-coding the rest cuz I'm tired. ?>
-
-				<!-- <div class="cover">
-					<div class="cover-bg" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/covergirl.jpg'; ?>);">
-						<div class="cover-backdrop"></div>
-						<div class="container">
-							<div class="cover-content ">
-								<h3 class="cover-content-title">True to Nature</h3>
-								<hr class="cover-content-bar">
-								<p class="cover-content-p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-							</div>
-						</div>
-
-					</div>
-				</div> -->
-
-
-
-
 
 				<div class="recipes-container">
 					<div class="section-title-bars">

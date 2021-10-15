@@ -89,18 +89,13 @@ $redirect_base_url = $home . '/products/';
 		<?php } ?>
 
 	<div class="product-menu-col footer-hidden">
-		<div class="promo">
-			<div class="promo-image" style="background-image:url('<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/smallimg-glasses.jpg'; ?>');"></div>
-			<div class="promo-gradient"></div>
-			<div class="promo-title">Happy Hour Replacement Introducing: Buzz</div>
-		</div>
+		<?php get_template_part('template-parts/promo'); ?>
 	</div>
 
 	<div class="product-menu-col header-hidden">
 		<p class="product-menu-title">Support</p>
 		<ul>
 			<li><a href="mailto:<?php echo esc_attr( $email ) ?>" target="_blank">Contact Us</a></li>
-			<!-- <li><a href="https://yoli.com/category/blog/" target="_blank">Blog</a></li> -->
 			<li><a href="<?php echo esc_attr( privacy_policy() ); ?>">Privacy Policy</a></li>
 		</ul>
 	</div>

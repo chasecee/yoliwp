@@ -112,11 +112,19 @@ $foreground_color = get_field( 'foreground_color' );
 							</div>
 					</div>
 
+					<style>
+						.hero-product-image{
+							background-image:url(<?php echo esc_url( get_field( 'hero_image_mobile' ) ); ?>);
+						}
+						@media (min-width: 768px){
+							.hero-product-image {
+								background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);
+							}
+						}
+					</style>
+
 					<div class="hero-product-bg">
-						<div
-						class="hero-product-image offscreen-r"
-						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
-						</div>
+						<div class="hero-product-image offscreen-r" ></div>
 						<div class="hero-product-bg-circle-overlay bg-color"></div>
 
 					</div>

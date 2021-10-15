@@ -12,9 +12,9 @@
 		@apply flex;
 
 		> li {
-			@apply pr-36 transition-colors;
+			@apply mr-36;
 			a {
-				@apply block transition-colors text-current whitespace-nowrap;
+				@apply block text-current whitespace-nowrap;
 
 				border-bottom: 1px solid transparent;
 			}
@@ -38,12 +38,12 @@
 		}
 		&.menu-right {
 			> li {
-				@apply pr-0 pl-36;
+				@apply mr-0 ml-36;
 			}
 		}
 	}
 
-	.sub-menu {
+	.subb-menu {
 		@apply bg-white py-8 absolute shadow-default;
 
 		left: -999em;

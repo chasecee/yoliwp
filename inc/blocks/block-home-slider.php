@@ -88,10 +88,11 @@ if ( $spacing ) {
 										<div class="slide-inner-gradient gradient-bottom"></div>
 									</div>
 									<div class="slide-inner-content">
-										<div class="relative">
-											<p class="slide-inner-content-title"> <?php the_sub_field( 'slide_title' ); ?></p>
-											<p class="slide-inner-content-p"><?php the_sub_field( 'slide_content' ); ?></p>
-
+										<div class="slide-inner-content-inner">
+											<div class="slide-inner-content-inner-left">
+												<p class="slide-inner-content-title"> <?php the_sub_field( 'slide_title' ); ?></p>
+												<p class="slide-inner-content-p"><?php the_sub_field( 'slide_content' ); ?></p>
+											</div>
 											<a class="btn btn-primary btn-shop btn-style-arrow w-auto" href="<?php the_sub_field( 'button_link' ); ?>">
 
 														<span class="btn-join-text"><?php the_sub_field( 'button_text' ); ?></span>

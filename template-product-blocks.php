@@ -81,11 +81,19 @@ $background_svg   = get_field( 'background_svg' );
 						<a href="<?php echo esc_url( $cover_button_link ); ?>" class="btn btn-accent btn-full mt-50">Shop Now</a>
 					</div>
 
+					<style>
+						.hero-product-image{
+							background-image:url(<?php echo esc_url( get_field( 'hero_image_mobile' ) ); ?>);
+						}
+						@media (min-width: 768px){
+							.hero-product-image {
+								background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);
+							}
+						}
+					</style>
+
 					<div class="hero-product-bg">
-						<div
-						class="hero-product-image offscreen-r"
-						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
-						</div>
+						<div class="hero-product-image offscreen-r" ></div>
 						<div class="hero-product-bg-circle-overlay bg-color"></div>
 
 					</div>
@@ -143,7 +151,7 @@ $background_svg   = get_field( 'background_svg' );
 						<?php
 						if ( $column_3_width ) :
 							echo esc_attr( $column_3_width );
-						endif;
+							endif;
 						?>
 					">
 						<?php if ( $features_list_title ) : ?>
@@ -158,7 +166,7 @@ $background_svg   = get_field( 'background_svg' );
 								the_row();
 								$icon            = get_sub_field( 'select_svg' );
 								$label           = get_sub_field( 'label' );
-								$custom_svg_code = get_sub_field( 'custom_svg_code' )
+								$custom_svg_code = get_sub_field( 'custom_svg_code' );
 
 								?>
 									<li>

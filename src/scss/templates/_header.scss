@@ -26,11 +26,13 @@
 		}
 	}
 	&.header-hovered {
-		@apply text-brown-dark bg-white;
-		&.bg-transparent-text-light {
-			@apply text-white md:text-brown-dark;
-			> .header-container {
-				@apply bg-white;
+		@screen md{
+			@apply text-brown-dark bg-white;
+			&.bg-transparent-text-light {
+				@apply text-white md:text-brown-dark;
+				> .header-container {
+					@apply bg-white;
+				}
 			}
 		}
 	}
@@ -52,11 +54,7 @@
 	.menu-group-active {
 		@apply text-gray-medium;
 	}
-	a,
-	path,
-	ellipse {
-		@apply relative;
-	}
+
 	> .header-container {
 		@apply relative py-16 md:py-0 px-40 md:px-40 grid grid-cols-12 items-center;
 	}

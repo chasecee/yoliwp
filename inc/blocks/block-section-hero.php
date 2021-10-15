@@ -62,11 +62,19 @@ if ( $spacing ) {
 						<?php echo '<InnerBlocks />'; ?>
 						<div class="section-hero-info-line"></div>
 					</div>
-
+					<style>
+						.section-hero-image{
+							background-image:url(<?php echo esc_url( get_field( 'hero_image_mobile' ) ); ?>);
+						}
+						@media (min-width: 768px){
+							.section-hero-image {
+								background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);
+							}
+						}
+					</style>
 					<div class="section-hero-bg">
 						<div
-						class="section-hero-image offscreen-r"
-						style="background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);">
+						class="section-hero-image offscreen-r">
 						</div>
 						<div class="section-hero-bg-circle-overlay bg-color"></div>
 

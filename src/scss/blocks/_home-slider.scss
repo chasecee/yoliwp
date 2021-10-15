@@ -4,16 +4,68 @@
 	.glide__arrows {
 		@apply hidden md:flex;
 	}
+
 	.product-carousel {
-		.slide-inner-content {
-			@apply container absolute z-10 w-full left-0 bottom-40;
+		@apply overflow-hidden;
+
+		.glide__controls.glide__bullets{
+			@apply left-40 md:left-0 right-40 md:right-0 w-auto justify-between md:justify-start;
+			> div{
+				@apply px-0 md:px-20;
+				&::after{
+					@apply left-0 right-0 md:left-40 md:right-40;
+				}
+			}
+		}
+
+		.slide-inner {
+			@apply container relative text-white;
+			padding-top: 60rem;
+
 
 			@screen md {
-				bottom: 6.25rem;
+				padding-top: 56vw;
+				@apply container-l;
 			}
 
-			a.btn.btn-primary.btn-shop.btn-style-arrow {
-				@apply md:absolute right-0 bottom-0 outline-none;
+			.slide-img {
+				@apply absolute inset-0;
+				img {
+					@apply max-w-none object-fill object-center min-w-full h-full;
+				}
+			}
+			&-content {
+				@apply absolute bottom-100 z-10 pr-30 md:pr-0;
+				@apply container w-full left-0 bottom-40;
+				&-title {
+					@apply text-28 md:text-60;
+				}
+				&-p {
+					@apply md:text-24 md:w-2/3;
+					@screen lg {
+						@apply w-4/5;
+					}
+					@screen xl {
+						@apply w-2/5;
+					}
+				}
+				&-inner{
+					@apply flex flex-col md:flex-row justify-start md:justify-between;
+					&-left{
+						@apply mb-32 md:mb-50;
+					}
+					.btn{
+						@apply self-start md:self-end;
+					}
+				}
+			}
+			&-gradient {
+				@apply absolute top-0 left-0 right-0 bg-gradient-to-b from-black z-10 opacity-60;
+				bottom: 60%;
+				&.gradient-bottom {
+					@apply bg-gradient-to-r top-0 left-0 bottom-0;
+					right: 25%;
+				}
 			}
 		}
 	}

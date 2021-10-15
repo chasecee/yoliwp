@@ -53,7 +53,7 @@ function subMenu() {
 				} );
 		}
 
-		const navLeft = document.querySelector( '.nav-left' ),
+		const navLeft = document.querySelector( '.nav-left>#primary-menu' ),
 			navRight = document.querySelector( '.nav-right' );
 		if ( navLeft ) {
 			navLeft.addEventListener( 'mouseenter', menuGroupHoverEnter );

@@ -114,15 +114,13 @@ echo '<script type="text/javascript">
 						</li>
 
 			<?php } ?>
-
-
 		</ul>
 	</li>
 	<li class="menu-item"><a href="/earn/">Earn</a></li>
 
 	<li class="menu-item menu-item-has-children">
 		<span>Country</span>
-		<ul class="sub-menu" >
+		<ul class="sub-menu">
 						<?php
 						foreach ( $countries as $key => $option ) {
 								// phpcs:ignore
@@ -143,9 +141,11 @@ echo '<script type="text/javascript">
 	<?php
 	require realpath( __DIR__ . '/..' ) . '/api/join-and-shop-urls.php';
 	?>
+
 	<li class="menu-item">
 		<a class="login-link" href="<?php echo esc_attr( $login_link ); ?> ">Login</a>
 	</li>
+
 	<li class="menu-item">
 		<a class="shop-link" href="<?php echo esc_attr( $shop_now_url ); ?>">Shop Now
 			<div class="shop-link-icon"><?php echo esc_html( get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ) ); ?></div>
@@ -153,11 +153,10 @@ echo '<script type="text/javascript">
 	</li>
 	<li class="menu-item">
 		<div class="menu-bottom">
-			<div class="promo">
-				<div class="promo-image" style="background-image:url('<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/smallimg-glasses.jpg'; ?>');"></div>
-				<div class="promo-gradient"></div>
-				<div class="promo-title">Happy Hour Replacement Introducing: Buzz</div>
-			</div>
+
+			<?php // Promo Template Part. ?>
+			<?php get_template_part( 'template-parts/promo' ); ?>
+
 			<?php
 			require realpath( __DIR__ ) . '/contact-info.php';
 			?>
@@ -167,11 +166,10 @@ echo '<script type="text/javascript">
 				<?php echo esc_html( $phone_one ); ?> or <?php echo esc_html( $phone_two ); ?><br>
 				<?php echo esc_html( $email ); ?>
 			</p>
-			<div class="social-links">
-				<a href="https://www.pinterest.com/YoliBBS/_created/" title="Yoli on Pinterest" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'pinterest.svg' ); ?></a>
-				<a href="https://www.instagram.com/yolibetterbody/" title="Yoli on Instagram" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'instagram.svg' ); ?></a>
-				<a href="https://www.facebook.com/BetterBodySystem" title="Yoli on Facebook" target="_blank"><?php get_template_part( '/src/images/icons/inline/inline', 'facebook.svg' ); ?></a>
-			</div>
+
+			<?php // Social links via template part based on country cookie. ?>
+			<?php get_template_part( 'template-parts/social-links' ); ?>
+
 		</div>
 	</li>
 </ul>

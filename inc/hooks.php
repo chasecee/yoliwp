@@ -287,6 +287,7 @@ function get_kses_extended_ruleset() {
 			'id'        => true,
 			'data-name' => true,
 			'opacity'   => true,
+			'transform' => true,
 			'fill'      => true,
 			'width'     => true,
 			'height'    => true,
@@ -333,20 +334,20 @@ function get_kses_extended_ruleset() {
 			'cy'        => true,
 			'id'        => true,
 		),
+		'line'           => array(
+			'd'         => true,
+			'r'         => true,
+			'fill'      => true,
+			'transform' => true,
+			'stroke'    => true,
+			'x2'        => true,
+			'y2'        => true,
+			'id'        => true,
+		),
 	);
 	return array_merge( $kses_defaults, $svg_args );
 }
 
-/**
- * Add styles to wp editor
- *
- * @author Corey Collins
- */
-function custom_editor_styles() {
-	add_editor_style( 'editor-styles.css' );
-}
-
-add_action( 'admin_init', 'custom_editor_styles' );
 
 /** Set the language and country cookies. */
 function language_country_cookie() {
@@ -359,7 +360,7 @@ function language_country_cookie() {
 		}
 	}
 }
-	add_action( 'init', 'language_country_cookie' );
+add_action( 'init', 'language_country_cookie' );
 
 /** Render the repsite banner. */
 function render_repsite_banner() {
@@ -369,7 +370,7 @@ function render_repsite_banner() {
 		$path = get_url();
 	}
 }
-add_action( 'init', 'render_repsite_banner' );
+add_action( 'wp_body_open', 'render_repsite_banner' );
 
 // Show page templates in pages view in WP Admin.
 
@@ -405,48 +406,20 @@ function codismo_table_column( $column, $post_id ) {
 
 }
 
-/** Tabs shortcode wrapper.
+/** Hide dumb style tag bug in WP
  *
- * @param string $atts content dump from WYSIWYG.
- * @param string $content content dump from WYSIWYG.
+ * Link: https://wordpress.stackexchange.com/questions/289440/how-to-remove-custom-style-from-source
  */
-function tabs_shortcode( $atts, $content = null ) {
+add_filter( 'show_recent_comments_widget_style', '__return_false', 99 );
 
-	$atts = shortcode_atts(
-		array(
-			'target' => 'tab-1',
-		),
-		$atts,
-		'[tabs]'
-	);
-	return '<div class="tabs">' . $content . '</div>';
-}
-add_shortcode( 'tabs', 'tabs_shortcode' );
-
-/** Tabs nav shortcode wrapper.
+/** Hide dumb style tag bug in WP
  *
- * @param string $atts content dump from WYSIWYG.
- * @param string $content content dump from WYSIWYG.
+ * Link: https://divimundo.com/en/blog/copyright-year-wordpress-footer/
  */
-function tabs_nav( $atts, $content = null ) {
-	return '<ul class="tabs-nav nav">' . $content . '</ul>';
+function year_shortcode() {
+	$year = date_i18n( 'Y' );
+	return $year;
 }
-add_shortcode( 'tabs-nav', 'tabs_nav' );
+add_shortcode( 'year', 'year_shortcode' );
 
-/** Tabs nav item li.
- *
- * @param string $atts content dump from WYSIWYG.
- */
-function tabs_nav_item( $atts ) {
-
-	$atts = shortcode_atts(
-		array(
-			'text'   => 'Tab Name',
-			'target' => 'tab-1',
-		),
-		$atts
-	);
-	return '<li class=""><a href="' . $target . "'>" . $text . '</a></li>';
-
-}
-add_shortcode( 'tabs-nav-item', 'tabs_nav_item' );
+add_filter( 'acf/format_value/type=text', 'do_shortcode' );

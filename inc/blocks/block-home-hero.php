@@ -39,7 +39,18 @@ $video_id      = get_field( 'video_id' );
 	<div class="hero">
 		<div class="hero-gradient"></div>
 		<div class="hero-gradient gradient-bottom"></div>
-		<div class="hero-video bg-cover bg-center" style="background-image:url(<?php echo esc_attr( get_template_directory_uri() ) . '/build/images/heroposter.jpg'; ?>);">
+		<style>
+			.hero-video{
+				background-image:url(<?php echo esc_url( get_field( 'hero_image_mobile' ) ); ?>);
+			}
+			@media (min-width: 768px){
+				.hero-video {
+					background-image:url(<?php echo esc_url( get_field( 'hero_image' ) ); ?>);
+				}
+			}
+		</style>
+
+		<div class="hero-video" >
 				<iframe src="https://player.vimeo.com/video/<?php echo esc_html( $video_id ); ?>?background=1&autoplay=1&loop=1&byline=0&title=0?controls=0"
 						frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
