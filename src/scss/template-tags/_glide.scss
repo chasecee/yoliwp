@@ -55,7 +55,19 @@
 		}
 	}
 }
-.recipes-carousel {
+.recipes-carousel-image {
+	height: 30rem;
+	@apply relative;
+	@apply mb-24;
+	@screen md {
+		height: 40rem;
+	}
+
+	img {
+		@apply absolute inset-0 object-cover md:relative h-full;
+	}
+}
+.recipes-carousell {
 	@apply relative;
 	@screen md {
 		@apply container;
@@ -97,33 +109,10 @@
 					@screen md {
 						height: 40vw;
 						@apply relative;
-						left: -15%;
-						width: 130%;
-					}
-					@screen lg {
-						left: -10%;
-						width: 120%;
-					}
-					@screen xl {
-						left: -5%;
-						width: 110%;
 					}
 				}
 				.recipes-carousel-content {
 					@apply translate-y-0 translate-x-0;
-					@screen md {
-						@apply relative;
-						left: -15%;
-						width: 130%;
-					}
-					@screen lg {
-						left: -10%;
-						width: 120%;
-					}
-					@screen xl {
-						left: -5%;
-						width: 110%;
-					}
 				}
 			}
 		}

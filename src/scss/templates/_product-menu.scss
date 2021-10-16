@@ -1,5 +1,6 @@
 .product-menu {
-	@apply bg-white relative -top-px;
+	@apply bg-white relative;
+	top: -4px;
 
 	.product-menu-cols {
 		@apply flex md:justify-between flex-col md:flex-row flex-wrap md:flex-nowrap;

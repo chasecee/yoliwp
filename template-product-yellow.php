@@ -261,8 +261,8 @@ endif;
 						<h4 class="section-title-bars-h">Recipes</h4>
 					</div>
 
-					<div class="recipes-carousel focus-carousel">
-
+					<div class="recipes-carousel focus-carousel static-on-desktop">
+					<div class="focus-carousel-blocker"></div>
 						<div class="glide" data-per-view="3">
 
 							<div class="glide__track" data-glide-el="track">
@@ -295,7 +295,7 @@ endif;
 														</div>
 													<?php endif; ?>
 													<div class="recipes-carousel-content-link">
-													View Recipe
+														Coming Soon
 													</div>
 												</div>
 

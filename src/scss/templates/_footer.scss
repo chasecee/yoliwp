@@ -11,22 +11,27 @@
 			@apply flex flex-col md:flex-row items-center md:mb-50 lg:mb-0 lg:items-start lg:mr-30;
 		}
 		&-logo {
-			@apply text-primary relative w-120 flex-none;
-			@screen xl {
+			@apply text-primary relative w-120 h-120 flex-none;
+
+			@screen lg {
 				top: -0.45rem;
-				width: 8.125rem;
-				height: 8.125rem;
+				width: 7.125rem;
+				height: 7.125rem;
 			}
 			svg {
-				width: 8.125rem;
-				height: 8.125rem;
-				@apply max-w-full;
+				@apply w-120 h-120;
+
+				@screen lg {
+					width: 7.125rem;
+					height: 7.125rem;
+					@apply max-w-full;
+				}
 			}
 		}
 		&-slogan {
 			@apply text-center md:text-left my-50 md:my-0 md:ml-50 xl:ml-160 font-sans-alt text-20 md:text-24 xl:text-28 leading-snug;
 			@screen lg {
-				max-width: 21.875rem;
+				max-width: 27.875rem;
 			}
 		}
 		&-support {

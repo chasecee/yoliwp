@@ -14,7 +14,12 @@
 			border-top-left-radius: 18.75rem;
 		}
 		.ingredients-image {
-			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-bottom ease-in;
+			@apply absolute inset-0 bg-center bg-cover opacity-0 transition-all duration-150 transform-gpu origin-top md:origin-bottom ease-in;
+			@apply overflow-hidden;
+			border-top-left-radius: 9.375rem;
+			@screen md {
+				border-top-left-radius: 18.75rem;
+			}
 			&.target-open,
 			&:nth-child( 0 ) {
 				@apply opacity-100 duration-1000 ease-out;
@@ -27,10 +32,10 @@
 		}
 	}
 	.ingredients-list {
-		@apply relative pb-100 z-20 text-white w-4/5 ml-0;
+		@apply relative pb-100 z-20 text-white w-full md:w-4/5 ml-0;
 		padding-top: 45rem;
 		@media only screen and (max-width: 600px) {
-			padding-top: 35rem;
+			padding-top: 30rem;
 		}
 
 		.ingredients-name {

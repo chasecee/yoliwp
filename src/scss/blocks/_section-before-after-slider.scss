@@ -4,36 +4,30 @@
 	&-content {
 		@apply flex flex-col md:flex-row justify-between;
 		&-image {
-			@apply md:w-2/5 order-1 md:order-2;
+			@apply w-full md:w-2/5 order-1 md:order-2 self-start;
 			order: 2;
-			width: 40%;
 			position: relative;
 			overflow: hidden;
 			img {
 				@apply w-full;
 			}
 			.rouded-edge {
-				background-color: #e69e2b;
-				padding: 42px 126px 34px 60px;
-				max-width: 500px;
-				border-radius: 46%;
-				height: 230px;
-				position: absolute;
-				bottom: -22%;
-				right: -100px;
+				@apply bg-primary;
+				@apply absolute bottom-0 right-0 w-1/2 pt-40 p-20 pl-40;
+				border-top-left-radius: 5rem;
 			}
 		}
 		&-text {
 			@apply md:w-1/2 my-20 md:my-0 order-2 md:order-1;
 			&-quote {
-				@apply text-28 md:text-60;
+				@apply text-28 md:text-40 lg:text-60 leading-tight;
 			}
 		}
 	}
 	.glide {
 		@apply pb-40 md:pb-0;
 		.glide__arrows {
-			@apply pl-0 -bottom-30 md:bottom-20;
+			@apply pl-0 -bottom-30 md:-bottom-40;
 			> div {
 				@apply text-brown text-opacity-50 hover:text-opacity-100;
 			}

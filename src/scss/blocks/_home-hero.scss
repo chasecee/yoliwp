@@ -6,10 +6,9 @@
 		height: 100vw;
 		max-height: 200vw;
 		@screen md {
-			@apply h-0;
-			min-height: 70rem;
-			height: 80vw;
-			max-height: 90vh;
+			min-height: 0;
+			height: 57vw;
+			max-height: none;
 		}
 
 		&-content {

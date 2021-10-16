@@ -1,10 +1,8 @@
-.max-1920 {
-	max-width: 1920px;
-	margin: auto;
-	padding-left: 8.75rem;
-	padding-right: 8.75rem;
-	margin-top: 12.5rem;
-	margin-bottom: 12.5rem;
+.what-is-inner {
+	@apply container my-100;
+	.sc-items {
+		@apply flex items-start flex-wrap lg:flex-nowrap justify-center;
+	}
 }
 .showcase {
 	@apply text-center;
@@ -29,34 +27,23 @@
 }
 .sc-content {
 	max-width: 1120px;
-	margin: auto;
-	text-align: center;
-	padding: 12vw 0;
-	font-size: 26px;
+	@apply my-100 text-24 md:text-32 text-center mx-auto font-serif;
 }
-
-.sc-title h4 {
-	text-align: center;
-	border-top: 1px solid #695d58;
-	border-bottom: 1px solid #695d58;
-	line-height: 80px;
-	font-size: 27px;
+.sc-title {
+	@apply m-0 text-center font-sans-alt;
+	h4 {
+		@apply font-sans-alt md:text-28 leading-none py-20 border-t border-b;
+	}
 }
 
 @screen sm {
 	.showcase {
 		margin-bottom: 50px;
 	}
-	.sc-title h4 {
-		line-height: 50px;
-	}
 }
 
 @screen xl {
 	.sc-content {
 		padding: 120px 1px;
-	}
-	.sc-title h4 {
-		line-height: 80px;
 	}
 }

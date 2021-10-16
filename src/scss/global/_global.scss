@@ -37,9 +37,14 @@
 //-----------------------------------------
 html {
 	@apply text-13;
+	font-size: 0.7rem;
 }
 body {
 	@apply mx-auto;
+	font-size: 14px;
+	@screen md {
+		font-size: 13px;
+	}
 	max-width: 1920px;
 
 	@apply font-sans antialiased text-brown-dark;
@@ -56,23 +61,22 @@ body {
 	}
 
 	/* go to https://yoksel.github.io/url-encoder/ to encode the svg and paste the "Ready for CSS:" code to the appropriate page id below */
-	&.page-id-148 {
-		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffc400'/%3E%3Cstop offset='0.281' stop-color='%23fff5aa'/%3E%3Cstop offset='0.645' stop-color='%23ffc400'/%3E%3Cstop offset='0.754' stop-color='%23ffeab9'/%3E%3Cstop offset='0.906' stop-color='%239989af'/%3E%3Cstop offset='1' stop-color='%23857cb8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1722' data-name='Rectangle 1722' width='1920' height='9316' opacity='0.4' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
-		.hero-product-bg-circle-overlay {
-			background-color: #ffedab;
-		}
-	}
-	&.page-id-221 {
-		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffaa48'/%3E%3Cstop offset='0.31' stop-color='%23ffdb96'/%3E%3Cstop offset='0.764' stop-color='%23f57600'/%3E%3Cstop offset='0.897' stop-color='%23e15600'/%3E%3Cstop offset='1' stop-color='%23ce3800'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1723' data-name='Rectangle 1723' width='1920' height='9316' opacity='0.35' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
-		.hero-product-bg-circle-overlay {
-			background-color: #ffe6c6;
-		}
-	}
-}
 
-.product-features-graphic svg {
-	display: block;
-	width: 108;
+	/* shine page yellow */
+	&.page-id-148 {
+		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='9316' viewBox='0 0 1920 9316'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.5' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffe200'/%3E%3Cstop offset='0.133' stop-color='%23fff5aa'/%3E%3Cstop offset='0.522' stop-color='%23ffc400'/%3E%3Cstop offset='0.64' stop-color='%23ffeab9'/%3E%3Cstop offset='0.882' stop-color='%239989af'/%3E%3Cstop offset='1' stop-color='%23857cb8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1722' data-name='Rectangle 1722' width='1920' height='9316' opacity='0.4' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
+		.hero-product-bg-circle-overlay {
+			background-color: #fff9cd;
+		}
+	}
+
+	/* cheers page orange */
+	&.page-id-221 {
+		background-image: url( "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1920' height='8386' viewBox='0 0 1920 8386'%3E%3Cdefs%3E%3ClinearGradient id='linear-gradient' x1='0.493' y1='-0.016' x2='0.5' y2='1' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ff8264'/%3E%3Cstop offset='0.138' stop-color='%23f57600' stop-opacity='0.604'/%3E%3Cstop offset='0.281' stop-color='%23ffd27b'/%3E%3Cstop offset='0.729' stop-color='%23e15600' stop-opacity='0.604'/%3E%3Cstop offset='0.882' stop-color='%23ff8264' stop-opacity='0.827'/%3E%3Cstop offset='1' stop-color='%23ce2e08'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect id='Rectangle_1723' data-name='Rectangle 1723' width='1920' height='8386' opacity='0.8' fill='url(%23linear-gradient)'/%3E%3C/svg%3E%0A" );
+		.hero-product-bg-circle-overlay {
+			background-color: #fbb17d;
+		}
+	}
 }
 
 /*stylelint-enable function-url-quotes*/

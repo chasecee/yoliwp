@@ -47,18 +47,14 @@
 }
 
 .product-features {
-	@apply relative flex flex-col md:flex-row items-center md:py-160 md:my-160 container;
-	@screen md {
-		.product-features-list {
-			padding-left: 180px;
-			margin-right: 0;
-		}
-		@apply pr-0;
-	}
+	@apply relative flex flex-col md:justify-between md:flex-row items-center md:py-160 md:my-160 container;
+
 	&-graphic {
-		@apply relative text-center md:w-1/3 flex-none min-w-full md:min-w-0;
+		@apply relative text-center md:w-1/3 min-w-full md:min-w-0;
 		svg {
 			@apply mx-auto hidden md:block;
+			width: 12.5rem;
+			height: 12.5rem;
 		}
 		&-line {
 			@apply w-px bg-brown-dark relative mx-auto my-20 md:my-0 md:absolute md:left-1/2 h-80 bottom-0;
@@ -72,24 +68,44 @@
 		@apply md:w-1/3 overflow-hidden w-full min-w-full md:min-w-0;
 	}
 	&-list {
-		@apply text-brown md:w-1/3 md:mr-100 min-w-full md:min-w-0 md:pl-75;
+		@apply text-brown md:w-1/3 min-w-0 md:pl-50;
+
+		/* stylelint-disable declaration-no-important */
+
+		@media (max-width: 768px) {
+			width: auto !important;
+		}
+		/* stylelint-enable declaration-no-important */
+		@apply my-50 md:my-0;
 		&-title {
-			@apply text-48 font-serif mb-30 text-brown-dark text-center md:text-left;
+			@apply text-32 md:text-48 font-serif md:mb-32 text-brown-dark;
 		}
 		ul {
-			@apply py-30 md:py-0 mx-20 md:mx-0 text-brown;
+			@apply py-30 md:py-0 md:mx-0 text-brown;
 
 			@apply list-none;
 			li {
 				@apply flex items-center text-20 md:text-28;
 				&:not( :last-child ) {
-					@apply mb-20 md:mb-60;
-					margin-bottom: 4.85rem;
+					@apply mb-28;
+					@screen md {
+						margin-bottom: 4.85rem;
+					}
 				}
 				.icon {
-					@apply w-20 h-20 md:h-40 md:w-40 mr-20 flex-none;
+					@apply w-24 h-24 mr-20 flex-none;
+
+					@screen md {
+						height: 2.2rem;
+						width: 2.2rem;
+					}
+
 					svg {
 						@apply mx-auto w-full h-full;
+						@screen md {
+							height: 2.2rem;
+							width: 2.2rem;
+						}
 					}
 				}
 				.label {
@@ -98,13 +114,6 @@
 			}
 		}
 	}
-
-	.product-features-list ul li .icon {
-		height: 2.3rem;
-		width: 2.3rem;
-	}
-
-	margin-right: 0;
 }
 
 .cover {
