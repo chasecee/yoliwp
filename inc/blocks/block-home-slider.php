@@ -8,6 +8,15 @@
  * @license      GPL-2.0+
  **/
 
+/**
+ * Carousel slide mapping:
+ * Products/yoli-t-kit
+ * products/defend
+ * Products/shine
+ * Products/passion
+ * Products/alkalete
+ */
+
 // Create name for prefixing classes and id's.
 $slug = 'home-slider';
 
@@ -33,10 +42,6 @@ if ( $spacing ) {
 	$_s_class_name .= ' ' . $spacing;
 }
 ?>
-
-
-
-
 
 
 <div class="<?php echo esc_attr( $_s_class_name ); ?>" id="<?php echo esc_attr( $_s_id ); ?>">
@@ -120,7 +125,11 @@ if ( $spacing ) {
 												<p class="slide-inner-content-title"> <?php the_sub_field( 'slide_title' ); ?></p>
 												<p class="slide-inner-content-p"><?php the_sub_field( 'slide_content' ); ?></p>
 											</div>
-											<a class="btn btn-primary btn-shop btn-style-arrow w-auto" href="<?php the_sub_field( 'button_link' ); ?>">
+											<?php
+												require realpath( __DIR__ . '/../..' ) . '/api/join-and-shop-urls.php';
+												echo '<a class="btn btn-primary btn-shop btn-style-arrow w-auto" href="' . esc_attr( $shop_now_url ) . '">'
+											?>
+											<!-- <a class="btn btn-primary btn-shop btn-style-arrow w-auto" href="<?php the_sub_field( 'button_link' ); ?>"> -->
 
 														<span class="btn-join-text"><?php the_sub_field( 'button_text' ); ?></span>
 

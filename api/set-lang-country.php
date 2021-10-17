@@ -1,8 +1,6 @@
 <?php
 /** Set the language and country cookies */
 function set_language_and_country( $selection ) {
-	echo '<script>console.log("inside the set-country-cookie function")</script>';
-
 	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
 									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 
