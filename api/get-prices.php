@@ -1,16 +1,16 @@
 <?php
 function get_prices() {
 	// Get the item id from the query params when $_GET isn't set, i.e., when the product link was copied and forwarded to someone else.
-	// $home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
-	// 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
-	// $link = $home . $_SERVER['REQUEST_URI'];
-	// $query_params = parse_url($link, PHP_URL_QUERY);
-	// $query_params_array = explode('&', $query_params);
-	// $regex = '/(\d+)/gi';
-	// $is_item_id = $query_params_array[0];
+	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+	'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+	$link = $home . $_SERVER['REQUEST_URI'];
+	$query_params = parse_url($link, PHP_URL_QUERY);
+	$query_params_array = explode('&', $query_params);
+	$regex = '/(\d+)/';
+	$is_item_id = $query_params_array[0];
 
-	if ( !isset ( $_GET['item_id'] ) ) :
-		$item_id = preg_grep($regex, $is_item_id);
+	if ( !isset ( $_GET['item_id'] ) && $query_params_array ) :
+		$item_id = preg_grep($regex, $query_params_array);
 		else :
 			$item_id = $_GET['item_id'];
 	endif;

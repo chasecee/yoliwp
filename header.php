@@ -14,7 +14,6 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -22,14 +21,48 @@
 
 	<?php wp_head(); ?>
 
-	<?php
-	// Hide alert til page loads.
-	?>
 	<style>
 		.ready .site-alert{display:block!important;}
 
 		@media (max-width: 768px){
 			.ready .banner-mobile{display:block!important;}
+		}
+		.search-form {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 1rem;
+
+		}
+		input.search-field {
+			outline: none;
+			box-sizing: border-box;
+			margin-right: .5rem;
+			border: 2px solid white;
+			color: black;
+			max-width: 75%;
+			height: 50%;
+		}
+		input.search-field:hover {
+			background-color: inherit;
+			border: 2px solid rgb(248,245,235);
+		}
+		button {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+			min-width: 2rem;
+		}
+		.magnifying-glass {
+			max-height: 2.5vh;
+			min-height: 25%;
+			fill: red;
+
+		}
+		.magnifying-glass:hover {
+			border: 1px solid transparent;
+			transition: border 0s ease;
 		}
 	</style>
 </head>
@@ -74,18 +107,22 @@
 						</a>
 
 					</div>
-
 					<div class="nav-right">
 						<nav id="site-navigation-right" class="shop-navigation navigation-menu " aria-label="<?php esc_attr_e( 'Main Navigation Right', '_s' ); ?>">
+							<?php
+								$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+							?>
+							<?php
+							echo esc_html(
+								get_template_part( '/api/search-bar' )
+							);
+							?>
 							<ul class="menu menu-right" id="primary-menu-right">
-
 								<?php
 								require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
-
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $login_link ) . ' ">Login</a></li>';
 								echo '<li class="menu-item"><a href=" ' . esc_attr( $shop_now_url ) . ' ">Shop Now</a></li>';
 								?>
-
 							</ul>
 						</nav>
 
@@ -95,10 +132,6 @@
 							</a>
 						<?php endif; ?>
 					</div>
-
-
-
-
 
 
 					</div>

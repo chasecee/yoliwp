@@ -23,4 +23,5 @@ function buy_button_url($auto_order) {
 	$buy_url = $base_url . $alias . '/additem?ItemCode=' . $item_code . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=' . $auto_order;
 	return $buy_url;
 }
+
 ?>

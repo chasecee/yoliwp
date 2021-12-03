@@ -56,8 +56,6 @@ $foreground_color = get_field( 'foreground_color' );
 		color:<?php echo esc_attr( $foreground_color ); ?>;
 		background-color:transparent;
 	}
-
-
 </style>
 
 	<div class=" site-main">
