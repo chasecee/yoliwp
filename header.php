@@ -24,15 +24,11 @@
 	<style>
 		.ready .site-alert{display:block!important;}
 
-		@media (max-width: 768px){
-			.ready .banner-mobile{display:block!important;}
-		}
 		.search-form {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			margin-top: 1rem;
-
 		}
 		input.search-field {
 			outline: none;
@@ -47,6 +43,9 @@
 			background-color: inherit;
 			border: 2px solid rgb(248,245,235);
 		}
+		.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > .search-field {
+				border: 2px solid rgb(248,245,235);
+		}
 		button {
 			display: flex;
 			flex-direction: column;
@@ -54,15 +53,59 @@
 			justify-content: space-around;
 			min-width: 2rem;
 		}
-		.magnifying-glass {
-			max-height: 2.5vh;
+		svg.magnifying-glass {
+			height: 5vh;
 			min-height: 25%;
-			fill: red;
-
+			cursor: pointer;
 		}
-		.magnifying-glass:hover {
-			border: 1px solid transparent;
-			transition: border 0s ease;
+		.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > svg path {
+			fill: currentColor;
+		}
+		.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > svg:hover path {
+			fill: black;
+			transition: fill 1s;
+		}
+		@media all and (max-width: 900px) and (min-width: 768px) {
+			svg.magnifying-glass {
+				visibility: hidden;
+			}
+			.search-form {
+				justify-content: flex-end;
+			}
+			input.search-field {
+				max-width: 50%;
+			}
+		}
+		@media (max-width: 768px){
+			.ready .banner-mobile{display:block!important;}
+
+			svg.magnifying-glass {
+				width: 25;
+				height: 25;
+			}
+			svg.magnifying-glass path {
+				fill: gray;
+			}
+		}
+		@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+			svg.magnifying-glass {
+				/* visibility: hidden; */
+				width: 0;
+				height: 0;
+			}
+			#site-navigation-right {
+				display: flex;
+				justify-content: flex-end;
+			}
+			.search-form {
+				justify-content: flex-end;
+			}
+			input.search-field {
+				max-width: 50%;
+			}
+		}
+		/* @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+			.ipad-landscape { color: blue; } /* your css rules for ipad landscape */
 		}
 	</style>
 </head>
@@ -110,12 +153,7 @@
 					<div class="nav-right">
 						<nav id="site-navigation-right" class="shop-navigation navigation-menu " aria-label="<?php esc_attr_e( 'Main Navigation Right', '_s' ); ?>">
 							<?php
-								$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ? 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
-							?>
-							<?php
-							echo esc_html(
-								get_template_part( '/api/search-bar' )
-							);
+							echo esc_html( get_template_part( '/api/search-bar' ) );
 							?>
 							<ul class="menu menu-right" id="primary-menu-right">
 								<?php

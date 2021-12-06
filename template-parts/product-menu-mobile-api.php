@@ -93,7 +93,7 @@ if ( isset( $_COOKIE['wordpress_country'] ) && isset( $_COOKIE['wordpress_langua
 				} catch ( Exception $e ) {
 					echo 'Caught exception: ', esc_html( $e->getMessage() ), '\n';
 				}
-endif;
+			endif;
 
 			// Retrieve rep info from the cookie for the url.
 			$cookie_name = 'wordpress_current_rep';

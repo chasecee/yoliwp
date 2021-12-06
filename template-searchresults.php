@@ -13,8 +13,27 @@ require realpath( __DIR__ ) . '/api/get-search-results.php';
 ?>
 
 <?php
-	// Build the search url and ping the API.
+	// Retrieve the query parameter.
 	$query   = $_GET['query'];
+
+	// Build the base url to redirect to the product page, e.g.: https://yoli.com/products/dream/?item_id=8283&item_code=SUPDRM-BT-US
+	$home                  = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?	'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+	$product_page_url_base = $home . '/products/';
+
+	// Handle searches for pages unrelated to products by redirecting to the appropriate page on an exact or related match.
+	$wp_pages = array ('earn' => '/earn', 'privacy' => $_SERVER['PRIVCON'], 'policy' => $_SERVER['PRIVCON'], 'join' => '/earn', 'member' => '/earn', 'benefits' => '/earn');
+	foreach ( $wp_pages as $key => $page ) {
+		if ( $query === $key ) :
+			if ($key === 'privacy' || $key === 'policy') :
+				$url = $page;
+				else :
+					$url = $home . $page . '/';
+				endif;
+			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
+		endif;
+	}
+
+	// Build the search url and ping the API.
 	$country = $_COOKIE['wordpress_country'];
 	if ( $query ) :
 		if ( $country ) :
@@ -45,13 +64,16 @@ require realpath( __DIR__ ) . '/api/get-search-results.php';
 			endif;
 			if ($result->categoryDescription !== $filter) :
 				$filter = $result->categoryDescription;
+				if ( count( $result->relatedItems ) > 0 ) :
 				array_push($related_items, $result->relatedItems);
+				endif;
 			endif;
 		}
 	endif;
 
 	// Elminate any duplicate items from $category_array.
-	$unique_category_array = array_unique( $category_array);
+	if ($category_array) $unique_category_array = array_unique($category_array);
+	if ($unique_category_array) $reindexed_category_array = array_values( $unique_category_array );
 
 	// Build the base buy-item url, e.g., https://shop.yoli.com/50/additem?ItemCode=SUPDRM-BT-US&Country=US&OwnerID=50&autoOrder=false
 	if ( isset( $_COOKIE['wordpress_current_rep'] ) ) :
@@ -71,15 +93,6 @@ require realpath( __DIR__ ) . '/api/get-search-results.php';
 
 	$base_buy_url = $_SERVER['SHOPCON'] . '/' . $alias . '/additem?ItemCode=';
 
-	// Build the base url to redirect to the product page, e.g.: https://yoli.com/products/dream/?item_id=8283&item_code=SUPDRM-BT-US
-	$home                  = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
-	'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
-	$product_page_url_base = $home . '/products/';
-
-	// Find and highlight search term
-	function highlight_query($query) {
-
-	}
 ?>
 
 <?php
@@ -116,12 +129,12 @@ $foreground_color = get_field( 'foreground_color' );
 		flex-direction: column;
 	}
 	.results-header {
-		margin: 2rem;
-		margin-bottom: 0;
+		margin: 0rem 2rem;
 	}
 	h2.product-content-title {
 		color: #23355c;
 		margin: 0;
+		font-size: 4rem;
 	}
 	h3 {
 		border-top: 1px solid #23355c;
@@ -133,6 +146,7 @@ $foreground_color = get_field( 'foreground_color' );
 		margin: 0;
 	}
 	h4.category-name {
+		margin-top: 1rem;
 		border-bottom: 1px solid #23355c;
 	}
 	p {
@@ -145,7 +159,7 @@ $foreground_color = get_field( 'foreground_color' );
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
-		margin: 0 2rem;
+		margin: 0 2rem 3rem 2rem;
 		flex-wrap: wrap;
 	}
 	.related-search-results {
@@ -156,15 +170,17 @@ $foreground_color = get_field( 'foreground_color' );
 	}
 	.search-result {
 		max-width: 30rem;
-		margin: 0 1rem;
+		margin: 2rem;
 	}
-	.related-results-by-category{
+	.related-results-by-category {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		margin: 3rem;
 	}
 	.search-result-related {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		max-width: 35rem;
 		margin: 1rem;
@@ -172,18 +188,31 @@ $foreground_color = get_field( 'foreground_color' );
 		border: 1px solid #23355c;
 		border-radius: 7px;
 	}
-	.search-result-detail{
+	.related-image-and-buy-buttons {
+		display: flex;
+	}
+	@media (max-width: 768px) {
+		.search-result-related {
+			flex-direction: column;
+			}
+		}
+	@media (max-width: 500px) {
+		img.search-result-image-related {
+			height: 0px;
+			width: 0px;
+		}
+	}
+	.search-result-detail {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
-	.search-result-image{
-		max-height: 35vh;
+	.search-result-image {
+		max-height: 30vh;
 		min-width: 50%;
 	}
 	.search-result-image-related {
 		max-height: 20vh;
-		min-width: 50%
 	}
 	.search-result-buy-options{
 		margin-top: 1rem;
@@ -191,13 +220,14 @@ $foreground_color = get_field( 'foreground_color' );
 	.no-search-results {
 		margin: 5rem 0 10rem 5rem;
 		max-width: 30rem;
-		/* margin: 0 1rem; */
-
 	}
 	.no-search-results-container {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+	.highlight {
+		color: #e86236;
 	}
 </style>
 
@@ -229,13 +259,13 @@ $foreground_color = get_field( 'foreground_color' );
 					<div class="exact-search-results">
 						<?php	foreach ( $results as $result ) { ?>
 							<div class="search-result">
-								<a class="exact-result-anchor" href="<?php echo esc_attr( $product_page_url_base . $result->itemDescription . '/' . $result->itemID . '&item_code=' . $result->itemCode ); ?>">
+								<a class="exact-result-anchor" href="<?php echo esc_attr( $product_page_url_base . $result->productPage . '/?item_id=' . $result->itemID . '&item_code=' . $result->itemCode ); ?>">
 									<div class="search-result-detail">
 										<img title="Click to learn more." class="search-result-image" loading="lazy" alt="product image" src="<?php echo esc_attr( $_SERVER['SHOPCON'] . 'shopping/productimages/' . $result->smallImageName ); ?>" />
 										<div>
-											<h4 class="result-title"><?php echo esc_attr( $result->itemDescription ); ?></h4>
-											<h6 class="result-category">Category | <?php echo esc_html( $result->categoryDescription ) ?></h6>
-											<p class="result-description"><?php echo esc_attr( $result->shortDetail ); ?></p>
+											<h4 class="result-title highlight-query"><?php echo esc_attr( $result->itemDescription ); ?></h4>
+											<h6 class="result-category highlight-query">Category | <?php echo esc_html( $result->categoryDescription ) ?></h6>
+											<p class="result-description highlight-query"><?php echo esc_attr( $result->shortDetail ); ?></p>
 										</div>
 									</div>
 								</a>
@@ -275,29 +305,69 @@ $foreground_color = get_field( 'foreground_color' );
 						</div>
 						<div class="related-search-results">
 						<?php
-						foreach ( $related_items as $key => $result ) { ?>
-							<div class="results-header">
-								<h4 class="category-name">
-									Category -> <?php echo esc_html( $unique_category_array[$key] ) ?>
-								</h4>
-							</div>
+						foreach ( $related_items as $key => $result ) {	?>
+								<div class="results-header">
+									<h4 class="category-name highlight-query">
+										Category -> <?php echo esc_html( $reindexed_category_array[$key] ) ?>
+									</h4>
+								</div>
 							<div class="related-results-by-category">
-								<?php
-								foreach ( $result as $related) { ?>
-									<a class="search-result-related" href="<?php echo esc_attr( $product_page_url_base . $related->itemID . '&item_code=' . $related->itemCode ); ?>" title="Click to learn more.">
-										<img class="search-result-image-related" loading="lazy" alt="product image" src="<?php echo esc_attr( $_SERVER['SHOPCON'] . 'shopping/productimages/' . $related->smallImageName ); ?>" />
-										<div>
-											<h4 class="result-title"><?php echo esc_attr( $related->itemDescription ); ?></h4>
-											<p class="result-description"><?php echo esc_attr( $related->shortDetail ); ?></p>
+							<?php
+							foreach ( $result as $related) { ?>
+								<div class="search-result-related">
+									<div class="related-image-and-buy-buttons">
+										<a href="<?php echo esc_attr( $product_page_url_base . $related->productPage . '/?item_id=' . $related->itemID . '&item_code=' . $related->itemCode ); ?>" title="Click to learn more.">
+											<img class="search-result-image-related" loading="lazy" alt="product image" src="<?php echo esc_attr( $_SERVER['SHOPCON'] . 'shopping/productimages/' . $related->smallImageName ); ?>" />
+										</a>
+										<div class="search-result-buy-options">
+											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=false' ); ?>">
+												<button class="btn btn-primary btn-accent-outline btn-full">
+													Shop Now
+													<?php if ( $related->price ) : ?>
+														<?php echo ' — '; ?>
+														<?php echo esc_html( $related->price->retailPriceFmtd ); ?>
+														<?php endif; ?>
+													</button>
+											</a>
+											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=true' ); ?>">
+												<button class="btn btn-primary btn-accent btn-full">
+													Subscribe & Save
+													<?php if ( $related->price ) : ?>
+														<?php echo ' — '; ?>
+														<?php echo esc_html( $related->price->retailPriceFmtd ); ?>
+													<?php endif; ?>
+												</button>
+											</a>
 										</div>
-									</a>
-								<?php } ?>
+									</div>
+									<div class="related-title-and-description">
+										<h4 class="result-title highlight-query"><?php echo esc_attr( $related->itemDescription ); ?></h4>
+										<p class="result-description highlight-query"><?php echo esc_attr( $related->shortDetail ); ?></p>
+									</div>
 								</div>
 							<?php } ?>
+							</div>
+						<?php } ?>
 					</div>
 				<?php endif; ?>
 		</div>
 	</main>
 </div>
+
+<!-- Highlight the search term every where it occurs on the page. -->
+<script>
+	const queryLength = '<?php echo $query ?>'.length;
+	const text = document.getElementsByClassName('highlight-query');
+
+	for (value of text) {
+		const title = value.innerHTML;
+		const index = title.toLowerCase().indexOf('<?php echo $query ?>'.toLowerCase());
+
+		if (index >= 0) {
+			const highlightQuery = title.substring(0, index) + '<span class="highlight">' + title.substring(index, index + queryLength) + '</span>' + title.substring(index + queryLength);
+			value.innerHTML = highlightQuery;
+		}
+	};
+</script>
 
 <?php get_footer(); ?>
