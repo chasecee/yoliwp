@@ -64,6 +64,11 @@
 		.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > svg:hover path {
 			fill: black;
 			transition: fill 1s;
+			}
+			.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > input::placeholder {
+			color: gray;
+			transition: color 1s;
+
 		}
 		@media all and (max-width: 900px) and (min-width: 768px) {
 			svg.magnifying-glass {
@@ -93,20 +98,20 @@
 				width: 0;
 				height: 0;
 			}
-			#site-navigation-right {
-				display: flex;
+			form.search-form {
 				justify-content: flex-end;
-			}
-			.search-form {
-				justify-content: flex-end;
+				width: 15rem;
 			}
 			input.search-field {
-				max-width: 50%;
+				width: 100%;
 			}
 		}
-		/* @media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
-			.ipad-landscape { color: blue; } /* your css rules for ipad landscape */
+		/* #site-navigation-right {
+			width: 25rem;
 		}
+		ul#primary-menu-right {
+			margin-right: 10rem;
+		} */
 	</style>
 </head>
 

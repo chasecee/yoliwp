@@ -21,10 +21,10 @@ require realpath( __DIR__ ) . '/api/get-search-results.php';
 	$product_page_url_base = $home . '/products/';
 
 	// Handle searches for pages unrelated to products by redirecting to the appropriate page on an exact or related match.
-	$wp_pages = array ('earn' => '/earn', 'privacy' => $_SERVER['PRIVCON'], 'policy' => $_SERVER['PRIVCON'], 'join' => '/earn', 'member' => '/earn', 'benefits' => '/earn');
+	$wp_pages = array ('earn' => '/earn', 'privacy' => $_SERVER['PRIVCON'], 'policy' => $_SERVER['PRIVCON'], 'privacy policy' => $_SERVER['PRIVCON'], 'privacypolicy' => $_SERVER['PRIVCON'],'join' => '/earn', 'member' => '/earn', 'benefits' => '/earn');
 	foreach ( $wp_pages as $key => $page ) {
 		if ( $query === $key ) :
-			if ($key === 'privacy' || $key === 'policy') :
+			if ('privacy' || 'policy' || 'privacy policy' || "privacypolicy" === $key ) :
 				$url = $page;
 				else :
 					$url = $home . $page . '/';
@@ -194,12 +194,20 @@ $foreground_color = get_field( 'foreground_color' );
 	@media (max-width: 768px) {
 		.search-result-related {
 			flex-direction: column;
-			}
 		}
-	@media (max-width: 500px) {
-		img.search-result-image-related {
-			height: 0px;
-			width: 0px;
+		/* #related-retail-button {
+			max-width: 50%;
+		}
+		#related-sub-button {
+			max-width: 50%;
+		}	 */
+	}
+	@media (max-width: 550px) {
+		#related-retail-button {
+			max-width: 10rem;
+		}
+		#related-sub-button {
+			max-width: 10rem;
 		}
 	}
 	.search-result-detail {
@@ -215,6 +223,9 @@ $foreground_color = get_field( 'foreground_color' );
 		max-height: 20vh;
 	}
 	.search-result-buy-options{
+		margin-top: 1rem;
+	}
+	.related-title-and-description {
 		margin-top: 1rem;
 	}
 	.no-search-results {
@@ -321,21 +332,11 @@ $foreground_color = get_field( 'foreground_color' );
 										</a>
 										<div class="search-result-buy-options">
 											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=false' ); ?>">
-												<button class="btn btn-primary btn-accent-outline btn-full">
-													Shop Now
-													<?php if ( $related->price ) : ?>
-														<?php echo ' — '; ?>
-														<?php echo esc_html( $related->price->retailPriceFmtd ); ?>
-														<?php endif; ?>
+												<button id="related-retail-button" class="btn btn-primary btn-accent-outline btn-full related-retail-button">
 													</button>
 											</a>
 											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country_code . '&OwnerID=' . $customer_id . '&autoOrder=true' ); ?>">
-												<button class="btn btn-primary btn-accent btn-full">
-													Subscribe & Save
-													<?php if ( $related->price ) : ?>
-														<?php echo ' — '; ?>
-														<?php echo esc_html( $related->price->retailPriceFmtd ); ?>
-													<?php endif; ?>
+												<button id="related-sub-button" class="btn btn-primary btn-accent btn-full related-sub-button">
 												</button>
 											</a>
 										</div>
@@ -359,7 +360,7 @@ $foreground_color = get_field( 'foreground_color' );
 	const queryLength = '<?php echo $query ?>'.length;
 	const text = document.getElementsByClassName('highlight-query');
 
-	for (value of text) {
+	for (let value of text) {
 		const title = value.innerHTML;
 		const index = title.toLowerCase().indexOf('<?php echo $query ?>'.toLowerCase());
 
@@ -368,6 +369,26 @@ $foreground_color = get_field( 'foreground_color' );
 			value.innerHTML = highlightQuery;
 		}
 	};
+</script>
+
+<!-- Change text of buy buttons based on browser width. -->
+<script>
+	const buttonText = () => {
+		const browserWidth = window.innerWidth;
+		const retailButton = document.getElementsByClassName('related-retail-button');
+		const subButton = document.getElementsByClassName('related-sub-button');
+		if (browserWidth > 550) {
+			for (let retail of retailButton) retail.innerHTML = 'Shop Now	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+
+			for (let sub of subButton) sub.innerHTML = 'Subscribe & Save	<?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+		} else {
+			for (let retail of retailButton) retail.innerHTML = 'Buy	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+
+			for (let sub of subButton) sub.innerHTML = 'Save <?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+		}
+	}
+	buttonText();
+	window.onresize = buttonText;
 </script>
 
 <?php get_footer(); ?>

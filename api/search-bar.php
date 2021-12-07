@@ -1,6 +1,5 @@
 <script>
 	const handleChange = event => {
-		// event.preventDefault();
 		const value = event.target.value;
 		if (value.length >= 2) displayMagGlass();
 		else hideMagGlass();
@@ -15,8 +14,13 @@
     const children = event.target.children;
     const query = children[1].value;
 		if (query && query.length >= 2) {
-			displayMagGlass();
-			window.location.href = `<?php esc_attr( $home ); ?>/search-results/?query=${query}`;
+			if (query.includes('&') || query.includes('#')) {
+				displayMagGlass();
+				window.location.href = '<?php esc_attr( $home ); ?>/search-results/?query=Invalid Characters.';
+			} else {
+				displayMagGlass();
+				window.location.href = `<?php esc_attr( $home ); ?>/search-results/?query=${query}`;
+			}
 		}
 	}
 
@@ -52,7 +56,28 @@
 	.magnifying-glass-display-none path {
 		visibility: hidden;
 	}
+	/* input::placeholder {
+		color: white;
+	} */
+	.placeholder-home::placeholder {
+		color: white;
+	}
+	.placeholder-subpage::placeholder {
+		color: gray;
+	}
 </style>
+
+<?php
+	// $url_path = $_SERVER['REQUEST_URI'];
+	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+	$url = $home . $_SERVER['REQUEST_URI'];
+	$url_path = parse_url($url, PHP_URL_PATH);
+
+	if ('/' === $url_path) : $placeholder_class = 'placeholder-home';
+	else : $placeholder_class = 'placeholder-subpage';
+endif;
+?>
 
 <form class="search-form" onsubmit=handleSearchByReturn(event)>
 	<span class="screen-reader-text">
@@ -62,7 +87,7 @@
 		tabindex="1"
 		onclick=handleClick(event)
 		oninput=handleChange(event)
-		class="search-field"
+		class="search-field <?php echo esc_attr( $placeholder_class ) ?>"
 		id="search-field"
 		type="text"
 		value=""
