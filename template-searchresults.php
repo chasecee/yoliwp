@@ -10,6 +10,7 @@
  */
 get_header();
 require realpath( __DIR__ ) . '/api/get-search-results.php';
+require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 ?>
 
 <?php
@@ -21,17 +22,112 @@ require realpath( __DIR__ ) . '/api/get-search-results.php';
 	$product_page_url_base = $home . '/products/';
 
 	// Handle searches for pages unrelated to products by redirecting to the appropriate page on an exact or related match.
-	$wp_pages = array ('earn' => '/earn', 'privacy' => $_SERVER['PRIVCON'], 'policy' => $_SERVER['PRIVCON'], 'privacy policy' => $_SERVER['PRIVCON'], 'privacypolicy' => $_SERVER['PRIVCON'],'join' => '/earn', 'member' => '/earn', 'benefits' => '/earn');
+	$wp_pages = array (
+		'earn' => '/earn',
+		'join' => '/earn',
+		'member' => '/earn',
+		'enroll' => '/earn',
+		'income' => '/earn',
+		'benefits' => '/earn',
+		'opportunity' => '/earn',
+		'freedom' => '/earn',
+		'commission' => '/earn',
+		'compensation plan' => '/earn',
+		'compensation' => '/earn',
+		'bonuses' => '/earn',
+		'money' => '/earn',
+		'motivation' => '/our-story',
+		'culture' => '/our-story',
+		'purpose' => '/our-story',
+		'company' => '/our-story',
+		'life' => '/our-story',
+		'ingredients' => '/our-story',
+		'experience' => '/our-story',
+		'training' => '/our-story',
+		'founders' => '/our-story',
+		'process' => '/our-story',
+		'products' => '/our-story',
+		'community' => '/our-story',
+		'nutrients' => '/our-story',
+		'whole plants' => '/our-story',
+		'nature' => '/our-story',
+		'lifestyle' => '/our-story',
+		'robby fender' => '/our-story',
+		'robby' => '/our-story',
+		'fender' => '/our-story',
+		'success' => '/our-story',
+		'people' => '/our-story',
+	);
+
+	$privacy_redirect = array (
+		'privacy',
+		'policy',
+		'membership',
+		'member',
+		'terms and conditions',
+		'terms conditions',
+		'policies',
+		'privacy policy',
+		'privacypolicy',
+		'regulation',
+		'procedures',
+		'personal information',
+		'personal info',
+		'technology',
+		'tech',
+		'collect data',
+		'data',
+		'annonymous data',
+		'third party',
+		'third parties',
+		'agreement',
+		'provider',
+		'providers',
+		'risk management',
+		'risk manage',
+		'users',
+		'risk',
+		'records',
+		'legal',
+		'law',
+		'database',
+		'security',
+		'customer',
+	);
+
+	$shop_now_redirect = array (
+		'lose weight',
+		'healthy body',
+		'products',
+		'supplements',
+		'flavors',
+		'canisters',
+		'promotions',
+		'vitality',
+		'events',
+		'gear',
+		'shop',
+	);
+
 	foreach ( $wp_pages as $key => $page ) {
-		if ( $query === $key ) :
-			if ('privacy' || 'policy' || 'privacy policy' || "privacypolicy" === $key ) :
-				$url = $page;
-				else :
-					$url = $home . $page . '/';
-				endif;
+		if ( strtolower( $query ) === $key ) :
+			$url = $home . $page . '/';
 			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
 		endif;
 	}
+	foreach ( $privacy_redirect as $value ) {
+		if ( strtolower( $query ) === $value ) :
+			$url = $_SERVER['PRIVCON'];
+			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
+		endif;
+	}
+	foreach ( $shop_now_redirect as $term ) {
+		if ( strtolower( $query ) === $term ) :
+			$url = $shop_now_url;
+			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
+		endif;
+	}
+
 
 	// Build the search url and ping the API.
 	$country = $_COOKIE['wordpress_country'];
