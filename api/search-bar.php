@@ -1,3 +1,15 @@
+<?php
+	// $url_path = $_SERVER['REQUEST_URI'];
+	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
+									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
+	$url = $home . $_SERVER['REQUEST_URI'];
+	$url_path = parse_url($url, PHP_URL_PATH);
+
+	if ('/' === $url_path) : $placeholder_class = 'placeholder-home';
+	else : $placeholder_class = 'placeholder-subpage';
+endif;
+?>
+
 <script>
 	function handleChange(event){
 		const value = event.target.value;
@@ -68,18 +80,6 @@
 		color: gray;
 	}
 </style>
-
-<?php
-	// $url_path = $_SERVER['REQUEST_URI'];
-	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
-									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
-	$url = $home . $_SERVER['REQUEST_URI'];
-	$url_path = parse_url($url, PHP_URL_PATH);
-
-	if ('/' === $url_path) : $placeholder_class = 'placeholder-home';
-	else : $placeholder_class = 'placeholder-subpage';
-endif;
-?>
 
 <form class="search-form" onsubmit=handleSearchByReturn(event)>
 	<span class="screen-reader-text">

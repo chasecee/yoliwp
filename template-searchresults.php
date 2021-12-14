@@ -130,7 +130,10 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 
 
 	// Build the search url and ping the API.
-	$country = $_COOKIE['wordpress_country'];
+	if ( !isset ($_COOKIE['wordpress_country'] ) ) :
+		$country = 'US';
+		else : $country = $_COOKIE['wordpress_country'];
+	endif;
 	if ( $query ) :
 		if ( $country ) :
 			$search_url = $_SERVER['APICON'] . 'products/search/' . $country . '/' . $query;
@@ -168,6 +171,7 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 	endif;
 
 	// Elminate any duplicate items from $category_array.
+	$unique_category_array = (array) null;
 	if ($category_array) $unique_category_array = array_unique($category_array);
 	if ($unique_category_array) $reindexed_category_array = array_values( $unique_category_array );
 
