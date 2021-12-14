@@ -1,15 +1,17 @@
 <script>
-	const handleChange = event => {
+	function handleChange(event){
 		const value = event.target.value;
 		if (value.length >= 2) displayMagGlass();
 		else hideMagGlass();
 	}
-	const handleClick = event => {
+
+	function handleClick(event) {
 		const input = document.getElementById('search-field');
 		input.setAttribute('value', ''); // Remove previous search term.
 		hideMagGlass();
 	}
-	const handleSearchByReturn = event => {
+
+	function handleSearchByReturn(event) {
 		event.preventDefault();
     const children = event.target.children;
     const query = children[1].value;
@@ -24,7 +26,7 @@
 		}
 	}
 
-	const handleSearchByClick = event => {
+	function handleSearchByClick(event) {
 		event.preventDefault();
 		const query = event.target.parentElement.children[1].value;
 		if (query && query.length >= 2) {
@@ -33,14 +35,14 @@
 		}
 	}
 
-	const hideMagGlass = () => {
+	function hideMagGlass() {
 		const icon = document.getElementById('magnifying-glass');
 		const classes = icon.classList;
 		classes.remove('magnifying-glass')
 		classes.add('magnifying-glass-display-none');
 	}
 
-	const displayMagGlass = () => {
+	function displayMagGlass() {
 		const icon = document.getElementById('magnifying-glass');
 		const classes = icon.classList;
 		classes.remove('magnifying-glass-display-none');
@@ -96,9 +98,6 @@ endif;
 		placeholder="Search"
 		style="background-color:transparent;"
 	/>
-	<!-- <button type="submit">
-		<img class="magnifying-glass" src="<?php echo esc_attr( get_template_directory_uri() ); ?>/src/images/icons/inline/inline-magnifying-glass.svg" alt="magnifying-glass icon" />
-	</button> -->
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg onclick="handleSearchByClick(event)" class="magnifying-glass" id="magnifying-glass" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 width="25" height="25" viewBox="0 0 52.966 52.966" style="enable-background:new 0 0 52.966 52.966;" xml:space="preserve">
