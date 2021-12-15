@@ -26,6 +26,7 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 		'earn' => '/earn',
 		'join' => '/earn',
 		'member' => '/earn',
+		'membership' => '/earn',
 		'enroll' => '/earn',
 		'income' => '/earn',
 		'benefits' => '/earn',
@@ -60,10 +61,6 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 	);
 
 	$privacy_redirect = array (
-		'privacy',
-		'policy',
-		'membership',
-		'member',
 		'terms and conditions',
 		'terms conditions',
 		'policies',
@@ -116,9 +113,10 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 		endif;
 	}
 	foreach ( $privacy_redirect as $value ) {
-		if ( strtolower( $query ) === $value ) :
-			$url = $_SERVER['PRIVCON'];
-			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
+		$query_lowercase = strtolower($query);
+		if ( strpos ( $value, $query_lowercase  ) !== false ) :
+			$query = 'privacy policy';
+			break;
 		endif;
 	}
 	foreach ( $shop_now_redirect as $term ) {
@@ -127,7 +125,6 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 			echo '<script> window.location.href = "' . esc_attr( $url ) . '" </script>';
 		endif;
 	}
-
 
 	// Build the search url and ping the API.
 	if ( !isset ($_COOKIE['wordpress_country'] ) ) :
@@ -255,6 +252,13 @@ $foreground_color = get_field( 'foreground_color' );
 		text-justify: auto;
 		margin-right: 1rem;
 	}
+	a.privacy-policy-search-result {
+		text-decoration: underline;
+	}
+	a.privacy-policy-search-result:hover {
+		text-decoration: underline;
+		color: #e86236;
+	}
 	.exact-search-results {
 		display: flex;
 		justify-content: center;
@@ -295,12 +299,6 @@ $foreground_color = get_field( 'foreground_color' );
 		.search-result-related {
 			flex-direction: column;
 		}
-		/* #related-retail-button {
-			max-width: 50%;
-		}
-		#related-sub-button {
-			max-width: 50%;
-		}	 */
 	}
 	@media (max-width: 550px) {
 		#related-retail-button {
@@ -318,6 +316,7 @@ $foreground_color = get_field( 'foreground_color' );
 	.search-result-image {
 		max-height: 30vh;
 		min-width: 50%;
+		margin: 1rem;
 	}
 	.search-result-image-related {
 		max-height: 20vh;
@@ -347,6 +346,21 @@ $foreground_color = get_field( 'foreground_color' );
 		<div class="search-results-container">
 			<?php
 			if ( ! $results ) :
+				if ($query === 'privacy policy') :
+				?>
+				<div class="results-header">
+					<h2 class="product-content-title">Search Results</h2>
+					<h3>Exact Matches -> 1</h3>
+				</div>
+				<div class="no-search-results-container">
+					<div class="no-search-results">
+						<img src="<?php echo esc_attr( get_template_directory_uri() ); ?>/src/images/padlock-privacy.svg" alt="Padlock image" alt="Padlock image" class="search-result-image" loading="lazy"/>
+						<h4 class="result-title">Privacy Policy</h4>
+						<p class="result-description">Click <a class="privacy-policy-search-result" href="<?php echo esc_attr( $_SERVER['PRIVCON'] ) ?>" target="_blank" rel="noopener noreferrer">here</a> to view our privacy policy.</p>
+					</div>
+				</div>
+			<?php
+				else :
 				?>
 				<div class="results-header">
 					<h2 class="product-content-title">Search Results</h2>
@@ -360,6 +374,7 @@ $foreground_color = get_field( 'foreground_color' );
 					</div>
 				</div>
 				<?php
+				endif;
 			else :
 				?>
 				<!-- <div class="exact-matches-container"> -->

@@ -70,9 +70,6 @@ endif;
 	.magnifying-glass-display-none path {
 		visibility: hidden;
 	}
-	/* input::placeholder {
-		color: white;
-	} */
 	.placeholder-home::placeholder {
 		color: white;
 	}
@@ -96,7 +93,7 @@ endif;
 		autocomplete="off"
 		aria-required="false"
 		placeholder="Search"
-		style="background-color:transparent;"
+		style="background-color:transparent; color:gray;"
 	/>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg onclick="handleSearchByClick(event)" class="magnifying-glass" id="magnifying-glass" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

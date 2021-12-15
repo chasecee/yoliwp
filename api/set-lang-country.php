@@ -32,7 +32,6 @@ function set_language_and_country( $selection ) {
 
 	/** For anything other than the US, set the country cookie. */
 	if ( isset( $_POST['sel_country'] ) ) :
-		echo '<script>console.log("inside the set-country-cookie function")</script>';
 		$country = $selection['sel_country'];
 		setcookie( 'wordpress_country', $country, $arr_cookie_options );
 		header('Location: ' . $home);
