@@ -354,9 +354,11 @@ $foreground_color = get_field( 'foreground_color' );
 				</div>
 				<div class="no-search-results-container">
 					<div class="no-search-results">
+					<a class="privacy-policy-search-result" href="<?php echo esc_attr( $_SERVER['PRIVCON'] ) ?>" target="_blank" rel="noopener noreferrer">
 						<img src="<?php echo esc_attr( get_template_directory_uri() ); ?>/src/images/padlock-privacy.svg" alt="Padlock image" alt="Padlock image" class="search-result-image" loading="lazy"/>
 						<h4 class="result-title">Privacy Policy</h4>
-						<p class="result-description">Click <a class="privacy-policy-search-result" href="<?php echo esc_attr( $_SERVER['PRIVCON'] ) ?>" target="_blank" rel="noopener noreferrer">here</a> to view our privacy policy.</p>
+					</a>
+					<p class="result-description">Click above to view our privacy policy.</p>
 					</div>
 				</div>
 			<?php
