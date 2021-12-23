@@ -236,7 +236,6 @@ endif;
 		} catch ( Exception $e ) {
 			$error = $e;
 		}
-		// echo 'The item\'s description: ' . $res->shortDetail;
 		return $res->shortDetail;
 	}
 ?>
