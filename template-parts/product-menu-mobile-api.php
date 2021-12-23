@@ -8,6 +8,50 @@
  */
 
 ?>
+<!-- <style>
+	.ready .site-alert{display:block!important;}
+
+	@media (max-width: 768px){
+		.ready .banner-mobile{display:block!important;}
+	}
+
+	#search-bar.menu-item {
+		margin: 0;
+		width: 100%;
+		background-color:transparent;
+		cursor: auto;
+	}
+	form.search-form {
+		display: flex;
+		justify-content: flex-start;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	.screen-reader-text {
+		width: 0;
+	}
+	input.search-field {
+		margin-right: 14vw;
+		padding: 0;
+		width: 100%;
+	}
+	input#search-field.search-field {
+		padding: 2vh 0;
+		color: #444444;
+	}
+	input.search-field:hover {
+		border: 2px solid transparent;
+	}
+	input.search-field::placeholder {
+		color: #444444;
+		font-size: 14px;
+	}
+	img.magnifying-glass:hover {
+		border: none;
+	}
+
+</style> -->
 <?php
 require_once realpath( __DIR__ . '/..' ) . '/api/get-countries.php';
 
@@ -49,7 +93,7 @@ if ( isset( $_COOKIE['wordpress_country'] ) && isset( $_COOKIE['wordpress_langua
 				} catch ( Exception $e ) {
 					echo 'Caught exception: ', esc_html( $e->getMessage() ), '\n';
 				}
-endif;
+			endif;
 
 			// Retrieve rep info from the cookie for the url.
 			$cookie_name = 'wordpress_current_rep';
@@ -148,6 +192,11 @@ echo '<script type="text/javascript">
 			<div class="shop-link-icon"><?php echo esc_html( get_template_part( '/src/images/icons/inline/inline', 'arrow-right.svg' ) ); ?></div>
 		</a>
 	</li>
+
+	<li class="menu-item" id="search-bar">
+		<?php	echo esc_html( get_template_part( '/api/search-bar' ) ); ?>
+	</li>
+
 	<li class="menu-item">
 		<div class="menu-bottom">
 

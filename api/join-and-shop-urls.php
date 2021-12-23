@@ -17,9 +17,9 @@ if ( ! empty( $_COOKIE[$cookie_name] ) ) :
 // Build the join url.
 $join_url = $base_url . $alias . '/enrollment/enrollmentconfiguration';
 
-// The login_link is not our purvue.
 $login_link    = $_SERVER['LOGINCON'];
 
 // Build the shop-now url.
 $shop_now_url = $base_url . $alias . '/products';
+
 ?>

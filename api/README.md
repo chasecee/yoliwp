@@ -14,7 +14,7 @@ Nathan Cox
 	- [x] When a valid web alias is entered into the URL's path, a welcome banner with the rep's email, phone, and name is displayed.
 	- [x] The rep's data is stored in a cookie, in order to return the user to the rep's site in future automatically; and for use in other areas of the site. 
 	- [x] When an incorrect web alias is entered, either the generic banner is displayed, if there is no 'wordpress_current_rep' cookie, or a banner is displayed with the info of the rep in the cookie. 
-	- [ ] Display the country (and language) selected.
+	- [x] Display the country (and language) selected.
 
 - [x] Links
 	- [x] Enrollment link from "Earn" in the header is built with the web alias, when extant, or 50 when not. 
@@ -25,4 +25,4 @@ Nathan Cox
 
 - [x] Misc
 	- [x] The home page with the home url is loaded when a web alias is included in the URL's path.
-	- [ ] Use dotenv (or something more php-related) to hold environment variables.
+	- [x] Use dotenv (or something more php-related) to hold environment variables.
