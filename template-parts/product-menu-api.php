@@ -44,15 +44,15 @@ if ( isset( $_COOKIE['wordpress_country'] ) && isset( $_COOKIE['wordpress_langua
 				}
 endif;
 
-			// Retrieve rep info from the cookie for the url.
-			$cookie_name = 'wordpress_current_rep';
-			if ( isset( $_COOKIE[ $cookie_name ] ) ) :
-				$cookie  = wp_unslash( ( $_COOKIE[ $cookie_name ] ) );
-				$decoded = json_decode( $cookie );
-					// phpcs:ignore
-				$customer_id = $decoded->customerId;
-					// phpcs:ignore
-				$alias       = $decoded->webAlias;
+// Retrieve rep info from the cookie for the url.
+$cookie_name = 'wordpress_current_rep';
+if ( isset( $_COOKIE[ $cookie_name ] ) ) :
+	$cookie  = wp_unslash( ( $_COOKIE[ $cookie_name ] ) );
+	$decoded = json_decode( $cookie );
+		// phpcs:ignore
+	$customer_id = $decoded->customerId;
+		// phpcs:ignore
+	$alias       = $decoded->webAlias;
 else :
 	$customer_id = 50;
 	$alias       = '50';
@@ -61,7 +61,6 @@ endif;
 $home              = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
 'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 $redirect_base_url = $home . '/products/';
-
 ?>
 
 <div class="product-menu-cols">
@@ -92,8 +91,11 @@ $redirect_base_url = $home . '/products/';
 	</div>
 
 	<div class="product-menu-col header-hidden">
-		<p class="product-menu-title">Support</p>
+		<p class="product-menu-title">Company</p>
 		<ul>
+			<li><a href="<?php echo esc_attr( $_SERVER['SHOPCON'] . $alias . '/products?categoryid=1055') ?>" target="_blank" rel="noopener noreferrer">Events</a></li>
+			<li><a href="https://yoli.life" target="_blank" rel="noopener noreferrer">Blog</a></li>
+			<li><a href="https://yoli.life" target="_blank" rel="noopener noreferrer">Community</a></li>
 			<li><a href="mailto:<?php echo esc_attr( $email ) ?>" target="_blank">Contact Us</a></li>
 			<li><a href="<?php echo esc_attr( $_SERVER['PRIVCON'] ); ?>" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
 		</ul>
