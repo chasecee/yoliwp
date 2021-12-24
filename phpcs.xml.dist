@@ -84,7 +84,7 @@
 	<exclude-pattern>/template-parts/product-menu-api.php</exclude-pattern>
 	<exclude-pattern>/template-parts/contact-info.php</exclude-pattern>
 	<exclude-pattern>/src/images/icons/inline</exclude-pattern>
-	<exclude-pattern>/template-searchresults.php</exclude-pattern>
+	<!-- <exclude-pattern>/template-searchresults.php</exclude-pattern> -->
 
 
 	<exclude-pattern>/acf-json/</exclude-pattern>

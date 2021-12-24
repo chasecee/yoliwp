@@ -68,6 +68,7 @@ require realpath( __DIR__ ) . '/api/join-and-shop-urls.php';
 		'policies',
 		'privacy policy',
 		'privacypolicy',
+		'priv',
 		'regulation',
 		'procedures',
 		'personal information',
@@ -151,7 +152,7 @@ endif;
 		endif;
 	}
 	foreach ( $privacy_redirect as $value ) {
-		if ( strpos( $value, $query_lowercase ) !== false ) :
+		if ( $value === $query_lowercase ) :
 			$query = 'privacy policy';
 			break;
 		endif;
@@ -166,7 +167,7 @@ endif;
 
 	$post_boolean = false;
 	// Build the search url and ping the API.
-	if ( $query ) :
+	if ( !empty ( $query ) ) :
 			// Get items from shop.yoli.com directly via POST call to: https://shop.yoli.com/50/shopping/getitemlist.
 		if ( false !== strpos( 'promotions', $query_lowercase ) ) :
 			$search_url   = $_SERVER['SHOPCON'] . $alias . '/shopping/getitemlist';
@@ -182,9 +183,8 @@ endif;
 	// $results = get_search_results( $search_url, $data, $method );
 	$results = get_search_results( $search_url, $data, $country, $method );
 
-
 	// Display the query in the search field (only on the search-results page).
-	if ( $query ) :
+	if ( !empty ( $query ) ) :
 		echo '<script>
 		let input = document.getElementById("search-field");
 		input.setAttribute("value", "' . esc_attr( $query ) . '");
@@ -196,7 +196,7 @@ endif;
 	$category_array = (array) null;
 	$related_items  = (array) null;
 	$filter         = null;
-	if ( $results ) :
+	if ( ( $results && !isset( $results->items ) ) ) :
 		foreach ( $results as $key => $result ) {
 			// phpcs:ignore
 			if ( $result->relatedItems ) :
@@ -343,19 +343,6 @@ $foreground_color = get_field( 'foreground_color' );
 	.related-image-and-buy-buttons {
 		display: flex;
 	}
-	@media (max-width: 768px) {
-		.search-result-related {
-			flex-direction: column;
-		}
-	}
-	@media (max-width: 550px) {
-		#related-retail-button {
-			max-width: 10rem;
-		}
-		#related-sub-button {
-			max-width: 10rem;
-		}
-	}
 	.search-result-detail {
 		display: flex;
 		flex-direction: column;
@@ -386,6 +373,22 @@ $foreground_color = get_field( 'foreground_color' );
 	}
 	.highlight {
 		color: #e86236;
+	}
+	@media (max-width: 768px) {
+		.search-result-related {
+			flex-direction: column;
+		}
+	}
+	@media (max-width: 550px) {
+		#related-retail-button {
+			max-width: 10rem;
+		}
+		#related-sub-button {
+			max-width: 10rem;
+		}
+		h2.product-content-title {
+			font-size: 2rem;
+		}
 	}
 </style>
 
@@ -447,7 +450,7 @@ $foreground_color = get_field( 'foreground_color' );
 											<?php // phpcs:ignore ?>
 											<h6 class="result-category highlight-query">Category | <?php echo esc_html( $result->categoryDescription ); ?></h6>
 											<?php // phpcs:ignore ?>
-											<p class="result-description highlight-query"><?php echo esc_attr( $result->shortDetail ); ?></p>
+											<p class="result-description highlight-query"><?php echo esc_attr( $result->shortDetail && $result->shortDetail !== '' ? $result->shortDetail : 'No description is available.' ); ?></p>
 										</div>
 									</div>
 								</a>
@@ -459,8 +462,8 @@ $foreground_color = get_field( 'foreground_color' );
 											<?php if ( $result->price ) : ?>
 												<?php echo ' — '; ?>
 												<?php echo esc_html( $result->price->retailPriceFmtd ); ?>
-												<?php endif; ?>
-											</button>
+											<?php endif; ?>
+										</button>
 									</a>
 									<?php // phpcs:ignore ?>
 									<a href="<?php echo esc_attr( $base_buy_url . $result->itemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=true' ); ?>">
@@ -476,72 +479,62 @@ $foreground_color = get_field( 'foreground_color' );
 							</div>
 						<?php } ?>
 					</div>
-						<div class="results-header">
-							<h3>
-								Related Matches ->
-								<?php
-								$count = 0;
-								foreach ( $related_items as $items ) {
-									$count += count( $items );
-								}
-								echo esc_html( $count )
-								?>
-							</h3>
-						</div>
-						<div class="related-search-results">
-						<?php
-						foreach ( $related_items as $key => $result ) {
-							?>
-								<div class="results-header">
-									<h4 class="category-name highlight-query">
-										Category -> <?php echo esc_html( $reindexed_category_array[ $key ] ); ?>
-									</h4>
-								</div>
-							<div class="related-results-by-category">
+
+					<div class="results-header">
+						<h3>
+							Related Matches ->
 							<?php
-							foreach ( $result as $related ) {
-								?>
-								<div class="search-result-related">
-									<div class="related-image-and-buy-buttons">
+							$count = 0;
+							foreach ( $related_items as $items ) {
+								$count += count( $items );
+							}
+							echo esc_html( $count )
+							?>
+						</h3>
+					</div>
+					<div class="related-search-results">
+					<?php
+					foreach ( $related_items as $key => $result ) {
+						?>
+						<div class="results-header">
+							<h4 class="category-name highlight-query">
+								Category -> <?php echo esc_html( $reindexed_category_array[ $key ] ); ?>
+							</h4>
+						</div>
+						<div class="related-results-by-category">
+						<?php foreach ( $result as $related ) { ?>
+							<div class="search-result-related">
+								<div class="related-image-and-buy-buttons">
+									<?php // phpcs:ignore ?>
+									<a href="<?php echo esc_attr( $product_page_url_base . $related->productPage . '/?item_id=' . $related->itemID . '&item_code=' . $related->itemCode ); ?>" title="Click to learn more.">
 										<?php // phpcs:ignore ?>
-										<a href="<?php echo esc_attr( $product_page_url_base . $related->productPage . '/?item_id=' . $related->itemID . '&item_code=' . $related->itemCode ); ?>" title="Click to learn more.">
-											<?php // phpcs:ignore ?>
-											<img class="search-result-image-related" loading="lazy" alt="product image" src="<?php echo esc_attr( $_SERVER['SHOPCON'] . 'shopping/productimages/' . $related->smallImageName ); ?>" />
-										</a>
-										<div class="search-result-buy-options">
-											<?php // phpcs:ignore ?>
-											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=false' ); ?>">
-											<button class="btn btn-primary btn-accent-outline btn-full">
-											Shop Now
-											<?php if ( $related->price ) : ?>
-												<?php echo ' — '; ?>
-												<?php echo esc_html( $related->price->retailPriceFmtd ); ?>
-												<?php endif; ?>
-											</button>
-											</a>
-											<?php // phpcs:ignore ?>
-											<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=true' ); ?>">
-											<button class="btn btn-primary btn-accent btn-full">
-											Subscribe & Save
-											<?php if ( $related->price ) : ?>
-												<?php echo ' — '; ?>
-												<?php echo esc_html( $related->price->autoshipPriceFmtd ); ?>
-											<?php endif; ?>
+										<img class="search-result-image-related" loading="lazy" alt="product image" src="<?php echo esc_attr( $_SERVER['SHOPCON'] . 'shopping/productimages/' . $related->smallImageName ); ?>" />
+									</a>
+									<div class="search-result-buy-options">
+										<?php // phpcs:ignore ?>
+										<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=false' ); ?>">
+										<button id="related-retail-button" class="btn btn-primary btn-accent-outline btn-full related-retail-button">
 										</button>
-											</a>
-										</div>
-									</div>
-									<div class="related-title-and-description">
+									</a>
 										<?php // phpcs:ignore ?>
-										<h4 class="result-title highlight-query"><?php echo esc_attr( $related->itemDescription ); ?></h4>
-										<?php // phpcs:ignore ?>
-										<p class="result-description highlight-query"><?php echo esc_attr( $related->shortDetail ); ?></p>
+										<a href="<?php echo esc_attr( $base_buy_url . $related->itemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=true' ); ?>">
+										<button id="related-sub-button" class="btn btn-primary btn-accent btn-full related-sub-button"></button>
+										</a>
 									</div>
 								</div>
-							<?php } ?>
+								<div class="related-title-and-description">
+									<?php // phpcs:ignore ?>
+									<h4 class="result-title highlight-query"><?php echo esc_attr( $related->itemDescription ); ?></h4>
+									<?php // phpcs:ignore ?>
+									<p class="result-description highlight-query">
+										<?php	echo esc_attr( $related->shortDetail === '' ? 'No description is available for this item.' : $related->shortDetail ); ?>
+									</p>
+								</div>
 							</div>
 						<?php } ?>
-					</div>
+						</div>
+					<?php } ?>
+				</div>
 
 					<?php
 					else : // This renders to display promos = workaround until Exigo can accept a country-code as a query param to determine which promotional items to show.
@@ -621,29 +614,13 @@ $foreground_color = get_field( 'foreground_color' );
 		const retailButton = document.getElementsByClassName('related-retail-button');
 		const subButton = document.getElementsByClassName('related-sub-button');
 		if (browserWidth > 550) {
-			for (let retail of retailButton) retail.innerHTML = 'Shop Now';
-			<?php
-			if ( $related->price ) :
-				?>
-				<?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let retail of retailButton) retail.innerHTML = 'Shop Now	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 
-			for (let sub of subButton) sub.innerHTML = 'Subscribe & Save';
-			<?php
-			if ( $related->price ) :
-				?>
-				<?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let sub of subButton) sub.innerHTML = 'Subscribe & Save	<?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 		} else {
-			for (let retail of retailButton) retail.innerHTML = 'Buy';
-			<?php
-			if ( $related->price ) :
-				?>
-				<?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let retail of retailButton) retail.innerHTML = 'Buy	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 
-			for (let sub of subButton) sub.innerHTML = 'Save';
-			<?php
-			if ( $related->price ) :
-				?>
-				<?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let sub of subButton) sub.innerHTML = 'Save <?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 		}
 	}
 	buttonText();

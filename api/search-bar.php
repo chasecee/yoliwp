@@ -1,5 +1,4 @@
 <?php
-	// $url_path = $_SERVER['REQUEST_URI'];
 	$home = ( isset( $_SERVER['HTTPS'] ) && 'on' === $_SERVER['HTTPS'] ?
 									'https' : 'http' ) . '://' . $_SERVER['HTTP_HOST'];
 	$url = $home . $_SERVER['REQUEST_URI'];
@@ -70,6 +69,12 @@ endif;
 	.magnifying-glass-display-none path {
 		visibility: hidden;
 	}
+	input.search-field.placeholder-home {
+		color: white;
+	}
+	.header-hovered > .header-container > .nav-right > .navigation-menu > .search-form > .search-field {
+		color: gray;
+	}
 	.placeholder-home::placeholder {
 		color: white;
 	}
@@ -93,7 +98,7 @@ endif;
 		autocomplete="off"
 		aria-required="false"
 		placeholder="Search"
-		style="background-color:transparent; color:gray;"
+		style="background-color:transparent;"
 	/>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg onclick="handleSearchByClick(event)" class="magnifying-glass" id="magnifying-glass" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
