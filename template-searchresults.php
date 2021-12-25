@@ -167,7 +167,7 @@ endif;
 
 	$post_boolean = false;
 	// Build the search url and ping the API.
-	if ( !empty ( $query ) ) :
+	if ( ! empty( $query ) ) :
 			// Get items from shop.yoli.com directly via POST call to: https://shop.yoli.com/50/shopping/getitemlist.
 		if ( false !== strpos( 'promotions', $query_lowercase ) ) :
 			$search_url   = $_SERVER['SHOPCON'] . $alias . '/shopping/getitemlist';
@@ -184,7 +184,7 @@ endif;
 	$results = get_search_results( $search_url, $data, $country, $method );
 
 	// Display the query in the search field (only on the search-results page).
-	if ( !empty ( $query ) ) :
+	if ( ! empty( $query ) ) :
 		echo '<script>
 		let input = document.getElementById("search-field");
 		input.setAttribute("value", "' . esc_attr( $query ) . '");
@@ -196,7 +196,7 @@ endif;
 	$category_array = (array) null;
 	$related_items  = (array) null;
 	$filter         = null;
-	if ( ( $results && !isset( $results->items ) ) ) :
+	if ( ( $results && ! isset( $results->items ) ) ) :
 		foreach ( $results as $key => $result ) {
 			// phpcs:ignore
 			if ( $result->relatedItems ) :
@@ -227,10 +227,16 @@ endif;
 
 	$base_buy_url = $_SERVER['SHOPCON'] . $alias . '/additem?ItemCode=';
 
-	function get_promo_description($item_id, $country) {
+	function get_promo_description( $item_id, $country ) {
 		$url = $_SERVER['APICON'] . 'products/' . $country . '/' . $item_id . '/en';
 		try {
-			$response = wp_remote_get( $url, array( 'sslverify' => false, 'timeout' => 60 ) );
+			$response = wp_remote_get(
+				$url,
+				array(
+					'sslverify' => false,
+					'timeout'   => 60,
+				)
+			);
 			$res      = json_decode( $response['body'] );
 
 		} catch ( Exception $e ) {
@@ -238,7 +244,7 @@ endif;
 		}
 		return $res->shortDetail;
 	}
-?>
+	?>
 
 <?php
 // acf vars.
@@ -569,13 +575,13 @@ $foreground_color = get_field( 'foreground_color' );
 									<?php // phpcs:ignore ?>
 									<!-- <a class="exact-result-anchor" href="<?php echo esc_attr( $_SERVER['SHOPCON'] . $alias . '/product/' . $result->ItemCode ); ?>" target="_blank" rel="noopener noreferrer">
 									<button class="btn btn-primary btn-accent btn-full">
-											Buy for <?php echo esc_html( $result->PriceString ) ?>
+											Buy for <?php echo esc_html( $result->PriceString ); ?>
 										</button>
 									</a> -->
 									<?php // phpcs:ignore ?>
 									<!-- <a href="<?php echo esc_attr( $base_buy_url . $result->ItemCode . '&Country=' . $country . '&OwnerID=' . $customer_id . '&autoOrder=false' ); ?>" target="_blank" rel="noopener noreferrer"> -->
 										<button class="btn btn-primary btn-accent btn-full">
-											Get this promo for <?php echo esc_html( $result->PriceString ) ?>
+											Get this promo for <?php echo esc_html( $result->PriceString ); ?>
 										</button>
 									</a>
 								</div>
@@ -614,13 +620,29 @@ $foreground_color = get_field( 'foreground_color' );
 		const retailButton = document.getElementsByClassName('related-retail-button');
 		const subButton = document.getElementsByClassName('related-sub-button');
 		if (browserWidth > 550) {
-			for (let retail of retailButton) retail.innerHTML = 'Shop Now	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let retail of retailButton) retail.innerHTML = 'Shop Now	
+			<?php
+			if ( $related->price ) :
+				?>
+				 <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 
-			for (let sub of subButton) sub.innerHTML = 'Subscribe & Save	<?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let sub of subButton) sub.innerHTML = 'Subscribe & Save	
+			<?php
+			if ( $related->price ) :
+				?>
+				<?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 		} else {
-			for (let retail of retailButton) retail.innerHTML = 'Buy	<?php if ( $related->price ) : ?> <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let retail of retailButton) retail.innerHTML = 'Buy	
+			<?php
+			if ( $related->price ) :
+				?>
+				 <?php echo ' — '; ?> <?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 
-			for (let sub of subButton) sub.innerHTML = 'Save <?php if ( $related->price ) : ?><?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
+			for (let sub of subButton) sub.innerHTML = 'Save 
+			<?php
+			if ( $related->price ) :
+				?>
+				<?php echo ' — '; ?><?php echo esc_html( $related->price->retailPriceFmtd ); ?><?php endif; ?>';
 		}
 	}
 	buttonText();

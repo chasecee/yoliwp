@@ -81,6 +81,18 @@ endif;
 	.placeholder-subpage::placeholder {
 		color: gray;
 	}
+	@media all and (max-width: 500px) {
+		input.placeholder-home::placeholder {
+			color: gray;
+		}
+		input.search-field.placeholder-home {
+		color: gray;
+		border: 2px solid rgb(248,245,235);
+		}
+		input.search-field.placeholder-subpage {
+			color: gray;
+		}
+}
 </style>
 
 <form class="search-form" onsubmit=handleSearchByReturn(event)>
